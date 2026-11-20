@@ -105,7 +105,7 @@
   }
 
   function list(lines, i, indent) {
-    var ordered = /^\s*\d+\./.test(lines[i]), html = ordered ? '<ol>' : '<ul>';
+    var ordered = /^\s*\d+\./.test(lines[i]), first = parseInt(lines[i], 10), html = ordered ? (first > 1 ? '<ol start="' + first + '">' : '<ol>') : '<ul>';
     while (i < lines.length) {
       var l = lines[i], m = l.match(/^(\s*)(\d+\.|-)\s+(.*)$/);
       if (!m) {
