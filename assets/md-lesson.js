@@ -121,12 +121,17 @@
     return { html: html + (ordered ? '</ol>' : '</ul>'), i: i };
   }
 
+  // Approval code: status: approved in the front matter = tried in class and bugs worked through.
+  function statusBadge(st) {
+    return st === 'approved' ? '<span class="status ok">✓ Tested and approved</span>' : '<span class="status wait">◷ Waiting for approval</span>';
+  }
+
   fetch('lesson.md', { cache: 'no-cache' }).then(function (r) { return r.text(); }).then(function (text) {
     var fm = parseFront(text.replace(/\r/g, '')), meta = fm.meta, lines = fm.body.split('\n');
     document.title = (meta.lesson !== undefined ? meta.program + ' Lesson ' + meta.lesson + ' · ' : '') + meta.title + ' · Winters Innovative Solutions';
     var folder = (meta.program || '').toLowerCase().replace(/\s+/g, '').replace('unrealengine', 'unreal').replace('construct3', 'construct3');
     var html = '<header><div class="crumb"><a href="' + base + '">Lessons</a> › <a href="' + base + folder + '/">' + esc(meta.program || '') + '</a></div>' +
-      '<div class="lessonnum">' + esc(meta.program || '') + ' · Lesson ' + esc(meta.lesson || '') + '</div><h1>' + inline(meta.title || '') + '</h1>' +
+      '<div class="lessonnum">' + esc(meta.program || '') + ' · Lesson ' + esc(meta.lesson || '') + ' ' + statusBadge(meta.status) + '</div><h1>' + inline(meta.title || '') + '</h1>' +
       (meta.blurb ? '<p class="sub">' + inline(meta.blurb) + '</p>' : '') + '</header>';
     if (meta.video) html += '<p class="vidlink"><a href="' + meta.video + '" target="_blank" rel="noreferrer">▶ Watch the video for this lesson</a></p>';
 
