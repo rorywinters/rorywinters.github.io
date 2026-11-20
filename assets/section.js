@@ -6,10 +6,10 @@
     var list = all.filter(function (l) { return l.programs && l.programs[prog] !== undefined; })
       .sort(function (a, b) { return a.programs[prog] - b.programs[prog]; });
     if (!list.length) { box.innerHTML = '<p class="empty">No lessons here yet. New lessons will appear on this page.</p>'; return; }
-    box.innerHTML = '<div class="cards">' + list.map(function (l) {
+    box.innerHTML = '<p class="statuskey"><em class="status ok">✓ Approved</em> tried in class, bugs worked through · <em class="status wait">◷ Waiting for approval</em> not tried in class yet</p><div class="cards">' + list.map(function (l) {
       var also = Object.keys(l.programs).filter(function (p) { return p !== prog; });
       return '<a class="card" style="--c:' + (box.getAttribute('data-colour') || '#2f6fdb') + '" href="../' + l.path + '">' +
-        '<span class="num">Lesson ' + l.programs[prog] + '</span><b>' + l.title + '</b><span>' + (l.blurb || '') +
+        '<span class="num">Lesson ' + l.programs[prog] + (l.status === 'approved' ? ' <em class="status ok">✓ Approved</em>' : ' <em class="status wait">◷ Waiting for approval</em>') + '</span><b>' + l.title + '</b><span>' + (l.blurb || '') +
         (also.length ? ' <i>Also in ' + also.join(', ') + '.</i>' : '') + (l.video ? ' ▶ Video' : '') + '</span></a>';
     }).join('') + '</div>';
   }).catch(function () { box.innerHTML = '<p class="empty">Could not load the lesson list.</p>'; });
