@@ -13,7 +13,7 @@
   <div class="crumb"><a href="../../">Lessons</a> › <a href="../">Construct 3</a></div>
   <div class="lessonnum">Construct 3 · Lesson 0 <span class="status wait">◷ Waiting for approval</span></div>
   <h1>Jump and Fall: a Platformer in Construct 3</h1>
-  <p class="sub">Draw a character and a platform in Piskel, then make the character run, jump, land on platforms and fall off the edges.</p>
+  <p class="sub">Draw a character and a platform right inside Construct 3, then make the character run, jump, land on platforms and fall off the edges.</p>
 </header>
 
 <section class="intro">
@@ -21,13 +21,12 @@
   <p>A character that runs left and right with the arrow keys and jumps with the Up arrow. It stands on platforms, and if it walks off the edge it falls. If it falls off the bottom of the screen, it goes back to the start.</p>
   <table>
     <tr><th>Tool</th><th>What it is for</th><th>Link</th></tr>
-    <tr><td><b>Piskel</b></td><td>Drawing the character and the platform (Option A)</td><td><a href="https://www.piskelapp.com/" target="_blank" rel="noreferrer">piskelapp.com</a></td></tr>
-    <tr><td><b>Construct 3</b></td><td>Building the game</td><td><a href="https://editor.construct.net/" target="_blank" rel="noreferrer">editor.construct.net</a></td></tr>
+    <tr><td><b>Construct 3</b></td><td>Drawing the sprites and building the game</td><td><a href="https://editor.construct.net/" target="_blank" rel="noreferrer">editor.construct.net</a></td></tr>
   </table>
   <ul>
-    <li>Both tools run in the browser. Nothing needs installing.</li>
-    <li>Two ways to make the sprites: <b>Option A</b> draws them in Piskel (Part 1). <b>Option B</b> skips Part 1 and draws them right inside Construct 3 (in Part 3).</li>
-    <li>The game uses 1 event (3 with the extra in Part 6), so it fits easily in the free version of Construct 3.</li>
+    <li>Construct 3 runs in the browser. Nothing needs installing.</li>
+    <li>You draw the character and the platform inside Construct 3 (Part 2), so there are no image files to download or upload.</li>
+    <li>The game uses 1 event (3 with the extra in Part 5), so it fits easily in the free version of Construct 3.</li>
     <li>Time: about one class period.</li>
     <li>Click a part to open it. Opening one part closes the others. Tick every checkpoint box before you move on; your ticks are remembered on this computer.</li>
   </ul>
@@ -37,38 +36,33 @@
   <h2>Lesson brief</h2>
   <p>If you already know Construct 3, follow the chart and you can finish from it alone. Click a part's name to jump to its full steps.</p>
   <div class="flow">
-    <div class="band" style="--c:var(--p1)"><h4><a href="#part1">Part 1 · Option A: draw the sprites in Piskel</a> <span style="font-weight:400">(Option B: skip to Part 2)</span></h4><div class="bubbles">
-      <div class="bubble"><b>1A · Character</b><a href="https://www.piskelapp.com/" target="_blank" rel="noreferrer">piskelapp.com</a> → Create Sprite<br>Keep 32 × 32 · feet on bottom row<br>Export → PNG: player.png</div><span class="arrow">→</span>
-      <div class="bubble"><b>1B · Platform</b>New sprite, Resize 64 × 16<br>Brown fill, green top 4 rows<br>Export → PNG: platform.png</div>
+    <div class="band" style="--c:var(--p1)"><h4><a href="#part1">Part 1 · Start the project</a></h4><div class="bubbles">
+      <div class="bubble"><b>1A · New project</b><a href="https://editor.construct.net/" target="_blank" rel="noreferrer">editor.construct.net</a><br>Name Platformer · Viewport 1280 × 720</div><span class="arrow">→</span>
+      <div class="bubble"><b>1B · Layout and sky</b>Layout 1 Size 1280 × 720<br>Layer 0: Transparent off<br>Background color 135, 206, 235</div>
     </div></div>
     <div class="down">↓</div>
-    <div class="band" style="--c:var(--p2)"><h4><a href="#part2">Part 2 · Start the project</a></h4><div class="bubbles">
-      <div class="bubble"><b>2A · New project</b><a href="https://editor.construct.net/" target="_blank" rel="noreferrer">editor.construct.net</a><br>Name Platformer · Viewport 1280 × 720</div><span class="arrow">→</span>
-      <div class="bubble"><b>2B · Layout and sky</b>Layout 1 Size 1280 × 720<br>Layer 0: Transparent off<br>Background color 135, 206, 235</div>
+    <div class="band" style="--c:var(--p2)"><h4><a href="#part2">Part 2 · Add the objects</a></h4><div class="bubbles">
+      <div class="bubble"><b>2A · Player</b>Sprite Player · Resize 32 × 32<br>Pencil · feet on bottom row<br>Position 160, 500 · Size 64 × 64</div><span class="arrow">→</span>
+      <div class="bubble"><b>2B · Platform × 4</b>Sprite Platform · Resize 64 × 16<br>Fill brown · green top 4 rows<br>Size 256 × 64 · 160, 620 · 480, 540<br>800, 460 · 1120, 380</div><span class="arrow">→</span>
+      <div class="bubble"><b>2C · Sharp pixels</b>Project → Sampling Nearest</div>
     </div></div>
     <div class="down">↓</div>
-    <div class="band" style="--c:var(--p3)"><h4><a href="#part3">Part 3 · Add the objects</a></h4><div class="bubbles">
-      <div class="bubble"><b>3A · Player</b>Sprite: load player.png<br>or draw: Resize 32 × 32, Pencil<br>Position 160, 500 · Size 64 × 64</div><span class="arrow">→</span>
-      <div class="bubble"><b>3B · Platform × 4</b>Load platform.png or draw 64 × 16<br>Size 256 × 64 · 160, 620 · 480, 540<br>800, 460 · 1120, 380</div><span class="arrow">→</span>
-      <div class="bubble"><b>3C · Sharp pixels</b>Project → Sampling Nearest</div>
+    <div class="band" style="--c:var(--p3)"><h4><a href="#part3">Part 3 · Run, jump and land</a></h4><div class="bubbles">
+      <div class="bubble"><b>3A · Player: Platform</b>Defaults: Max speed 330<br>Jump strength 650 · Gravity 1500<br>Preview: falls through everything</div><span class="arrow">→</span>
+      <div class="bubble"><b>3B · Platform: Solid</b>Solid on Platform only<br>Preview: lands and stays put</div><span class="arrow">→</span>
+      <div class="bubble"><b>3C · Test</b>← → move · ↑ jump<br>Walk off an edge: falls</div>
     </div></div>
     <div class="down">↓</div>
-    <div class="band" style="--c:var(--p4)"><h4><a href="#part4">Part 4 · Run, jump and land</a></h4><div class="bubbles">
-      <div class="bubble"><b>4A · Player: Platform</b>Defaults: Max speed 330<br>Jump strength 650 · Gravity 1500<br>Preview: falls through everything</div><span class="arrow">→</span>
-      <div class="bubble"><b>4B · Platform: Solid</b>Solid on Platform only<br>Preview: lands and stays put</div><span class="arrow">→</span>
-      <div class="bubble"><b>4C · Test</b>← → move · ↑ jump<br>Walk off an edge: falls</div>
+    <div class="band" style="--c:var(--p4)"><h4><a href="#part4">Part 4 · Back to the start</a></h4><div class="bubbles">
+      <div class="bubble"><b>4A · Event 1</b>Player Compare Y &gt; 800<br>→ Set position 160, 500<br>→ Platform Set vector Y 0</div>
     </div></div>
     <div class="down">↓</div>
-    <div class="band" style="--c:var(--p5)"><h4><a href="#part5">Part 5 · Back to the start</a></h4><div class="bubbles">
-      <div class="bubble"><b>5A · Event 1</b>Player Compare Y &gt; 800<br>→ Set position 160, 500<br>→ Platform Set vector Y 0</div>
-    </div></div>
-    <div class="down">↓</div>
-    <div class="band" style="--c:var(--p6)"><h4><a href="#part6">Part 6 · Extra: face the way you walk</a></h4><div class="bubbles">
-      <div class="bubble"><b>6A · Keyboard</b>Insert Keyboard</div><span class="arrow">→</span>
-      <div class="bubble"><b>6B · Events 2–3</b>Left is down → Set mirrored<br>Right is down → Set not mirrored</div>
+    <div class="band" style="--c:var(--p5)"><h4><a href="#part5">Part 5 · Extra: face the way you walk</a></h4><div class="bubbles">
+      <div class="bubble"><b>5A · Keyboard</b>Insert Keyboard</div><span class="arrow">→</span>
+      <div class="bubble"><b>5B · Events 2–3</b>Left is down → Set mirrored<br>Right is down → Set not mirrored</div>
     </div></div>
   </div>
-  <p class="key">Each colour is one part. Codes like 3B mean Part 3, section B. Underlined words are links.</p>
+  <p class="key">Each colour is one part. Codes like 2B mean Part 2, section B. Underlined words are links.</p>
 </section>
 
 <div class="controls">
@@ -79,54 +73,7 @@
 
 <!-- PART 1 -->
 <details class="part" id="part1" name="parts" style="--c:var(--p1)">
-<summary><h2>Part 1 · Option A: draw the sprites in Piskel</h2><span class="done"></span></summary>
-<div class="body">
-<p>You need two images: a character and a platform. Keep the character simple; you can make it fancier later.</p>
-<div class="note what"><b>Using Option B?</b> Skip this part. You will draw both sprites inside Construct 3 in Part 3 (look for the <b>Option B</b> boxes). Tick the Part 1 boxes once your drawings are done there.</div>
-
-<h3>1A · Character</h3>
-<table>
-<tr><th>Panel</th><th>Field</th><th>Value</th></tr>
-<tr><td><b>Resize</b></td><td>Width</td><td>32 (the default)</td></tr>
-<tr><td></td><td>Height</td><td>32 (the default)</td></tr>
-<tr><td><b>Save</b></td><td>Title</td><td>player</td></tr>
-</table>
-<ol>
-<li>Go to <a href="https://www.piskelapp.com/" target="_blank" rel="noreferrer">piskelapp.com</a> and click <b>Create Sprite</b>. A blank 32 × 32 grid appears. That size is right, so there is no resizing.</li>
-<li>Pick a colour from the top colour square and use the <b>Pen</b> tool to draw your character: a body, a head and two feet. Make it fill most of the grid.</li>
-<li>Make sure the <b>feet touch the bottom row</b> of the grid. If there are empty rows under the feet, the character will look like it floats above the platform.</li>
-<li>Leave the background empty (the grey and white checkerboard means see-through).</li>
-<li>Click <b>Save</b> on the right and type <b>player</b> in <b>Title</b>. The name at the top changes to player.</li>
-<li>Click <b>Export</b>, open the <b>PNG</b> tab, and click <b>Download</b>. <b>player.png</b> appears in your Downloads folder. If it is called New Piskel.png, rename it <b>player.png</b>.</li>
-</ol>
-
-<h3>1B · Platform</h3>
-<table>
-<tr><th>Panel</th><th>Field</th><th>Value</th></tr>
-<tr><td><b>Resize</b></td><td>Width</td><td>64</td></tr>
-<tr><td></td><td>Height</td><td>16</td></tr>
-<tr><td></td><td>Maintain aspect ratio</td><td>Off</td></tr>
-<tr><td><b>Save</b></td><td>Title</td><td>platform</td></tr>
-</table>
-<ol>
-<li>Reload <a href="https://www.piskelapp.com/" target="_blank" rel="noreferrer">piskelapp.com</a> and click <b>Create Sprite</b>.</li>
-<li>Click <b>Resize</b>, untick <b>Maintain aspect ratio</b>, type <b>64</b> and <b>16</b>, and click <b>Resize</b>. The grid becomes a long, flat strip.</li>
-<li>Choose a <b>brown</b> and fill the whole strip with the <b>Paint bucket</b>. It turns brown like dirt.</li>
-<li>Choose a <b>green</b>. With the <b>Rectangle</b> tool, drag from the top-left corner to the right edge, 4 rows down. A green outline appears around the top 4 rows. Then click inside it with the <b>Paint bucket</b>. The top 4 rows are now solid green, like grass on dirt.</li>
-<li>Set the <b>Title</b> to <b>platform</b> in the <b>Save</b> panel.</li>
-<li><b>Export → PNG → Download</b>. Check that <b>platform.png</b> is in Downloads.</li>
-</ol>
-
-<div class="check"><strong>Checkpoint · Part 1</strong>
-<label><input type="checkbox"> Your character is drawn (player.png in Piskel, or in Construct for Option B), with feet on the bottom edge</label>
-<label><input type="checkbox"> Your platform is drawn as a flat strip, green on top and brown below</label>
-</div>
-</div>
-</details>
-
-<!-- PART 2 -->
-<details class="part" id="part2" name="parts" style="--c:var(--p2)">
-<summary><h2>Part 2 · Start the project</h2><span class="done"></span></summary>
+<summary><h2>Part 1 · Start the project</h2><span class="done"></span></summary>
 <div class="body">
 <p>The game area is 1280 × 720 with a sky-blue background.</p>
 <table>
@@ -139,7 +86,7 @@
 </table>
 <p>If a bar is missing, open <b>Menu → View</b> and tick it.</p>
 
-<h3>2A · New project</h3>
+<h3>1A · New project</h3>
 <table>
 <tr><th>New project</th><th>Value</th></tr>
 <tr><td>Name</td><td>Platformer</td></tr>
@@ -151,7 +98,7 @@
 <li>An empty layout opens with a dotted rectangle on it: that is what the player will see.</li>
 </ol>
 
-<h3>2B · Layout size and sky</h3>
+<h3>1B · Layout size and sky</h3>
 <table>
 <tr><th>Properties</th><th>Field</th><th>Value</th></tr>
 <tr><td><b>Layout 1</b></td><td>Size</td><td>1280 × 720</td></tr>
@@ -166,7 +113,7 @@
 </ol>
 <div class="note what"><b>Looks small?</b> The editor zooms the layout out to fit (the zoom percentage is at the bottom). Hold <b>Ctrl</b> and scroll to zoom. This only changes the view.</div>
 
-<div class="check"><strong>Checkpoint · Part 2</strong>
+<div class="check"><strong>Checkpoint · Part 1</strong>
 <label><input type="checkbox"> The project is called Platformer</label>
 <label><input type="checkbox"> The layout edge and the dotted rectangle line up</label>
 <label><input type="checkbox"> The layout is sky blue</label>
@@ -174,29 +121,21 @@
 </div>
 </details>
 
-<!-- PART 3 -->
-<details class="part" id="part3" name="parts" style="--c:var(--p3)">
-<summary><h2>Part 3 · Add the objects</h2><span class="done"></span></summary>
+<!-- PART 2 -->
+<details class="part" id="part2" name="parts" style="--c:var(--p2)">
+<summary><h2>Part 2 · Add the objects</h2><span class="done"></span></summary>
 <div class="body">
 <p>Place every object by typing its numbers into the <b>Properties Bar</b>. If something gets nudged, press <b>Ctrl+Z</b> or type the numbers back in.</p>
 <table>
-<tr><th>Object</th><th>Image</th><th>Position X</th><th>Position Y</th><th>Size W</th><th>Size H</th></tr>
-<tr><td><b>Player</b></td><td>player.png</td><td>160</td><td>500</td><td>64</td><td>64</td></tr>
-<tr><td><b>Platform</b> 1</td><td>platform.png</td><td>160</td><td>620</td><td>256</td><td>64</td></tr>
-<tr><td><b>Platform</b> 2</td><td>platform.png</td><td>480</td><td>540</td><td>256</td><td>64</td></tr>
-<tr><td><b>Platform</b> 3</td><td>platform.png</td><td>800</td><td>460</td><td>256</td><td>64</td></tr>
-<tr><td><b>Platform</b> 4</td><td>platform.png</td><td>1120</td><td>380</td><td>256</td><td>64</td></tr>
+<tr><th>Object</th><th>Position X</th><th>Position Y</th><th>Size W</th><th>Size H</th></tr>
+<tr><td><b>Player</b></td><td>160</td><td>500</td><td>64</td><td>64</td></tr>
+<tr><td><b>Platform</b> 1</td><td>160</td><td>620</td><td>256</td><td>64</td></tr>
+<tr><td><b>Platform</b> 2</td><td>480</td><td>540</td><td>256</td><td>64</td></tr>
+<tr><td><b>Platform</b> 3</td><td>800</td><td>460</td><td>256</td><td>64</td></tr>
+<tr><td><b>Platform</b> 4</td><td>1120</td><td>380</td><td>256</td><td>64</td></tr>
 </table>
 
-<h3>3A · Player</h3>
-<ol>
-<li>On the <b>Layout 1</b> tab, double-click inside the layout (or right-click it and choose <b>Insert new object</b>).</li>
-<li>Click <b>Sprite</b>, type <b>Player</b> in <b>Name</b>, click <b>Insert</b>, then click on the layout. The <b>Animations Editor</b> opens.</li>
-<li><b>Option A:</b> click <b>Load an image from a file</b> (the folder icon) and choose <b>player.png</b>. The bottom bar shows <b>Size: 32x32</b>. <b>Option B:</b> draw it instead, using the Option B box under this list, then come back for steps 4 and 5.</li>
-<li>Close the Animations Editor with the <b>X</b> in its top-right corner.</li>
-<li>Type the Player's <b>Position</b> and <b>Size</b> from the table into the <b>Properties Bar</b> (left side panel). If Position or Size shows as one line, click the small <b>▶</b> arrow beside it to open the X and Y (or Width and Height) boxes. The character sits near the left side, above where the first platform will go.</li>
-</ol>
-<div class="note"><b>Option B · draw the character in Construct 3</b>
+<h3>2A · Draw the player</h3>
 <table>
 <tr><th>Animations Editor</th><th>Value</th></tr>
 <tr><td>Image size (Resize)</td><td>32 × 32</td></tr>
@@ -204,24 +143,19 @@
 <tr><td>Zoom</td><td>About 800% (so each pixel is easy to see)</td></tr>
 </table>
 <ol>
-<li>With the Animations Editor open, click <b>Resize</b> in the top toolbar (the icon with two diagonal arrows). Type <b>32</b> for <b>Width</b> and <b>32</b> for <b>Height</b> and click <b>OK</b>. The bottom bar now reads <b>Size: 32x32</b>.</li>
+<li>On the <b>Layout 1</b> tab, double-click inside the layout (or right-click it and choose <b>Insert new object</b>).</li>
+<li>Click <b>Sprite</b>, type <b>Player</b> in <b>Name</b>, click <b>Insert</b>, then click on the layout. The <b>Animations Editor</b> opens over the middle of the screen.</li>
+<li>Click <b>Resize</b> in the editor's top toolbar (the icon with two diagonal arrows). Type <b>32</b> for <b>Width</b> and <b>32</b> for <b>Height</b> and click <b>OK</b>. The bottom bar now reads <b>Size: 32x32</b>.</li>
 <li>Click the <b>Zoom in</b> magnifier a few times until the small square fills the middle of the editor.</li>
-<li>Pick a colour in the <b>Color palette</b> on the left (or type numbers into <b>Red</b>, <b>Green</b> and <b>Blue</b>).</li>
+<li>Pick a colour in the <b>Color palette</b> (left side of the editor), or type numbers into <b>Red</b>, <b>Green</b> and <b>Blue</b>.</li>
 <li>Choose the <b>Pencil</b> tool and draw your character: a body, a head and two feet. The <b>Eraser</b> fixes mistakes.</li>
-<li>Make sure the <b>feet touch the bottom row</b>, so the character doesn't float above the platform.</li>
-<li>Close the Animations Editor with the <b>X</b>. Your drawing is now on the layout. Type its Position and Size (step 5 above).</li>
+<li>Make sure the <b>feet touch the bottom row</b>. If there are empty rows under the feet, the character will look like it floats above the platform.</li>
+<li>Close the Animations Editor with the <b>X</b> in its top-right corner. Your drawing is now on the layout.</li>
+<li>Type the Player's <b>Position</b> and <b>Size</b> from the table into the <b>Properties Bar</b> (left side panel). If Position or Size shows as one line, click the small <b>▶</b> arrow beside it to open the X and Y (or Width and Height) boxes. The character sits near the left side, above where the first platform will go.</li>
 </ol>
-</div>
 <div class="note pick"><b>Pick the right one:</b> use the <b>Pencil</b>, not the <b>Brush</b>. The Brush makes soft edges that look blurry when the sprite is made bigger.</div>
 
-<h3>3B · Four platforms</h3>
-<ol>
-<li>Insert a new <b>Sprite</b> called <b>Platform</b>. <b>Option A:</b> load <b>platform.png</b>. <b>Option B:</b> draw it using the Option B box under this list, then come back for step 2.</li>
-<li>Type <b>Platform 1</b>'s Position and Size. A wide grass strip appears under the character.</li>
-<li>In the <b>Project Bar</b>, find <b>Platform</b> under <b>Object types</b> and drag it onto the layout. A second platform appears. Type <b>Platform 2</b>'s numbers.</li>
-<li>Drag in two more and type the numbers for <b>Platform 3</b> and <b>Platform 4</b>. The four platforms step up like stairs from left to right, with gaps between them.</li>
-</ol>
-<div class="note"><b>Option B · draw the platform in Construct 3</b>
+<h3>2B · Draw the platform and place four</h3>
 <table>
 <tr><th>Animations Editor</th><th>Value</th></tr>
 <tr><td>Image size (Resize)</td><td>64 × 16</td></tr>
@@ -229,25 +163,30 @@
 <tr><td>Grass colour (Red, Green, Blue)</td><td>76, 175, 80</td></tr>
 </table>
 <ol>
-<li>Click <b>Resize</b> in the top toolbar and set <b>Width 64</b>, <b>Height 16</b>. The bottom bar reads <b>Size: 64x16</b>. Zoom in until the strip is easy to see.</li>
+<li>Insert a new <b>Sprite</b> called <b>Platform</b> the same way. The Animations Editor opens.</li>
+<li>Click <b>Resize</b> and set <b>Width 64</b>, <b>Height 16</b>. The bottom bar reads <b>Size: 64x16</b>. Zoom in until the strip is easy to see.</li>
 <li>Type <b>139</b>, <b>90</b>, <b>43</b> into Red, Green and Blue, choose the <b>Fill</b> tool (the paint bucket), and click inside the strip. It turns brown.</li>
-<li>Type <b>76</b>, <b>175</b>, <b>80</b>. With the <b>Rectangle</b> tool, drag from the top-left corner across to the right edge, 4 rows down. If it only draws an outline, click inside it with <b>Fill</b>. The top 4 rows are now green.</li>
+<li>Type <b>76</b>, <b>175</b>, <b>80</b>. With the <b>Rectangle</b> tool, drag from the top-left corner across to the right edge, 4 rows down. If it only draws an outline, click inside it with <b>Fill</b>. The top 4 rows are now green, like grass on dirt.</li>
 <li>Close the Animations Editor with the <b>X</b>.</li>
+<li>Type <b>Platform 1</b>'s Position and Size into the Properties Bar (left side panel). A wide grass strip appears under the character.</li>
+<li>In the <b>Project Bar</b> (top-right panel), find <b>Platform</b> under <b>Object types</b> and drag it onto the layout. A second platform appears. Type <b>Platform 2</b>'s numbers.</li>
+<li>Drag in two more and type the numbers for <b>Platform 3</b> and <b>Platform 4</b>. The four platforms step up like stairs from left to right, with gaps between them.</li>
 </ol>
-</div>
-<div class="note pick"><b>Pick the right one:</b> all four platforms must be the <b>same</b> object type. The Project Bar should show only one Platform (not Sprite2, Platform2 and so on). That way one behaviour in Part 4 covers all four.</div>
+<div class="note pick"><b>Pick the right one:</b> all four platforms must be the <b>same</b> object type. The Project Bar should show only one Platform (not Sprite2, Platform2 and so on). That way one behaviour in Part 3 covers all four.</div>
 
-<h3>3C · Sharp pixels</h3>
+<h3>2C · Sharp pixels</h3>
 <table>
 <tr><th>Project properties</th><th>Value</th></tr>
 <tr><td>Sampling</td><td>Nearest</td></tr>
 </table>
 <ol>
 <li>Zoom in on the character (hold <b>Ctrl</b> and scroll). The edges look soft, because the 32-pixel drawing is stretched to 64.</li>
-<li>Click the project name <b>Platformer</b> at the top of the Project Bar (top-right panel) and set <b>Sampling</b> (left side panel) to <b>Nearest</b>. The edges turn sharp, like in Piskel.</li>
+<li>Click the project name <b>Platformer</b> at the top of the Project Bar (top-right panel) and set <b>Sampling</b> (left side panel) to <b>Nearest</b>. The edges turn sharp and blocky.</li>
 </ol>
 
-<div class="check"><strong>Checkpoint · Part 3</strong>
+<div class="check"><strong>Checkpoint · Part 2</strong>
+<label><input type="checkbox"> Your character is drawn, with its feet on the bottom edge</label>
+<label><input type="checkbox"> Your platform is a flat strip, green on top and brown below</label>
 <label><input type="checkbox"> The character sits above the first platform</label>
 <label><input type="checkbox"> Four platforms step up from left to right with gaps between them</label>
 <label><input type="checkbox"> Only one Platform and one Player in the Project Bar</label>
@@ -256,14 +195,14 @@
 </div>
 </details>
 
-<!-- PART 4 -->
-<details class="part" id="part4" name="parts" style="--c:var(--p4)">
-<summary><h2>Part 4 · Run, jump and land</h2><span class="done"></span></summary>
+<!-- PART 3 -->
+<details class="part" id="part3" name="parts" style="--c:var(--p3)">
+<summary><h2>Part 3 · Run, jump and land</h2><span class="done"></span></summary>
 <div class="body">
 <p>Two behaviours do almost all the work. <b>Platform</b> gives the character running, jumping and gravity. <b>Solid</b> makes the platforms something to stand on.</p>
 <p><b>How to add a behaviour:</b> click the object on the layout, find <b>Behaviors</b> in the <b>Properties Bar</b>, and click the <b>Behaviors</b> link. Click <b>Add new behavior</b>, pick the behaviour, and click <b>Add</b>. Close the window. Its settings now show in the Properties Bar.</p>
 
-<h3>4A · Player: Platform behaviour</h3>
+<h3>3A · Player: Platform behaviour</h3>
 <table>
 <tr><th>Platform</th><th>Value</th></tr>
 <tr><td>Max speed</td><td>330</td></tr>
@@ -285,13 +224,13 @@
 </ol>
 <div class="note pick"><b>Pick the right one:</b> the behaviour is called <b>Platform</b>, and it goes on the <b>Player</b>, not on the platforms. (Yes, the behaviour and the object have the same name.)</div>
 
-<h3>4B · Platform: Solid behaviour</h3>
+<h3>3B · Platform: Solid behaviour</h3>
 <ol>
 <li>Click any platform and add the <b>Solid</b> behaviour (under <b>Attributes</b>). All four get it, because they are the same object.</li>
 <li><b>Preview</b>. The character falls, lands on the first platform, and stays put.</li>
 </ol>
 
-<h3>4C · Test the controls</h3>
+<h3>3C · Test the controls</h3>
 <table>
 <tr><th>Key</th><th>What it does</th></tr>
 <tr><td>← Left arrow</td><td>Run left</td></tr>
@@ -301,11 +240,11 @@
 <ol>
 <li><b>Preview</b> and click inside the game once so it has the keyboard.</li>
 <li>Run right and jump up onto each platform in turn.</li>
-<li>Walk off the edge of a platform. The character falls. If it falls past the bottom of the screen, it is gone for good. Part 5 fixes that.</li>
+<li>Walk off the edge of a platform. The character falls. If it falls past the bottom of the screen, it is gone for good. Part 4 fixes that.</li>
 </ol>
 <div class="note what"><b>Can't reach the next platform?</b> Each platform is 80 pixels higher than the one before, and a jump goes about 140 pixels up, so every jump is possible. Run and jump at the same time.</div>
 
-<div class="check"><strong>Checkpoint · Part 4</strong>
+<div class="check"><strong>Checkpoint · Part 3</strong>
 <label><input type="checkbox"> The character lands on the first platform and stays put</label>
 <label><input type="checkbox"> Left and Right arrows run, Up arrow jumps</label>
 <label><input type="checkbox"> You can climb all four platforms</label>
@@ -314,9 +253,9 @@
 </div>
 </details>
 
-<!-- PART 5 -->
-<details class="part" id="part5" name="parts" style="--c:var(--p5)">
-<summary><h2>Part 5 · Back to the start</h2><span class="done"></span></summary>
+<!-- PART 4 -->
+<details class="part" id="part4" name="parts" style="--c:var(--p4)">
+<summary><h2>Part 4 · Back to the start</h2><span class="done"></span></summary>
 <div class="body">
 <p>One event puts the character back on the first platform when it falls off the bottom of the screen.</p>
 <table>
@@ -334,26 +273,26 @@
 <div class="note"><b>Events remaining box:</b> after your first event, a blue box may appear saying how many events you have left. <b>Do not click Purchase a plan.</b> Click the <b>Add event</b> link on the event sheet and the box goes away.</div>
 <div class="note pick"><b>Pick the right one:</b> if the window title says <b>Add 'Player' condition</b> when you wanted an action, click <b>Cancel</b> and use the grey <b>Add action</b> instead. <b>Set vector Y</b> is in the <b>Platform</b> group under Player. Without it the character can land at full falling speed.</div>
 
-<div class="check"><strong>Checkpoint · Part 5</strong>
+<div class="check"><strong>Checkpoint · Part 4</strong>
 <label><input type="checkbox"> Event 1 shows Player Y &gt; 800 on the left and two actions on the right</label>
 <label><input type="checkbox"> Falling off the bottom puts the character back on the first platform</label>
 </div>
 </div>
 </details>
 
-<!-- PART 6 -->
-<details class="part" id="part6" name="parts" style="--c:var(--p6)">
-<summary><h2>Part 6 · Extra: face the way you walk</h2><span class="done"></span></summary>
+<!-- PART 5 -->
+<details class="part" id="part5" name="parts" style="--c:var(--p5)">
+<summary><h2>Part 5 · Extra: face the way you walk</h2><span class="done"></span></summary>
 <div class="body">
 <p>Right now the character always faces the same way. Two events flip it to face the direction it is running. This part is optional.</p>
 
-<h3>6A · Keyboard object</h3>
+<h3>5A · Keyboard object</h3>
 <ol>
 <li>Go to the <b>Layout 1</b> tab, double-click the layout, choose <b>Keyboard</b>, and click <b>Insert</b>.</li>
 </ol>
 <div class="note what"><b>What changed:</b> nothing appears on the layout, because Keyboard is not a picture. Check that <b>Keyboard</b> is now listed under <b>Object types</b> in the Project Bar.</div>
 
-<h3>6B · Events 2 and 3</h3>
+<h3>5B · Events 2 and 3</h3>
 <table>
 <tr><th>Event</th><th>Condition</th><th>Action</th></tr>
 <tr><td>2</td><td><b>Keyboard</b> → Key is down → <b>Left arrow</b></td><td><b>Player</b> → Set mirrored → <b>Mirrored</b></td></tr>
@@ -367,7 +306,7 @@
 </ol>
 <div class="note pick"><b>Pick the right one:</b> use <b>Key is down</b>, not <b>On key pressed</b>. Both work here, but Key is down keeps working while the key is held, which is what you want for running.</div>
 
-<div class="check"><strong>Checkpoint · Part 6</strong>
+<div class="check"><strong>Checkpoint · Part 5</strong>
 <label><input type="checkbox"> Keyboard is listed under Object types</label>
 <label><input type="checkbox"> The character faces left when running left and right when running right</label>
 </div>

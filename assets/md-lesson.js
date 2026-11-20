@@ -126,8 +126,19 @@
     return st === 'approved' ? '<span class="status ok">✓ Tested and approved</span>' : '<span class="status wait">◷ Waiting for approval</span>';
   }
 
-  fetch('lesson.md', { cache: 'no-cache' }).then(function (r) { return r.text(); }).then(function (text) {
+  // lessons.json is the master list: it sets each lesson's number and approval status.
+  var listing = fetch(base + 'lessons.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).catch(function () { return []; });
+
+  Promise.all([fetch('lesson.md', { cache: 'no-cache' }).then(function (r) { return r.text(); }), listing]).then(function (res) {
+    var text = res[0], all = res[1] || [];
     var fm = parseFront(text.replace(/\r/g, '')), meta = fm.meta, lines = fm.body.split('\n');
+    var here = location.pathname.replace(/index\.html$/, '');
+    all.forEach(function (l) {
+      if (here.slice(-l.path.length) === l.path) {
+        if (l.programs && l.programs[meta.program] !== undefined) meta.lesson = String(l.programs[meta.program]);
+        if (l.status) meta.status = l.status;
+      }
+    });
     document.title = (meta.lesson !== undefined ? meta.program + ' Lesson ' + meta.lesson + ' · ' : '') + meta.title + ' · Winters Innovative Solutions';
     var folder = (meta.program || '').toLowerCase().replace(/\s+/g, '').replace('unrealengine', 'unreal').replace('construct3', 'construct3');
     var html = '<header><div class="crumb"><a href="' + base + '">Lessons</a> › <a href="' + base + folder + '/">' + esc(meta.program || '') + '</a></div>' +
