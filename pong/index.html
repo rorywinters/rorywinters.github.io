@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pong in Construct 3 · Winters Innovative Solutions</title>
+<style>
+  :root {
+    --ink: #1d2330; --quiet: #5b6475; --line: #d9dee7; --bg: #f6f7f9; --card: #ffffff;
+    --p1: #2f6fdb; --p2: #7a4fd6; --p3: #12936f; --p4: #23446e; --p5: #c43c74; --p6: #2f8a2f; --p7: #c26a12;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--ink); background: var(--bg); }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 24px 20px 64px; }
+  a { color: #1f5fc4; }
+  header .crumb { font-size: 14px; color: var(--quiet); }
+  h1 { font-size: 30px; margin: 6px 0 4px; }
+  .sub { color: var(--quiet); margin: 0 0 20px; }
+  h2 { font-size: 20px; margin: 0; }
+  h3 { font-size: 17px; margin: 22px 0 8px; }
+  table { border-collapse: collapse; margin: 8px 0 12px; background: var(--card); font-size: 15px; }
+  th, td { border: 1px solid var(--line); padding: 6px 10px; text-align: left; vertical-align: top; }
+  th { background: #eef1f5; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 4px 0; }
+  .note { border-left: 4px solid #8a93a6; background: #eef1f5; padding: 10px 14px; margin: 12px 0; border-radius: 0 8px 8px 0; }
+  .note.pick { border-color: #c26a12; background: #fdf3e7; }
+  .note.what { border-color: #2f6fdb; background: #ecf2fd; }
+  .intro, .brief { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; margin-bottom: 16px; }
+
+  /* Lesson brief flow chart */
+  .flow { display: grid; gap: 14px; margin-top: 10px; }
+  .band { border: 2px dashed var(--c); border-radius: 12px; padding: 10px 12px 12px; background: color-mix(in srgb, var(--c) 6%, white); }
+  .band h4 { margin: 0 0 8px; font-size: 15px; }
+  .band h4 a { color: var(--ink); text-decoration: none; }
+  .bubbles { display: flex; flex-wrap: wrap; gap: 8px; align-items: stretch; }
+  .bubble { flex: 1 1 180px; border: 2px solid var(--c); border-radius: 10px; padding: 8px 10px; background: color-mix(in srgb, var(--c) 13%, white); font-size: 14px; line-height: 1.4; }
+  .bubble b { display: block; margin-bottom: 2px; }
+  .arrow { align-self: center; color: var(--c); font-weight: 700; }
+  .down { text-align: center; color: var(--quiet); font-size: 18px; line-height: 1; margin: -6px 0; }
+  .key { font-size: 14px; color: var(--quiet); margin-top: 12px; }
+
+  /* Accordion parts */
+  details.part { background: var(--card); border: 1px solid var(--line); border-left: 8px solid var(--c); border-radius: 12px; margin: 12px 0; }
+  details.part > summary { list-style: none; cursor: pointer; padding: 14px 18px; display: flex; align-items: center; gap: 12px; }
+  details.part > summary::-webkit-details-marker { display: none; }
+  details.part > summary::before { content: "▸"; color: var(--c); font-size: 18px; transition: transform .15s; }
+  details.part[open] > summary::before { transform: rotate(90deg); }
+  details.part > summary .done { margin-left: auto; font-size: 13px; color: var(--quiet); }
+  details.part > summary .done.all { color: #2f8a2f; font-weight: 600; }
+  .body { padding: 0 20px 18px; border-top: 1px solid var(--line); }
+
+  /* Screenshots and videos */
+  details.shot { margin: 10px 0; }
+  details.shot > summary { cursor: pointer; display: inline-block; padding: 6px 12px; border: 1px solid var(--line); border-radius: 8px; background: #f2f4f8; font-size: 14px; }
+  details.shot[open] > summary { margin-bottom: 8px; }
+  details.shot img { max-width: 100%; border: 1px solid var(--line); border-radius: 8px; display: block; }
+  .video { position: relative; aspect-ratio: 16 / 9; }
+  .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 8px; }
+
+  /* Checkpoints */
+  .check { background: #f3f8f3; border: 1px solid #cfe3cf; border-radius: 10px; padding: 10px 14px; margin-top: 18px; }
+  .check strong { display: block; margin-bottom: 4px; }
+  .check label { display: flex; gap: 8px; align-items: flex-start; margin: 4px 0; cursor: pointer; }
+  .check input { margin-top: 4px; width: 18px; height: 18px; }
+  .controls { display: flex; gap: 8px; flex-wrap: wrap; margin: 6px 0 4px; }
+  .controls button { font: inherit; font-size: 14px; padding: 6px 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); cursor: pointer; }
+  footer { margin-top: 32px; font-size: 14px; color: var(--quiet); }
+  @media (max-width: 600px) { .arrow { display: none; } h1 { font-size: 24px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="crumb"><a href="../">Lessons</a> › Construct 3</div>
+  <h1>Pong in Construct 3</h1>
+  <p class="sub">Draw the sprites in Piskel, build the game in Construct 3, and play it on your phone.</p>
+</header>
+
+<section class="intro">
+  <h2>What you will build</h2>
+  <p>A one-player Pong game: you control the left paddle and the computer controls the right one. The ball bounces off the walls and paddles, speeds up a little with every hit, and the score goes up when someone misses.</p>
+  <table>
+    <tr><th>Tool</th><th>What it is for</th><th>Link</th></tr>
+    <tr><td><b>Piskel</b></td><td>Drawing the paddle and ball sprites</td><td><a href="https://www.piskelapp.com/" target="_blank" rel="noreferrer">piskelapp.com</a></td></tr>
+    <tr><td><b>Construct 3</b></td><td>Building the game</td><td><a href="https://editor.construct.net/" target="_blank" rel="noreferrer">editor.construct.net</a></td></tr>
+  </table>
+  <ul>
+    <li>Both tools run in the browser. Nothing needs installing.</li>
+    <li>The finished game uses 7 events and 1 layer. The free version of Construct 3 allows 50 events when you are logged in, so there is plenty of room.</li>
+    <li>Time: about two class periods. Parts 1 to 4 in the first, Parts 5 to 7 in the second.</li>
+    <li>Click a part to open it. Opening one part closes the others. Tick every checkpoint box before you move on; your ticks are remembered on this computer.</li>
+  </ul>
+</section>
+
+<section class="brief">
+  <h2>Lesson brief</h2>
+  <p>If you already know Construct 3, follow the chart and you can finish from it alone. Click a part's name to jump to its full steps.</p>
+  <div class="flow">
+    <div class="band" style="--c:var(--p1)"><h4><a href="#part1">Part 1 · Draw the sprites in Piskel</a></h4><div class="bubbles">
+      <div class="bubble"><b>1A · Paddle</b><a href="https://www.piskelapp.com/" target="_blank" rel="noreferrer">piskelapp.com</a> → Create Sprite<br>Resize 8 × 32, aspect ratio off<br>Fill white · Export → PNG: paddle.png</div><span class="arrow">→</span>
+      <div class="bubble"><b>1B · Ball</b>New sprite, Resize 8 × 8<br>Fill white · optional: erase 4 corners<br>Export → PNG: ball.png</div>
+    </div></div>
+    <div class="down">↓</div>
+    <div class="band" style="--c:var(--p2)"><h4><a href="#part2">Part 2 · Start the Construct 3 project</a></h4><div class="bubbles">
+      <div class="bubble"><b>2A · New project</b><a href="https://editor.construct.net/" target="_blank" rel="noreferrer">editor.construct.net</a><br>Name Pong · Viewport 1280 × 720</div><span class="arrow">→</span>
+      <div class="bubble"><b>2B · Layout size</b>Layout 1 → Size 1280 × 720</div><span class="arrow">→</span>
+      <div class="bubble"><b>2C · Background</b>Layer 0: Transparent off<br>Background color black<br>Keep Initially visible on</div>
+    </div></div>
+    <div class="down">↓</div>
+    <div class="band" style="--c:var(--p3)"><h4><a href="#part3">Part 3 · Add the objects</a></h4><div class="bubbles">
+      <div class="bubble"><b>3A · PaddleLeft</b>Sprite, paddle.png<br>Position 40, 360 · Size 16 × 96</div><span class="arrow">→</span>
+      <div class="bubble"><b>3B · PaddleRight</b>New Sprite, paddle.png<br>Position 1240, 360 · 16 × 96<br>Not a copy of PaddleLeft</div><span class="arrow">→</span>
+      <div class="bubble"><b>3C · Ball</b>Sprite, ball.png<br>Position 640, 360 · 16 × 16<br>Angle 20°</div><span class="arrow">→</span>
+      <div class="bubble"><b>3D · Wall × 2</b>Sprite, paddle.png, 1280 × 16<br>Top 640, 8 · Bottom 640, 712<br>Drag Wall in for the 2nd one</div><span class="arrow">→</span>
+      <div class="bubble"><b>3E · Score text</b>TextLeft 520, 30 · TextRight 660, 30<br>100 × 60 · text 0 · size 36<br>White · align Center</div><span class="arrow">→</span>
+      <div class="bubble"><b>3F · Sharp pixels</b>Project Pong → Sampling Nearest</div>
+    </div></div>
+    <div class="down">↓</div>
+    <div class="band" style="--c:var(--p4)"><h4><a href="#part4">Part 4 · Make things move</a></h4><div class="bubbles">
+      <div class="bubble"><b>4A · Ball: Bullet</b>Speed 400 · Set angle off<br>Bounce off solids on<br>Preview: flies off screen</div><span class="arrow">→</span>
+      <div class="bubble"><b>4B · Wall: Solid</b>Solid on Wall only<br>Not on the paddles<br>Preview: bounces off walls</div><span class="arrow">→</span>
+      <div class="bubble"><b>4C · Left paddle</b>8 Direction · Max speed 400<br>Accel 2000 · Decel 2000<br>Up &amp; down · Default controls on</div>
+    </div></div>
+    <div class="down">↓</div>
+    <div class="band" style="--c:var(--p5)"><h4><a href="#part5">Part 5 · The computer paddle</a></h4><div class="bubbles">
+      <div class="bubble"><b>5A · Right paddle</b>8 Direction · Max speed 250<br>Up &amp; down · Accel/Decel 2000<br>Default controls off</div><span class="arrow">→</span>
+      <div class="bubble"><b>5B · Event 1</b>PaddleRight Compare Y<br>Greater than Ball.Y + 10<br>→ Simulate control Up</div><span class="arrow">→</span>
+      <div class="bubble"><b>5B · Event 2</b>PaddleRight Compare Y<br>Less than Ball.Y - 10<br>→ Simulate control Down</div>
+    </div></div>
+    <div class="down">↓</div>
+    <div class="band" style="--c:var(--p6)"><h4><a href="#part6">Part 6 · Bouncing, speed-up and scoring</a></h4><div class="bubbles">
+      <div class="bubble"><b>6A · Global variables</b>ScoreLeft, ScoreRight<br>Number · Initial value 0</div><span class="arrow">→</span>
+      <div class="bubble"><b>6B · Events 3–4</b>Ball On collision → paddle<br>→ Bounce off object (paddle)<br>→ Set speed Ball.Bullet.Speed + 25</div><span class="arrow">→</span>
+      <div class="bubble"><b>6C · Events 5–6</b>Ball X &lt; 0 → ScoreRight + 1<br>Ball X &gt; 1280 → ScoreLeft + 1<br>Set text · 640, 360 · speed 400<br>Set angle of motion 20 / 160</div>
+    </div></div>
+    <div class="down">↓</div>
+    <div class="band" style="--c:var(--p7)"><h4><a href="#part7">Part 7 · Play it on a phone</a></h4><div class="bubbles">
+      <div class="bubble"><b>7A · Touch object</b>Insert Touch<br>Use mouse input on</div><span class="arrow">→</span>
+      <div class="bubble"><b>7B · Event 7</b>Touch Is in touch<br>→ PaddleLeft Set Y<br>clamp(Touch.Y, 64, 656)</div><span class="arrow">→</span>
+      <div class="bubble"><b>7C · Remote Preview</b>Preview ▾ → Remote preview<br>Scan the QR code on a phone<br>Save your work</div>
+    </div></div>
+  </div>
+  <p class="key">Each colour is one part. Codes like 3B mean Part 3, section B. Underlined words are links.</p>
+</section>
+
+<div class="controls">
+  <button type="button" id="openAll">Open all parts</button>
+  <button type="button" id="closeAll">Close all parts</button>
+  <button type="button" id="clearTicks">Clear my ticks</button>
+</div>
+
+<!-- PART 1 -->
+<details class="part" id="part1" name="parts" style="--c:var(--p1)">
+<summary><h2>Part 1 · Draw the sprites in Piskel</h2><span class="done"></span></summary>
+<div class="body">
+<p>You need two images: a white paddle and a white ball. The walls will reuse the paddle image, so there is no third drawing.</p>
+
+<h3>1A · Paddle</h3>
+<table>
+<tr><th>Panel</th><th>Field</th><th>Value</th></tr>
+<tr><td><b>Resize</b></td><td>Width</td><td>8</td></tr>
+<tr><td></td><td>Height</td><td>32</td></tr>
+<tr><td></td><td>Maintain aspect ratio</td><td>Off</td></tr>
+<tr><td><b>Save</b></td><td>Title</td><td>paddle</td></tr>
+</table>
+<p>All other settings stay at their defaults.</p>
+<ol>
+<li>Go to <a href="https://www.piskelapp.com/" target="_blank" rel="noreferrer">piskelapp.com</a> and click <b>Create Sprite</b>. A blank 32 × 32 grid appears.</li>
+<li>On the right side, click the <b>Resize</b> button (the square with arrows). Untick <b>Maintain aspect ratio</b>, type <b>8</b> for <b>Width</b> and <b>32</b> for <b>Height</b>, then click <b>Resize</b>. The grid turns into a tall, thin strip.</li>
+<li>On the left, click the top colour square and choose <b>white</b> (#ffffff).</li>
+<li>Pick the <b>Paint bucket</b> tool and click inside the grid. The whole strip turns white.</li>
+<li>Click the <b>Save</b> button on the right and type <b>paddle</b> in the <b>Title</b> box. The name at the top of the screen changes to paddle.</li>
+<li>Click the <b>Export</b> button on the right, open the <b>PNG</b> tab, and click <b>Download</b>. A file called <b>paddle.png</b> appears in your Downloads folder. If it is called New Piskel.png, rename it <b>paddle.png</b>.</li>
+</ol>
+
+<h3>1B · Ball</h3>
+<table>
+<tr><th>Panel</th><th>Field</th><th>Value</th></tr>
+<tr><td><b>Resize</b></td><td>Width</td><td>8</td></tr>
+<tr><td></td><td>Height</td><td>8</td></tr>
+<tr><td><b>Save</b></td><td>Title</td><td>ball</td></tr>
+</table>
+<ol>
+<li>Reload <a href="https://www.piskelapp.com/" target="_blank" rel="noreferrer">piskelapp.com</a> and click <b>Create Sprite</b> again.</li>
+<li>Click <b>Resize</b>, type <b>8</b> and <b>8</b>, and click <b>Resize</b>. The grid becomes a small square.</li>
+<li>Choose <b>white</b> and fill the square with the <b>Paint bucket</b>.</li>
+<li>Optional: pick the <b>Eraser</b> and click each of the four corner pixels. The square now looks rounder.</li>
+<li>Set the <b>Title</b> to <b>ball</b> in the <b>Save</b> panel.</li>
+<li><b>Export → PNG → Download</b>. Check that <b>ball.png</b> is in your Downloads folder.</li>
+</ol>
+
+<div class="check"><strong>Checkpoint · Part 1</strong>
+<label><input type="checkbox"> paddle.png is in Downloads and opens as a thin white strip</label>
+<label><input type="checkbox"> ball.png is in Downloads and opens as a small white square (or rounded square)</label>
+</div>
+</div>
+</details>
+
+<!-- PART 2 -->
+<details class="part" id="part2" name="parts" style="--c:var(--p2)">
+<summary><h2>Part 2 · Start the Construct 3 project</h2><span class="done"></span></summary>
+<div class="body">
+<p>The game area is 1280 × 720, landscape, with a black background.</p>
+
+<h3>2A · New project</h3>
+<table>
+<tr><th>New project</th><th>Value</th></tr>
+<tr><td>Name</td><td>Pong</td></tr>
+<tr><td>Viewport size</td><td>1280 × 720</td></tr>
+</table>
+<ol>
+<li>Go to <a href="https://editor.construct.net/" target="_blank" rel="noreferrer">editor.construct.net</a>. If you have an account, log in first. Logged in, the free version allows 50 events.</li>
+<li>Click <b>New project</b>.</li>
+<li>Type <b>Pong</b> in <b>Name</b>, and <b>1280</b> and <b>720</b> in <b>Viewport size</b>. Click <b>Create</b>.</li>
+<li>An empty layout opens with a dotted rectangle on it. The dotted rectangle is what the player will see.</li>
+</ol>
+<div class="note">Already working as a Guest and want to log in? Save first with <b>Menu → Project → Save as → Download a copy</b>, log in, then open the file again with <b>Menu → Project → Open</b>. Nothing is lost.</div>
+
+<h3>2B · Layout size</h3>
+<table>
+<tr><th>Layout properties</th><th>X</th><th>Y</th></tr>
+<tr><td><b>Size</b></td><td>1280</td><td>720</td></tr>
+</table>
+<ol>
+<li>In the <b>Project Bar</b> on the right, click <b>Layout 1</b> under <b>Layouts</b>.</li>
+<li>In the <b>Properties Bar</b> on the left, set <b>Size</b> to <b>1280</b> and <b>720</b>. The edge of the layout now lines up with the dotted rectangle.</li>
+</ol>
+<div class="note what"><b>Looks small?</b> The editor shows the layout zoomed out to fit (the zoom percentage is at the bottom of the layout view). Hold <b>Ctrl</b> and scroll to zoom. This only changes the view, not the game.</div>
+
+<h3>2C · Black background</h3>
+<table>
+<tr><th>Layer properties</th><th>Value</th></tr>
+<tr><td>Initially visible</td><td>On (leave it)</td></tr>
+<tr><td>Transparent</td><td>Off</td></tr>
+<tr><td>Background color</td><td>Black</td></tr>
+</table>
+<ol>
+<li>Open the <b>Layers Bar</b> (a tab beside the Project Bar) and click <b>Layer 0</b>.</li>
+<li>In the <b>Properties Bar</b>, untick <b>Transparent</b> if it is ticked (leave <b>Initially visible</b> ticked, or the whole layer disappears), then click <b>Background color</b> and choose <b>black</b>. The layout turns black.</li>
+</ol>
+
+<div class="check"><strong>Checkpoint · Part 2</strong>
+<label><input type="checkbox"> The project is called Pong</label>
+<label><input type="checkbox"> The layout edge and the dotted rectangle line up</label>
+<label><input type="checkbox"> The layout is black</label>
+</div>
+</div>
+</details>
+
+<!-- PART 3 -->
+<details class="part" id="part3" name="parts" style="--c:var(--p3)">
+<summary><h2>Part 3 · Add the objects</h2><span class="done"></span></summary>
+<div class="body">
+<p>Every object is placed by typing its numbers into the <b>Properties Bar</b>, not by dragging. If something gets nudged by accident, press <b>Ctrl+Z</b> or type its numbers back in.</p>
+<table>
+<tr><th>Object</th><th>Image</th><th>Position X</th><th>Position Y</th><th>Size W</th><th>Size H</th><th>Angle</th></tr>
+<tr><td><b>PaddleLeft</b></td><td>paddle.png</td><td>40</td><td>360</td><td>16</td><td>96</td><td>0°</td></tr>
+<tr><td><b>PaddleRight</b></td><td>paddle.png</td><td>1240</td><td>360</td><td>16</td><td>96</td><td>0°</td></tr>
+<tr><td><b>Ball</b></td><td>ball.png</td><td>640</td><td>360</td><td>16</td><td>16</td><td>20°</td></tr>
+<tr><td><b>Wall</b> (top)</td><td>paddle.png</td><td>640</td><td>8</td><td>1280</td><td>16</td><td>0°</td></tr>
+<tr><td><b>Wall</b> (bottom)</td><td>paddle.png</td><td>640</td><td>712</td><td>1280</td><td>16</td><td>0°</td></tr>
+</table>
+
+<h3>3A · Left paddle</h3>
+<ol>
+<li>On the <b>Layout 1</b> tab, double-click anywhere inside the black area (or right-click it and choose <b>Insert new object</b>). The <b>Create new object</b> window opens.</li>
+<li>Click <b>Sprite</b>, type <b>PaddleLeft</b> in <b>Name</b>, and click <b>Insert</b>.</li>
+<li>Click on the layout. The <b>Animations Editor</b> opens.</li>
+<li>In the editor's toolbar, click <b>Load an image from a file</b> (the folder icon) and choose <b>paddle.png</b>. The bottom bar shows <b>Size: 8x32</b> and the frame at the bottom shows the white strip. It is hard to see in the middle because it is white on a light checkerboard.</li>
+<li>Close the Animations Editor with the <b>X</b> in its top-right corner. The small paddle is now on the layout.</li>
+<li>In the <b>Properties Bar</b>, type the <b>Position</b> and <b>Size</b> from the table. The paddle jumps to the left side and gets taller.</li>
+</ol>
+
+<h3>3B · Right paddle</h3>
+<ol>
+<li>Repeat 3A with the name <b>PaddleRight</b> and <b>paddle.png</b>.</li>
+<li>Type its <b>Position</b> and <b>Size</b>. It sits on the right side.</li>
+</ol>
+<div class="note pick"><b>Pick the right one:</b> make PaddleRight a <b>new</b> Sprite, not a copy of PaddleLeft. A copy is the same object, and in Part 5 the two paddles need different events.</div>
+
+<h3>3C · Ball</h3>
+<ol>
+<li>Insert a new <b>Sprite</b> called <b>Ball</b> and load <b>ball.png</b>.</li>
+<li>Type its <b>Position</b>, <b>Size</b> and <b>Angle</b> from the table. The ball sits in the centre. Its angle is the direction it will fly at the start.</li>
+</ol>
+
+<h3>3D · Walls</h3>
+<ol>
+<li>Insert a new <b>Sprite</b> called <b>Wall</b> and load <b>paddle.png</b>.</li>
+<li>Type the <b>top</b> wall's Position and Size. A thin white line runs across the top.</li>
+<li>In the <b>Project Bar</b>, find <b>Wall</b> under <b>Object types</b> and drag it onto the layout. A second wall appears.</li>
+<li>Type the <b>bottom</b> wall's Position and Size. Now there is a line across the bottom too.</li>
+</ol>
+<div class="note pick"><b>Pick the right one:</b> both walls must be the <b>same</b> object type. In the Project Bar there should be only one Wall. This way one behaviour in Part 4 covers both.</div>
+
+<h3>3E · Score text</h3>
+<table>
+<tr><th>Object</th><th>Position X</th><th>Position Y</th><th>Size W</th><th>Size H</th><th>Text</th><th>Font size</th><th>Color</th><th>Horizontal alignment</th></tr>
+<tr><td><b>TextLeft</b></td><td>520</td><td>30</td><td>100</td><td>60</td><td>0</td><td>36</td><td>White</td><td>Center</td></tr>
+<tr><td><b>TextRight</b></td><td>660</td><td>30</td><td>100</td><td>60</td><td>0</td><td>36</td><td>White</td><td>Center</td></tr>
+</table>
+<ol>
+<li>Double-click the layout, choose <b>Text</b>, name it <b>TextLeft</b>, click <b>Insert</b>, then click on the layout.</li>
+<li>Type the values from the table into the <b>Properties Bar</b>. A white 0 appears left of centre near the top.</li>
+<li>Repeat with a new <b>Text</b> object called <b>TextRight</b>. A second 0 appears right of centre.</li>
+</ol>
+
+<h3>3F · Sharp pixels</h3>
+<table>
+<tr><th>Project properties</th><th>Value</th></tr>
+<tr><td>Sampling</td><td>Nearest</td></tr>
+</table>
+<ol>
+<li>Zoom in on the ball (hold <b>Ctrl</b> and scroll). Its edges look soft and blurry, because the 8-pixel image is stretched to 16.</li>
+<li>In the <b>Project Bar</b>, click the project name <b>Pong</b> at the top. In the <b>Properties Bar</b>, set <b>Sampling</b> to <b>Nearest</b>.</li>
+<li>The ball's edges turn sharp and blocky, like the drawing in Piskel.</li>
+</ol>
+
+<div class="check"><strong>Checkpoint · Part 3</strong>
+<label><input type="checkbox"> Two paddles, one on each side, the same height</label>
+<label><input type="checkbox"> A ball in the centre</label>
+<label><input type="checkbox"> A white wall along the top and the bottom, and only one Wall in the Project Bar</label>
+<label><input type="checkbox"> Two white 0s near the top</label>
+<label><input type="checkbox"> The ball's edges look sharp when zoomed in</label>
+</div>
+</div>
+</details>
+
+<!-- PART 4 -->
+<details class="part" id="part4" name="parts" style="--c:var(--p4)">
+<summary><h2>Part 4 · Make things move</h2><span class="done"></span></summary>
+<div class="body">
+<p>Behaviours are ready-made movement. You add one to an object, set a few values, and press <b>Preview</b> to watch it work.</p>
+<p><b>How to add a behaviour (used in every step below):</b> click the object on the layout, find <b>Behaviors</b> in the <b>Properties Bar</b>, and click the <b>Behaviors</b> link. In the window that opens, click <b>Add new behavior</b>, pick the behaviour, and click <b>Add</b>. Close the window. The behaviour's settings now show in the Properties Bar.</p>
+
+<h3>4A · Ball: Bullet</h3>
+<table>
+<tr><th>Bullet</th><th>Value</th></tr>
+<tr><td>Speed</td><td>400</td></tr>
+<tr><td>Acceleration</td><td>0</td></tr>
+<tr><td>Gravity</td><td>0</td></tr>
+<tr><td>Bounce off solids</td><td>On</td></tr>
+<tr><td>Set angle</td><td>Off</td></tr>
+</table>
+<ol>
+<li>Add the <b>Bullet</b> behaviour to <b>Ball</b> (it is under <b>Movements</b>).</li>
+<li>Type the values from the table.</li>
+<li>Click <b>Preview</b> (the play button at the top). (Shortcut: F5)</li>
+<li>The ball flies down and to the right, straight through the bottom wall and off the screen. Nothing stops it yet. Close the preview tab.</li>
+</ol>
+
+<h3>4B · Walls: Solid</h3>
+<ol>
+<li>Click either wall and add the <b>Solid</b> behaviour (it is under <b>Attributes</b>). Both walls get it, because they are the same object.</li>
+<li><b>Preview</b> again. The ball now bounces off the top and bottom walls. It still goes straight through the paddles. That gets fixed in Part 6.</li>
+</ol>
+<div class="note pick"><b>Pick the right one:</b> do <b>not</b> give the paddles Solid. In Part 6 an event makes the ball bounce off them and speed up at the same time.</div>
+
+<h3>4C · Left paddle: 8 Direction</h3>
+<table>
+<tr><th>8 Direction</th><th>Value</th></tr>
+<tr><td>Max speed</td><td>400</td></tr>
+<tr><td>Acceleration</td><td>2000</td></tr>
+<tr><td>Deceleration</td><td>2000</td></tr>
+<tr><td>Directions</td><td>Up &amp; down</td></tr>
+<tr><td>Set angle</td><td>Off</td></tr>
+<tr><td>Default controls</td><td>On</td></tr>
+</table>
+<ol>
+<li>Add the <b>8 Direction</b> behaviour to <b>PaddleLeft</b> (under <b>Movements</b>) and type the values from the table.</li>
+<li><b>Preview</b>. The <b>Up</b> and <b>Down</b> arrow keys move the left paddle. It stops at the walls, because the walls are Solid.</li>
+</ol>
+<div class="note pick"><b>Pick the right one:</b> if the paddle also slides left and right, <b>Directions</b> is still on <b>8 directions</b>. Change it to <b>Up &amp; down</b>.</div>
+
+<div class="check"><strong>Checkpoint · Part 4</strong>
+<label><input type="checkbox"> In Preview the ball moves on its own and bounces off the top and bottom walls</label>
+<label><input type="checkbox"> The ball passes through the paddles (this is expected for now)</label>
+<label><input type="checkbox"> The arrow keys move the left paddle up and down only, and it stops at the walls</label>
+</div>
+</div>
+</details>
+
+<!-- PART 5 -->
+<details class="part" id="part5" name="parts" style="--c:var(--p5)">
+<summary><h2>Part 5 · The computer paddle</h2><span class="done"></span></summary>
+<div class="body">
+<p>The right paddle chases the ball, but its top speed is lower than the ball's, so it can be beaten.</p>
+
+<h3>5A · Right paddle: 8 Direction</h3>
+<table>
+<tr><th>8 Direction</th><th>Value</th></tr>
+<tr><td>Max speed</td><td>250</td></tr>
+<tr><td>Acceleration</td><td>2000</td></tr>
+<tr><td>Deceleration</td><td>2000</td></tr>
+<tr><td>Directions</td><td>Up &amp; down</td></tr>
+<tr><td>Set angle</td><td>Off</td></tr>
+<tr><td>Default controls</td><td><b>Off</b></td></tr>
+</table>
+<ol>
+<li>Add <b>8 Direction</b> to <b>PaddleRight</b> and type the values from the table.</li>
+</ol>
+<div class="note what"><b>What changed:</b> nothing moves yet in Preview. Check that <b>8 Direction</b> is listed under <b>PaddleRight → Behaviors</b> in the Properties Bar. <b>Default controls</b> is off so the arrow keys don't move this paddle. The events in 5B do.</div>
+
+<h3>5B · Events: follow the ball</h3>
+<table>
+<tr><th>Event</th><th>Condition (left side)</th><th>Action (right side)</th></tr>
+<tr><td>1</td><td><b>PaddleRight</b> → Compare Y → <b>Greater than</b> → <b>Ball.Y + 10</b></td><td><b>PaddleRight</b> → 8 Direction → Simulate control → <b>Up</b></td></tr>
+<tr><td>2</td><td><b>PaddleRight</b> → Compare Y → <b>Less than</b> → <b>Ball.Y - 10</b></td><td><b>PaddleRight</b> → 8 Direction → Simulate control → <b>Down</b></td></tr>
+</table>
+<p>In words: if the paddle is below the ball, move up. If it is above the ball, move down. The 10 gives it a small dead zone so it doesn't shake.</p>
+<p>Each event is one row with two halves: the <b>condition</b> on the left says <i>when</i>, and the <b>action</b> on the right says <i>what happens</i>.</p>
+<ol>
+<li>Click the <b>Event sheet 1</b> tab at the top.</li>
+<li>Click <b>Add event</b>. Double-click <b>PaddleRight</b>, then double-click <b>Compare Y</b>.</li>
+<li>Set <b>Comparison</b> to <b>Greater than</b>, type <b>Ball.Y + 10</b> in <b>Y co-ordinate</b>, and click <b>Done</b>. The condition appears on the left of the event.</li>
+<li>On the same event row, find the faint grey <b>Add action</b> text in the middle of the row. It looks greyed out, but it works. (Not <b>Add event</b> underneath.) Click it. Double-click <b>PaddleRight</b>; the window title should say <b>Add 'PaddleRight' action</b>. Double-click <b>Simulate control</b> in the <b>8Direction</b> group. Choose <b>Up</b> and click <b>Done</b>. The action appears on the right.</li>
+<li>Add <b>event 2</b> as a new row: click <b>Add event</b> at the bottom of the sheet, below event 1. (Not the grey <b>Add action</b> under event 1's action, which would add a second action to event 1, and not <b>Add...</b>.) Then do it the same way, with <b>Less than</b>, <b>Ball.Y - 10</b> and <b>Down</b>.</li>
+<li><b>Preview</b>. The right paddle now follows the ball up and down.</li>
+</ol>
+<div class="note"><b>Events remaining box:</b> after your first event, a blue box may appear saying how many events you have left. It has no close button. <b>Do not click Purchase a plan.</b> Click the <b>Add event</b> link on the event sheet and the box goes away. You can keep working as normal.
+<details class="shot"><summary>Show screenshot</summary><img data-shot="remaining" alt="The events remaining box, with only a Purchase a plan link and no close button"></details>
+</div>
+<div class="note pick"><b>Pick the right one:</b> if the window title says <b>Add 'PaddleRight' condition</b>, you are in the conditions list. Simulate control is an action: click <b>Cancel</b> and use the grey <b>Add action</b> instead. Use <b>Simulate control</b> from the <b>8Direction</b> group, not <b>Set Y</b>, which teleports the paddle so it can't be beaten. In the Y field, type <b>Ball.Y</b> with a capital B and a dot.</div>
+
+<div class="check"><strong>Checkpoint · Part 5</strong>
+<label><input type="checkbox"> The event sheet shows events 1 and 2, each with a condition on the left and an action on the right</label>
+<label><input type="checkbox"> In Preview the right paddle follows the ball, a little slower than the ball moves</label>
+<label><input type="checkbox"> The arrow keys still move only the left paddle</label>
+</div>
+</div>
+</details>
+
+<!-- PART 6 -->
+<details class="part" id="part6" name="parts" style="--c:var(--p6)">
+<summary><h2>Part 6 · Bouncing, speed-up and scoring</h2><span class="done"></span></summary>
+<div class="body">
+<p>The ball bounces off each paddle and gets a little faster every hit. When it leaves the screen, the other side scores and the ball is served again from the centre.</p>
+
+<h3>6A · Global variables</h3>
+<table>
+<tr><th>Global variable</th><th>Type</th><th>Initial value</th></tr>
+<tr><td><b>ScoreLeft</b></td><td>Number</td><td>0</td></tr>
+<tr><td><b>ScoreRight</b></td><td>Number</td><td>0</td></tr>
+</table>
+<ol>
+<li>Right-click an empty part of the event sheet and choose <b>Add global variable</b>.</li>
+<li>Type <b>ScoreLeft</b>, keep <b>Type</b> on <b>Number</b> and <b>Initial value</b> on <b>0</b>, and click <b>OK</b>. A line <b>Global number ScoreLeft = 0</b> appears at the top of the sheet.</li>
+<li>Add <b>ScoreRight</b> the same way.</li>
+</ol>
+
+<h3>6B · Bounce and speed up</h3>
+<table>
+<tr><th>Event</th><th>Condition</th><th>Actions</th></tr>
+<tr><td>3</td><td><b>Ball</b> → On collision with another object → <b>PaddleLeft</b></td><td><b>Ball</b> → Bullet → Bounce off object → <b>PaddleLeft</b><br><b>Ball</b> → Bullet → Set speed → <b>Ball.Bullet.Speed + 25</b></td></tr>
+<tr><td>4</td><td><b>Ball</b> → On collision with another object → <b>PaddleRight</b></td><td><b>Ball</b> → Bullet → Bounce off object → <b>PaddleRight</b><br><b>Ball</b> → Bullet → Set speed → <b>Ball.Bullet.Speed + 25</b></td></tr>
+</table>
+<ol>
+<li><b>Add event</b> → <b>Ball</b> → <b>On collision with another object</b>. Pick <b>PaddleLeft</b> and click <b>Done</b>.</li>
+<li><b>Add action</b> → <b>Ball</b> → <b>Bounce off object</b> (Bullet group) → <b>PaddleLeft</b> → <b>Done</b>.</li>
+<li><b>Add action</b> again → <b>Ball</b> → <b>Set speed</b> (Bullet group). Type <b>Ball.Bullet.Speed + 25</b> and click <b>Done</b>. The event now has two actions.</li>
+<li>Make <b>event 4</b> the same way with <b>PaddleRight</b>.</li>
+<li><b>Preview</b>. The ball bounces off both paddles, and each rally gets faster.</li>
+</ol>
+<p>Check your event sheet. Events 3 and 4 both start with <b>Ball</b> on the left.</p>
+<details class="shot"><summary>Show screenshot</summary><img data-shot="events" alt="Event sheet with events 1 to 4: the computer paddle events and the two Ball collision events"></details>
+<div class="note pick"><b>Pick the right one:</b> there are two Set speed actions. Use the one in the <b>Bullet</b> group. <b>Bounce off object</b> is also in the Bullet group, under Ball, not under the paddles. Both collision conditions must start with <b>Ball</b>. "PaddleRight → On collision with PaddleRight" never happens, so the ball goes straight through.</div>
+<div class="note what"><b>Test tip:</b> the ball starts out heading right. To check the left paddle first, set the ball's <b>Angle</b> to <b>160°</b> on the Layout 1 tab, preview, then set it back to <b>20°</b>.</div>
+
+<h3>6C · Scoring and serving</h3>
+<table>
+<tr><th>Event</th><th>Condition</th><th>Actions</th></tr>
+<tr><td>5</td><td><b>Ball</b> → Compare X → <b>Less than</b> → <b>0</b></td><td><b>System</b> → Add to → <b>ScoreRight</b>, <b>1</b><br><b>TextRight</b> → Set text → <b>ScoreRight</b><br><b>Ball</b> → Set position → <b>640</b>, <b>360</b><br><b>Ball</b> → Bullet → Set speed → <b>400</b><br><b>Ball</b> → Bullet → Set angle of motion → <b>20</b></td></tr>
+<tr><td>6</td><td><b>Ball</b> → Compare X → <b>Greater than</b> → <b>1280</b></td><td><b>System</b> → Add to → <b>ScoreLeft</b>, <b>1</b><br><b>TextLeft</b> → Set text → <b>ScoreLeft</b><br><b>Ball</b> → Set position → <b>640</b>, <b>360</b><br><b>Ball</b> → Bullet → Set speed → <b>400</b><br><b>Ball</b> → Bullet → Set angle of motion → <b>160</b></td></tr>
+</table>
+<p>In words: if the ball goes off the left edge, the computer scores. If it goes off the right edge, you score. Either way the ball goes back to the centre at its starting speed.</p>
+<ol>
+<li><b>Add event</b> → <b>Ball</b> → <b>Compare X</b>. Choose <b>Less than</b>, type <b>0</b>, click <b>Done</b>.</li>
+<li>Add the five actions in the order shown, using the grey <b>Add action</b> each time.</li>
+<li>Make <b>event 6</b> the same way with <b>Greater than</b>, <b>1280</b>, <b>ScoreLeft</b>, <b>TextLeft</b> and angle <b>160</b>.</li>
+<li><b>Preview</b>. Miss the ball on purpose: the right score goes to 1 and the ball serves again. Then get one past the computer: the left score goes to 1.</li>
+</ol>
+<div class="note pick"><b>Pick the right one:</b> <b>Set angle of motion</b> (Bullet group) changes the direction the ball travels. The plain <b>Set angle</b> rotates the picture and the ball keeps going the same way.</div>
+
+<div class="check"><strong>Checkpoint · Part 6</strong>
+<label><input type="checkbox"> Two global variables at the top of the event sheet</label>
+<label><input type="checkbox"> The event sheet has events 1 to 6</label>
+<label><input type="checkbox"> The ball bounces off both paddles and speeds up during a rally</label>
+<label><input type="checkbox"> Missing the ball raises the other side's score, and the ball serves again from the centre</label>
+</div>
+</div>
+</details>
+
+<!-- PART 7 -->
+<details class="part" id="part7" name="parts" style="--c:var(--p7)">
+<summary><h2>Part 7 · Play it on a phone</h2><span class="done"></span></summary>
+<div class="body">
+<p>One more event lets a finger drag the left paddle. Then Remote Preview opens the game on a phone.</p>
+
+<h3>7A · Touch object</h3>
+<table>
+<tr><th>Touch</th><th>Value</th></tr>
+<tr><td>Use mouse input</td><td>On</td></tr>
+</table>
+<ol>
+<li>Go back to the <b>Layout 1</b> tab. Double-click the layout, choose <b>Touch</b>, and click <b>Insert</b>.</li>
+<li>Click <b>Touch</b> under <b>Object types</b> in the Project Bar and turn <b>Use mouse input</b> on.</li>
+</ol>
+<div class="note what"><b>What changed:</b> nothing appears on the layout, because Touch is not a picture. Check that <b>Touch</b> is now listed under <b>Object types</b>. Use mouse input lets you test touch with the mouse on the school computer.</div>
+
+<h3>7B · Event: drag the paddle</h3>
+<table>
+<tr><th>Event</th><th>Condition</th><th>Action</th></tr>
+<tr><td>7</td><td><b>Touch</b> → Is in touch</td><td><b>PaddleLeft</b> → Set Y → <b>clamp(Touch.Y, 64, 656)</b></td></tr>
+</table>
+<p>In words: while a finger is on the screen, the paddle moves to the finger's height. <b>clamp</b> keeps it between the walls (48 for half the paddle + 16 for the wall).</p>
+<ol>
+<li>On <b>Event sheet 1</b>, <b>Add event</b> → <b>Touch</b> → <b>Is in touch</b> → <b>Done</b>.</li>
+<li>Grey <b>Add action</b> → <b>PaddleLeft</b> → <b>Set Y</b>. Type <b>clamp(Touch.Y, 64, 656)</b> and click <b>Done</b>.</li>
+<li><b>Preview</b>. Hold the left mouse button and move the mouse up and down. The paddle follows it and stops at the walls. The arrow keys still work too.</li>
+</ol>
+<div class="note pick"><b>Pick the right one:</b> use <b>Is in touch</b>, not <b>On touch start</b>. On touch start happens once, so the paddle would jump one time and then stop following.</div>
+
+<h3>7C · Remote Preview on a phone</h3>
+<ol>
+<li>Click the small arrow beside the <b>Preview</b> button and choose <b>Remote preview</b>. A window shows a link and a QR code.</li>
+<li>Scan the QR code with your phone's camera and open the link. The game opens in the phone's browser.</li>
+<li>Turn the phone sideways and drag the left paddle with your finger.</li>
+<li>The game stays on the phone only while Remote Preview is open on the computer. Close it when you are done.</li>
+</ol>
+
+<h3>Save your work</h3>
+<ul>
+<li><b>Logged in:</b> the first time, <b>Menu → Project → Save as → Cloud save</b> and pick where to keep it (for example Google Drive). After that, the <b>Save</b> button (disk icon) saves to the same place. (Shortcut: Ctrl+S)</li>
+<li><b>Guest:</b> <b>Menu → Project → Save as → Download a copy</b> before you close the tab.</li>
+<li><b>To hand in:</b> <b>Menu → Project → Save as → Download a copy</b> and upload the .c3p file to Google Classroom.</li>
+</ul>
+
+<div class="check"><strong>Checkpoint · Part 7</strong>
+<label><input type="checkbox"> Touch is listed under Object types</label>
+<label><input type="checkbox"> The event sheet has events 1 to 7</label>
+<label><input type="checkbox"> In Preview, holding the mouse button and moving up and down drags the left paddle, and it stops at the walls</label>
+<label><input type="checkbox"> The game runs on your phone through Remote Preview, and your finger moves the paddle</label>
+</div>
+</div>
+</details>
+
+<footer>Winters Innovative Solutions · <a href="https://www.youtube.com/@winters.innovative.solutions" target="_blank" rel="noreferrer">YouTube channel</a></footer>
+</div>
+
+<script src="shots.js"></script>
+<script>
+(function () {
+  try { document.querySelectorAll('img[data-shot]').forEach(function (im) { var s = window.SHOTS && window.SHOTS[im.getAttribute('data-shot')]; if (s) im.src = s; }); } catch (e) {}
+  var KEY = 'pong-c3-ticks';
+  var parts = Array.prototype.slice.call(document.querySelectorAll('details.part'));
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('.check input'));
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { saved = {}; }
+  boxes.forEach(function (b, i) { b.checked = !!saved[i]; });
+
+  function update() {
+    parts.forEach(function (p) {
+      var bx = p.querySelectorAll('.check input'), n = 0;
+      for (var i = 0; i < bx.length; i++) { if (bx[i].checked) n++; }
+      var tag = p.querySelector('summary .done');
+      tag.textContent = n === bx.length ? 'Checkpoint done ✓' : n + ' of ' + bx.length + ' ticked';
+      tag.className = 'done' + (n === bx.length ? ' all' : '');
+    });
+  }
+  boxes.forEach(function (b, i) {
+    b.addEventListener('change', function () {
+      saved[i] = b.checked;
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
+      update();
+    });
+  });
+
+  // Only one part open at a time (also works in browsers without the name attribute)
+  parts.forEach(function (p) {
+    p.addEventListener('toggle', function () {
+      if (p.open && !document.body.classList.contains('all-open')) {
+        parts.forEach(function (o) { if (o !== p) o.open = false; });
+      }
+    });
+  });
+  function openFromHash() {
+    var t = location.hash && document.querySelector(location.hash);
+    if (t && t.classList.contains('part')) { document.body.classList.remove('all-open'); t.open = true; t.scrollIntoView(); }
+  }
+  window.addEventListener('hashchange', openFromHash);
+  openFromHash();
+
+  document.getElementById('openAll').addEventListener('click', function () {
+    document.body.classList.add('all-open');
+    parts.forEach(function (p) { p.removeAttribute('name'); p.open = true; });
+  });
+  document.getElementById('closeAll').addEventListener('click', function () {
+    document.body.classList.remove('all-open');
+    parts.forEach(function (p) { p.open = false; p.setAttribute('name', 'parts'); });
+  });
+  document.getElementById('clearTicks').addEventListener('click', function () {
+    saved = {}; boxes.forEach(function (b) { b.checked = false; });
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    update();
+  });
+  update();
+})();
+</script>
+</body>
+</html>
