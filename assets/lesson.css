@@ -68,3 +68,9 @@
   a.card b { display: block; font-size: 17px; margin-bottom: 4px; }
   a.card span { color: var(--quiet); font-size: 14px; }
   .empty { color: var(--quiet); font-style: italic; }
+  a.card .num { display: block; font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--c, #2f6fdb); margin-bottom: 2px; }
+  .lessonnum { font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--quiet); margin-top: 6px; }
+  .vidlink a { display: inline-block; padding: 6px 12px; border-radius: 8px; background: #c4302b; color: #fff; text-decoration: none; font-size: 14px; }
+  code { background: #eef1f5; padding: 1px 5px; border-radius: 4px; font-size: 14px; }
+  pre { background: #eef1f5; padding: 10px 12px; border-radius: 8px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
