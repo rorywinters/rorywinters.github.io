@@ -1,0 +1,42 @@
+[
+ {
+  "title": "Animating a Cube: Move, Rotate, Scale and Export to MP4",
+  "path": "blender/lesson-00-animating-a-cube/",
+  "programs": {
+   "Blender": 0
+  },
+  "blurb": "Keyframe a cube that slides, spins and grows, then render one MP4 video."
+ },
+ {
+  "title": "Tumbling Colour Cube Animation and MP4 Export",
+  "path": "blender/lesson-01-tumbling-colour-cube/",
+  "programs": {
+   "Blender": 1
+  },
+  "blurb": "A cube tumbles on all three axes with a light that tracks it. Bonus: three colours on opposite faces."
+ },
+ {
+  "title": "2D Bouncing Ball with a Squashed Bottom",
+  "path": "blender/lesson-02-bouncing-ball/",
+  "programs": {
+   "Blender": 2
+  },
+  "blurb": "Graph Editor, squash and stretch, a looping bounce, then sound effects and an explosion."
+ },
+ {
+  "title": "Jump and Fall: a Platformer",
+  "path": "construct3/platformer/",
+  "programs": {
+   "Construct 3": 0
+  },
+  "blurb": "A character that runs, jumps, lands on platforms and falls off the edges. About one class period."
+ },
+ {
+  "title": "Pong",
+  "path": "pong/",
+  "programs": {
+   "Construct 3": 1
+  },
+  "blurb": "Draw sprites in Piskel, build a one-player Pong game, and play it on your phone. About two class periods."
+ }
+]

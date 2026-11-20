@@ -13,13 +13,22 @@
   <p class="sub">Step-by-step guides for Interactive Digital Media · Winters Innovative Solutions</p>
 </header>
 <div class="cards">
-  <a class="card" style="--c:#c26a12" href="blender/"><b>Blender</b><span>3D modelling, materials, animation and rendering.</span></a>
-  <a class="card" style="--c:#23446e" href="unreal/"><b>Unreal Engine</b><span>3D games and cinematics with Blueprints.</span></a>
-  <a class="card" style="--c:#5b6475" href="unity/"><b>Unity</b><span>3D and 2D games with C# scripts.</span></a>
-  <a class="card" style="--c:#2f6fdb" href="construct3/"><b>Construct 3</b><span>2D games in the browser. 2 lessons: Pong, Platformer.</span></a>
-  <a class="card" style="--c:#7a4fd6" href="piskel/"><b>Piskel</b><span>Pixel art and sprite animation in the browser.</span></a>
+  <a class="card" style="--c:#c26a12" href="blender/" data-p="Blender"><span class="num"></span><b>Blender</b><span>3D modelling, materials, animation and rendering.</span></a>
+  <a class="card" style="--c:#23446e" href="unreal/" data-p="Unreal Engine"><span class="num"></span><b>Unreal Engine</b><span>3D games and cinematics with Blueprints.</span></a>
+  <a class="card" style="--c:#5b6475" href="unity/" data-p="Unity"><span class="num"></span><b>Unity</b><span>3D and 2D games with C# scripts.</span></a>
+  <a class="card" style="--c:#2f6fdb" href="construct3/" data-p="Construct 3"><span class="num"></span><b>Construct 3</b><span>2D games built in the browser with events instead of code.</span></a>
+  <a class="card" style="--c:#7a4fd6" href="piskel/" data-p="Piskel"><span class="num"></span><b>Piskel</b><span>Pixel art and sprite animation in the browser.</span></a>
+  <a class="card" style="--c:#12936f" href="robotics/" data-p="Robotics"><span class="num"></span><b>Robotics</b><span>Programming robots with blocks, switch blocks and Python.</span></a>
 </div>
 <footer>Winters Innovative Solutions · <a href="https://www.youtube.com/@winters.innovative.solutions" target="_blank" rel="noreferrer">YouTube channel</a></footer>
 </div>
+<script>
+fetch('lessons.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (all) {
+  document.querySelectorAll('a.card[data-p]').forEach(function (a) {
+    var n = all.filter(function (l) { return l.programs && l.programs[a.getAttribute('data-p')] !== undefined; }).length;
+    a.querySelector('.num').textContent = n ? n + (n === 1 ? ' lesson' : ' lessons') : 'Coming soon';
+  });
+}).catch(function () {});
+</script>
 </body>
 </html>
