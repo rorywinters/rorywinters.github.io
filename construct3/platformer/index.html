@@ -129,6 +129,15 @@
 <summary><h2>Part 2 · Start the project</h2><span class="done"></span></summary>
 <div class="body">
 <p>The game area is 1280 × 720 with a sky-blue background.</p>
+<table>
+<tr><th>Where things are in Construct 3</th><th>Location on screen</th></tr>
+<tr><td><b>Properties Bar</b></td><td>Left side panel</td></tr>
+<tr><td><b>Project Bar</b></td><td>Top-right panel</td></tr>
+<tr><td><b>Layers Bar</b></td><td>Bottom-right panel</td></tr>
+<tr><td><b>Layout 1</b> and <b>Event sheet 1</b> tabs</td><td>Along the top of the middle area</td></tr>
+<tr><td><b>Preview</b> (▶ play button)</td><td>Main toolbar, top of the window</td></tr>
+</table>
+<p>If a bar is missing, open <b>Menu → View</b> and tick it.</p>
 
 <h3>2A · New project</h3>
 <table>
@@ -151,8 +160,8 @@
 <tr><td></td><td>Background color</td><td>Red 135, Green 206, Blue 235</td></tr>
 </table>
 <ol>
-<li>In the <b>Project Bar</b>, click <b>Layout 1</b>. In the <b>Properties Bar</b>, find <b>Size</b> and click the small <b>▶</b> (play) arrow beside it. It opens into two boxes, <b>Width</b> and <b>Height</b>. Type <b>1280</b> and <b>720</b>. The layout edge lines up with the dotted rectangle.</li>
-<li>Open the <b>Layers Bar</b> and click <b>Layer 0</b>. Untick <b>Transparent</b> if it is ticked (leave <b>Initially visible</b> ticked).</li>
+<li>In the <b>Project Bar</b> (top-right panel), click <b>Layout 1</b>. In the <b>Properties Bar</b> (left side panel), find <b>Size</b> and click the small <b>▶</b> (play) arrow beside it. It opens into two boxes, <b>Width</b> and <b>Height</b>. Type <b>1280</b> and <b>720</b>. The layout edge lines up with the dotted rectangle.</li>
+<li>In the <b>Layers Bar</b> (bottom-right panel), click <b>Layer 0</b>. Untick <b>Transparent</b> if it is ticked (leave <b>Initially visible</b> ticked).</li>
 <li>Click <b>Background color</b> and type <b>135</b>, <b>206</b>, <b>235</b> for Red, Green and Blue. The layout turns sky blue.</li>
 </ol>
 <div class="note what"><b>Looks small?</b> The editor zooms the layout out to fit (the zoom percentage is at the bottom). Hold <b>Ctrl</b> and scroll to zoom. This only changes the view.</div>
@@ -316,7 +325,7 @@
 </table>
 <p>In words: if the character is below the bottom of the screen (the screen is 720 tall), move it back to the start and stop its fall speed.</p>
 <ol>
-<li>Click the <b>Event sheet 1</b> tab.</li>
+<li>Click the <b>Event sheet 1</b> tab (along the top of the middle area, beside Layout 1).</li>
 <li>Click <b>Add event</b> → double-click <b>Player</b> → double-click <b>Compare Y</b>. Choose <b>Greater than</b>, type <b>800</b>, click <b>Done</b>. The condition appears on the left.</li>
 <li>On the same row, click the faint grey <b>Add action</b> text in the middle of the row (it looks greyed out, but it works). Double-click <b>Player</b> → <b>Set position</b>. Type <b>160</b> and <b>500</b>, click <b>Done</b>.</li>
 <li>Click the grey <b>Add action</b> under that action → <b>Player</b> → <b>Set vector Y</b> (in the <b>Platform</b> group). Type <b>0</b>, click <b>Done</b>. The event now has two actions.</li>
