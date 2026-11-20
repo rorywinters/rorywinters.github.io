@@ -38,5 +38,37 @@
    "Construct 3": 1
   },
   "blurb": "Draw sprites in Piskel, build a one-player Pong game, and play it on your phone. About two class periods."
+ },
+ {
+  "title": "Short Animation Assignment",
+  "path": "blender/lesson-03-short-animation/",
+  "programs": {
+   "Blender": 3
+  },
+  "blurb": "Animate the default cube for 250 frames so it moves, rotates and changes size, then render and hand in an MP4."
+ },
+ {
+  "title": "Video Editing Basics in Blender 5.2",
+  "path": "blender/lesson-04-video-editing-basics/",
+  "programs": {
+   "Blender": 4
+  },
+  "blurb": "Cut several clips into one short video in Blender's Video Sequencer, add a title, transitions and music, and export an MP4."
+ },
+ {
+  "title": "Textures from Poly Haven: a Street Corner Made of Cubes",
+  "path": "blender/lesson-05-textures-from-poly-haven/",
+  "programs": {
+   "Blender": 5
+  },
+  "blurb": "Build a road, sidewalk, brick wall and door from stretched cubes, then give each one a free Poly Haven texture with real bumps and depth."
+ },
+ {
+  "title": "Make a Soup Can",
+  "path": "blender/lesson-06-soup-can/",
+  "programs": {
+   "Blender": 6
+  },
+  "blurb": "Model a soup can with tin ends, a wraparound label and raised metal rims, using inset, extrude, bevel and UV editing."
  }
 ]
