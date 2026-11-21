@@ -8,7 +8,7 @@ You replace the grey Third Person mannequin with a character from [Fab](https://
 
 **Time:** about 1 class. **You need:** Unreal Engine 5.8 and an Epic Games account. No code.
 
-**The one rule:** pick a character that's made for the **UE5 Mannequin**. Its Fab page will say **UE5 Mannequin**, **Manny**, **Epic skeleton** or **compatible with the Third Person template**. Those characters use the same walk, run and jump the template already has, so you only swap one setting.
+**The one rule:** pick a character that's made for the **UE5 Mannequin**. Its Fab page will say **UE5 Mannequin**, **Manny**, **Epic skeleton** or **compatible with the Third Person template**. Those characters use the same walk, run and jump the template already has, so you only swap one setting. The class pick, **Adventure Character** (Part 2), already follows this rule.
 
 | Use these names exactly | Name |
 | --- | --- |
@@ -30,13 +30,13 @@ You replace the grey Third Person mannequin with a character from [Fab](https://
 
 The amber choice is the download size: one character, not a big pack.
 
-**Links for this lesson:** Part 2 characters: [fab.com](https://www.fab.com/) then the Epic Games Launcher → Unreal Engine → Library → Fab Library
+**Links for this lesson:** Part 2 character: [Adventure Character on Fab](https://www.fab.com/listings/deecb264-3b8e-47f1-b4a1-563865f5cd88) (free), then the Epic Games Launcher → Unreal Engine → Library → Fab Library
 
 ```brief
 Part 1 · Third Person project
 1 · Project | Games → Third Person · no Starter Content · no Raytracing | CharacterSwap · save level CharacterLevel
 Part 2 · Get a character
-2 · Fab | fab.com · search UE5 Mannequin character · Free · Add to My Library | Launcher → Unreal Engine → Library → Fab Library → Add to Project · find SK_ Skeletal Mesh
+2 · Fab | fab.com · search Adventure Character · by Bugrimov Maksim · 3D Characters & Creatures · Free · Add to My Library | Launcher → Unreal Engine → Library → Fab Library → Add to Project · find SK_ Skeletal Mesh
 Part 3 · Swap it in
 3 · BP_ThirdPersonCharacter | Mesh (CharacterMesh0) | Skeletal Mesh Asset → your character · Compile · Save
 Part 4 · Play and hand in
@@ -66,15 +66,26 @@ You find the character on the Fab website, then the **Epic Games Launcher** copi
 
 1. Click **File → Save All** in Unreal. You can leave Unreal open.
 2. In your browser, go to [fab.com](https://www.fab.com/) and click **Sign in** (top right). Use your Epic Games account.
-3. Search **UE5 Mannequin character** and set the **Price** filter to **Free**.
-4. Open a character. Check its description says **UE5 Mannequin** (or Manny / Epic skeleton). If it doesn't, pick another.
+3. In the Fab search box (top of the page), type **Adventure Character** and press **Enter**. Or open it directly: [Adventure Character on Fab](https://www.fab.com/listings/deecb264-3b8e-47f1-b4a1-563865f5cd88).
+4. Click the one **by Bugrimov Maksim**. Before you add it, check the right side of its page matches this table:
+
+| On the Fab page | It should say |
+| --- | --- |
+| Name and maker | **Adventure Character** by **Bugrimov Maksim** |
+| Type (under the name) | **3D** · **Characters & Creatures** |
+| Price | **Free** |
+| Included formats | **Unreal Engine** |
+| Unreal Engine versions | includes **5.8** |
+
 5. Click **Add to My Library**. The button changes to say it's in your library.
 6. Open the **Epic Games Launcher** and click **Unreal Engine** (left side), then the **Library** tab (along the top).
 7. Scroll down to **Fab Library**. Your character is listed there. (If it isn't, click the refresh arrow beside the search box.)
 8. Click your character, then **Add to Project**. Choose **CharacterSwap** and click **Add to Project** again. If it asks for a version, pick **5.8**, or tick **Show all projects** and choose CharacterSwap. Wait for the download to finish.
 9. Back in Unreal, in the **Content Browser** (bottom of the window), open the new folder and find the character's **Skeletal Mesh**. Hover over the thumbnails: the tooltip says the type. Its name often starts with **SK_** or **SKM_**.
 
-> **Pick the right one:** one character, not a big pack of characters and levels (amber: packs can be several GB). Choose the **Skeletal Mesh**, not the Static Mesh, Skeleton or Physics Asset.
+> **Pick the right one:** a search shows lots of look-alikes, so check the maker is **Bugrimov Maksim** and the type is **3D · Characters & Creatures**. Choose the **Skeletal Mesh**, not the Static Mesh, Skeleton or Physics Asset.
+
+> **Want a different character?** It must be **Free**, say **UE5 Mannequin** or **Epic Skeleton** in its description, and list **Unreal Engine** under Included formats. A good second choice is [Rogue Character Model](https://www.fab.com/listings/15e2afd1-11c0-4679-832c-ebbfb6162583) by Wander Sols Assets. Avoid big packs (amber: they can be several GB).
 
 > **Shortcut if your Unreal has Fab built in:** if the **Window** menu has a **Get Content** section near the bottom with **Fab** in it, you can search and click **Add to Project** right inside Unreal instead of steps 2 to 8.
 
