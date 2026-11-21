@@ -100,8 +100,11 @@ You find the character on the Fab website, then the **Epic Games Launcher** copi
 5. Click **Add to My Library**. The button changes to say it's in your library.
 6. Open the **Epic Games Launcher** and click **Unreal Engine** (left side), then the **Library** tab (along the top).
 7. Scroll down to **Fab Library**. Your character is listed there. (If it isn't, click the refresh arrow beside the search box.)
-8. Click your character, then **Add to Project**. Choose **CharacterSwap** and click **Add to Project** again. If it asks for a version, pick **5.8**, or tick **Show all projects** and choose CharacterSwap. Wait for the download to finish.
-9. Back in Unreal, in the **Content Browser** (bottom of the window), open the new folder and find the character's **Skeletal Mesh**. Hover over the thumbnails: the tooltip says the type. Its name often starts with **SK_** or **SKM_**.
+8. Click your character, then **Add to Project**. Choose **CharacterSwap** and click **Add to Project** again. Wait for the download to finish (progress shows at the bottom-left of the Launcher).
+
+> **"No compatible user projects found"?** The character was made for an older Unreal (for example 5.0–5.7) and your project is 5.8, so the Launcher hides it. Tick **Show all projects** (top right of the window), click **CharacterSwap**, choose the **newest version** in the **Select a version** box that appears under it, and click **Add to Project**. Characters from 5.7 almost always work in 5.8.
+
+9. Back in Unreal, click **Content Drawer** (bottom-left corner). Under **Content** there is a new folder named after the character or its maker (for example **AdventureCharacter** or **CoreCharacters**). To find the body quickly, click that folder, then click **Filter** (top-left of the Content Drawer, funnel icon) → **Animation** → **Skeletal Mesh**. Only skeletal meshes stay in view. Hover over a thumbnail and the tooltip says its type. Its name often starts with **SK_** or **SKM_**.
 
 > **Pick the right one:** watch for look-alikes. Without the **Price** filter, the first result is **Adventure Character 01**, which costs money. Check the maker is **Bugrimov Maksim** and the price says **Free**. Choose the **Skeletal Mesh**, not the Static Mesh, Skeleton or Physics Asset. If you see two versions of the mesh (one for UE4, one for UE5), choose the **UE5** one.
 
@@ -144,6 +147,7 @@ The player is a Blueprint called **BP_ThirdPersonCharacter**. You change one set
 
 | Problem | Fix |
 | --- | --- |
+| Launcher says **No compatible user projects found** | Tick **Show all projects**, pick CharacterSwap, choose the newest version offered, then Add to Project (Part 2, step 8). |
 | Character not in the Launcher's Fab Library | Check you clicked **Add to My Library** on fab.com while signed in to the **same** Epic account as the Launcher. Click the refresh arrow in the Library tab. |
 | No **Add to Project** button, or CharacterSwap isn't in the list | Tick **Show all projects**. Make sure the project was saved and Unreal 5.8 is installed in the Launcher. |
 | Character stands in a T-pose or slides | It isn't made for the UE5 Mannequin. Pick another character (the one rule). |
