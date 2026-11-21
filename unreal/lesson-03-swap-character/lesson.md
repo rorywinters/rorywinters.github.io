@@ -17,8 +17,7 @@ You replace the grey Third Person mannequin with a character from [Fab](https://
 
 | Where things are in Unreal | Location on screen |
 | --- | --- |
-| **Window** menu (Fab is near the bottom, under **Get Content**) | Menu bar, top left |
-| **Content Browser / Content Drawer** (has its own **Fab** button beside **+ Add**) | Bottom of the window (Content Drawer button, bottom-left corner) |
+| **Content Browser / Content Drawer** | Bottom of the window (Content Drawer button, bottom-left corner) |
 | **Components** panel (in a Blueprint) | Top-left of the Blueprint editor |
 | **Details** panel | Right side of the window |
 | **Play** (green ▶) | Main toolbar, top middle |
@@ -31,13 +30,13 @@ You replace the grey Third Person mannequin with a character from [Fab](https://
 
 The amber choice is the download size: one character, not a big pack.
 
-**Links for this lesson:** Part 2 characters: [fab.com](https://www.fab.com/) (or Window → Get Content → Fab, or the Fab button in the Content Drawer, inside Unreal)
+**Links for this lesson:** Part 2 characters: [fab.com](https://www.fab.com/) then the Epic Games Launcher → Unreal Engine → Library → Fab Library
 
 ```brief
 Part 1 · Third Person project
 1 · Project | Games → Third Person · no Starter Content · no Raytracing | CharacterSwap · save level CharacterLevel
 Part 2 · Get a character
-2 · Fab | search UE5 Mannequin character · Free | Add to My Library → Add to Project · find SK_ Skeletal Mesh
+2 · Fab | fab.com · search UE5 Mannequin character · Free · Add to My Library | Launcher → Unreal Engine → Library → Fab Library → Add to Project · find SK_ Skeletal Mesh
 Part 3 · Swap it in
 3 · BP_ThirdPersonCharacter | Mesh (CharacterMesh0) | Skeletal Mesh Asset → your character · Compile · Save
 Part 4 · Play and hand in
@@ -63,18 +62,21 @@ Part 4 · Play and hand in
 
 ## Part 2 · Get a character from Fab
 
-1. Open the **Window** menu (menu bar, top left) and **scroll down to the bottom of the list**. **Fab** is in the **Get Content** section near the end, not with the other windows at the top. (Other way: click **Content Drawer** in the bottom-left corner, then the **Fab** button beside **+ Add**.) The Fab window opens. Sign in with your Epic Games account if asked.
+You find the character on the Fab website, then the **Epic Games Launcher** copies it into your project. This works on every computer, even when Fab doesn't show inside Unreal.
 
-> **Still no Fab?** Try the first row of **Troubleshooting** at the bottom. If that doesn't work, use **Plan B** at the end of this part: get the character from the Fab website instead. Steps 2 to 5 are the same idea.
-
-2. Search **UE5 Mannequin character** and set the **Price** filter to **Free**.
-3. Open a character. Check its description says **UE5 Mannequin** (or Manny / Epic skeleton). If it doesn't, pick another.
-4. Click **Add to My Library**, then **Add to Project**. Wait for the download.
-5. In the **Content Browser** (bottom of the window), open the new folder and find the character's **Skeletal Mesh**. Hover over the thumbnails: the tooltip says the type. Its name often starts with **SK_** or **SKM_**.
+1. Click **File → Save All** in Unreal. You can leave Unreal open.
+2. In your browser, go to [fab.com](https://www.fab.com/) and click **Sign in** (top right). Use your Epic Games account.
+3. Search **UE5 Mannequin character** and set the **Price** filter to **Free**.
+4. Open a character. Check its description says **UE5 Mannequin** (or Manny / Epic skeleton). If it doesn't, pick another.
+5. Click **Add to My Library**. The button changes to say it's in your library.
+6. Open the **Epic Games Launcher** and click **Unreal Engine** (left side), then the **Library** tab (along the top).
+7. Scroll down to **Fab Library**. Your character is listed there. (If it isn't, click the refresh arrow beside the search box.)
+8. Click your character, then **Add to Project**. Choose **CharacterSwap** and click **Add to Project** again. If it asks for a version, pick **5.8**, or tick **Show all projects** and choose CharacterSwap. Wait for the download to finish.
+9. Back in Unreal, in the **Content Browser** (bottom of the window), open the new folder and find the character's **Skeletal Mesh**. Hover over the thumbnails: the tooltip says the type. Its name often starts with **SK_** or **SKM_**.
 
 > **Pick the right one:** one character, not a big pack of characters and levels (amber: packs can be several GB). Choose the **Skeletal Mesh**, not the Static Mesh, Skeleton or Physics Asset.
 
-> **Plan B: get it from the website.** Go to [fab.com](https://www.fab.com/) in your browser and sign in with your Epic Games account. Find a free UE5 Mannequin character the same way (steps 2 and 3) and click **Add to My Library**. Open the **Epic Games Launcher**, click **Unreal Engine** → **Library**, scroll down to **Fab Library**, find the character and click **Add to Project**. Pick **CharacterSwap** and click **Add to Project** again. Then carry on from step 5.
+> **Shortcut if your Unreal has Fab built in:** if the **Window** menu has a **Get Content** section near the bottom with **Fab** in it, you can search and click **Add to Project** right inside Unreal instead of steps 2 to 8.
 
 - [ ] The character's folder is in the Content Browser
 - [ ] You found its Skeletal Mesh and know its name
@@ -111,7 +113,8 @@ The player is a Blueprint called **BP_ThirdPersonCharacter**. You change one set
 
 | Problem | Fix |
 | --- | --- |
-| No Fab in the Window menu | Scroll to the bottom of the Window menu: it's under **Get Content**. Or use the **Fab** button in the Content Drawer. If it's in neither, choose **Edit → Plugins**, search **Fab**, tick **Enabled** and restart Unreal. Still nothing: use **Plan B** in Part 2. |
+| Character not in the Launcher's Fab Library | Check you clicked **Add to My Library** on fab.com while signed in to the **same** Epic account as the Launcher. Click the refresh arrow in the Library tab. |
+| No **Add to Project** button, or CharacterSwap isn't in the list | Tick **Show all projects**. Make sure the project was saved and Unreal 5.8 is installed in the Launcher. |
 | Character stands in a T-pose or slides | It isn't made for the UE5 Mannequin. Pick another character (the one rule). |
 | Still the grey mannequin on Play | Compile and Save BP_ThirdPersonCharacter (Part 3). |
 | Floating, sunk in the floor or facing sideways | Select Mesh in the Blueprint and check Location Z −90 and Rotation Z −90. |
