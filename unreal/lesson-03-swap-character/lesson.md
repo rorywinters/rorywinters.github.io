@@ -2,13 +2,13 @@
 title: Swap the Third Person Character for a Fab Character
 program: Unreal Engine
 lesson: 3
-blurb: Replace the grey Third Person mannequin with a free Fab character made for the UE5 Mannequin, then walk and jump as it. One setting, no code. About one class.
+blurb: Keep the Third Person player that already walks and jumps, and give it a new body from Fab. Then make it bigger or smaller. No code, about one class.
 ---
-You replace the grey Third Person mannequin with a character from [Fab](https://www.fab.com/), then walk and jump as it with **W A S D** and **Space**.
+The grey mannequin already walks with **W A S D** and jumps with **Space**. You keep all of that and only change what it **looks like**: swap its body for a free character from [Fab](https://www.fab.com/), then make it bigger or smaller.
 
-**Time:** about 1 class. **You need:** Unreal Engine 5.8 and an Epic Games account. No code.
+**Time:** about 1 class. **You need:** Unreal Engine 5.8 and an Epic Games account. No code, no input settings.
 
-**The one rule:** pick a character that's made for the **UE5 Mannequin**. Its Fab page will say **UE5 Mannequin**, **Manny**, **Epic skeleton** or **compatible with the Third Person template**. Those characters use the same walk, run and jump the template already has, so you only swap one setting. The class pick, **Adventure Character** (Part 2), already follows this rule.
+**The class character:** [Adventure Character](https://www.fab.com/listings/deecb264-3b8e-47f1-b4a1-563865f5cd88) by Bugrimov Maksim. It's free, rated Not Mature, one piece (clothes already on), and built on the same skeleton as the grey mannequin, so the walk and jump just work.
 
 | Use these names exactly | Name |
 | --- | --- |
@@ -17,7 +17,7 @@ You replace the grey Third Person mannequin with a character from [Fab](https://
 
 | Where things are in Unreal | Location on screen |
 | --- | --- |
-| **Content Browser / Content Drawer** | Bottom of the window (Content Drawer button, bottom-left corner) |
+| **Content Drawer** | Button at the bottom-left corner |
 | **Components** panel (in a Blueprint) | Top-left of the Blueprint editor |
 | **Details** panel | Right side of the window |
 | **Play** (green ▶) | Main toolbar, top middle |
@@ -28,19 +28,19 @@ You replace the grey Third Person mannequin with a character from [Fab](https://
 | Amber | Adds some load or disk space. |
 | Red | Use with caution. A lighter working value is given. |
 
-The amber choice is the download size: one character, not a big pack.
-
-**Links for this lesson:** Part 2 character: [Adventure Character on Fab](https://www.fab.com/listings/deecb264-3b8e-47f1-b4a1-563865f5cd88) (free), then the Epic Games Launcher → Unreal Engine → Library → Fab Library
+**Links for this lesson:** [Adventure Character on Fab](https://www.fab.com/listings/deecb264-3b8e-47f1-b4a1-563865f5cd88) (free) · the **Epic Games Launcher** adds it to your project.
 
 ```brief
 Part 1 · Third Person project
 1 · Project | Games → Third Person · no Starter Content · no Raytracing | CharacterSwap · save level CharacterLevel
-Part 2 · Get a character
-2 · Fab | fab.com · Adventure Character · View Unreal Engine · 3D Characters & Creatures · Formats Unreal Engine · Free · Ratings 4 & up · Listing · Not Mature · Add to My Library | Launcher → Unreal Engine → Library → Fab Library → Add to Project · find SK_ Skeletal Mesh
-Part 3 · Swap it in
+Part 2 · Get the character
+2 · fab.com | Adventure Character link · Free · Add to My Library | Launcher → Unreal Engine → Library → Fab Library → Add to Project (Show all projects if needed)
+Part 3 · Swap the body
 3 · BP_ThirdPersonCharacter | Mesh (CharacterMesh0) | Skeletal Mesh Asset → your character · Compile · Save
-Part 4 · Play and hand in
-4 · Play | WASD · Space | Win+Alt+R clip → Google Classroom
+Part 4 · Bigger or smaller
+4 · Mesh → Scale | 2 = twice as big · 0.5 = half size | Compile · Save
+Part 5 · Play and hand in
+5 · Play | WASD · Space | Win+Alt+R clip → Google Classroom
 ```
 
 ## Part 1 · Make a Third Person project
@@ -60,80 +60,68 @@ Part 4 · Play and hand in
 - [ ] The grey mannequin walks and jumps on Play
 - [ ] The level tab reads CharacterLevel
 
-## Part 2 · Get a character from Fab
+## Part 2 · Get the character from Fab
 
-You find the character on the Fab website, then the **Epic Games Launcher** copies it into your project. This works on every computer, even when Fab doesn't show inside Unreal.
+You add the character on the **Fab website**, then the **Epic Games Launcher** copies it into your project. This works on every school computer.
 
-1. Click **File → Save All** in Unreal. You can leave Unreal open.
-2. In your browser, go to [fab.com](https://www.fab.com/) and click **Sign in** (top right). Use your Epic Games account.
-3. Set up the search exactly like this table, from top to bottom. Leave anything marked **(leave empty)** alone. Shortcut: this link opens the search with the main settings already on: [Fab search: Adventure Character, free, Unreal Engine](https://www.fab.com/search/channels/unreal-engine?q=Adventure+Character&listing_types=3d-model&categories=characters-creatures&is_free=1&asset_formats=unreal-engine).
-
-| Where on the Fab page | Setting | Set it to |
-| --- | --- | --- |
-| Search box (top middle) | Search words | **Adventure Character**, then press **Enter** |
-| Left side, **View** | View | **Unreal Engine** |
-| Left side, **Product types** | Product type | **3D** → click the **▶** arrow → **Characters & Creatures** |
-| Bar above the results | 1 · **Style** | (leave empty) |
-| Bar above the results | 2 · **Technical features** | (leave empty). Our character isn't tagged Rigged or Epicskeleton, so ticking those hides it. |
-| **More filters** (bar above the results) | 3 · **Formats** | tick **Unreal Engine** |
-| More filters | 4 · **Tags** | (leave empty) |
-| More filters | 5 · **Price** | tick **Only show free products** |
-| More filters | 6 · **Discount** | **All products** |
-| More filters | 7 · **Licenses** | (leave empty) |
-| More filters | 8 · **Publishers** | (leave empty), or type **Bugrimov Maksim** to see only his characters |
-| More filters | 9 · **Date published** | **All time** |
-| More filters | 10 · **Ratings** | **4 & up** |
-| More filters | 11 · **Content Type** | **Listing** (one product, not a bundle) |
-| Bar above the results | **Sort by** | **Relevance** |
-
-4. **Adventure Character** by **Bugrimov Maksim** is now first in the results. Click it. Before you add it, check the right side of its page matches this table:
+1. In Unreal, click **File → Save All**. You can leave Unreal open.
+2. In your browser, open [Adventure Character on Fab](https://www.fab.com/listings/deecb264-3b8e-47f1-b4a1-563865f5cd88). Click **Sign in** (top right) if asked, with your Epic Games account.
+3. Check the right side of the page matches this table:
 
 | On the Fab page | It should say |
 | --- | --- |
 | Name and maker | **Adventure Character** by **Bugrimov Maksim** |
-| Type (under the name) | **3D** · **Characters & Creatures** |
 | Price | **Free** |
-| Included formats | **Unreal Engine** |
-| Unreal Engine versions | includes **5.8** |
 | Age rating (under Details) | **Not Mature** |
 
-5. Click **Add to My Library**. The button changes to say it's in your library.
-6. Open the **Epic Games Launcher** and click **Unreal Engine** (left side), then the **Library** tab (along the top).
-7. Scroll down to **Fab Library**. Your character is listed there. (If it isn't, click the refresh arrow beside the search box.)
-8. Click your character, then **Add to Project**. Choose **CharacterSwap** and click **Add to Project** again. Wait for the download to finish (progress shows at the bottom-left of the Launcher).
+4. Click **Add to My Library**.
+5. Open the **Epic Games Launcher**. Click **Unreal Engine** (left side), then the **Library** tab (along the top), and scroll down to **Fab Library**. (Don't see it? Click the refresh arrow beside the search box.)
+6. Click **Adventure Character**, then **Add to Project**. Click **CharacterSwap**, then **Add to Project** again. Wait for the download to finish (bottom-left of the Launcher).
 
-> **"No compatible user projects found"?** The character was made for an older Unreal (for example 5.0–5.7) and your project is 5.8, so the Launcher hides it. Tick **Show all projects** (top right of the window), click **CharacterSwap**, choose the **newest version** in the **Select a version** box that appears under it, and click **Add to Project**. Characters from 5.7 almost always work in 5.8.
+> **"No compatible user projects found"?** The character was made for an older Unreal, so the Launcher hides your 5.8 project. Tick **Show all projects** (top right), click **CharacterSwap**, pick the **newest version** in the box that appears under it, and click **Add to Project**.
 
-9. Back in Unreal, click **Content Drawer** (bottom-left corner). Under **Content** there is a new folder named after the character or its maker (for example **AdventureCharacter** or **CoreCharacters**). To find the body quickly, click that folder, then click **Filter** (top-left of the Content Drawer, funnel icon) → **Animation** → **Skeletal Mesh**. Only skeletal meshes stay in view. Hover over a thumbnail and the tooltip says its type. Its name often starts with **SK_** or **SKM_**.
+> **Pick the right one:** if you search Fab instead of using the link, the first result can be **Adventure Character 01**, which costs money. Check the maker is **Bugrimov Maksim** and the price says **Free**.
 
-> **Pick the right one:** watch for look-alikes. Without the **Price** filter, the first result is **Adventure Character 01**, which costs money. Check the maker is **Bugrimov Maksim** and the price says **Free**. Choose the **Skeletal Mesh**, not the Static Mesh, Skeleton or Physics Asset. If you see two versions of the mesh (one for UE4, one for UE5), choose the **UE5** one.
+- [ ] Adventure Character finished downloading in the Launcher
+- [ ] In Unreal, a new folder shows under **Content** in the Content Drawer
 
-> **School rule:** pick only from the class list: **Adventure Character** (first choice), [Adventure Female](https://www.fab.com/listings/22357e16-0f8e-4ae2-9ded-92702d94e22d) by the same maker, or [Rogue Character Model](https://www.fab.com/listings/15e2afd1-11c0-4679-832c-ebbfb6162583) by Wander Sols Assets. All three are free, rated **Not Mature**, and made for the UE5 skeleton. Want something else? Show your teacher the Fab page first: it must say **Free**, **Not Mature**, **Unreal Engine** and **UE5 Mannequin** or **Epic Skeleton**.
+## Part 3 · Swap the body
 
-> **Shortcut if your Unreal has Fab built in:** if the **Window** menu has a **Get Content** section near the bottom with **Fab** in it, you can search and click **Add to Project** right inside Unreal instead of steps 2 to 8.
-
-- [ ] The character's folder is in the Content Browser
-- [ ] You found its Skeletal Mesh and know its name
-
-## Part 3 · Swap it in
-
-The player is a Blueprint called **BP_ThirdPersonCharacter**. You change one setting inside it.
+The player is a Blueprint called **BP_ThirdPersonCharacter**. It already has the walking, jumping and camera. You only change its **Mesh** (its body).
 
 | Mesh (CharacterMesh0) → Details → Mesh | Value |
 | --- | --- |
-| **Skeletal Mesh Asset** | your character |
+| **Skeletal Mesh Asset** | the Adventure Character mesh |
 
-1. In the **Content Browser**, go to **Content → ThirdPerson → Blueprints** and double-click **BP_ThirdPersonCharacter**. If a small window opens, click **Open Full Blueprint Editor**.
+1. Click **Content Drawer** (bottom-left corner). Go to **Content → ThirdPerson → Blueprints** and double-click **BP_ThirdPersonCharacter**. If a small window opens, click **Open Full Blueprint Editor**.
 2. In the **Components** panel (top-left), click **Mesh (CharacterMesh0)**.
-3. In the **Details** panel (right side), set **Skeletal Mesh Asset** to your character. The grey mannequin in the Blueprint viewport turns into your character.
+3. In the **Details** panel (right side), find **Skeletal Mesh Asset** and click its dropdown. Type **Adventure** in the search box and pick the Adventure Character mesh. If there are two, pick the one that isn't marked UE4. The grey mannequin turns into your character.
 4. Click **Compile**, then **Save** (top-left of the Blueprint toolbar).
 
-> **Pick the right one:** **Mesh (CharacterMesh0)**, not **Capsule Component**. Don't drag your character into the level either: that only makes a statue.
+> **Pick the right one:** click **Mesh (CharacterMesh0)**, not **Capsule Component**. Don't drag the character into the level: that only makes a statue.
 
 - [ ] The Blueprint viewport shows your character standing in the capsule
 - [ ] Compile shows a green tick
 
-## Part 4 · Play and hand in
+## Part 4 · Bigger or smaller
+
+**Scale** changes the size of the body. The feet stay on the ground, so the character still walks normally.
+
+| Mesh (CharacterMesh0) → Details → Transform | Value |
+| --- | --- |
+| **Scale** X, Y, Z | 1 = normal · **2** = twice as big (green) · **0.5** = half size (green) |
+
+1. With **Mesh (CharacterMesh0)** still selected, find **Scale** near the top of the **Details** panel (under **Transform**).
+2. Click the small **lock** icon beside Scale so the three boxes change together. Type **2** in the first box and press **Enter**. All three boxes read 2, and the character in the viewport doubles in size.
+3. Click **Compile**, then **Save**. Click **Play** and run around as a giant.
+4. Try **0.5** for a tiny character. Pick the size you like best for your hand-in.
+
+> **What changed:** only the look. The player still bumps into things at normal size, so a giant's head can go through low ceilings. That's fine for this lesson.
+
+- [ ] The character is a different size in the viewport
+- [ ] On Play, it still walks and jumps
+
+## Part 5 · Play and hand in
 
 1. Click **Play**. Walk with **W A S D**, jump with **Space**. Press **Esc** to stop.
 2. Choose **File → Save All**.
@@ -147,10 +135,10 @@ The player is a Blueprint called **BP_ThirdPersonCharacter**. You change one set
 
 | Problem | Fix |
 | --- | --- |
-| Launcher says **No compatible user projects found** | Tick **Show all projects**, pick CharacterSwap, choose the newest version offered, then Add to Project (Part 2, step 8). |
-| Character not in the Launcher's Fab Library | Check you clicked **Add to My Library** on fab.com while signed in to the **same** Epic account as the Launcher. Click the refresh arrow in the Library tab. |
-| No **Add to Project** button, or CharacterSwap isn't in the list | Tick **Show all projects**. Make sure the project was saved and Unreal 5.8 is installed in the Launcher. |
-| Character stands in a T-pose or slides | It isn't made for the UE5 Mannequin. Pick another character (the one rule). |
+| Character stands still in a **T-pose** (arms straight out) | Quick fix, 3 clicks: in the Content Drawer, open the character's folder and double-click its **Skeleton** (hover: the tooltip says Skeleton). In **Asset Details** (right side), find **Compatible Skeletons**, click **+**, pick **SK_Mannequin**, then **Save**. Play again. |
+| Still a T-pose after that | The character uses a different skeleton. Go back to **Adventure Character**, or ask your teacher. |
+| Launcher says **No compatible user projects found** | Tick **Show all projects**, pick CharacterSwap, choose the newest version, then Add to Project (Part 2). |
+| Character not in the Launcher's Fab Library | Make sure you clicked **Add to My Library** while signed in to the **same** Epic account as the Launcher. Click the refresh arrow. |
 | Still the grey mannequin on Play | Compile and Save BP_ThirdPersonCharacter (Part 3). |
 | Floating, sunk in the floor or facing sideways | Select Mesh in the Blueprint and check Location Z −90 and Rotation Z −90. |
 | A frozen copy stands in the level | It was dragged into the level. Select it in the Outliner (top-right panel) and press Delete. |
