@@ -36,7 +36,7 @@ The amber choice is the download size: one character, not a big pack.
 Part 1 · Third Person project
 1 · Project | Games → Third Person · no Starter Content · no Raytracing | CharacterSwap · save level CharacterLevel
 Part 2 · Get a character
-2 · Fab | fab.com · search Adventure Character · by Bugrimov Maksim · 3D Characters & Creatures · Free · Add to My Library | Launcher → Unreal Engine → Library → Fab Library → Add to Project · find SK_ Skeletal Mesh
+2 · Fab | fab.com · Adventure Character · View Unreal Engine · 3D Characters & Creatures · Formats Unreal Engine · Free · Ratings 4 & up · Listing · Not Mature · Add to My Library | Launcher → Unreal Engine → Library → Fab Library → Add to Project · find SK_ Skeletal Mesh
 Part 3 · Swap it in
 3 · BP_ThirdPersonCharacter | Mesh (CharacterMesh0) | Skeletal Mesh Asset → your character · Compile · Save
 Part 4 · Play and hand in
@@ -66,8 +66,27 @@ You find the character on the Fab website, then the **Epic Games Launcher** copi
 
 1. Click **File → Save All** in Unreal. You can leave Unreal open.
 2. In your browser, go to [fab.com](https://www.fab.com/) and click **Sign in** (top right). Use your Epic Games account.
-3. In the Fab search box (top of the page), type **Adventure Character** and press **Enter**. Or open it directly: [Adventure Character on Fab](https://www.fab.com/listings/deecb264-3b8e-47f1-b4a1-563865f5cd88).
-4. Click the one **by Bugrimov Maksim**. Before you add it, check the right side of its page matches this table:
+3. Set up the search exactly like this table, from top to bottom. Leave anything marked **(leave empty)** alone. Shortcut: this link opens the search with the main settings already on: [Fab search: Adventure Character, free, Unreal Engine](https://www.fab.com/search/channels/unreal-engine?q=Adventure+Character&listing_types=3d-model&categories=characters-creatures&is_free=1&asset_formats=unreal-engine).
+
+| Where on the Fab page | Setting | Set it to |
+| --- | --- | --- |
+| Search box (top middle) | Search words | **Adventure Character**, then press **Enter** |
+| Left side, **View** | View | **Unreal Engine** |
+| Left side, **Product types** | Product type | **3D** → click the **▶** arrow → **Characters & Creatures** |
+| Bar above the results | 1 · **Style** | (leave empty) |
+| Bar above the results | 2 · **Technical features** | (leave empty). Our character isn't tagged Rigged or Epicskeleton, so ticking those hides it. |
+| **More filters** (bar above the results) | 3 · **Formats** | tick **Unreal Engine** |
+| More filters | 4 · **Tags** | (leave empty) |
+| More filters | 5 · **Price** | tick **Only show free products** |
+| More filters | 6 · **Discount** | **All products** |
+| More filters | 7 · **Licenses** | (leave empty) |
+| More filters | 8 · **Publishers** | (leave empty), or type **Bugrimov Maksim** to see only his characters |
+| More filters | 9 · **Date published** | **All time** |
+| More filters | 10 · **Ratings** | **4 & up** |
+| More filters | 11 · **Content Type** | **Listing** (one product, not a bundle) |
+| Bar above the results | **Sort by** | **Relevance** |
+
+4. **Adventure Character** by **Bugrimov Maksim** is now first in the results. Click it. Before you add it, check the right side of its page matches this table:
 
 | On the Fab page | It should say |
 | --- | --- |
@@ -76,6 +95,7 @@ You find the character on the Fab website, then the **Epic Games Launcher** copi
 | Price | **Free** |
 | Included formats | **Unreal Engine** |
 | Unreal Engine versions | includes **5.8** |
+| Age rating (under Details) | **Not Mature** |
 
 5. Click **Add to My Library**. The button changes to say it's in your library.
 6. Open the **Epic Games Launcher** and click **Unreal Engine** (left side), then the **Library** tab (along the top).
@@ -83,9 +103,9 @@ You find the character on the Fab website, then the **Epic Games Launcher** copi
 8. Click your character, then **Add to Project**. Choose **CharacterSwap** and click **Add to Project** again. If it asks for a version, pick **5.8**, or tick **Show all projects** and choose CharacterSwap. Wait for the download to finish.
 9. Back in Unreal, in the **Content Browser** (bottom of the window), open the new folder and find the character's **Skeletal Mesh**. Hover over the thumbnails: the tooltip says the type. Its name often starts with **SK_** or **SKM_**.
 
-> **Pick the right one:** a search shows lots of look-alikes, so check the maker is **Bugrimov Maksim** and the type is **3D · Characters & Creatures**. Choose the **Skeletal Mesh**, not the Static Mesh, Skeleton or Physics Asset.
+> **Pick the right one:** watch for look-alikes. Without the **Price** filter, the first result is **Adventure Character 01**, which costs money. Check the maker is **Bugrimov Maksim** and the price says **Free**. Choose the **Skeletal Mesh**, not the Static Mesh, Skeleton or Physics Asset. If you see two versions of the mesh (one for UE4, one for UE5), choose the **UE5** one.
 
-> **Want a different character?** It must be **Free**, say **UE5 Mannequin** or **Epic Skeleton** in its description, and list **Unreal Engine** under Included formats. A good second choice is [Rogue Character Model](https://www.fab.com/listings/15e2afd1-11c0-4679-832c-ebbfb6162583) by Wander Sols Assets. Avoid big packs (amber: they can be several GB).
+> **School rule:** pick only from the class list: **Adventure Character** (first choice), [Adventure Female](https://www.fab.com/listings/22357e16-0f8e-4ae2-9ded-92702d94e22d) by the same maker, or [Rogue Character Model](https://www.fab.com/listings/15e2afd1-11c0-4679-832c-ebbfb6162583) by Wander Sols Assets. All three are free, rated **Not Mature**, and made for the UE5 skeleton. Want something else? Show your teacher the Fab page first: it must say **Free**, **Not Mature**, **Unreal Engine** and **UE5 Mannequin** or **Epic Skeleton**.
 
 > **Shortcut if your Unreal has Fab built in:** if the **Window** menu has a **Get Content** section near the bottom with **Fab** in it, you can search and click **Add to Project** right inside Unreal instead of steps 2 to 8.
 
