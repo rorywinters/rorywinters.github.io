@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jumping Alien Sprite in Piskel · Winters Innovative Solutions</title>
+<link rel="stylesheet" href="../../assets/lesson.css">
+<style>
+.ref{display:block;max-width:100%;height:auto;margin:.6em 0;border:1px solid #ccc;border-radius:6px;image-rendering:pixelated}
+.refrow{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start}
+.refrow img{max-width:240px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="crumb"><a href="../../">Lessons</a> › <a href="../">Piskel</a></div>
+  <div class="lessonnum">Piskel · Lesson 0 <span class="status wait">◷ Waiting for approval</span></div>
+  <h1>Jumping Alien Sprite in Piskel</h1>
+  <p class="sub">Draw a one-eyed alien one pixel at a time, turn it into a 5-frame jump animation, and export a sprite sheet that is ready for Construct 3.</p>
+</header>
+
+<section class="intro">
+  <h2>What you will build</h2>
+  <p>A 32 × 32 alien that crouches, jumps, tucks its legs at the top, and lands. When the frames play in order, it looks like it jumps on the spot.</p>
+  <div class="refrow">
+    <img class="ref" src="img/jump.gif" alt="The finished alien jumping on a loop" width="192" height="192">
+  </div>
+  <table>
+    <tr><th>Tool</th><th>What it is for</th><th>Link</th></tr>
+    <tr><td><b>Piskel</b></td><td>Drawing the frames and exporting the sprite sheet</td><td><a href="https://www.piskelapp.com/" target="_blank" rel="noreferrer">piskelapp.com</a></td></tr>
+  </table>
+  <ul>
+    <li>Piskel is free and runs in the browser. Nothing needs installing and you do not need an account.</li>
+    <li>The address is <b>piskelapp.com</b>, not piskel.com.</li>
+    <li>The alien stays in about the same spot in every frame. That is on purpose: in a game, Construct 3 moves the sprite up and down. The frames only change its pose.</li>
+    <li>Your alien does not have to match the pictures pixel for pixel. Change the colours or give it two eyes if you like, as long as you keep the 5 poses.</li>
+    <li>Time: about one to two class periods.</li>
+    <li>Click a part to open it. Opening one part closes the others. Tick every checkpoint box before you move on; your ticks are remembered on this computer.</li>
+  </ul>
+</section>
+
+<section class="brief">
+  <h2>Lesson brief</h2>
+  <p>If you already know Piskel, follow the chart and you can finish from it alone. Click a part's name to jump to its full steps.</p>
+  <div class="flow">
+    <div class="band" style="--c:var(--p1)"><h4><a href="#part1">Part 1 · Open Piskel</a></h4><div class="bubbles">
+      <div class="bubble"><b>1A · New sprite</b><a href="https://www.piskelapp.com/" target="_blank" rel="noreferrer">piskelapp.com</a><br>Create Sprite</div><span class="arrow">→</span>
+      <div class="bubble"><b>1B · Canvas</b>Resize: 32 × 32 px<br>Toggle grid on</div>
+    </div></div>
+    <div class="down">↓</div>
+    <div class="band" style="--c:var(--p2)"><h4><a href="#part2">Part 2 · Draw frame 1: Stand</a></h4><div class="bubbles">
+      <div class="bubble"><b>2A · Outline</b>Pen size 1 · #193C19<br>Copy the Stand grid</div><span class="arrow">→</span>
+      <div class="bubble"><b>2B · Fill</b>Paint bucket<br>Body #5AC850 · Legs #287828</div><span class="arrow">→</span>
+      <div class="bubble"><b>2C · Details</b>Eye #FFFFFF · Pupil #14141E<br>Antenna tips #FFD23C</div>
+    </div></div>
+    <div class="down">↓</div>
+    <div class="band" style="--c:var(--p3)"><h4><a href="#part3">Part 3 · Frames 2 to 5</a></h4><div class="bubbles">
+      <div class="bubble"><b>3A · Crouch</b>Duplicate frame 1<br>Move down 3 · bent legs</div><span class="arrow">→</span>
+      <div class="bubble"><b>3B · Jump</b>Duplicate · tall body<br>Arms up · straight legs</div><span class="arrow">→</span>
+      <div class="bubble"><b>3C · Top</b>Duplicate · legs tucked<br>Arms out</div><span class="arrow">→</span>
+      <div class="bubble"><b>3D · Land</b>Duplicate Crouch<br>Arms out</div>
+    </div></div>
+    <div class="down">↓</div>
+    <div class="band" style="--c:var(--p4)"><h4><a href="#part4">Part 4 · Play the jump</a></h4><div class="bubbles">
+      <div class="bubble"><b>4A · Speed</b>Preview slider: 8 FPS<br>Order: Stand, Crouch, Jump, Top, Land</div>
+    </div></div>
+    <div class="down">↓</div>
+    <div class="band" style="--c:var(--p5)"><h4><a href="#part5">Part 5 · Save and export</a></h4><div class="bubbles">
+      <div class="bubble"><b>5A · Save</b>Save → Save offline as File<br>alien.piskel</div><span class="arrow">→</span>
+      <div class="bubble"><b>5B · Sprite sheet</b>Export → PNG<br>Columns 5 · Rows 1 · Download</div><span class="arrow">→</span>
+      <div class="bubble"><b>5C · Hand in</b>Google Classroom<br>.piskel + .png</div>
+    </div></div>
+  </div>
+  <p class="key">Each colour is one part. Codes like 2B mean Part 2, section B. Underlined words are links. Codes like #5AC850 are colours.</p>
+</section>
+
+<div class="controls">
+  <button type="button" id="openAll">Open all parts</button>
+  <button type="button" id="closeAll">Close all parts</button>
+  <button type="button" id="clearTicks">Clear my ticks</button>
+</div>
+
+<!-- PART 1 -->
+<details class="part" id="part1" name="parts" style="--c:var(--p1)">
+<summary><h2>Part 1 · Open Piskel</h2><span class="done"></span></summary>
+<div class="body">
+<p>You start with an empty 32 × 32 canvas with a grid on it, so every pixel is easy to see.</p>
+<table>
+<tr><th>Where things are in Piskel</th><th>Location on screen</th></tr>
+<tr><td><b>Tools</b> (Pen, Paint bucket, Eraser, Move…)</td><td>Far left, two columns of icons</td></tr>
+<tr><td><b>Colour squares</b> (primary and secondary)</td><td>Far left, under the tools</td></tr>
+<tr><td><b>Frames</b> column and <b>Add new frame</b> button</td><td>Left side, between the tools and the canvas</td></tr>
+<tr><td><b>Canvas</b> (where you draw)</td><td>Middle of the screen</td></tr>
+<tr><td><b>Preview</b> window and its speed slider</td><td>Top-right corner</td></tr>
+<tr><td><b>Resize</b>, <b>Save</b>, <b>Export</b>, <b>Import</b> buttons</td><td>A strip of icons down the far right edge</td></tr>
+</table>
+<p>Hold your mouse over any icon and its name pops up. Piskel has no hidden panels to lose; if the screen looks squashed, make the browser window full screen.</p>
+
+<h3>1A · New sprite</h3>
+<ol>
+<li>Go to <a href="https://www.piskelapp.com/" target="_blank" rel="noreferrer">piskelapp.com</a>.</li>
+<li>Click <b>Create Sprite</b>. The editor opens with a blank canvas in the middle.</li>
+</ol>
+<div class="note"><b>No account needed.</b> If Piskel asks you to sign in, you can skip it. You will save your work as a file in Part 5.</div>
+
+<h3>1B · Canvas size and grid</h3>
+<table>
+<tr><th>Resize</th><th>Value</th></tr>
+<tr><td>Width</td><td>32 px</td></tr>
+<tr><td>Height</td><td>32 px</td></tr>
+</table>
+<ol>
+<li>Click the <b>Resize</b> icon (top of the strip on the far right edge). A panel slides out showing <b>Width</b> and <b>Height</b>.</li>
+<li>Check both say <b>32</b>. This is Piskel's starting size, so you usually only need to check. If they are different, type <b>32</b> and <b>32</b> and click <b>Resize</b>. Click the Resize icon again to close the panel.</li>
+<li>Above the <b>Preview</b> window (top-right corner), click the <b>Toggle grid</b> button. Thin lines appear on the canvas, one square per pixel.</li>
+</ol>
+
+<div class="check"><strong>Checkpoint · Part 1</strong>
+<label><input type="checkbox"> Piskel is open with a blank canvas in the middle</label>
+<label><input type="checkbox"> Resize shows 32 × 32</label>
+<label><input type="checkbox"> Grid lines show on the canvas</label>
+</div>
+</div>
+</details>
+
+<!-- PART 2 -->
+<details class="part" id="part2" name="parts" style="--c:var(--p2)">
+<summary><h2>Part 2 · Draw frame 1: Stand</h2><span class="done"></span></summary>
+<div class="body">
+<p>Copy the Stand picture square by square. The numbers along the top and side count the pixels, so you can find your place.</p>
+<img class="ref" src="img/frame-1.png" alt="Frame 1 Stand on a numbered 32 by 32 grid" width="482" height="504">
+<table>
+<tr><th>Part of the alien</th><th>Colour code</th></tr>
+<tr><td>Outline</td><td><b>#193C19</b> (very dark green)</td></tr>
+<tr><td>Head, body, arms</td><td><b>#5AC850</b> (green)</td></tr>
+<tr><td>Legs</td><td><b>#287828</b> (darker green)</td></tr>
+<tr><td>Eye</td><td><b>#FFFFFF</b> (white)</td></tr>
+<tr><td>Pupil</td><td><b>#14141E</b> (almost black)</td></tr>
+<tr><td>Antenna tips</td><td><b>#FFD23C</b> (yellow)</td></tr>
+</table>
+<p><b>How to pick a colour:</b> click the big <b>primary colour</b> square (far left, under the tools). A colour chooser opens. Click in the text box at the bottom, delete what is there, type the colour code (for example <b>#193C19</b>) and press <b>Enter</b>, then click back on the canvas to close the chooser. The primary square changes to that colour.</p>
+
+<h3>2A · Outline</h3>
+<ol>
+<li>Choose the <b>Pen tool</b> (far left, top of the tools). Above the tools, check the <b>Pen size</b> is the smallest square (1 pixel).</li>
+<li>Pick the outline colour <b>#193C19</b>.</li>
+<li>Click once on a square of the canvas. One pixel turns dark green. Draw all the dark outline squares from the picture: the head circle, the eye ring, the body, the two antenna stalks and the feet.</li>
+<li>Made a mistake? <b>Right-click</b> a pixel to erase it. (The right mouse button paints with the secondary colour, which starts as see-through.) You can also press <b>Ctrl+Z</b> to undo.</li>
+</ol>
+<div class="note what"><b>Zoom:</b> scroll the mouse wheel over the canvas to zoom in or out. Make the canvas as big as fits on your screen.</div>
+
+<h3>2B · Fill the colours</h3>
+<ol>
+<li>Pick the green <b>#5AC850</b> and choose the <b>Paint bucket tool</b> (the tipping paint can).</li>
+<li>Click inside the head. All the empty pixels inside the outline turn green. Do the same inside the body.</li>
+<li>If the green spills out over the whole background, there is a gap in your outline. Press <b>Ctrl+Z</b>, find the gap, and close it with the Pen.</li>
+<li>Use the <b>Pen</b> with <b>#5AC850</b> for the arms, then <b>#287828</b> for the legs.</li>
+</ol>
+<div class="note pick"><b>Pick the right one:</b> use the <b>Paint bucket tool</b>, not <b>Paint all pixels of the same color</b>. The second one recolours every matching pixel in the whole picture.</div>
+
+<h3>2C · Eye and antennae</h3>
+<ol>
+<li>With the Paint bucket and <b>#FFFFFF</b>, click inside the eye ring. The eye turns white.</li>
+<li>With the Pen and <b>#14141E</b>, draw the 2 × 2 pupil in the middle of the eye.</li>
+<li>With the Pen and <b>#FFD23C</b>, draw the two 2 × 2 yellow tips on the antennae.</li>
+</ol>
+
+<div class="check"><strong>Checkpoint · Part 2</strong>
+<label><input type="checkbox"> The alien matches the Stand picture (close is fine)</label>
+<label><input type="checkbox"> The background around it is still see-through (checkerboard)</label>
+<label><input type="checkbox"> The feet touch row 31 and nothing is drawn below row 31</label>
+<label><input type="checkbox"> The Preview window (top-right) shows the alien</label>
+</div>
+</div>
+</details>
+
+<!-- PART 3 -->
+<details class="part" id="part3" name="parts" style="--c:var(--p3)">
+<summary><h2>Part 3 · Frames 2 to 5</h2><span class="done"></span></summary>
+<div class="body">
+<p>You never start a frame from blank. Each new frame is a copy of one you already drew, then you change only the parts that move.</p>
+<p><b>How to duplicate a frame:</b> in the <b>Frames</b> column (left side, between the tools and the canvas), hold your mouse over the frame. Small icons appear on it. Click the <b>Duplicate</b> icon (two overlapping squares). A copy appears just below it and opens on the canvas.</p>
+<div class="note what"><b>Which icon is which?</b> Hold the mouse still over an icon on the frame for a moment and its name pops up. The bin icon deletes the frame, so be careful with that one. If you delete one by mistake, press <b>Ctrl+Z</b>.</div>
+<div class="note"><b>Close enough is fine.</b> What matters is the pose: squashed, stretched, tucked, squashed. Use the grids as a guide, not a test.</div>
+
+<h3>3A · Frame 2: Crouch</h3>
+<img class="ref" src="img/frame-2.png" alt="Frame 2 Crouch on a numbered grid" width="482" height="504">
+<ol>
+<li>Duplicate <b>frame 1</b>. Frame 2 appears and opens on the canvas.</li>
+<li>Choose the <b>Move tool</b> (the four-way arrow) and drag the drawing <b>down 3 squares</b>. The whole alien slides down; the feet go off the bottom edge for now.</li>
+<li>Erase the old straight legs (right-click with the Pen) and draw <b>bent legs</b> spreading out to the sides, with the feet on row 31, as in the picture.</li>
+<li>The head is a little shorter (squashed) in the picture. Erase a row from the top of the head and redraw the top of the outline if you want the full squash.</li>
+</ol>
+
+<h3>3B · Frame 3: Jump</h3>
+<img class="ref" src="img/frame-3.png" alt="Frame 3 Jump on a numbered grid" width="482" height="504">
+<ol>
+<li>Duplicate <b>frame 1</b> (Stand), not Crouch. Hold the mouse over frame 1 and click Duplicate. The copy appears below frame 1.</li>
+<li>Hold the mouse over the new frame and drag it by its <b>move</b> handle to just below frame 2. The order should be Stand, Crouch, Jump.</li>
+<li>Change the drawing to match the Jump picture: <b>arms up</b> in a V, <b>legs long and straight</b> close together, and the head a row taller (stretched).</li>
+</ol>
+
+<h3>3C · Frame 4: Top</h3>
+<img class="ref" src="img/frame-4.png" alt="Frame 4 Top on a numbered grid" width="482" height="504">
+<ol>
+<li>Duplicate <b>frame 3</b>. Frame 4 appears below it.</li>
+<li>Erase the long legs and draw short <b>tucked legs</b> right under the body.</li>
+<li>Erase the raised arms and draw <b>arms straight out</b> to the sides.</li>
+</ol>
+
+<h3>3D · Frame 5: Land</h3>
+<img class="ref" src="img/frame-5.png" alt="Frame 5 Land on a numbered grid" width="482" height="504">
+<ol>
+<li>Duplicate <b>frame 2</b> (Crouch) and drag the copy to the bottom of the list, below frame 4.</li>
+<li>Erase the arms and draw them <b>straight out</b> to the sides, like frame 4. This is the alien catching its balance.</li>
+</ol>
+
+<div class="check"><strong>Checkpoint · Part 3</strong>
+<label><input type="checkbox"> The Frames column shows 5 frames</label>
+<label><input type="checkbox"> Top to bottom they are: Stand, Crouch, Jump, Top, Land</label>
+<label><input type="checkbox"> The feet are on the bottom row in Stand, Crouch and Land</label>
+</div>
+</div>
+</details>
+
+<!-- PART 4 -->
+<details class="part" id="part4" name="parts" style="--c:var(--p4)">
+<summary><h2>Part 4 · Play the jump</h2><span class="done"></span></summary>
+<div class="body">
+<p>The <b>Preview</b> window (top-right corner) plays all your frames in order, over and over.</p>
+<table>
+<tr><th>Preview</th><th>Value</th></tr>
+<tr><td>Speed</td><td>8 FPS (frames per second)</td></tr>
+</table>
+<ol>
+<li>Look at the Preview window. The alien is already jumping, probably too fast.</li>
+<li>Drag the <b>slider</b> under the Preview window until the number beside it reads <b>8 FPS</b>. The jump slows down.</li>
+<li>Watch it loop a few times. If one frame jerks or a part jumps sideways, click that frame in the Frames column and fix it. The preview updates as you draw.</li>
+</ol>
+<div class="note what"><b>Try it:</b> 4 FPS looks floaty, 15 FPS looks frantic. Pick what you like, then set it back to about 8 so it matches the game lesson.</div>
+
+<div class="check"><strong>Checkpoint · Part 4</strong>
+<label><input type="checkbox"> The preview shows the alien crouching, jumping, tucking and landing</label>
+<label><input type="checkbox"> The speed reads about 8 FPS</label>
+<label><input type="checkbox"> Nothing slides sideways between frames</label>
+</div>
+</div>
+</details>
+
+<!-- PART 5 -->
+<details class="part" id="part5" name="parts" style="--c:var(--p5)">
+<summary><h2>Part 5 · Save and export</h2><span class="done"></span></summary>
+<div class="body">
+<p>You make two files: a <b>.piskel</b> file so you can keep editing later, and a <b>sprite sheet PNG</b>, which is all 5 frames side by side in one picture, ready for a game.</p>
+<img class="ref" src="img/finished-sprite-sheet.png" alt="The finished sprite sheet: 5 frames in one row" width="480" height="96" style="width:480px;background:#3a3c48">
+
+<h3>5A · Save your work</h3>
+<ol>
+<li>Click the <b>Save</b> icon (strip on the far right edge, under Resize). A panel slides out.</li>
+<li>Type <b>alien</b> in <b>Title</b>.</li>
+<li>Click <b>Save offline as File</b>. A file called <b>alien.piskel</b> downloads (check your Downloads folder).</li>
+</ol>
+<div class="note"><b>Keep going next class:</b> go to <a href="https://www.piskelapp.com/" target="_blank" rel="noreferrer">piskelapp.com</a>, click <b>Create Sprite</b>, click the <b>Import</b> icon (far right edge) and open your .piskel file.</div>
+
+<h3>5B · Export the sprite sheet</h3>
+<table>
+<tr><th>Export → PNG</th><th>Value</th></tr>
+<tr><td>Scale</td><td>1 (leave it)</td></tr>
+<tr><td>Columns</td><td>5</td></tr>
+<tr><td>Rows</td><td>1</td></tr>
+</table>
+<ol>
+<li>Click the <b>Export</b> icon (far right edge, under Save). A panel slides out with tabs along the top: <b>GIF</b>, <b>PNG</b>, <b>Zip</b>, <b>Others</b>.</li>
+<li>Click the <b>PNG</b> tab.</li>
+<li>Set <b>Columns</b> to <b>5</b> and <b>Rows</b> to <b>1</b>, so all frames sit in one row.</li>
+<li>Under <b>Spritesheet file export</b>, click <b>Download</b>. A PNG downloads. Open it: you see your 5 alien poses side by side, 160 pixels wide and 32 tall.</li>
+</ol>
+<div class="note pick"><b>Pick the right one:</b> use the <b>Download</b> under <b>Spritesheet file export</b>, not <b>Selected frame export</b>. The selected-frame one saves only one pose.</div>
+<div class="note what"><b>Extra:</b> on the <b>GIF</b> tab you can download an animated GIF of your jump to show your friends.</div>
+
+<h3>5C · Hand in</h3>
+<ul>
+<li>Upload <b>alien.piskel</b> and the <b>sprite sheet PNG</b> to Google Classroom.</li>
+<li><b>Next:</b> in Construct 3, the sprite sheet comes in as one sprite with a 5-frame animation (right-click the animation's frames → <b>Import frames</b> → <b>From sprite strip</b>, 5 horizontal cells, 1 vertical).</li>
+</ul>
+
+<div class="check"><strong>Checkpoint · Part 5</strong>
+<label><input type="checkbox"> alien.piskel is in your Downloads folder</label>
+<label><input type="checkbox"> The sprite sheet PNG shows all 5 poses in one row</label>
+<label><input type="checkbox"> Both files are uploaded to Google Classroom</label>
+</div>
+</div>
+</details>
+
+<footer>Winters Innovative Solutions · <a href="https://www.youtube.com/@winters.innovative.solutions" target="_blank" rel="noreferrer">YouTube channel</a></footer>
+</div>
+<script src="../../assets/lesson.js"></script>
+</body>
+</html>
