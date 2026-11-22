@@ -25,9 +25,22 @@
     });
   });
   parts.forEach(function (p) {
+    // Remember when a student clicks a part's heading, so only those opens scroll
+    // (the brief and #links do their own scrolling).
+    var sum = p.querySelector('summary');
+    if (sum) sum.addEventListener('click', function () { p._userOpen = !p.open; });
     p.addEventListener('toggle', function () {
       if (p.open && !document.body.classList.contains('all-open')) {
         parts.forEach(function (o) { if (o !== p) o.open = false; });
+      }
+      // When a part above closes, the page shifts up and you land at the bottom of the
+      // new part. Bring the new part's heading back to the top of the screen.
+      if (p.open && p._userOpen) {
+        p._userOpen = false;
+        requestAnimationFrame(function () { requestAnimationFrame(function () {
+          var top = p.getBoundingClientRect().top;
+          if (top < 0 || top > window.innerHeight * 0.4) p.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }); });
       }
     });
   });
