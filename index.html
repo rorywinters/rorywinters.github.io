@@ -16,6 +16,12 @@
   <h1>Lessons</h1>
   <p class="sub">Step-by-step guides for Interactive Digital Media · Winters Innovative Solutions</p>
 </header>
+<style>#install-box{display:flex}#install-box[hidden]{display:none}</style>
+<div id="install-box" hidden style="background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:0 0 16px;gap:12px;align-items:center;flex-wrap:wrap">
+  <img src="/assets/icons/icon-192.png" alt="" width="40" height="40">
+  <button type="button" style="font:inherit;font-weight:600;color:#fff;background:var(--p1);border:0;border-radius:8px;padding:10px 16px;cursor:pointer">📱 Add to your phone</button>
+  <span class="install-note" style="color:var(--quiet);font-size:14px">Put a WIS Lessons icon on your home screen.</span>
+</div>
 <div class="cards">
   <a class="card" style="--c:#c26a12" href="blender/" data-p="Blender"><span class="num"></span><b>Blender</b><span>3D modelling, materials, animation and rendering.</span></a>
   <a class="card" style="--c:#23446e" href="unreal/" data-p="Unreal Engine"><span class="num"></span><b>Unreal Engine</b><span>3D games and cinematics with Blueprints.</span></a>
@@ -34,5 +40,6 @@ fetch('lessons.json', { cache: 'no-cache' }).then(function (r) { return r.json()
   });
 }).catch(function () {});
 </script>
+<script src="/assets/install.js"></script>
 </body>
 </html>
