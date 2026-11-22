@@ -4,7 +4,7 @@ program: Unreal Engine
 lesson: 1
 blurb: Sculpt a landscape of rolling hills in Unreal, model a clump of grass in Blender, and let Unreal spread thousands of grass clumps over the hills automatically.
 ---
-You sculpt a landscape of rolling hills and cover it with 3D grass that appears automatically. You model the grass yourself in Blender, so you don't need any downloaded content. In the Blender section this is Lesson 15.
+You sculpt a landscape of rolling hills and cover it with 3D grass that appears automatically. You model the grass yourself in Blender, so you don't need any downloaded content.
 
 **You need:** Unreal Engine 5, Blender, and your own project folder. Work through the parts in order and save (Ctrl+S) at the end of each part.
 

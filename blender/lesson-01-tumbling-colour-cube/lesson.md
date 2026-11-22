@@ -6,7 +6,7 @@ blurb: A cube tumbles across the screen on all three axes with a light that foll
 ---
 You will make a 5-second video (120 frames at 24 fps). A cube tumbles across the screen from left to right, spinning on all three axes, growing and shrinking, with a light that follows it. As a bonus you can colour the cube with three colours on opposite faces.
 
-This lesson builds on [Lesson 0 · Animating a Cube](../lesson-00-animating-a-cube/). If you haven't keyframed in Blender before, do that one first.
+This lesson builds on [Animating a Cube](../lesson-00-animating-a-cube/). If you haven't keyframed in Blender before, do that one first.
 
 **Important:** Blender sends a key press to whichever panel is under your mouse. Before you press a shortcut, check where your mouse is.
 

@@ -4,7 +4,7 @@ program: Blender
 lesson: 11
 blurb: Two wheels built as one object share one origin dot, so they can't spin on their own axles. Split them into separate objects and give each its own origin.
 ---
-When two wheels are built inside one object, they share **one origin dot**. Blender treats them as one object, so they can't spin on their own axles. You split them into separate objects, then give each one its own origin. You use this on the Wedge Robot in Lesson 12.
+When two wheels are built inside one object, they share **one origin dot**. Blender treats them as one object, so they can't spin on their own axles. You split them into separate objects, then give each one its own origin. You use this on the [Wedge Sumo Robot](../wedge-robot/).
 
 There are two ways: split **every** loose piece at once, or pick out **one piece at a time**.
 

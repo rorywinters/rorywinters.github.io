@@ -4,7 +4,7 @@ program: Blender
 lesson: 7
 blurb: A short first look at UVs: put one window picture on every side of a cube with no nodes, then reset the UVs so each side shows the whole window.
 ---
-You wrap a cube with a picture so one full window shows on each side. There are no nodes in this lesson. It's the first step for the Apartment Cube in Lesson 8.
+You wrap a cube with a picture so one full window shows on each side. There are no nodes in this lesson. It's the first step for [Texturing a 3×3×3 Apartment Cube](../lesson-08-apartment-cube/).
 
 **You need:** `apartment_window_tile.png`, shared by your teacher in Google Classroom.
 
@@ -76,4 +76,4 @@ Every side now shows one complete window. In the UV Editor, the cross shape is g
 | The cube still looks plain grey | You're in Solid view. Switch to Material Preview. |
 | The cube is pink | Blender can't find the image file. Go back to 1B and use Open to choose the image again. |
 | Only part of the window shows on a face | The UVs weren't reset. Repeat Part 2, and check the whole cube is selected before UV → Reset. |
-| A window is sideways | Reset can turn the picture on some faces. Lesson 8, Part 5 shows how to turn it. |
+| A window is sideways | Reset can turn the picture on some faces. [The Apartment Cube lesson](../lesson-08-apartment-cube/), Part 5, shows how to turn it. |

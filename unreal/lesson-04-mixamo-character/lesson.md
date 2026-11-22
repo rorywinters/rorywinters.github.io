@@ -50,7 +50,7 @@ Download the character only, standing in a T-pose. Unreal supplies the animation
 2. Pick a character. It appears in the preview on the right.
 3. Click **Download**, set the options from the table, and click **Download** again. Save the .fbx somewhere you can find it.
 
-You can also use a character you rigged yourself in Blender (Blender Lesson 13) and uploaded to Mixamo. The steps are the same.
+You can also use a character you rigged yourself in Blender ([Rigging a Character](../../blender/lesson-13-rigging-a-character/)) and uploaded to Mixamo. The steps are the same.
 
 - [ ] The .fbx file is saved where you can find it
 

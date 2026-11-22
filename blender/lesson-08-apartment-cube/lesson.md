@@ -6,7 +6,7 @@ blurb: Cut a cube into a 3 × 3 grid on every side and turn it into a small apar
 ---
 You turn a cube into a small apartment building. Each side gets 9 squares: windows, a roofline across the top row, a ground strip across the bottom row, a door in the bottom middle square of one side, and a drain pipe on another side. Then you export it to Unreal Engine. There are no nodes in this lesson.
 
-**Do Lesson 7 first.** It shows how UV → Reset puts one full picture on every face.
+**Do [A Window Texture on Every Side of a Cube](../lesson-07-window-on-every-side/) first.** It shows how UV → Reset puts one full picture on every face.
 
 **Images you need** (shared by your teacher in Google Classroom):
 
