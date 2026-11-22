@@ -43,55 +43,8 @@
   if (ct) ct.addEventListener('click', function () { saved = {}; boxes.forEach(function (b) { b.checked = false; }); try { localStorage.removeItem(KEY); } catch (e) {} update(); });
   update();
 
-  // Lesson brief: click anywhere on a bubble to jump to its section (e.g. 2B),
-  // or anywhere else on a coloured band to jump to that part. A floating
-  // "Back to the brief" button returns to the bubble you clicked.
-  var flow = document.querySelector('.flow');
-  if (!flow) return;
-  var backBtn = document.createElement('button');
-  backBtn.type = 'button';
-  backBtn.className = 'backbrief';
-  backBtn.textContent = '↑ Back to the brief';
-  document.body.appendChild(backBtn);
-  var cameFrom = null;
-  function codeOf(text) { var m = /^\s*(\d+[A-Z])\b/.exec(text || ''); return m ? m[1] : null; }
-  function findSection(part, code) {
-    if (!part || !code) return null;
-    var hs = part.querySelectorAll('h3');
-    for (var i = 0; i < hs.length; i++) { if (codeOf(hs[i].textContent) === code) return hs[i]; }
-    return null;
-  }
-  function goTo(part, target, from) {
-    if (!part) return;
-    document.body.classList.remove('all-open');
-    part.open = true;
-    cameFrom = from;
-    (target || part).scrollIntoView({ behavior: 'smooth', block: 'start' });
-    if (target) { target.classList.remove('flash'); void target.offsetWidth; target.classList.add('flash'); }
-    backBtn.classList.add('show');
-  }
-  flow.querySelectorAll('.band').forEach(function (band) {
-    var link = band.querySelector('h4 a');
-    var part = link && document.querySelector(link.getAttribute('href'));
-    band.classList.add('clickable');
-    band.addEventListener('click', function (e) {
-      if (e.target.closest('a') && !e.target.closest('h4')) return; // outside links (e.g. a website) still work
-      e.preventDefault();
-      var bubble = e.target.closest('.bubble');
-      var code = bubble && codeOf((bubble.querySelector('b') || {}).textContent);
-      goTo(part, findSection(part, code), bubble || band);
-    });
-  });
-  backBtn.addEventListener('click', function () {
-    var el = cameFrom || flow;
-    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash');
-    backBtn.classList.remove('show');
-  });
-  // Hide the button once you have scrolled back up to the brief yourself.
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (ents) {
-      ents.forEach(function (en) { if (en.isIntersecting) backBtn.classList.remove('show'); });
-    }, { threshold: [1] }).observe(document.querySelector('.brief h2') || flow);
-  }
+  // Clickable lesson brief + Back to the brief button live in brief.js (shared with pages that don't use this file).
+  var bs = document.createElement('script');
+  bs.src = (document.currentScript && document.currentScript.src || '').replace(/lesson\.js(\?.*)?$/, 'brief.js$1');
+  if (bs.src) document.body.appendChild(bs);
 })();
