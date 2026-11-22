@@ -4,7 +4,7 @@ program: Unreal Engine
 lesson: 9
 blurb: Model a sumo ring in Blender, bring it into Unreal, and turn the wedge robot into a game: reset when it drives off, bouncy balls that drop faster and faster, and a YOU LOSE! banner at 10 balls.
 ---
-This lesson continues the **Sharp Turn Wedge Robot** (Unreal Lesson 8). Use the same project, folder and robot. Parts 9 to 11 are in **Blender**; Parts 12 to 19 are in **Unreal**. The part numbers carry on from Lesson 8 so they match the video.
+This lesson continues the **Sharp Turn Wedge Robot** ([Sharp Turn Wedge Robot](../lesson-08-wedge-robot/)). Use the same project, folder and robot. Parts 9 to 11 are in **Blender**; Parts 12 to 19 are in **Unreal**. The part numbers carry on from the wedge robot lesson so they match the video.
 
 | Colour | Meaning |
 | --- | --- |

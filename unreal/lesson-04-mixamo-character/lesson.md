@@ -4,7 +4,7 @@ program: Unreal Engine
 lesson: 4
 blurb: Download a Mixamo character, import it into a Third Person project, retarget the walk and jump animations to it, and play as your own character.
 ---
-By the end, your **Mixamo** character is the player in your Unreal game, walking with **W A S D** and jumping with **Space**. This is harder than Lesson 3 because a Mixamo skeleton isn't the UE5 Mannequin, so you copy (retarget) the animations to it.
+By the end, your **Mixamo** character is the player in your Unreal game, walking with **W A S D** and jumping with **Space**. This is harder than [Swap the Third Person Character](../lesson-03-swap-character/) because a Mixamo skeleton isn't the UE5 Mannequin, so you copy (retarget) the animations to it.
 
 **You need:** an Unreal project made from the **Third Person** template, and a free Adobe account to sign in to [mixamo.com](https://www.mixamo.com/).
 

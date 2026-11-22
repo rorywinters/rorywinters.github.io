@@ -128,7 +128,7 @@ If your character walks through an object, that mesh needs collision.
 
 A box works well for crates and walls. For an arch or another shape the character must walk through, a box blocks the opening, so ask for help or use a separate mesh.
 
-> **Pick the right one:** **Add Box Simplified Collision** for boxy objects. **Auto Convex Collision** follows rounder shapes more closely (see Unreal Lesson 8, Part 2).
+> **Pick the right one:** **Add Box Simplified Collision** for boxy objects. **Auto Convex Collision** follows rounder shapes more closely (see [Sharp Turn Wedge Robot](../lesson-08-wedge-robot/), Part 2).
 
 - [ ] Your character bumps into every object instead of walking through
 

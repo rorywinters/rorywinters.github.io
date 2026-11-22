@@ -37,7 +37,7 @@ Before you start, have **Robot.fbx** from the Blender build ready, with the fron
 
 In tables, the setting's name cell is coloured. In written steps, the colour is named in brackets after the setting, e.g. **Spawn Count** (red).
 
-The sumo ring game continues this build in the next lesson (Unreal Lesson 9).
+The sumo ring game continues this build in [Robot Sumo Ring Game](../lesson-09-robot-sumo-ring-game/).
 
 ```brief
 Part 0 · Create the project

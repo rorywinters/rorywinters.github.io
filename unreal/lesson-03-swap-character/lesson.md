@@ -125,7 +125,7 @@ The player is a Blueprint called **BP_ThirdPersonCharacter**. It already has the
 
 1. Click **Play**. Walk with **W A S D**, jump with **Space**. Press **Esc** to stop.
 2. Choose **File → Save All**.
-3. Record it: click **Play**, then press **Windows + Alt + R**. Walk and jump for 15 seconds, then press **Windows + Alt + R** again. (Backup: Free Cam 8, or Unreal Lesson 6.)
+3. Record it: click **Play**, then press **Windows + Alt + R**. Walk and jump for 15 seconds, then press **Windows + Alt + R** again. (Backup: Free Cam 8, or [Recording Gameplay](../lesson-05-record-gameplay/).)
 4. In Google Classroom, open the assignment, choose **Add → File**, pick the clip from **Videos → Captures**, and click **Hand in**.
 
 - [ ] On Play, you are your character and it walks and jumps
