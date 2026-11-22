@@ -6,7 +6,9 @@ blurb: Turn the default cube into an apartment building with a repeating window 
 ---
 You turn the default cube into a four-storey apartment building. A repeating window picture covers every wall using **Box projection** and **Object coordinates**. That means you can make the building bigger in Edit Mode and the windows **stay the same size** instead of stretching. No UV unwrapping is needed. These steps are for Blender 5.2. Every part has a ▶ link that jumps the video to that step.
 
-**You need:** a window picture. Download it from the link in the [video's description](https://youtu.be/bkRdBT-urf8), or use any picture of a window. Save it where you can find it.
+**You need:** the window picture, [**apartment_window_tile.png**](apartment_window_tile.png). Click the link, then right-click the picture and choose **Save image as**. (On a phone, press and hold it.) Any picture of a window works too. Save it where you can find it.
+
+![The window picture: one white-framed window on red brick](apartment_window_tile.png)
 
 | Colour | Meaning |
 | --- | --- |
