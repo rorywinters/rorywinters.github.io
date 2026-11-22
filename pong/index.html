@@ -593,9 +593,20 @@
 
   // Only one part open at a time (also works in browsers without the name attribute)
   parts.forEach(function (p) {
+    // Only heading clicks scroll (the brief and #links do their own scrolling).
+    var sum = p.querySelector('summary');
+    if (sum) sum.addEventListener('click', function () { p._userOpen = !p.open; });
     p.addEventListener('toggle', function () {
       if (p.open && !document.body.classList.contains('all-open')) {
         parts.forEach(function (o) { if (o !== p) o.open = false; });
+      }
+      // Bring a newly opened part's heading to the top of the screen.
+      if (p.open && p._userOpen) {
+        p._userOpen = false;
+        requestAnimationFrame(function () { requestAnimationFrame(function () {
+          var top = p.getBoundingClientRect().top;
+          if (top < 0 || top > window.innerHeight * 0.4) p.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }); });
       }
     });
   });
