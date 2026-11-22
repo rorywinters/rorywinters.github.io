@@ -80,3 +80,14 @@
   .status.wait { background: #fff4dc; color: #8a5a00; border: 1px solid #f0cf86; }
   .statuskey { font-size: 13px; color: var(--quiet); margin: 4px 0 0; }
   .statuskey .status { margin-left: 0; }
+
+  /* Clickable brief + back button */
+  .band.clickable, .band.clickable .bubble { cursor: pointer; }
+  .band.clickable:hover { background: color-mix(in srgb, var(--c) 11%, white); }
+  .band.clickable .bubble { transition: transform .1s, box-shadow .1s; }
+  .band.clickable .bubble:hover { transform: translateY(-1px); box-shadow: 0 2px 8px rgba(0,0,0,.15); }
+  .backbrief { position: fixed; right: 16px; bottom: 16px; z-index: 50; font: inherit; font-size: 15px; font-weight: 600; padding: 10px 16px; border-radius: 99px; border: 1px solid var(--line); background: var(--card); color: var(--ink); box-shadow: 0 3px 12px rgba(0,0,0,.2); cursor: pointer; display: none; }
+  .backbrief.show { display: block; }
+  h3, details.part { scroll-margin-top: 12px; }
+  .flash { animation: flash 1.2s ease-out; }
+  @keyframes flash { 0% { box-shadow: 0 0 0 4px #f5c542; background-color: #fff6d6; } 100% { box-shadow: 0 0 0 0 transparent; } }

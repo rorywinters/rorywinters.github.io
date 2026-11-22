@@ -159,7 +159,7 @@
     var partNums = [];
     parts.forEach(function (p, n) { if (/^(Part|Bonus|Extra)\b/i.test(p.title)) partNums.push(n); });
     if (brief) {
-      html += '<section class="brief"><h2>Lesson brief</h2><p>If you already know ' + esc(meta.program || 'the software') + ', follow the chart and you can finish from it alone. Click a part\'s name to jump to its full steps.</p>' +
+      html += '<section class="brief"><h2>Lesson brief</h2><p>If you already know ' + esc(meta.program || 'the software') + ', follow the chart and you can finish from it alone. Click any box to jump to its full steps; the Back to the brief button brings you back here.</p>' +
         renderBrief(brief, partNums.map(function (n) { return colours[n]; })) +
         '<p class="key">Each colour is one part. Codes like 2B mean Part 2, section B. Underlined words are links.</p></section>';
     }
