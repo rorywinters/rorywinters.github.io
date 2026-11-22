@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Three Platforms for a Platformer in Piskel · Winters Innovative Solutions</title>
+<link rel="stylesheet" href="../../assets/lesson.css?v=20261122c">
+<style>
+.ref{display:block;max-width:100%;height:auto;margin:.6em 0;border:1px solid #ccc;border-radius:6px;image-rendering:pixelated}
+.refrow{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end}
+.refrow img{max-width:100%}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="crumb"><a href="../../">Lessons</a> › <a href="../">Piskel</a></div>
+  <div class="lessonnum">Piskel · Lesson 0 <span class="status wait">◷ Waiting for approval</span></div>
+  <h1>Three Platforms for a Platformer</h1>
+  <p class="sub">Your first Piskel lesson. Draw three platforms a game character can stand on: a long grassy ground strip, a small floating stone block, and a round log. No animation, just shapes, fills and a few lines.</p>
+</header>
+
+<section class="intro">
+  <h2>What you will build</h2>
+  <p>Three separate pictures (PNG files), each a different size. Here they are together in a game scene:</p>
+  <img class="ref" src="img/scene.png" alt="The ground platform, two floating stone blocks and a log in a sky-blue game scene" width="640" height="360">
+  <table>
+    <tr><th>Platform</th><th>Size</th><th>Style</th></tr>
+    <tr><td><b>Big ground platform</b></td><td>64 × 16 pixels</td><td>Grass on top, dirt underneath. Place several side by side to make a long floor.</td></tr>
+    <tr><td><b>Small floating block</b></td><td>16 × 16 pixels</td><td>A grey stone square with a light top edge and a dark bottom edge, so it looks raised.</td></tr>
+    <tr><td><b>Log platform</b></td><td>48 × 16 pixels</td><td>Rounded ends and bark lines, with a light stripe on top so it looks round, like a cylinder lying down.</td></tr>
+  </table>
+  <table>
+    <tr><th>Tool</th><th>What it is for</th><th>Link</th></tr>
+    <tr><td><b>Piskel</b></td><td>Drawing the platforms and saving them as pictures</td><td><a href="https://www.piskelapp.com/" target="_blank" rel="noreferrer">piskelapp.com</a></td></tr>
+  </table>
+  <ul>
+    <li>Piskel is free and runs in the browser. Nothing needs installing and you do not need an account.</li>
+    <li>The address is <b>piskelapp.com</b>, not piskel.com.</li>
+    <li>You hardly draw pixel by pixel. Most of the work is three tools: <b>Rectangle</b> for the outline, <b>Paint bucket</b> to fill it, and <b>Stroke</b> for straight lines.</li>
+    <li>Your colours do not have to match. Make the grass purple or the stone gold if you like, as long as you keep the sizes.</li>
+    <li>Time: about one class period.</li>
+    <li>Click a part to open it. Opening one part closes the others. Tick every checkpoint box before you move on; your ticks are remembered on this computer.</li>
+  </ul>
+</section>
+
+<section class="brief">
+  <h2>Lesson brief</h2>
+  <p>If you already know Piskel, follow the chart and you can finish from it alone. Click any box to jump to its full steps; the Back to the brief button brings you back here.</p>
+  <div class="flow">
+    <div class="band" style="--c:var(--p1)"><h4><a href="#part1">Part 1 · Open Piskel</a></h4><div class="bubbles">
+      <div class="bubble"><b>1A · New sprite</b><a href="https://www.piskelapp.com/" target="_blank" rel="noreferrer">piskelapp.com</a><br>Create Sprite</div><span class="arrow">→</span>
+      <div class="bubble"><b>1B · Canvas</b>Resize: untick Maintain aspect ratio<br>64 × 16 px · Toggle grid on</div>
+    </div></div>
+    <div class="down">↓</div>
+    <div class="band" style="--c:var(--p2)"><h4><a href="#part2">Part 2 · Big ground platform</a></h4><div class="bubbles">
+      <div class="bubble"><b>2A · Outline</b>Rectangle tool · #3B2414<br>Whole canvas, corner to corner</div><span class="arrow">→</span>
+      <div class="bubble"><b>2B · Grass line</b>Stroke tool · row 5<br>Across from side to side</div><span class="arrow">→</span>
+      <div class="bubble"><b>2C · Fill</b>Paint bucket<br>Grass #5AC850 · Dirt #8B5A2B</div><span class="arrow">→</span>
+      <div class="bubble"><b>2D · Specks</b>Pen · #6B4220<br>2-pixel specks in the dirt</div><span class="arrow">→</span>
+      <div class="bubble"><b>2E · Save + export</b>Save: ground.piskel<br>Export → PNG → Download</div>
+    </div></div>
+    <div class="down">↓</div>
+    <div class="band" style="--c:var(--p3)"><h4><a href="#part3">Part 3 · Small floating block</a></h4><div class="bubbles">
+      <div class="bubble"><b>3A · New sprite</b>New tab · Create Sprite<br>Resize 16 × 16</div><span class="arrow">→</span>
+      <div class="bubble"><b>3B · Outline + fill</b>Rectangle #3C3C46<br>Bucket #8C8C96</div><span class="arrow">→</span>
+      <div class="bubble"><b>3C · Edges</b>Stroke: light #C8C8D2 top + left<br>dark #5F5F69 bottom + right</div><span class="arrow">→</span>
+      <div class="bubble"><b>3D · Save + export</b>block.piskel<br>block.png</div>
+    </div></div>
+    <div class="down">↓</div>
+    <div class="band" style="--c:var(--p4)"><h4><a href="#part4">Part 4 · Log platform</a></h4><div class="bubbles">
+      <div class="bubble"><b>4A · New sprite</b>New tab · Create Sprite<br>Resize 48 × 16</div><span class="arrow">→</span>
+      <div class="bubble"><b>4B · Outline + round ends</b>Rectangle #4A2C12<br>Erase 3 px per corner, add 1 inside</div><span class="arrow">→</span>
+      <div class="bubble"><b>4C · Fill + bark</b>Bucket #8B5A2B · row 4 #B07A45<br>rows 9 + 13 #6B4220</div><span class="arrow">→</span>
+      <div class="bubble"><b>4D · Save + export</b>log.piskel<br>log.png</div>
+    </div></div>
+    <div class="down">↓</div>
+    <div class="band" style="--c:var(--p5)"><h4><a href="#part5">Part 5 · Hand in</a></h4><div class="bubbles">
+      <div class="bubble"><b>5A · Hand in</b>Google Classroom<br>3 .piskel + 3 .png</div>
+    </div></div>
+  </div>
+  <p class="key">Each colour is one part. Codes like 2B mean Part 2, section B. Underlined words are links. Codes like #5AC850 are colours. Row and column numbers count from 1, matching the numbers on the picture grids.</p>
+</section>
+
+<div class="controls">
+  <button type="button" id="openAll">Open all parts</button>
+  <button type="button" id="closeAll">Close all parts</button>
+  <button type="button" id="clearTicks">Clear my ticks</button>
+</div>
+
+<!-- PART 1 -->
+<details class="part" id="part1" name="parts" style="--c:var(--p1)">
+<summary><h2>Part 1 · Open Piskel</h2><span class="done"></span></summary>
+<div class="body">
+<p>You start with an empty, long, flat canvas (64 pixels wide, 16 tall) with a grid on it, ready for the ground platform.</p>
+<table>
+<tr><th>Where things are in Piskel</th><th>Location on screen</th></tr>
+<tr><td><b>Tools</b> (Pen, Paint bucket, Eraser, Stroke, Rectangle…)</td><td>Far left, two columns of icons</td></tr>
+<tr><td><b>Pen size</b> (four small squares)</td><td>Far left, just above the tools</td></tr>
+<tr><td><b>Colour squares</b> (primary and secondary)</td><td>Far left, under the tools</td></tr>
+<tr><td><b>Canvas</b> (where you draw)</td><td>Middle of the screen</td></tr>
+<tr><td><b>Preview</b> window and <b>Toggle grid</b> button</td><td>Top-right corner</td></tr>
+<tr><td><b>Resize</b>, <b>Save</b>, <b>Export</b>, <b>Import</b> buttons</td><td>A strip of icons down the far right edge</td></tr>
+</table>
+<p>Hold your mouse over any icon and its name pops up. Piskel has no hidden panels to lose; if the screen looks squashed, make the browser window full screen.</p>
+
+<h3>1A · New sprite</h3>
+<ol>
+<li>Go to <a href="https://www.piskelapp.com/" target="_blank" rel="noreferrer">piskelapp.com</a>.</li>
+<li>Click <b>Create Sprite</b>. The editor opens with a blank square canvas in the middle.</li>
+</ol>
+<div class="note"><b>No account needed.</b> If Piskel asks you to sign in, you can skip it. You will save your work as a file at the end of each platform.</div>
+
+<h3>1B · Canvas size and grid</h3>
+<table>
+<tr><th>Resize</th><th>Value</th></tr>
+<tr><td>Width</td><td>64 px</td></tr>
+<tr><td>Height</td><td>16 px</td></tr>
+<tr><td>Maintain aspect ratio</td><td>Unticked</td></tr>
+</table>
+<ol>
+<li>Click the <b>Resize</b> icon (top of the strip on the far right edge). A panel slides out showing <b>Width</b>, <b>Height</b> and two tick boxes.</li>
+<li>Click <b>Maintain aspect ratio</b> to <b>untick</b> it. While it is ticked, Piskel keeps the canvas square and changes the Height whenever you change the Width.</li>
+<li>Type <b>64</b> in <b>Width</b> and <b>16</b> in <b>Height</b>, then click the <b>Resize</b> button at the bottom of the panel. The canvas becomes a long, flat strip.</li>
+<li>Click the Resize icon again to close the panel.</li>
+<li>Above the <b>Preview</b> window (top-right corner), click the <b>Toggle grid</b> button. Thin lines appear on the canvas, one square per pixel.</li>
+<li>Scroll the mouse wheel over the canvas to zoom in until the strip fills the middle of the screen.</li>
+</ol>
+
+<div class="check"><strong>Checkpoint · Part 1</strong>
+<label><input type="checkbox"> The canvas is a long, flat strip, about 4 times wider than it is tall</label>
+<label><input type="checkbox"> Resize shows 64 × 16</label>
+<label><input type="checkbox"> Grid lines show on the canvas</label>
+</div>
+</div>
+</details>
+
+<!-- PART 2 -->
+<details class="part" id="part2" name="parts" style="--c:var(--p2)">
+<summary><h2>Part 2 · Big ground platform</h2><span class="done"></span></summary>
+<div class="body">
+<p>A dark brown box, a line to split off the grass, two fills, and some specks of dirt.</p>
+<img class="ref" src="img/ground-grid.png" alt="The ground platform on a numbered 64 by 16 grid" width="800" height="248">
+<img class="ref" src="img/ground-big.png" alt="The finished ground platform, shown bigger" width="384" height="96">
+<table>
+<tr><th>Part of the platform</th><th>Colour code</th></tr>
+<tr><td>Outline and grass line</td><td><b>#3B2414</b> (very dark brown)</td></tr>
+<tr><td>Grass</td><td><b>#5AC850</b> (green)</td></tr>
+<tr><td>Dirt</td><td><b>#8B5A2B</b> (brown)</td></tr>
+<tr><td>Specks</td><td><b>#6B4220</b> (darker brown)</td></tr>
+</table>
+<p><b>How to pick a colour:</b> click the big <b>primary colour</b> square (far left, under the tools). A colour chooser opens. Click in the text box at the bottom, delete what is there, type the colour code (for example <b>#3B2414</b>) and press <b>Enter</b>, then click back on the canvas to close the chooser. The primary square changes to that colour.</p>
+
+<h3>2A · Outline</h3>
+<ol>
+<li>Check the <b>Pen size</b> (four squares above the tools) is set to the smallest square, 1 pixel. The Rectangle and Stroke tools use this size too.</li>
+<li>Pick the outline colour <b>#3B2414</b>.</li>
+<li>Choose the <b>Rectangle tool</b> (an empty square icon in the tools; hover to check its name).</li>
+<li>Press the mouse button on the <b>top-left square</b> of the canvas, drag to the <b>bottom-right square</b>, and let go. A dark brown box appears all the way around the edge of the canvas.</li>
+</ol>
+<div class="note what"><b>Missed a corner?</b> Press <b>Ctrl+Z</b> to undo and drag again. Start right on the corner square and finish right on the opposite corner.</div>
+
+<h3>2B · Grass line</h3>
+<ol>
+<li>Keep <b>#3B2414</b>. Choose the <b>Stroke tool</b> (a slanted line icon).</li>
+<li>Find <b>row 5</b> using the numbers down the left of the picture grid above (4 rows down from the top edge is grass).</li>
+<li>Press on the left outline at row 5, drag straight across to the right outline at row 5, and let go. A dark line now splits the strip into a thin top band and a thick bottom band.</li>
+</ol>
+
+<h3>2C · Fill the grass and dirt</h3>
+<ol>
+<li>Pick <b>#5AC850</b> and choose the <b>Paint bucket tool</b> (the tipping paint can).</li>
+<li>Click anywhere inside the thin <b>top band</b>. It all turns green.</li>
+<li>Pick <b>#8B5A2B</b> and click inside the thick <b>bottom band</b>. It all turns brown.</li>
+<li>If a colour spills out over the whole background, there is a gap in the outline. Press <b>Ctrl+Z</b>, find the gap, and close it with the <b>Pen tool</b> (top of the tools).</li>
+</ol>
+<div class="note pick"><b>Pick the right one:</b> use the <b>Paint bucket tool</b>, not <b>Paint all pixels of the same color</b>. The second one recolours every matching pixel in the whole picture.</div>
+
+<h3>2D · Dirt specks</h3>
+<ol>
+<li>Pick <b>#6B4220</b> and choose the <b>Pen tool</b>.</li>
+<li>Click two side-by-side pixels in the dirt to make one speck. Make about 10 specks, spread out, at different heights. They do not need to match the picture.</li>
+<li>Made a mistake? <b>Right-click</b> a pixel with the Pen to erase it, then put the brown back with the Paint bucket.</li>
+</ol>
+
+<h3>2E · Save and export</h3>
+<p>You make two files for each platform: a <b>.piskel</b> file so you can keep editing later, and a <b>.png</b> picture for the game.</p>
+<ol>
+<li>Click the <b>Save</b> icon (strip on the far right edge, under Resize). A panel slides out.</li>
+<li>Delete what is in <b>Title</b> and type <b>ground</b>.</li>
+<li>Click <b>Save offline as File</b>. A file called <b>ground.piskel</b> downloads (check your Downloads folder).</li>
+<li>Click the <b>Export</b> icon (far right edge, under Save). A panel slides out with tabs along the top: <b>GIF</b>, <b>PNG</b>, <b>Zip</b>, <b>Others</b>.</li>
+<li>Click the <b>PNG</b> tab, then under <b>Spritesheet file export</b> click <b>Download</b>. A file called <b>ground.png</b> downloads. Open it to check: it is your platform, small and sharp.</li>
+<li>Click the Export icon again to close the panel. Leave this tab open.</li>
+</ol>
+
+<div class="check"><strong>Checkpoint · Part 2</strong>
+<label><input type="checkbox"> The platform has a green top band, a brown body and a dark outline all round</label>
+<label><input type="checkbox"> No see-through (checkerboard) squares are left inside the outline</label>
+<label><input type="checkbox"> ground.piskel and ground.png are in your Downloads folder</label>
+</div>
+</div>
+</details>
+
+<!-- PART 3 -->
+<details class="part" id="part3" name="parts" style="--c:var(--p3)">
+<summary><h2>Part 3 · Small floating block</h2><span class="done"></span></summary>
+<div class="body">
+<p>A small stone square. A light line on the top and left and a dark line on the bottom and right make it look like it sticks out, as if light is shining from the top-left.</p>
+<div class="refrow">
+<img class="ref" src="img/block-grid.png" alt="The stone block on a numbered 16 by 16 grid" width="416" height="440">
+<img class="ref" src="img/block-big.png" alt="The finished stone block, shown bigger" width="96" height="96">
+</div>
+<table>
+<tr><th>Part of the block</th><th>Colour code</th></tr>
+<tr><td>Outline</td><td><b>#3C3C46</b> (very dark grey)</td></tr>
+<tr><td>Stone</td><td><b>#8C8C96</b> (grey)</td></tr>
+<tr><td>Light edge (top and left)</td><td><b>#C8C8D2</b> (light grey)</td></tr>
+<tr><td>Dark edge (bottom and right)</td><td><b>#5F5F69</b> (dark grey)</td></tr>
+</table>
+
+<h3>3A · New sprite, 16 × 16</h3>
+<ol>
+<li>Open a <b>new browser tab</b> (Ctrl+T) and go to <a href="https://www.piskelapp.com/" target="_blank" rel="noreferrer">piskelapp.com</a>. Click <b>Create Sprite</b>.</li>
+<li>Click the <b>Resize</b> icon. Check <b>Maintain aspect ratio</b> is still unticked (Piskel remembers it). Type <b>16</b> in <b>Width</b> and <b>16</b> in <b>Height</b> and click <b>Resize</b>. Close the panel.</li>
+<li>Turn on <b>Toggle grid</b> and zoom in until the square fills the middle of the screen.</li>
+</ol>
+
+<h3>3B · Outline and fill</h3>
+<ol>
+<li>Pick <b>#3C3C46</b>, choose the <b>Rectangle tool</b>, and drag from the top-left square to the bottom-right square. A dark box appears around the edge.</li>
+<li>Pick <b>#8C8C96</b>, choose the <b>Paint bucket</b>, and click inside the box. It fills grey.</li>
+</ol>
+
+<h3>3C · Light and dark edges</h3>
+<p>All four lines go just <b>inside</b> the outline, on the first ring of grey pixels.</p>
+<ol>
+<li>Pick <b>#C8C8D2</b> and choose the <b>Stroke tool</b>.</li>
+<li><b>Top:</b> drag along <b>row 2</b> from column 2 to column 15.</li>
+<li><b>Left:</b> drag down <b>column 2</b> from row 2 to row 15.</li>
+<li>Pick <b>#5F5F69</b>.</li>
+<li><b>Bottom:</b> drag along <b>row 15</b> from column 3 to column 15.</li>
+<li><b>Right:</b> drag up <b>column 15</b> from row 15 to row 3.</li>
+</ol>
+<div class="note what"><b>Look at the Preview</b> (top-right corner). At its real small size, the block should look raised, like a button.</div>
+
+<h3>3D · Save and export</h3>
+<p>Same steps as <a href="#part2">2E</a>, with the name <b>block</b>:</p>
+<ol>
+<li><b>Save</b> icon → Title <b>block</b> → <b>Save offline as File</b>. You get <b>block.piskel</b>.</li>
+<li><b>Export</b> icon → <b>PNG</b> tab → <b>Download</b> under Spritesheet file export. You get <b>block.png</b>.</li>
+</ol>
+
+<div class="check"><strong>Checkpoint · Part 3</strong>
+<label><input type="checkbox"> The block is grey with a dark outline</label>
+<label><input type="checkbox"> The top and left inside edges are light; the bottom and right are dark</label>
+<label><input type="checkbox"> block.piskel and block.png are in your Downloads folder</label>
+</div>
+</div>
+</details>
+
+<!-- PART 4 -->
+<details class="part" id="part4" name="parts" style="--c:var(--p4)">
+<summary><h2>Part 4 · Log platform</h2><span class="done"></span></summary>
+<div class="body">
+<p>A log is a cylinder lying on its side. Rounded ends and a light stripe near the top make a flat drawing look round.</p>
+<img class="ref" src="img/log-grid.png" alt="The log on a numbered 48 by 16 grid" width="752" height="296">
+<img class="ref" src="img/log-big.png" alt="The finished log, shown bigger" width="288" height="96">
+<table>
+<tr><th>Part of the log</th><th>Colour code</th></tr>
+<tr><td>Outline</td><td><b>#4A2C12</b> (very dark brown)</td></tr>
+<tr><td>Bark</td><td><b>#8B5A2B</b> (brown)</td></tr>
+<tr><td>Light stripe</td><td><b>#B07A45</b> (light brown)</td></tr>
+<tr><td>Bark lines</td><td><b>#6B4220</b> (darker brown)</td></tr>
+</table>
+
+<h3>4A · New sprite, 48 × 16</h3>
+<ol>
+<li>Open a <b>new browser tab</b>, go to <a href="https://www.piskelapp.com/" target="_blank" rel="noreferrer">piskelapp.com</a> and click <b>Create Sprite</b>.</li>
+<li><b>Resize</b> to <b>48</b> wide and <b>16</b> high (Maintain aspect ratio unticked). Close the panel.</li>
+<li>Turn on <b>Toggle grid</b> and zoom in.</li>
+</ol>
+
+<h3>4B · Outline and round ends</h3>
+<ol>
+<li>Pick <b>#4A2C12</b>, choose the <b>Rectangle tool</b>, and drag from the top-left square to the bottom-right square.</li>
+<li>Choose the <b>Eraser tool</b> (hover the tools to find it). At the <b>top-left corner</b>, click 3 pixels to erase them: the corner pixel, the one to its right, and the one below it. The corner now has a small notch.</li>
+<li>Choose the <b>Pen tool</b> and click the pixel <b>diagonally inside</b> the notch (row 2, column 2). The corner is now rounded.</li>
+<li>Do the same at the other three corners. The pixels to add with the Pen are row 2 column 47, row 15 column 2, and row 15 column 47. Use the picture grid to check.</li>
+</ol>
+<div class="note what"><b>Why it works:</b> cutting the square corners off is the pixel-art way of drawing a curve. It makes the ends look round.</div>
+
+<h3>4C · Fill and bark lines</h3>
+<ol>
+<li>Pick <b>#8B5A2B</b>, choose the <b>Paint bucket</b>, and click inside the log. If the colour spills outside, a rounded corner has a gap: press <b>Ctrl+Z</b> and check that corner against the picture.</li>
+<li>Pick <b>#B07A45</b>, choose the <b>Stroke tool</b>, and drag along <b>row 4</b> from column 4 to column 45. This is the light shining on the top of the log.</li>
+<li>Pick <b>#6B4220</b> and drag two more lines, from column 4 to column 45: one on <b>row 9</b> and one on <b>row 13</b>. These are the bark lines.</li>
+</ol>
+
+<h3>4D · Save and export</h3>
+<ol>
+<li><b>Save</b> icon → Title <b>log</b> → <b>Save offline as File</b>. You get <b>log.piskel</b>.</li>
+<li><b>Export</b> icon → <b>PNG</b> tab → <b>Download</b> under Spritesheet file export. You get <b>log.png</b>.</li>
+</ol>
+
+<div class="check"><strong>Checkpoint · Part 4</strong>
+<label><input type="checkbox"> The four corners of the log are rounded, not square</label>
+<label><input type="checkbox"> There is one light stripe near the top and two dark bark lines lower down</label>
+<label><input type="checkbox"> log.piskel and log.png are in your Downloads folder</label>
+</div>
+</div>
+</details>
+
+<!-- PART 5 -->
+<details class="part" id="part5" name="parts" style="--c:var(--p5)">
+<summary><h2>Part 5 · Hand in</h2><span class="done"></span></summary>
+<div class="body">
+<h3>5A · Hand in</h3>
+<ul>
+<li>Upload all six files to Google Classroom: <b>ground.piskel</b>, <b>ground.png</b>, <b>block.piskel</b>, <b>block.png</b>, <b>log.piskel</b> and <b>log.png</b>.</li>
+<li><b>Keep going another day:</b> go to <a href="https://www.piskelapp.com/" target="_blank" rel="noreferrer">piskelapp.com</a>, click <b>Create Sprite</b>, click the <b>Import</b> icon (far right edge) and open one of your .piskel files.</li>
+<li><b>Next:</b> in Construct 3, drag a PNG from your Downloads folder straight onto the layout. It becomes a sprite you can give the <b>Solid</b> behaviour, so your character can stand on it.</li>
+</ul>
+<div class="note what"><b>Extra, if you finish early:</b> make a fourth platform of your own design. Ideas: an ice block (light blue with white edges), a cloud (rounded on all sides), or a short bridge of planks. Keep the height at 16 pixels so it lines up with the others.</div>
+
+<div class="check"><strong>Checkpoint · Part 5</strong>
+<label><input type="checkbox"> All six files are uploaded to Google Classroom</label>
+</div>
+</div>
+</details>
+
+<footer>Winters Innovative Solutions · <a href="https://www.youtube.com/@winters.innovative.solutions" target="_blank" rel="noreferrer">YouTube channel</a></footer>
+</div>
+<script src="../../assets/lesson.js?v=20261122c"></script>
+</body>
+</html>
