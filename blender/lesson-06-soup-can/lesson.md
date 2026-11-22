@@ -6,7 +6,7 @@ blurb: Make a tomato soup can from a cylinder: tin ends, a wraparound label line
 ---
 You make a soup can with a label that wraps around cleanly, with no stretching. You unwrap the side of a cylinder flat in the **UV Editor**, line it up with the label picture, then add sunken lids and raised metal rims. The same method works for bottles, jars and cups. These steps are for Blender 5.2. Every part has a ▶ link that jumps the video to that step.
 
-**You need:** the label picture. Download it from the link in the [video's description](https://youtu.be/za8ghj8zJOY) or from Google Classroom. Put it in a folder called **can** where you can find it. Save your Blender file often.
+**You need:** the label picture, **winters_tomato_soup_label.png**. Download it here: [**winters_tomato_soup_label.png** on Dropbox](https://www.dropbox.com/scl/fi/m3i9r2dj8k0ycdhq7rvq4/winters_tomato_soup_label.png?rlkey=5nb51iaeb8afsl0t3wmmm78am&st=7dyklqme&dl=0) (click **Download** at the top of the Dropbox page). Put it in a folder called **can** where you can find it. Save your Blender file often.
 
 | Colour | Meaning |
 | --- | --- |
