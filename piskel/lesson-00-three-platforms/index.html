@@ -43,8 +43,9 @@
     <li>Piskel is free and runs in the browser. Nothing needs installing and you do not need an account.</li>
     <li>The address is <b>piskelapp.com</b>, not piskel.com.</li>
     <li>You hardly draw pixel by pixel. Most of the work is three tools: <b>Rectangle</b> for the outline, <b>Paint bucket</b> to fill it, and <b>Stroke</b> for straight lines.</li>
+    <li>Each platform is made in two steps: a <b>basic shape</b> first (quick, mostly big tools), then <b>details</b> drawn pixel by pixel. For the details you can copy the numbered pattern exactly, or make up your own.</li>
     <li>Your colours do not have to match. Make the grass purple or the stone gold if you like, as long as you keep the sizes.</li>
-    <li>Time: about one class period.</li>
+    <li>Time: about one class period for the basic shapes, plus part of a second class for all the details.</li>
     <li>Click a part to open it. Opening one part closes the others. Tick every checkpoint box before you move on; your ticks are remembered on this computer.</li>
   </ul>
 </section>
@@ -62,22 +63,25 @@
       <div class="bubble"><b>2A · Outline</b>Rectangle tool · #3B2414<br>Whole canvas, corner to corner</div><span class="arrow">→</span>
       <div class="bubble"><b>2B · Grass line</b>Stroke tool · row 5<br>Across from side to side</div><span class="arrow">→</span>
       <div class="bubble"><b>2C · Fill</b>Paint bucket<br>Grass #5AC850 · Dirt #8B5A2B</div><span class="arrow">→</span>
-      <div class="bubble"><b>2D · Specks</b>Pen · #6B4220<br>2-pixel specks in the dirt</div><span class="arrow">→</span>
-      <div class="bubble"><b>2E · Save + export</b>Save: ground.piskel<br>Export → PNG → Download</div>
+      <div class="bubble"><b>2D · Grass details</b>Pen · row 2 #96E678 · row 4 #3C9637<br>Drips under row 5</div><span class="arrow">→</span>
+      <div class="bubble"><b>2E · Dirt details</b>Specks #6B4220<br>Stones #B4A08C</div><span class="arrow">→</span>
+      <div class="bubble"><b>2F · Save + export</b>Save: ground.piskel<br>Export → PNG → Download</div>
     </div></div>
     <div class="down">↓</div>
     <div class="band" style="--c:var(--p3)"><h4><a href="#part3">Part 3 · Small floating block</a></h4><div class="bubbles">
       <div class="bubble"><b>3A · New sprite</b>New tab · Create Sprite<br>Resize 16 × 16</div><span class="arrow">→</span>
       <div class="bubble"><b>3B · Outline + fill</b>Rectangle #3C3C46<br>Bucket #8C8C96</div><span class="arrow">→</span>
       <div class="bubble"><b>3C · Edges</b>Stroke: light #C8C8D2 top + left<br>dark #5F5F69 bottom + right</div><span class="arrow">→</span>
-      <div class="bubble"><b>3D · Save + export</b>block.piskel<br>block.png</div>
+      <div class="bubble"><b>3D · Bricks</b>Mortar #5F5F69 · row 9 #C8C8D2<br>Crack</div><span class="arrow">→</span>
+      <div class="bubble"><b>3E · Save + export</b>block.piskel<br>block.png</div>
     </div></div>
     <div class="down">↓</div>
     <div class="band" style="--c:var(--p4)"><h4><a href="#part4">Part 4 · Log platform</a></h4><div class="bubbles">
       <div class="bubble"><b>4A · New sprite</b>New tab · Create Sprite<br>Resize 48 × 16</div><span class="arrow">→</span>
       <div class="bubble"><b>4B · Outline + round ends</b>Rectangle #4A2C12<br>Erase 3 px per corner, add 1 inside</div><span class="arrow">→</span>
       <div class="bubble"><b>4C · Fill + bark</b>Bucket #8B5A2B · row 4 #B07A45<br>rows 9 + 13 #6B4220</div><span class="arrow">→</span>
-      <div class="bubble"><b>4D · Save + export</b>log.piskel<br>log.png</div>
+      <div class="bubble"><b>4D · Cut end + knot</b>Face #DCB478 · rings #A87444<br>Knot · break the bark lines</div><span class="arrow">→</span>
+      <div class="bubble"><b>4E · Save + export</b>log.piskel<br>log.png</div>
     </div></div>
     <div class="down">↓</div>
     <div class="band" style="--c:var(--p5)"><h4><a href="#part5">Part 5 · Hand in</a></h4><div class="bubbles">
@@ -144,15 +148,17 @@
 <details class="part" id="part2" name="parts" style="--c:var(--p2)">
 <summary><h2>Part 2 · Big ground platform</h2><span class="done"></span></summary>
 <div class="body">
-<p>A dark brown box, a line to split off the grass, two fills, and some specks of dirt.</p>
-<img class="ref" src="img/ground-grid.png" alt="The ground platform on a numbered 64 by 16 grid" width="800" height="248">
-<img class="ref" src="img/ground-big.png" alt="The finished ground platform, shown bigger" width="384" height="96">
+<p>First the basic shape: a dark brown box, a line to split off the grass, and two fills. Then the details.</p>
+<img class="ref" src="img/ground-basic-grid.png" alt="The basic ground platform on a numbered 64 by 16 grid" width="800" height="248">
 <table>
 <tr><th>Part of the platform</th><th>Colour code</th></tr>
 <tr><td>Outline and grass line</td><td><b>#3B2414</b> (very dark brown)</td></tr>
 <tr><td>Grass</td><td><b>#5AC850</b> (green)</td></tr>
 <tr><td>Dirt</td><td><b>#8B5A2B</b> (brown)</td></tr>
-<tr><td>Specks</td><td><b>#6B4220</b> (darker brown)</td></tr>
+<tr><td>Grass highlight</td><td><b>#96E678</b> (light green)</td></tr>
+<tr><td>Grass shadow and drips</td><td><b>#3C9637</b> (dark green)</td></tr>
+<tr><td>Specks and stone shadows</td><td><b>#6B4220</b> (darker brown)</td></tr>
+<tr><td>Stones</td><td><b>#B4A08C</b> (pale grey-brown)</td></tr>
 </table>
 <p><b>How to pick a colour:</b> click the big <b>primary colour</b> square (far left, under the tools). A colour chooser opens. Click in the text box at the bottom, delete what is there, type the colour code (for example <b>#3B2414</b>) and press <b>Enter</b>, then click back on the canvas to close the chooser. The primary square changes to that colour.</p>
 
@@ -181,14 +187,31 @@
 </ol>
 <div class="note pick"><b>Pick the right one:</b> use the <b>Paint bucket tool</b>, not <b>Paint all pixels of the same color</b>. The second one recolours every matching pixel in the whole picture.</div>
 
-<h3>2D · Dirt specks</h3>
+<div class="check"><strong>Checkpoint · Basic shape</strong>
+<label><input type="checkbox"> The platform has a green top band, a brown body and a dark outline all round, like the basic-shape picture</label>
+</div>
+
+<h3>2D · Grass details</h3>
+<p>Now copy the detailed pattern, or make up your own details. The numbers along the top and side count the pixels, so you can find your place.</p>
+<img class="ref" src="img/ground-grid.png" alt="The detailed ground platform pattern on a numbered 64 by 16 grid" width="800" height="248">
+<img class="ref" src="img/ground-big.png" alt="The finished detailed ground platform, shown bigger" width="384" height="96">
 <ol>
-<li>Pick <b>#6B4220</b> and choose the <b>Pen tool</b>.</li>
-<li>Click two side-by-side pixels in the dirt to make one speck. Make about 10 specks, spread out, at different heights. They do not need to match the picture.</li>
-<li>Made a mistake? <b>Right-click</b> a pixel with the Pen to erase it, then put the brown back with the Paint bucket.</li>
+<li>Pick <b>#96E678</b> and choose the <b>Stroke tool</b>. Drag along <b>row 2</b> from column 2 to column 63. The top of the grass turns light green.</li>
+<li>Choose the <b>Pen tool</b> and pick the plain green <b>#5AC850</b>. On row 2, click every 4th pixel to put plain green back (columns 2, 6, 10, 14 and so on, as in the picture). The gaps look like separate blades of grass.</li>
+<li>Pick <b>#3C9637</b> and the <b>Stroke tool</b>. Drag along <b>row 4</b> from column 2 to column 63. This is the shadow at the bottom of the grass.</li>
+<li>With the <b>Pen</b> and green <b>#5AC850</b>, put a few plain green pixels back on row 4 (every 6th pixel in the picture).</li>
+<li>Pick <b>#3C9637</b> again. With the <b>Pen</b>, draw the <b>drips</b>: short bits of grass hanging down into the dirt, just below the dark line on row 5. Each drip is 1 to 3 pixels long, going straight down. Copy where they are in the picture, or put your own.</li>
+<li>Made a mistake? <b>Right-click</b> a pixel with the Pen to erase it, then put the right colour back with the Pen.</li>
 </ol>
 
-<h3>2E · Save and export</h3>
+<h3>2E · Dirt details</h3>
+<ol>
+<li>Pick <b>#6B4220</b> and, with the <b>Pen</b>, draw about 12 <b>specks</b> spread out in the dirt. Most are 2 pixels side by side; some are 1 pixel.</li>
+<li><b>Stones:</b> pick <b>#B4A08C</b> and draw a small bump shape: 2 pixels on top, 4 pixels on the row below it. Then pick <b>#6B4220</b> and draw the shadow on the row under that (look at columns 14 to 17, rows 9 to 11, in the picture). Make two stones.</li>
+</ol>
+<div class="note what"><b>Your own ideas:</b> a flower, a buried bone, a worm, a mushroom on the grass. Keep everything inside the outline.</div>
+
+<h3>2F · Save and export</h3>
 <p>You make two files for each platform: a <b>.piskel</b> file so you can keep editing later, and a <b>.png</b> picture for the game.</p>
 <ol>
 <li>Click the <b>Save</b> icon (strip on the far right edge, under Resize). A panel slides out.</li>
@@ -200,7 +223,8 @@
 </ol>
 
 <div class="check"><strong>Checkpoint · Part 2</strong>
-<label><input type="checkbox"> The platform has a green top band, a brown body and a dark outline all round</label>
+<label><input type="checkbox"> The grass has a light top, a dark bottom edge and drips hanging into the dirt</label>
+<label><input type="checkbox"> The dirt has specks and stones (or your own details)</label>
 <label><input type="checkbox"> No see-through (checkerboard) squares are left inside the outline</label>
 <label><input type="checkbox"> ground.piskel and ground.png are in your Downloads folder</label>
 </div>
@@ -213,8 +237,7 @@
 <div class="body">
 <p>A small stone square. A light line on the top and left and a dark line on the bottom and right make it look like it sticks out, as if light is shining from the top-left.</p>
 <div class="refrow">
-<img class="ref" src="img/block-grid.png" alt="The stone block on a numbered 16 by 16 grid" width="416" height="440">
-<img class="ref" src="img/block-big.png" alt="The finished stone block, shown bigger" width="96" height="96">
+<img class="ref" src="img/block-basic-grid.png" alt="The basic stone block on a numbered 16 by 16 grid" width="416" height="440">
 </div>
 <table>
 <tr><th>Part of the block</th><th>Colour code</th></tr>
@@ -249,8 +272,22 @@
 </ol>
 <div class="note what"><b>Look at the Preview</b> (top-right corner). At its real small size, the block should look raised, like a button.</div>
 
-<h3>3D · Save and export</h3>
-<p>Same steps as <a href="#part2">2E</a>, with the name <b>block</b>:</p>
+<h3>3D · Bricks</h3>
+<p>Turn the plain stone into bricks. Copy the pattern, or draw your own brick layout.</p>
+<div class="refrow">
+<img class="ref" src="img/block-grid.png" alt="The detailed stone block pattern on a numbered 16 by 16 grid" width="416" height="440">
+<img class="ref" src="img/block-big.png" alt="The finished detailed stone block, shown bigger" width="96" height="96">
+</div>
+<ol>
+<li>Pick <b>#5F5F69</b> and the <b>Stroke tool</b>. Drag along <b>row 8</b> from column 3 to column 14. This is the mortar line between the top and bottom bricks.</li>
+<li>Pick <b>#C8C8D2</b> and drag along <b>row 9</b> from column 3 to column 14, right under the mortar. The light line makes the bottom bricks look like they stick out.</li>
+<li>Pick <b>#5F5F69</b> again. Drag down <b>column 8</b> from row 3 to row 7 (one joint in the top row of bricks).</li>
+<li>Drag down <b>column 5</b> from row 10 to row 14, and down <b>column 11</b> from row 10 to row 14 (two joints in the bottom row). The joints don't line up, just like a real brick wall.</li>
+<li><b>Crack:</b> with the <b>Pen</b> and <b>#5F5F69</b>, click 3 pixels in a zigzag: row 4 column 12, row 5 column 13, row 6 column 12.</li>
+</ol>
+
+<h3>3E · Save and export</h3>
+<p>Same steps as <a href="#part2">2F</a>, with the name <b>block</b>:</p>
 <ol>
 <li><b>Save</b> icon → Title <b>block</b> → <b>Save offline as File</b>. You get <b>block.piskel</b>.</li>
 <li><b>Export</b> icon → <b>PNG</b> tab → <b>Download</b> under Spritesheet file export. You get <b>block.png</b>.</li>
@@ -259,6 +296,7 @@
 <div class="check"><strong>Checkpoint · Part 3</strong>
 <label><input type="checkbox"> The block is grey with a dark outline</label>
 <label><input type="checkbox"> The top and left inside edges are light; the bottom and right are dark</label>
+<label><input type="checkbox"> The block shows bricks with joints that don't line up (or your own pattern)</label>
 <label><input type="checkbox"> block.piskel and block.png are in your Downloads folder</label>
 </div>
 </div>
@@ -268,15 +306,16 @@
 <details class="part" id="part4" name="parts" style="--c:var(--p4)">
 <summary><h2>Part 4 · Log platform</h2><span class="done"></span></summary>
 <div class="body">
-<p>A log is a cylinder lying on its side. Rounded ends and a light stripe near the top make a flat drawing look round.</p>
-<img class="ref" src="img/log-grid.png" alt="The log on a numbered 48 by 16 grid" width="752" height="296">
-<img class="ref" src="img/log-big.png" alt="The finished log, shown bigger" width="288" height="96">
+<p>A log is a cylinder lying on its side. Rounded ends and a light stripe near the top make a flat drawing look round. The detailed version adds a sawn-off end with tree rings.</p>
+<img class="ref" src="img/log-basic-grid.png" alt="The basic log on a numbered 48 by 16 grid" width="752" height="296">
 <table>
 <tr><th>Part of the log</th><th>Colour code</th></tr>
 <tr><td>Outline</td><td><b>#4A2C12</b> (very dark brown)</td></tr>
 <tr><td>Bark</td><td><b>#8B5A2B</b> (brown)</td></tr>
 <tr><td>Light stripe</td><td><b>#B07A45</b> (light brown)</td></tr>
-<tr><td>Bark lines</td><td><b>#6B4220</b> (darker brown)</td></tr>
+<tr><td>Bark lines and knot</td><td><b>#6B4220</b> (darker brown)</td></tr>
+<tr><td>Cut end (the wood face)</td><td><b>#DCB478</b> (pale wood)</td></tr>
+<tr><td>Tree rings</td><td><b>#A87444</b> (medium brown)</td></tr>
 </table>
 
 <h3>4A · New sprite, 48 × 16</h3>
@@ -302,7 +341,21 @@
 <li>Pick <b>#6B4220</b> and drag two more lines, from column 4 to column 45: one on <b>row 9</b> and one on <b>row 13</b>. These are the bark lines.</li>
 </ol>
 
-<h3>4D · Save and export</h3>
+<h3>4D · Cut end and knot</h3>
+<p>Show the sawn-off end of the log with its tree rings, and add a knot in the bark. Copy the pattern, or make up your own.</p>
+<img class="ref" src="img/log-grid.png" alt="The detailed log pattern on a numbered 48 by 16 grid" width="752" height="296">
+<img class="ref" src="img/log-big.png" alt="The finished detailed log, shown bigger" width="288" height="96">
+<ol>
+<li><b>Clear the way:</b> pick the bark colour <b>#8B5A2B</b> and the <b>Stroke tool</b>. Drag over <b>rows 4, 9 and 13</b> from column 38 to column 46. The right ends of the three lines disappear, so they won't cut through the wood face.</li>
+<li><b>Edge of the cut end:</b> pick <b>#4A2C12</b> and, with the <b>Pen</b>, draw the tall oval at the right end, as in the picture: column 39 from row 4 to row 13, column 47 from row 4 to row 13, row 2 and row 15 from column 41 to column 46, and one corner pixel at each of row 3 and row 14 (columns 40 and 47).</li>
+<li><b>Wood face:</b> pick <b>#DCB478</b> and the <b>Paint bucket</b>, and click inside the oval. If the colour spills into the bark, there is a gap in the oval: press <b>Ctrl+Z</b> and close it.</li>
+<li><b>Rings:</b> pick <b>#A87444</b> and, with the <b>Pen</b>, draw a smaller ring inside the face (columns 41 to 46, rows 5 to 12) and a 2 × 2 dot in the very middle.</li>
+<li><b>Break the bark lines:</b> still with <b>#8B5A2B</b>, click a few single pixels on the dark lines (rows 9 and 13) to put small gaps in them. Real bark is not one long straight line.</li>
+<li><b>Knot:</b> pick <b>#6B4220</b> and draw a small ring of 6 pixels around columns 20 to 23, rows 6 to 8, then fill its centre 2 pixels with <b>#4A2C12</b>.</li>
+</ol>
+<div class="note what"><b>Your own ideas:</b> moss on top, a mushroom growing out of the bark, a carved arrow. Keep it all inside the outline.</div>
+
+<h3>4E · Save and export</h3>
 <ol>
 <li><b>Save</b> icon → Title <b>log</b> → <b>Save offline as File</b>. You get <b>log.piskel</b>.</li>
 <li><b>Export</b> icon → <b>PNG</b> tab → <b>Download</b> under Spritesheet file export. You get <b>log.png</b>.</li>
@@ -311,6 +364,7 @@
 <div class="check"><strong>Checkpoint · Part 4</strong>
 <label><input type="checkbox"> The four corners of the log are rounded, not square</label>
 <label><input type="checkbox"> There is one light stripe near the top and two dark bark lines lower down</label>
+<label><input type="checkbox"> The right end shows a pale wood face with tree rings, and there is a knot in the bark</label>
 <label><input type="checkbox"> log.piskel and log.png are in your Downloads folder</label>
 </div>
 </div>
