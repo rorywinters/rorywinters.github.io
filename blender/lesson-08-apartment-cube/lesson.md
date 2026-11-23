@@ -169,13 +169,13 @@ To push the roof down a little, choose **Mesh → Transform → Move**, press **
 | Material Properties → Surface | Value |
 | --- | --- |
 | Name | Roof |
-| Base Color → Hex | 424248 (shingle grey) or 2E2E32 (darker) |
+| Base Color → Hex | **424248** (shingle grey) or **2E2E32** (darker) |
 
 The top of the building has windows on it right now, because Reset put the picture there too.
 
 1. Check the inner roof faces from 7A are still selected.
 2. Click **+**, then **New**, and rename it **Roof**. Click **Assign**.
-3. Click the white bar beside **Base Color**, click **Hex**, and type **424248**. The roof turns grey. This is the shingle grey from the roofline tile.
+3. Click the white bar beside **Base Color**, click **Hex**, and type **424248** (or click the code here to copy it, then paste with **Ctrl+V**). The roof turns grey. This is the shingle grey from the roofline tile.
 
 You can do the same with the bottom face, or leave it, since nobody sees it.
 

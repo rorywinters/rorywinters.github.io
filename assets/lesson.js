@@ -59,9 +59,16 @@
   // Colour codes (#RRGGBB in bold): click to copy, with a small colour chip.
   Array.prototype.forEach.call(document.querySelectorAll('b, strong, code'), function (el) {
     var s = el.textContent.trim();
-    if (!/^#[0-9A-Fa-f]{6}$/.test(s) || el.closest('.brief, label, a, .hex')) return;
+    if (el.closest('.brief, label, a, .hex')) return;
+    if (!/^#[0-9A-Fa-f]{6}$/.test(s)) {
+      // Codes without # (Blender/Unreal Hex boxes) only count when the line or table is about hex colours.
+      if (!/^[0-9A-Fa-f]{6}$/.test(s)) return;
+      var ctx = el.closest('li, p, tr'), tbl = el.closest('table');
+      var hexy = (ctx && /hex/i.test(ctx.textContent)) || (tbl && tbl.rows[0] && /hex/i.test(tbl.rows[0].textContent));
+      if (!hexy) return;
+    }
     el.classList.add('hex'); el.title = 'Click to copy ' + s;
-    var chip = document.createElement('span'); chip.className = 'chip'; chip.style.background = s;
+    var chip = document.createElement('span'); chip.className = 'chip'; chip.style.background = s.charAt(0) === '#' ? s : '#' + s;
     el.insertBefore(chip, el.firstChild);
     el.addEventListener('click', function () {
       function done() { el.classList.add('copied'); clearTimeout(el._t); el._t = setTimeout(function () { el.classList.remove('copied'); }, 1500); }

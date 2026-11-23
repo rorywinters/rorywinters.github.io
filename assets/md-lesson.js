@@ -172,6 +172,6 @@
     });
     html += '<footer>Winters Innovative Solutions · <a href="https://www.youtube.com/@winters.innovative.solutions" target="_blank" rel="noreferrer">YouTube channel</a></footer>';
     root.innerHTML = html;
-    var s = document.createElement('script'); s.src = base + 'assets/lesson.js?v=20261123a'; document.body.appendChild(s);
+    var s = document.createElement('script'); s.src = base + 'assets/lesson.js?v=20261123b'; document.body.appendChild(s);
   }).catch(function () { root.innerHTML = '<p>Sorry, this lesson could not be loaded.</p>'; });
 })();

@@ -87,8 +87,8 @@ Everything else stays at its default.
 | **Thickness** | **0.5 m** |
 | **Depth** | 0 m |
 
-1. In the **Material** tab, click **New**. Name it **RingWhite** and set **Base Color** hex to **FFFFFF**.
-2. Click **+** for an empty slot, then **New**. Name it **RingBlack**. Set **Base Color** to **000000** and **Roughness** to **0.8**.
+1. In the **Material** tab, click **New**. Name it **RingWhite** and set **Base Color** hex to **FFFFFF** (click any code here to copy it, then paste with **Ctrl+V**).
+2. Click **+** for an empty slot, then **New**. Name it **RingBlack**. Set **Base Color** hex to **000000** and **Roughness** to **0.8**.
 3. Choose **Edit Mode**, then **Face Select**. Click the **top face**. (Shortcut: Tab, then 3)
 4. **Face → Inset Faces** (Shortcut: I). In the operator panel set **Thickness** to **0.5 m**. This makes the white edge.
 5. With only the middle face selected, pick **RingBlack** in the slot list and click **Assign**. The middle of the top turns black.
