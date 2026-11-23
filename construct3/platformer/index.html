@@ -250,15 +250,17 @@
 </table>
 <p>These are Construct's starting values, so you only need to check them.</p>
 <ol>
-<li>Click the character and add the <b>Platform</b> behaviour (under <b>Movements</b>). Check the values against the table.</li>
+<li>Click your <b>character</b> (the Player) on the layout, not a platform. In the <b>Properties Bar</b>, click the <b>Behaviors</b> link. The window title must read <b>Player behaviors</b>.</li>
+<li>Click <b>Add new behavior</b>. In the list, find the <b>Movements</b> group and click <b>Platform</b> (or type <b>Platform</b> in the <b>Search</b> box). Click <b>Add</b>, then close the window.</li>
+<li>The Player now has the <b>Platform behaviour</b>: running, jumping and gravity. Its settings appear in the Properties Bar under <b>Behaviors</b>. Check the values against the table.</li>
 <li>Click <b>Preview</b> (the play button at the top). (Shortcut: F5)</li>
 <li>The character drops straight through the platform and off the bottom of the screen. Gravity works, but there is nothing solid to stand on yet. Close the preview tab.</li>
 </ol>
-<div class="note pick"><b>Pick the right one:</b> the behaviour is called <b>Platform</b>, and it goes on the <b>Player</b>, not on the platforms. (Yes, the behaviour and the object have the same name.)</div>
+<div class="note pick"><b>Pick the right one:</b> the <b>Player</b> gets the <b>Platform behaviour</b> (from the Movements group). The platforms you drew are <b>Platform objects</b>, and they get <b>Solid</b> in 3B. Same word, two different things: the behaviour makes a character move like a platform-game hero; the objects are what it stands on.</div>
 
 <h3>3B · Platform: Solid behaviour</h3>
 <ol>
-<li><b>Option A:</b> click any platform and add the <b>Solid</b> behaviour (under <b>Attributes</b>). All four get it, because they are the same object.<br><b>Option B:</b> add <b>Solid</b> to the <b>ground</b>, then to the <b>log</b>, then to the <b>block</b>. Each object type needs its own; both grounds get it together.</li>
+<li><b>Option A:</b> click any platform and add the <b>Solid</b> behaviour (under <b>Attributes</b>). All four get it: a behaviour belongs to the object type, so every copy of Platform gets it, even ones you add later.<br><b>Option B:</b> add <b>Solid</b> to the <b>ground</b>, then to the <b>log</b>, then to the <b>block</b>. Each object type needs its own; both grounds get it together.</li>
 <li><b>Preview</b>. The character falls, lands on the first platform, and stays put.</li>
 </ol>
 
