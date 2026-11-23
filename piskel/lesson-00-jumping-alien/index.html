@@ -78,7 +78,7 @@
       <div class="bubble"><b>5C · Hand in</b>Google Classroom<br>.piskel + .png</div>
     </div></div>
   </div>
-  <p class="key">Each colour is one part. Codes like 2B mean Part 2, section B. Underlined words are links. Codes like #5AC850 are colours.</p>
+  <p class="key">Each colour is one part. Codes like 2B mean Part 2, section B. Underlined words are links. Codes like #5AC850 are colours. Row and column numbers count from 0, the same as Piskel's yellow mouse counter and the picture grids.</p>
 </section>
 
 <div class="controls">
@@ -100,6 +100,7 @@
 <tr><td><b>Canvas</b> (where you draw)</td><td>Middle of the screen</td></tr>
 <tr><td><b>Preview</b> window, its speed slider and the quick <b>#</b> grid button</td><td>Top-right corner. The # button stays hidden until you move the mouse to the top of the Preview window, under Create Sprite.</td></tr>
 <tr><td><b>Settings</b> (gear) and its <b>Grid</b> tab</td><td>Strip of icons on the far right edge. Background (Misc tab), grid colour and turning the grid on (Grid tab) are set here.</td></tr>
+<tr><td><b>Mouse position</b> (yellow numbers)</td><td>Bottom-right, under the Palettes panel. Shows column:row of the pixel under the mouse, counting from 0.</td></tr>
 <tr><td><b>Resize</b>, <b>Save</b>, <b>Export</b>, <b>Import</b> buttons</td><td>A strip of icons down the far right edge</td></tr>
 </table>
 <p>Hold your mouse over any icon and its name pops up. Piskel has no hidden panels to lose; if the screen looks squashed, make the browser window full screen.</p>
@@ -136,8 +137,9 @@
 <details class="part" id="part2" name="parts" style="--c:var(--p2)">
 <summary><h2>Part 2 · Draw frame 1: Stand</h2><span class="done"></span></summary>
 <div class="body">
-<p>Copy the Stand picture square by square. The numbers along the top and side count the pixels, so you can find your place.</p>
-<img class="ref" src="img/frame-1.png" alt="Frame 1 Stand on a numbered 32 by 32 grid" width="482" height="504">
+<p>Copy the Stand picture square by square. The numbers along the top and side count the pixels from 0, so you can find your place.</p>
+<div class="note what"><b>Where is my mouse?</b> The yellow numbers at the bottom-right, under the Palettes panel, show which pixel the mouse is over: the canvas size in brackets, then <b>column:row</b>, counting from 0 like the grids. The top-left pixel is <b>0:0</b>.<img src="../../assets/piskel/mouse-position.png" alt="Yellow numbers at the bottom-right of Piskel: zoom, then canvas size and column:row under the mouse, then frame" width="170" height="70" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></div>
+<img class="ref" src="img/frame-1.png?v=2" alt="Frame 1 Stand on a numbered 32 by 32 grid" width="480" height="504">
 <table>
 <tr><th>Part of the alien</th><th>Colour code</th></tr>
 <tr><td>Outline</td><td><b>#193C19</b> (very dark green)</td></tr>
@@ -178,7 +180,7 @@
 <div class="check"><strong>Checkpoint · Part 2</strong>
 <label><input type="checkbox"> The alien matches the Stand picture (close is fine)</label>
 <label><input type="checkbox"> The background around it is still see-through (checkerboard)</label>
-<label><input type="checkbox"> The feet touch row 31 and nothing is drawn below row 31</label>
+<label><input type="checkbox"> The feet touch row 30 and nothing is drawn below row 30</label>
 <label><input type="checkbox"> The Preview window (top-right) shows the alien</label>
 </div>
 </div>
@@ -194,16 +196,16 @@
 <div class="note"><b>Close enough is fine.</b> What matters is the pose: squashed, stretched, tucked, squashed. Use the grids as a guide, not a test.</div>
 
 <h3>3A · Frame 2: Crouch</h3>
-<img class="ref" src="img/frame-2.png" alt="Frame 2 Crouch on a numbered grid" width="482" height="504">
+<img class="ref" src="img/frame-2.png?v=2" alt="Frame 2 Crouch on a numbered grid" width="480" height="504">
 <ol>
 <li>Duplicate <b>frame 1</b>. Frame 2 appears and opens on the canvas.</li>
 <li>Choose the <b>Move tool</b> (the four-way arrow) and drag the drawing <b>down 3 squares</b>. The whole alien slides down; the feet go off the bottom edge for now.</li>
-<li>Erase the old straight legs (right-click with the Pen) and draw <b>bent legs</b> spreading out to the sides, with the feet on row 31, as in the picture.</li>
+<li>Erase the old straight legs (right-click with the Pen) and draw <b>bent legs</b> spreading out to the sides, with the feet on row 30, as in the picture.</li>
 <li>The head is a little shorter (squashed) in the picture. Erase a row from the top of the head and redraw the top of the outline if you want the full squash.</li>
 </ol>
 
 <h3>3B · Frame 3: Jump</h3>
-<img class="ref" src="img/frame-3.png" alt="Frame 3 Jump on a numbered grid" width="482" height="504">
+<img class="ref" src="img/frame-3.png?v=2" alt="Frame 3 Jump on a numbered grid" width="480" height="504">
 <ol>
 <li>Duplicate <b>frame 1</b> (Stand), not Crouch. Hold the mouse over frame 1 and click Duplicate. The copy appears below frame 1.</li>
 <li>Hold the mouse over the new frame and drag it by its <b>move</b> handle to just below frame 2. The order should be Stand, Crouch, Jump.</li>
@@ -211,7 +213,7 @@
 </ol>
 
 <h3>3C · Frame 4: Top</h3>
-<img class="ref" src="img/frame-4.png" alt="Frame 4 Top on a numbered grid" width="482" height="504">
+<img class="ref" src="img/frame-4.png?v=2" alt="Frame 4 Top on a numbered grid" width="480" height="504">
 <ol>
 <li>Duplicate <b>frame 3</b>. Frame 4 appears below it.</li>
 <li>Erase the long legs and draw short <b>tucked legs</b> right under the body.</li>
@@ -219,7 +221,7 @@
 </ol>
 
 <h3>3D · Frame 5: Land</h3>
-<img class="ref" src="img/frame-5.png" alt="Frame 5 Land on a numbered grid" width="482" height="504">
+<img class="ref" src="img/frame-5.png?v=2" alt="Frame 5 Land on a numbered grid" width="480" height="504">
 <ol>
 <li>Duplicate <b>frame 2</b> (Crouch) and drag the copy to the bottom of the list, below frame 4.</li>
 <li>Erase the arms and draw them <b>straight out</b> to the sides, like frame 4. This is the alien catching its balance.</li>
