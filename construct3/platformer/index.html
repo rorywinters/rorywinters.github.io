@@ -46,7 +46,7 @@
     </div></div>
     <div class="down">↓</div>
     <div class="band" style="--c:var(--p2)"><h4><a href="#part2">Part 2 · Add the objects</a></h4><div class="bubbles">
-      <div class="bubble"><b>2A · Player</b>Sprite Player · Resize 32 × 32<br>Pencil · feet on bottom row<br>Position 160, 500 · Size 64 × 64</div><span class="arrow">→</span>
+      <div class="bubble"><b>2A · Player</b>Sprite Player · Resize 32 × 32<br>Pencil · Size 1 · feet on bottom row<br>Position 160, 500 · Size 64 × 64</div><span class="arrow">→</span>
       <div class="bubble"><b>2B · Platforms</b>A: Sprite Platform 64 × 16, × 4<br>160, 620 · 480, 540 · 800, 460 · 1120, 380<br>B: drag in ground, log, block PNGs<br>Size × 4 · see the Option B table</div><span class="arrow">→</span>
       <div class="bubble"><b>2C · Sharp pixels</b>Project → Sampling Nearest</div>
     </div></div>
@@ -144,15 +144,17 @@
 <tr><th>Animations Editor</th><th>Value</th></tr>
 <tr><td>Image size (Resize)</td><td>32 × 32</td></tr>
 <tr><td>Tool</td><td>Pencil</td></tr>
+<tr><td>Size (top-left, above the image)</td><td>1 (starts at 12)</td></tr>
 <tr><td>Zoom</td><td>About 800% (so each pixel is easy to see)</td></tr>
 </table>
 <ol>
 <li>On the <b>Layout 1</b> tab, double-click inside the layout (or right-click it and choose <b>Insert new object</b>).</li>
-<li>The <b>Create new object type</b> window opens. Click <b>Sprite</b> (under <b>General</b>; scroll down, or type <b>Sprite</b> in the <b>Search</b> box at the top-right).<img src="../../assets/construct3/create-new-object-sprite.png" alt="Construct 3 Create new object type window: Sprite selected under General, a Name box at the bottom, and Insert and Cancel buttons" width="761" height="635" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"> Type <b>Player</b> in <b>Name</b> at the bottom.<img src="../../assets/construct3/name-player.png" alt="Bottom of the Create new object type window: Name box reading Player, with Insert and Cancel buttons" width="710" height="122" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Click <b>Insert</b>, then click on the layout.  The <b>Animations Editor</b> opens over the middle of the screen.</li>
+<li>The <b>Create new object type</b> window opens. Click <b>Sprite</b> (under <b>General</b>; scroll down, or type <b>Sprite</b> in the <b>Search</b> box at the top-right).<img src="../../assets/construct3/create-new-object-sprite.png" alt="Construct 3 Create new object type window: Sprite selected under General, a Name box at the bottom, and Insert and Cancel buttons" width="761" height="635" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"> Type <b>Player</b> in <b>Name</b> at the bottom.<img src="../../assets/construct3/name-player.png" alt="Bottom of the Create new object type window: Name box reading Player, with Insert and Cancel buttons" width="710" height="122" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Click <b>Insert</b>, then click on the layout.  The <b>Animations Editor</b> opens over the middle of the screen. It starts with a blank 250 × 250 image (the bottom bar reads <b>Size: 250x250</b>).<img src="../../assets/construct3/animations-editor.png" alt="Construct 3 Animations Editor for Player: colour picker and Red, Green, Blue boxes on the left, drawing tools down a narrow column, a Size box reading 12 at the top, an empty image in the middle, and Animations on the right" width="1822" height="873" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></li>
 <li>Click <b>Resize</b> in the editor's top toolbar (the icon with two diagonal arrows). Type <b>32</b> for <b>Width</b> and <b>32</b> for <b>Height</b> and click <b>OK</b>. The bottom bar now reads <b>Size: 32x32</b>.</li>
 <li>Click the <b>Zoom in</b> magnifier a few times until the small square fills the middle of the editor.</li>
 <li>Pick a colour in the <b>Color palette</b> (left side of the editor), or type numbers into <b>Red</b>, <b>Green</b> and <b>Blue</b>.</li>
-<li>Choose the <b>Pencil</b> tool and draw your character: a body, a head and two feet. The <b>Eraser</b> fixes mistakes.</li>
+<li>Choose the <b>Pencil</b> tool (the narrow tool column, left of the image). Then look at <b>Size</b> at the top-left of the image area: it starts at <b>12</b>, which draws big 12-pixel blobs. Type <b>1</b> in the Size box, so each click draws one pixel. The Eraser, Line and Rectangle tools use this size too.<img src="../../assets/construct3/animations-editor-tools-size.png" alt="Animations Editor tools column with the Pencil highlighted in yellow, and the Size slider and box reading 12 above the image" width="306" height="427" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></li>
+<li>Draw your character: a body, a head and two feet. The <b>Eraser</b> fixes mistakes.</li>
 <li>Make sure the <b>feet touch the bottom row</b>. If there are empty rows under the feet, the character will look like it floats above the platform.</li>
 <li>Close the Animations Editor with the <b>X</b> in its top-right corner. Your drawing is now on the layout.</li>
 <li>Type the Player's <b>Position</b> and <b>Size</b> from the table into the <b>Properties Bar</b> (left side panel). If Position or Size shows as one line, click the small <b>▶</b> arrow beside it to open the X and Y (or Width and Height) boxes. The character sits near the left side, above where the first platform will go.</li>
@@ -176,7 +178,7 @@
 <li>Insert a new <b>Sprite</b> called <b>Platform</b> the same way. The Animations Editor opens.</li>
 <li>Click <b>Resize</b> and set <b>Width 64</b>, <b>Height 16</b>. The bottom bar reads <b>Size: 64x16</b>. Zoom in until the strip is easy to see.</li>
 <li>Type <b>139</b>, <b>90</b>, <b>43</b> into Red, Green and Blue, choose the <b>Fill</b> tool (the paint bucket), and click inside the strip. It turns brown.</li>
-<li>Type <b>76</b>, <b>175</b>, <b>80</b>. With the <b>Rectangle</b> tool, drag from the top-left corner across to the right edge, 4 rows down. If it only draws an outline, click inside it with <b>Fill</b>. The top 4 rows are now green, like grass on dirt.</li>
+<li>Type <b>76</b>, <b>175</b>, <b>80</b>. Check <b>Size</b> is still <b>1</b>. With the <b>Rectangle</b> tool, drag from the top-left corner across to the right edge, 4 rows down. If it only draws an outline, click inside it with <b>Fill</b>. The top 4 rows are now green, like grass on dirt.</li>
 <li>Close the Animations Editor with the <b>X</b>.</li>
 <li>Type <b>Platform 1</b>'s Position and Size into the Properties Bar (left side panel). A wide grass strip appears under the character.</li>
 <li>In the <b>Project Bar</b> (top-right panel), find <b>Platform</b> under <b>Object types</b> and drag it onto the layout. A second platform appears. Type <b>Platform 2</b>'s numbers.</li>
