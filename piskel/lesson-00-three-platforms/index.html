@@ -170,14 +170,14 @@
 <p>First the basic shape: a dark brown box, a line to split off the grass, and two fills. Then the details.</p>
 <img class="ref" src="img/ground-basic-grid.png" alt="The basic ground platform on a numbered 64 by 16 grid" width="800" height="248">
 <table>
-<tr><th>Swatch</th><th>Part of the platform</th><th>Colour code</th></tr>
-<tr><td>1</td><td>Outline and grass line</td><td><b>#3B2414</b> (very dark brown)</td></tr>
-<tr><td>2</td><td>Grass <b>(fill)</b></td><td><b>#5AC850</b> (green)</td></tr>
-<tr><td>3</td><td>Dirt <b>(fill)</b></td><td><b>#8B5A2B</b> (brown)</td></tr>
-<tr><td>4</td><td>Grass highlight</td><td><b>#96E678</b> (light green)</td></tr>
-<tr><td>5</td><td>Grass shadow and drips</td><td><b>#3C9637</b> (dark green)</td></tr>
-<tr><td>6</td><td>Specks and stone shadows</td><td><b>#6B4220</b> (darker brown)</td></tr>
-<tr><td>7</td><td>Stones</td><td><b>#B4A08C</b> (pale grey-brown)</td></tr>
+<tr><th>Swatch</th><th>Part of the platform</th><th>Colour code</th><th>Quick notes</th></tr>
+<tr><td>1</td><td>Outline and grass line</td><td><b>#3B2414</b> (very dark brown)</td><td><b>Rectangle</b> corner to corner · <b>Stroke</b> row 5</td></tr>
+<tr><td>2</td><td>Grass</td><td><b>#5AC850</b> (green)</td><td><b>(fill)</b> Bucket, top band · <b>Pen</b> every 4th px row 2, every 6th row 4</td></tr>
+<tr><td>3</td><td>Dirt</td><td><b>#8B5A2B</b> (brown)</td><td><b>(fill)</b> Bucket, bottom band</td></tr>
+<tr><td>4</td><td>Grass highlight</td><td><b>#96E678</b> (light green)</td><td><b>Stroke</b> row 2, cols 2–63</td></tr>
+<tr><td>5</td><td>Grass shadow and drips</td><td><b>#3C9637</b> (dark green)</td><td><b>Stroke</b> row 4, cols 2–63 · <b>Pen</b> drips under row 5</td></tr>
+<tr><td>6</td><td>Specks and stone shadows</td><td><b>#6B4220</b> (darker brown)</td><td><b>Pen</b> ~12 specks · row under each stone</td></tr>
+<tr><td>7</td><td>Stones</td><td><b>#B4A08C</b> (pale grey-brown)</td><td><b>Pen</b> 2 px on top, 4 below</td></tr>
 </table>
 <p><b>How to pick a colour:</b> click the big <b>primary colour</b> square (far left, under the tools). It starts black. The checkered square behind it is the <b>secondary colour</b> (see-through to start), and the curved arrow swaps the two.<img src="../../assets/piskel/colour-squares.png" alt="Bottom of the tools column: the eyedropper tool, then the big black primary colour square, the smaller see-through secondary square behind it, and a curved arrow between them" width="127" height="167" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">A colour chooser opens.<img src="../../assets/piskel/colour-chooser.png" alt="The Piskel colour chooser: a colour square and rainbow bar, with the text box at the bottom reading #000000, and a label saying Primary - left mouse button" width="327" height="347" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Click in the text box at the bottom (it shows <b>#000000</b> at first), delete what is there, type the colour code (or click any code on this page to copy it, then paste with <b>Ctrl+V</b>) (for example <b>#3B2414</b>) and press <b>Enter</b>, then click back on the canvas to close the chooser. The primary square changes to that colour. The primary colour paints with the <b>left</b> mouse button.</p>
 <p><b>Made a palette in 1C?</b> Skip the typing: just click the colour's swatch in the <b>Palettes</b> panel. Each step gives the swatch number, e.g. <b>#5AC850</b> (swatch 2).</p>
@@ -265,11 +265,11 @@
 <img class="ref" src="img/block-basic-grid.png" alt="The basic stone block on a numbered 16 by 16 grid" width="416" height="440">
 </div>
 <table>
-<tr><th>Swatch</th><th>Part of the block</th><th>Colour code</th></tr>
-<tr><td>1</td><td>Outline</td><td><b>#3C3C46</b> (very dark grey)</td></tr>
-<tr><td>2</td><td>Stone <b>(fill)</b></td><td><b>#8C8C96</b> (grey)</td></tr>
-<tr><td>3</td><td>Light edge (top and left)</td><td><b>#C8C8D2</b> (light grey)</td></tr>
-<tr><td>4</td><td>Dark edge (bottom and right)</td><td><b>#5F5F69</b> (dark grey)</td></tr>
+<tr><th>Swatch</th><th>Part of the block</th><th>Colour code</th><th>Quick notes</th></tr>
+<tr><td>1</td><td>Outline</td><td><b>#3C3C46</b> (very dark grey)</td><td><b>Rectangle</b> corner to corner</td></tr>
+<tr><td>2</td><td>Stone</td><td><b>#8C8C96</b> (grey)</td><td><b>(fill)</b> Bucket inside</td></tr>
+<tr><td>3</td><td>Light edge (top and left)</td><td><b>#C8C8D2</b> (light grey)</td><td><b>Stroke</b> row 2 + col 2 · row 9 (cols 3–14)</td></tr>
+<tr><td>4</td><td>Dark edge (bottom and right)</td><td><b>#5F5F69</b> (dark grey)</td><td><b>Stroke</b> row 15 + col 15 · mortar row 8 · joints col 8, cols 5 + 11 · <b>Pen</b> crack</td></tr>
 </table>
 
 <h3>3A · New sprite, 16 × 16</h3>
@@ -337,13 +337,13 @@
 <p>A log is a cylinder lying on its side. Rounded ends and a light stripe near the top make a flat drawing look round. The detailed version adds a sawn-off end with tree rings.</p>
 <img class="ref" src="img/log-basic-grid.png" alt="The basic log on a numbered 48 by 16 grid" width="752" height="296">
 <table>
-<tr><th>Swatch</th><th>Part of the log</th><th>Colour code</th></tr>
-<tr><td>1</td><td>Outline</td><td><b>#4A2C12</b> (very dark brown)</td></tr>
-<tr><td>2</td><td>Bark <b>(fill)</b></td><td><b>#8B5A2B</b> (brown)</td></tr>
-<tr><td>3</td><td>Light stripe</td><td><b>#B07A45</b> (light brown)</td></tr>
-<tr><td>4</td><td>Bark lines and knot</td><td><b>#6B4220</b> (darker brown)</td></tr>
-<tr><td>5</td><td>Cut end (the wood face) <b>(fill)</b></td><td><b>#DCB478</b> (pale wood)</td></tr>
-<tr><td>6</td><td>Tree rings</td><td><b>#A87444</b> (medium brown)</td></tr>
+<tr><th>Swatch</th><th>Part of the log</th><th>Colour code</th><th>Quick notes</th></tr>
+<tr><td>1</td><td>Outline</td><td><b>#4A2C12</b> (very dark brown)</td><td><b>Rectangle</b>, round the corners · <b>Pen</b> cut-end oval, knot centre</td></tr>
+<tr><td>2</td><td>Bark</td><td><b>#8B5A2B</b> (brown)</td><td><b>(fill)</b> Bucket · <b>Stroke</b> over rows 4, 9, 13 cols 38–46 to clear · <b>Pen</b> gaps in bark lines</td></tr>
+<tr><td>3</td><td>Light stripe</td><td><b>#B07A45</b> (light brown)</td><td><b>Stroke</b> row 4, cols 4–45</td></tr>
+<tr><td>4</td><td>Bark lines and knot</td><td><b>#6B4220</b> (darker brown)</td><td><b>Stroke</b> rows 9 + 13, cols 4–45 · <b>Pen</b> knot ring</td></tr>
+<tr><td>5</td><td>Cut end (the wood face)</td><td><b>#DCB478</b> (pale wood)</td><td><b>(fill)</b> Bucket inside the oval</td></tr>
+<tr><td>6</td><td>Tree rings</td><td><b>#A87444</b> (medium brown)</td><td><b>Pen</b> ring cols 41–46, rows 5–12 · 2×2 centre dot</td></tr>
 </table>
 
 <h3>4A · New sprite, 48 × 16</h3>
