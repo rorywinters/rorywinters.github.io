@@ -29,7 +29,7 @@
 <section class="intro">
   <h2>What you will build</h2>
   <p>Three separate pictures (PNG files), each a different size. Here they are together in a game scene:</p>
-  <img class="ref" src="img/scene.png" alt="The ground platform, two floating stone blocks and a log in a sky-blue game scene" width="640" height="360">
+  <img class="ref" src="img/scene.png?v=3" alt="The ground platform, two floating stone blocks and a log in a sky-blue game scene" width="640" height="360">
   <table>
     <tr><th>Platform</th><th>Size</th><th>Style</th></tr>
     <tr><td><b>Big ground platform</b></td><td>64 × 16 pixels</td><td>Grass on top, dirt underneath. Place several side by side to make a long floor.</td></tr>
@@ -81,7 +81,7 @@
     <div class="band" style="--c:var(--p4)"><h4><a href="#part4">Part 4 · Log platform</a></h4><div class="bubbles">
       <div class="bubble"><b>4A · New sprite</b>New tab · Create Sprite<br>Resize 48 × 16<br>Optional: Log palette, 6 colours</div><span class="arrow">→</span>
       <div class="bubble"><b>4B · Outline + round ends</b>Rectangle #4A2C12<br>Erase 3 px per corner, add 1 inside</div><span class="arrow">→</span>
-      <div class="bubble"><b>4C · Fill + bark</b>Bucket #8B5A2B · row 3 #B07A45<br>rows 8 + 12 #6B4220</div><span class="arrow">→</span>
+      <div class="bubble"><b>4C · Fill + bark</b>Bucket #8B5A2B · row 3 #B07A45<br>rows 8 + 12 #4A2C12</div><span class="arrow">→</span>
       <div class="bubble"><b>4D · Cut end + knot</b>Face #DCB478 · rings #A87444<br>Knot · break the bark lines</div><span class="arrow">→</span>
       <div class="bubble"><b>4E · Save + export</b>log.piskel<br>log.png</div>
     </div></div>
@@ -335,13 +335,13 @@
 <summary><h2>Part 4 · Log platform</h2><span class="done"></span></summary>
 <div class="body">
 <p>A log is a cylinder lying on its side. Rounded ends and a light stripe near the top make a flat drawing look round. The detailed version adds a sawn-off end with tree rings.</p>
-<img class="ref" src="img/log-basic-grid.png?v=2" alt="The basic log on a numbered 48 by 16 grid" width="752" height="296">
+<img class="ref" src="img/log-basic-grid.png?v=3" alt="The basic log on a numbered 48 by 16 grid" width="752" height="296">
 <table>
 <tr><th>Swatch</th><th>Part of the log</th><th>Colour code</th><th>Quick notes</th></tr>
-<tr><td>1</td><td>Outline</td><td><b>#4A2C12</b> (very dark brown)</td><td><b>Rectangle</b>, round the corners · <b>Pen</b> cut-end oval, knot centre</td></tr>
+<tr><td>1</td><td>Outline and bark lines</td><td><b>#4A2C12</b> (very dark brown)</td><td><b>Rectangle</b>, round the corners · <b>Stroke</b> bark lines rows 8 + 12, cols 3–44 · <b>Pen</b> cut-end oval, knot centre</td></tr>
 <tr><td>2</td><td>Bark</td><td><b>#8B5A2B</b> (brown)</td><td><b>(fill)</b> Bucket · <b>Stroke</b> over rows 3, 8, 12 cols 37–45 to clear · <b>Pen</b> gaps in bark lines</td></tr>
 <tr><td>3</td><td>Light stripe</td><td><b>#B07A45</b> (light brown)</td><td><b>Stroke</b> row 3, cols 3–44</td></tr>
-<tr><td>4</td><td>Bark lines and knot</td><td><b>#6B4220</b> (darker brown)</td><td><b>Stroke</b> rows 8 + 12, cols 3–44 · <b>Pen</b> knot ring</td></tr>
+<tr><td>4</td><td>Knot ring</td><td><b>#6B4220</b> (darker brown)</td><td><b>Pen</b> knot ring</td></tr>
 <tr><td>5</td><td>Cut end (the wood face)</td><td><b>#DCB478</b> (pale wood)</td><td><b>(fill)</b> Bucket inside the oval</td></tr>
 <tr><td>6</td><td>Tree rings</td><td><b>#A87444</b> (medium brown)</td><td><b>Pen</b> ring cols 40–45, rows 4–11 · 2×2 centre dot</td></tr>
 </table>
@@ -367,14 +367,14 @@
 <ol>
 <li>Pick <b>#8B5A2B</b> (swatch 2), choose the <b>Paint bucket</b> <img src="../../assets/piskel/icon-bucket.png" alt="Paint bucket tool icon: a tipping paint can" width="57" height="57" style="height:1.6em;width:auto;vertical-align:middle;margin:0 .25em;border-radius:3px">, and click inside the log. If the colour spills outside, a rounded corner has a gap: press <b>Ctrl+Z</b> and check that corner against the picture.</li>
 <li>Pick <b>#B07A45</b> (swatch 3), choose the <b>Stroke tool</b> <img src="../../assets/piskel/icon-stroke.png" alt="Stroke tool icon: a pen drawing a straight line" width="65" height="62" style="height:1.6em;width:auto;vertical-align:middle;margin:0 .25em;border-radius:3px">, and drag along <b>row 3</b> from column 3 to column 44. This is the light shining on the top of the log.</li>
-<li>Pick <b>#6B4220</b> (swatch 4) and drag two more lines, from column 3 to column 44: one on <b>row 8</b> and one on <b>row 12</b>. These are the bark lines.</li>
+<li>Pick the outline colour <b>#4A2C12</b> (swatch 1) and drag two more lines, from column 3 to column 44: one on <b>row 8</b> and one on <b>row 12</b>. These are the dark bark lines.</li>
 </ol>
 <div class="note what"><b>Remember:</b> hold <b>Shift</b> and keep the mouse close to the row or column as you drag. If the line flips to a diagonal, move back before you let go.</div>
 
 <h3>4D · Cut end and knot</h3>
 <p>Show the sawn-off end of the log with its tree rings, and add a knot in the bark. Copy the pattern, or make up your own.</p>
-<img class="ref" src="img/log-grid.png?v=2" alt="The detailed log pattern on a numbered 48 by 16 grid" width="752" height="296">
-<img class="ref" src="img/log-big.png" alt="The finished detailed log, shown bigger" width="288" height="96">
+<img class="ref" src="img/log-grid.png?v=3" alt="The detailed log pattern on a numbered 48 by 16 grid" width="752" height="296">
+<img class="ref" src="img/log-big.png?v=3" alt="The finished detailed log, shown bigger" width="288" height="96">
 <ol>
 <li><b>Clear the way:</b> pick the bark colour <b>#8B5A2B</b> (swatch 2) and the <b>Stroke tool</b> <img src="../../assets/piskel/icon-stroke.png" alt="Stroke tool icon: a pen drawing a straight line" width="65" height="62" style="height:1.6em;width:auto;vertical-align:middle;margin:0 .25em;border-radius:3px">. Drag over <b>rows 3, 8 and 12</b> from column 37 to column 45. The right ends of the three lines disappear, so they won't cut through the wood face.</li>
 <li><b>Edge of the cut end:</b> pick <b>#4A2C12</b> (swatch 1) and, with the <b>Pen</b>, draw the tall oval at the right end, as in the picture: column 38 from row 3 to row 12, column 46 from row 3 to row 12, row 1 and row 14 from column 40 to column 45, and one corner pixel at each of row 2 and row 13 (columns 39 and 46).</li>
