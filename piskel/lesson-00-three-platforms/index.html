@@ -90,7 +90,7 @@
       <div class="bubble"><b>5A · Hand in</b>Google Classroom<br>3 .piskel + 3 .png</div>
     </div></div>
   </div>
-  <p class="key">Each colour is one part. Codes like 2B mean Part 2, section B. Underlined words are links. Codes like #5AC850 are colours. If you made a palette, (swatch 2) tells you which square to click. Row and column numbers count from 1, matching the numbers on the picture grids.</p>
+  <p class="key">Each colour is one part. Codes like 2B mean Part 2, section B. Underlined words are links. Codes like #5AC850 are colours. If you made a palette, (swatch 2) tells you which square to click. Row and column numbers count from 1, matching the numbers on the picture grids (Piskel's own counter starts at 0).</p>
 </section>
 
 <div class="controls">
@@ -109,7 +109,8 @@
 <tr><td><b>Tools</b> (Pen, Paint bucket, Eraser, Stroke, Rectangle…)</td><td>Far left, two columns of icons</td></tr>
 <tr><td><b>Pen size</b> (four small squares)</td><td>Far left, just above the tools</td></tr>
 <tr><td><b>Colour squares</b> (primary and secondary)</td><td>Far left, under the tools</td></tr>
-<tr><td><b>Palettes</b> panel</td><td>Right side, under the Preview and Layers</td></tr>
+<tr><td><b>Palettes</b> panel</td><td>Right side, under Layers and Transform</td></tr>
+<tr><td><b>Mouse position</b> (yellow numbers)</td><td>Bottom-right, under the Palettes panel. Shows column:row of the pixel under the mouse, counting from 0.</td></tr>
 <tr><td><b>Canvas</b> (where you draw)</td><td>Middle of the screen</td></tr>
 <tr><td><b>Preview</b> window and the quick <b>#</b> grid button</td><td>Top-right corner. The # button stays hidden until you move the mouse to the top of the Preview window, under Create Sprite.</td></tr>
 <tr><td><b>Settings</b> (gear) and its <b>Grid</b> tab</td><td>Strip of icons on the far right edge. Background (Misc tab), grid colour and turning the grid on (Grid tab) are set here.</td></tr>
@@ -145,7 +146,7 @@
 <p><b>Optional, but it saves time.</b> A <b>palette</b> keeps the colours for a drawing in one place. You type each colour code once, then just click it, instead of typing the same codes again and again. Real pixel artists work this way. If you skip it, you type each code when a step asks for it (see How to pick a colour in Part 2).</p>
 <table><tr><th>Swatch</th><th>Colour code</th><th>Used for</th></tr><tr><td>1</td><td><b>#3B2414</b></td><td>very dark brown (outline)</td></tr><tr><td>2</td><td><b>#5AC850</b></td><td>green (grass)</td></tr><tr><td>3</td><td><b>#8B5A2B</b></td><td>brown (dirt)</td></tr><tr><td>4</td><td><b>#96E678</b></td><td>light green (grass highlight)</td></tr><tr><td>5</td><td><b>#3C9637</b></td><td>dark green (grass shadow)</td></tr><tr><td>6</td><td><b>#6B4220</b></td><td>darker brown (specks)</td></tr><tr><td>7</td><td><b>#B4A08C</b></td><td>pale grey-brown (stones)</td></tr></table>
 <ol>
-<li>Find the <b>Palettes</b> panel (right side, under the Preview and Layers). It has a <b>+</b>, a dropdown with the palette's name, and a pencil.<img src="../../assets/piskel/palettes-panel.png" alt="Piskel Palettes panel: a plus button, a dropdown showing the palette name, a pencil button, and two numbered colour swatches" width="257" height="137" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></li>
+<li>Find the <b>Palettes</b> panel (right side, under <b>Layers</b> and <b>Transform</b>). It has a <b>+</b>, a dropdown with the palette's name, and a pencil.<img src="../../assets/piskel/palettes-panel.png" alt="Piskel Palettes panel: a plus button, a dropdown showing the palette name, a pencil button, and two numbered colour swatches" width="257" height="137" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></li>
 <li>Click <b>+</b>. The <b>Edit Palette</b> window opens. In <b>Name</b>, delete what is there and type <b>Ground</b>.</li>
 <li>Click the first colour square (if there isn't one, click the dashed <b>+</b> square). In the box under the colour picker, delete what is there, type <b>#3B2414</b> and press <b>Enter</b>. The square turns very dark brown.<img src="../../assets/piskel/edit-palette.png" alt="Piskel Edit Palette window: Name box, two colour squares and a dashed plus square on the left; colour picker, a code box reading #6B4220 and colour sliders on the right; Cancel, Delete and Save buttons at the bottom" width="635" height="756" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"><i>This example palette is called Dirt and has two colours. Yours is called Ground.</i></li>
 <li>Click the dashed <b>+</b> square to add a new square, then click the next code in the table to copy it, paste it into the box with <b>Ctrl+V</b>, and press <b>Enter</b>. Repeat until you have all <b>7</b> squares, in the table's order.</li>
@@ -197,6 +198,7 @@
 <li>Find <b>row 5</b> using the numbers down the left of the picture grid above (4 rows down from the top edge is grass).</li>
 <li>Press on the left outline at row 5, drag straight across to the right outline at row 5, and let go. A dark line now splits the strip into a thin top band and a thick bottom band.</li>
 </ol>
+<div class="note what"><b>Where is my mouse?</b> The yellow numbers at the bottom-right, under the Palettes panel, show which pixel the mouse is over: the canvas size in brackets, then <b>column:row</b>.<img src="../../assets/piskel/mouse-position.png" alt="Yellow numbers at the bottom-right of Piskel: x17.60 (zoom), [48x16] 26:7 (canvas size, then column and row under the mouse), 1/1 (frame)" width="170" height="70" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Piskel starts counting at <b>0</b>, but this lesson starts at <b>1</b>, so Piskel's numbers are always <b>one less</b>. Row 5, column 2 in the lesson shows as <b>1:4</b> in Piskel.</div>
 <div class="note what"><b>Straight lines:</b> hold <b>Shift</b> while you drag with the Stroke tool. The line snaps straight across or straight down, so it can't wander onto the next row.</div>
 
 <h3>2C · Fill the grass and dirt</h3>
