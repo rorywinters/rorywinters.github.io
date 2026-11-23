@@ -56,6 +56,20 @@
   if (ct) ct.addEventListener('click', function () { saved = {}; boxes.forEach(function (b) { b.checked = false; }); try { localStorage.removeItem(KEY); } catch (e) {} update(); });
   update();
 
+  // Colour codes (#RRGGBB in bold): click to copy, with a small colour chip.
+  Array.prototype.forEach.call(document.querySelectorAll('b, strong, code'), function (el) {
+    var s = el.textContent.trim();
+    if (!/^#[0-9A-Fa-f]{6}$/.test(s) || el.closest('.brief, label, a, .hex')) return;
+    el.classList.add('hex'); el.title = 'Click to copy ' + s;
+    var chip = document.createElement('span'); chip.className = 'chip'; chip.style.background = s;
+    el.insertBefore(chip, el.firstChild);
+    el.addEventListener('click', function () {
+      function done() { el.classList.add('copied'); clearTimeout(el._t); el._t = setTimeout(function () { el.classList.remove('copied'); }, 1500); }
+      if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(s).then(done, done); }
+      else { var ta = document.createElement('textarea'); ta.value = s; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (e) {} ta.remove(); done(); }
+    });
+  });
+
   // Clickable lesson brief + Back to the brief button live in brief.js (shared with pages that don't use this file).
   var bs = document.createElement('script');
   bs.src = (document.currentScript && document.currentScript.src || '').replace(/lesson\.js(\?.*)?$/, 'brief.js$1');

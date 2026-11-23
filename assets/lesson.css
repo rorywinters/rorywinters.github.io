@@ -91,3 +91,8 @@
   h3, details.part { scroll-margin-top: 12px; }
   .flash { animation: flash 1.2s ease-out; }
   @keyframes flash { 0% { box-shadow: 0 0 0 4px #f5c542; background-color: #fff6d6; } 100% { box-shadow: 0 0 0 0 transparent; } }
+
+/* Click-to-copy colour codes */
+.hex{cursor:pointer;white-space:nowrap;border-bottom:1px dashed currentColor}
+.hex .chip{display:inline-block;width:.9em;height:.9em;margin-right:.25em;border:1px solid #555;border-radius:2px;vertical-align:-.1em}
+.hex.copied::after{content:" ✓ copied";color:#2a8a2a;font-weight:normal;font-size:.85em}
