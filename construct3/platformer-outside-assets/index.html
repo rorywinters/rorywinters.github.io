@@ -54,7 +54,7 @@
     <div class="down">↓</div>
     <div class="band" style="--c:var(--p2)"><h4><a href="#part2">Part 2 · Bring in your assets</a></h4><div class="bubbles">
       <div class="bubble"><b>2A · Player</b>Sprite Player · Import Frames<br>From Sheet: Columns 5 · Rows 1<br>Width 32 · Height 32 · Add all frames<br>Import frames<br>Delete empty frame 0 · Speed 0<br>Position 160, 500 · Size 64 × 64</div><span class="arrow">→</span>
-      <div class="bubble"><b>2B · Platforms</b>Drag in ground, log, block PNGs<br>2nd ground from Object types<br>Size × 4 · see the 2B table</div><span class="arrow">→</span>
+      <div class="bubble"><b>2B · Platforms</b>Drag in PNGs · Size × 4<br>ground 160, 620 · 256 × 64<br>log 480, 540 · 192 × 64<br>block 700, 460 · 64 × 64<br>ground (Object types) 960, 380</div><span class="arrow">→</span>
       <div class="bubble"><b>2C · Sharp pixels</b>Project → Sampling Nearest</div>
     </div></div>
     <div class="down">↓</div>
@@ -179,11 +179,20 @@
 <div class="note pick"><b>Pick the right one:</b> use <b>Import Frames → From Sheet</b>, not <b>Load an image from a file</b> (the folder icon). The folder icon loads the whole sheet as one wide picture, so you would see five aliens side by side.</div>
 
 <h3>2B · Platforms: ground, log and block</h3>
+<table>
+<tr><th>Platform</th><th>File</th><th>Piskel size</th><th>Scale</th><th>Size W × H</th><th>Position X, Y</th></tr>
+<tr><td><b>ground</b> (first)</td><td>ground.png</td><td>64 × 16</td><td>× 4</td><td>256 × 64</td><td>160, 620</td></tr>
+<tr><td><b>log</b></td><td>log.png</td><td>48 × 16</td><td>× 4</td><td>192 × 64</td><td>480, 540</td></tr>
+<tr><td><b>block</b></td><td>block.png</td><td>16 × 16</td><td>× 4</td><td>64 × 64</td><td>700, 460</td></tr>
+<tr><td><b>ground</b> (second)</td><td>from Object types</td><td>64 × 16</td><td>× 4</td><td>256 × 64</td><td>960, 380</td></tr>
+</table>
+<div class="note"><b>Quick notes:</b> Scale × 4 means each Piskel number times 4 (64 × 16 becomes 256 × 64), the same as the alien (32 × 32 becomes 64 × 64). Each platform is 80 higher than the one before (620, 540, 460, 380), and the gaps between them are about 95 wide, so every jump works. Want a different layout? Keep each step up about 80 and each gap under about 150.</div>
 <ol>
 <li>Open your <b>Downloads</b> folder beside Construct. Drag <b>ground.png</b> straight onto the layout. It becomes a sprite called <b>ground</b>, listed under <b>Object types</b> in the <b>Project Bar</b> (top-right panel). It looks tiny at first.<img src="../../assets/construct3/drop-ground-object.png" alt="Construct 3 Project Bar: Object types folder containing a sprite called ground" width="291" height="60" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></li>
-<li>Type the first <b>ground</b>'s Position and Size from the table into the <b>Properties Bar</b> (left side panel). It grows into a wide grassy strip under the alien.</li>
-<li>Drag in <b>log.png</b> and <b>block.png</b> the same way, and type their numbers from the table.</li>
-<li>For the last one, drag <b>ground</b> from <b>Object types</b> in the Project Bar onto the layout (not ground.png again), and type the second ground's numbers. The four platforms now step up like stairs from left to right.</li>
+<li>With the ground still selected, in the <b>Properties Bar</b> (left side panel) type <b>Position</b> <b>160</b>, <b>620</b> and <b>Size</b> <b>256</b>, <b>64</b> (open each with its <b>▶</b> arrow). It grows into a wide grassy strip under the alien.</li>
+<li>Drag in <b>log.png</b>. Type <b>Position</b> <b>480</b>, <b>540</b> and <b>Size</b> <b>192</b>, <b>64</b>. The log sits up and to the right of the ground.</li>
+<li>Drag in <b>block.png</b>. Type <b>Position</b> <b>700</b>, <b>460</b> and <b>Size</b> <b>64</b>, <b>64</b>. The block sits up and to the right of the log.</li>
+<li>For the last one, drag <b>ground</b> from <b>Object types</b> in the Project Bar onto the layout (not ground.png again). Type <b>Position</b> <b>960</b>, <b>380</b> and <b>Size</b> <b>256</b>, <b>64</b>. The four platforms now step up like stairs from left to right.</li>
 </ol>
 <div class="note pick"><b>Pick the right one:</b> the second ground must come from the <b>Project Bar</b>, so it is the same <b>ground</b> object. Dragging ground.png in again makes a second object type (ground2), which would need its own behaviour later.</div>
 <div class="note what"><b>Blurry?</b> That is normal until you finish 2C, which makes stretched pixel art sharp.</div>
