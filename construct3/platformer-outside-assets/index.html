@@ -53,7 +53,7 @@
     </div></div>
     <div class="down">↓</div>
     <div class="band" style="--c:var(--p2)"><h4><a href="#part2">Part 2 · Bring in your assets</a></h4><div class="bubbles">
-      <div class="bubble"><b>2A · Player</b>Sprite Player · Import frames<br>From sprite strip: 5 across, 1 down<br>Delete blank frame · Speed 0<br>Position 160, 500 · Size 64 × 64</div><span class="arrow">→</span>
+      <div class="bubble"><b>2A · Player</b>Sprite Player · Import Frames<br>From Sheet: 5 across, 1 down<br>Delete blank frame · Speed 0<br>Position 160, 500 · Size 64 × 64</div><span class="arrow">→</span>
       <div class="bubble"><b>2B · Platforms</b>Drag in ground, log, block PNGs<br>2nd ground from Object types<br>Size × 4 · see the 2B table</div><span class="arrow">→</span>
       <div class="bubble"><b>2C · Sharp pixels</b>Project → Sampling Nearest</div>
     </div></div>
@@ -146,11 +146,11 @@
 <tr><td><b>ground</b> (second)</td><td>from Object types</td><td>960</td><td>380</td><td>256</td><td>64</td></tr>
 </table>
 <p>Each size is 4 times the Piskel size: the 32 × 32 alien shows at 64 × 64, and the 64 × 16 ground shows at 256 × 64.</p>
-<div class="note"><b>Quick notes:</b> Player = Sprite with Import frames → From sprite strip, 5 across × 1 down, then Speed 0. Platforms = drag the PNGs straight onto the layout. Type the table numbers into the Properties Bar.</div>
+<div class="note"><b>Quick notes:</b> Player = Sprite with Import Frames → From Sheet, 5 across × 1 down, then Speed 0. Platforms = drag the PNGs straight onto the layout. Type the table numbers into the Properties Bar.</div>
 
 <h3>2A · Player: your Jumping Alien</h3>
 <table>
-<tr><th>Import sprite strip</th><th>Value</th></tr>
+<tr><th>Import Frames → From Sheet</th><th>Value</th></tr>
 <tr><td>File</td><td>Your alien sprite sheet PNG</td></tr>
 <tr><td>Horizontal cells</td><td>5</td></tr>
 <tr><td>Vertical cells</td><td>1</td></tr>
@@ -159,9 +159,9 @@
 <ol>
 <li>On the <b>Layout 1</b> tab (middle of the screen), double-click inside the layout (or right-click it and choose <b>Insert new object</b>).</li>
 <li>The <b>Create new object type</b> window opens. Click <b>Sprite</b> (under <b>General</b>; scroll down, or type <b>Sprite</b> in the <b>Search</b> box at the top-right).<img src="../../assets/construct3/create-new-object-sprite.png" alt="Construct 3 Create new object type window: Sprite selected under General, a Name box at the bottom, and Insert and Cancel buttons" width="761" height="635" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"> Type <b>Player</b> in <b>Name</b> at the bottom.<img src="../../assets/construct3/name-player.png" alt="Bottom of the Create new object type window: Name box reading Player, with Insert and Cancel buttons" width="710" height="122" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Click <b>Insert</b>, then click on the layout. The <b>Animations Editor</b> opens over the middle of the screen with one blank frame.<img src="../../assets/construct3/animations-editor.png" alt="Construct 3 Animations Editor for Player: colour picker on the left, drawing tools down a narrow column, an empty image in the middle, Animations on the right, and Animation frames along the bottom" width="1822" height="873" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></li>
-<li>Find the <b>Animation 1 Frames</b> panel (bottom middle of the Animations Editor, under the image, with a blue title bar). It shows one blank frame, numbered <b>0</b>.<img src="../../assets/construct3/animation-frames-panel.png" alt="Construct 3 Animations Editor, bottom middle: a blue bar titled Animation 1 Frames (1) with one blank frame numbered 0 under it" width="1180" height="189" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Right-click an empty white spot in that panel. A menu opens:<img src="../../assets/construct3/frames-right-click-menu.png" alt="Construct 3 right-click menu in the frames panel: Add Frame, Duplicate Last, Reverse Frames, Cut, Copy, Paste, Import Frames with an arrow, and Thumbnail Size with an arrow" width="241" height="281" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Hold the mouse over <b>Import Frames</b> (the arrow ▶ on its right opens two more choices: one for <b>files</b>, one for a sprite <b>strip</b>) and click the <b>strip</b> one.</li>
+<li>Find the <b>Animation 1 Frames</b> panel (bottom middle of the Animations Editor, under the image, with a blue title bar). It shows one blank frame, numbered <b>0</b>.<img src="../../assets/construct3/animation-frames-panel.png" alt="Construct 3 Animations Editor, bottom middle: a blue bar titled Animation 1 Frames (1) with one blank frame numbered 0 under it" width="1180" height="189" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Right-click an empty white spot in that panel. A menu opens:<img src="../../assets/construct3/frames-right-click-menu.png?v=2" alt="Construct 3 right-click menu in the frames panel with Import Frames open, showing two choices: From Files and From Sheet" width="406" height="282" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Hold the mouse over <b>Import Frames</b> (the arrow ▶ on its right opens two more choices, <b>From Files</b> and <b>From Sheet</b>) and click <b>From Sheet</b>.</li>
 </ol>
-<div class="note pick"><b>Pick the right one:</b> choose the <b>strip</b> choice, not the <b>files</b> one. Your alien is one picture with 5 poses in a row (a strip). The strip choice cuts it into 5 frames; the files choice would bring it in as one wide frame.</div>
+<div class="note pick"><b>Pick the right one:</b> choose <b>From Sheet</b>, not <b>From Files</b>. Your alien is one picture with 5 poses in a row (a sprite sheet). From Sheet cuts it into 5 frames; From Files would bring it in as one wide frame.</div>
 <ol start="4">
 <li>Pick your alien sprite sheet PNG from Downloads and click <b>Open</b>. A window asks how the picture is cut up. Type <b>5</b> for <b>Horizontal cells</b> and <b>1</b> for <b>Vertical cells</b>, then click <b>Import</b>. Your five alien poses appear in the <b>Animation 1 Frames</b> panel.</li>
 <li>If the blank frame is still at the start of the panel, right-click it and choose <b>Delete</b>. Frame <b>0</b> should now be your alien standing, and the title bar should read <b>Animation 1 Frames (5)</b>.</li>
@@ -169,7 +169,7 @@
 <li>Close the Animations Editor with the <b>X</b> in its top-right corner. The standing alien is now on the layout.</li>
 <li>Type the Player's <b>Position</b> and <b>Size</b> from the table into the <b>Properties Bar</b> (left side panel). If Position or Size shows as one line, click the small <b>▶</b> arrow beside it to open the X and Y (or Width and Height) boxes.</li>
 </ol>
-<div class="note pick"><b>Pick the right one:</b> use <b>Import frames → From sprite strip</b>, not <b>Load an image from a file</b> (the folder icon). The folder icon loads the whole sheet as one wide picture, so you would see five aliens side by side.</div>
+<div class="note pick"><b>Pick the right one:</b> use <b>Import Frames → From Sheet</b>, not <b>Load an image from a file</b> (the folder icon). The folder icon loads the whole sheet as one wide picture, so you would see five aliens side by side.</div>
 
 <h3>2B · Platforms: ground, log and block</h3>
 <ol>
