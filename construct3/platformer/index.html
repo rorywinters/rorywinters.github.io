@@ -47,13 +47,13 @@
     <div class="down">↓</div>
     <div class="band" style="--c:var(--p2)"><h4><a href="#part2">Part 2 · Add the objects</a></h4><div class="bubbles">
       <div class="bubble"><b>2A · Player</b>Sprite Player · Resize 32 × 32<br>Pencil · Size 1 · feet on bottom row<br>Position 160, 500 · Size 64 × 64</div><span class="arrow">→</span>
-      <div class="bubble"><b>2B · Platforms</b>A: Sprite Platform 64 × 16, × 4<br>160, 620 · 480, 540 · 800, 460 · 1120, 380<br>B: drag in ground, log, block PNGs<br>Size × 4 · see the Option B table</div><span class="arrow">→</span>
+      <div class="bubble"><b>2B · Platforms</b>Sprite Platform 64 × 16 · grass top 4 rows<br>4 copies, Size 256 × 64<br>160, 620 · 480, 540 · 800, 460 · 1120, 380</div><span class="arrow">→</span>
       <div class="bubble"><b>2C · Sharp pixels</b>Project → Sampling Nearest</div>
     </div></div>
     <div class="down">↓</div>
     <div class="band" style="--c:var(--p3)"><h4><a href="#part3">Part 3 · Run, jump and land</a></h4><div class="bubbles">
       <div class="bubble"><b>3A · Player: Platform</b>Defaults: Max speed 330<br>Jump strength 650 · Gravity 1500<br>Preview: falls through everything</div><span class="arrow">→</span>
-      <div class="bubble"><b>3B · Platform: Solid</b>A: Solid on Platform · B: on ground, log, block<br>Preview: lands and stays put</div><span class="arrow">→</span>
+      <div class="bubble"><b>3B · Platform: Solid</b>Solid on Platform (all 4 get it)<br>Preview: lands and stays put</div><span class="arrow">→</span>
       <div class="bubble"><b>3C · Test</b>← → move · ↑ jump<br>Walk off an edge: falls</div>
     </div></div>
     <div class="down">↓</div>
@@ -162,13 +162,7 @@
 </ol>
 <div class="note pick"><b>Pick the right one:</b> use the <b>Pencil</b> <img src="../../assets/construct3/icon-pencil.png?v=2" alt="Pencil tool icon: a straight pencil" width="35" height="40" style="height:1.6em;width:auto;vertical-align:middle;margin:0 .25em;border-radius:3px">, not the <b>Brush</b> <img src="../../assets/construct3/icon-brush.png" alt="Brush tool icon: a paintbrush with a rounded tip" width="37" height="36" style="height:1.6em;width:auto;vertical-align:middle;margin:0 .25em;border-radius:3px"> just below it. They look alike: the Pencil is a straight pencil, the Brush has a rounded tip. The Brush starts out crisp too (Hardness 1, Opacity 1, Smooth unticked), but it has extra settings: if Hardness or Opacity drops below 1, or Smooth is ticked, its edges go soft and look blurry when the sprite is made bigger. The Pencil always draws sharp pixels.</div>
 
-<h3>2B · Platforms: draw one, or use your Piskel platforms</h3>
-<p>Choose <b>one</b> way to make the platforms:</p>
-<ul>
-<li><b>Option A · Draw it here:</b> draw one plain platform in Construct and place four copies. Follow the steps right below.</li>
-<li><b>Option B · Use your Piskel platforms:</b> if you finished <a href="../../piskel/lesson-00-three-platforms/"><b>Piskel Lesson 0: Three Platforms</b></a>, bring in your ground, block and log. Skip down to <b>Option B</b>.</li>
-</ul>
-<h4>Option A · Draw the platform and place four</h4>
+<h3>2B · Draw the platform and place four</h3>
 <table>
 <tr><th>Animations Editor</th><th>Value</th></tr>
 <tr><td>Image size (Resize)</td><td>64 × 16</td></tr>
@@ -187,25 +181,6 @@
 </ol>
 <div class="note pick"><b>Pick the right one:</b> all four platforms must be the <b>same</b> object type. The Project Bar should show only one Platform (not Sprite2, Platform2 and so on). That way one behaviour in Part 3 covers all four.</div>
 
-<h4>Option B · Use your Piskel platforms</h4>
-<p>You need <b>ground.png</b>, <b>block.png</b> and <b>log.png</b> from the Piskel lesson, in your Downloads folder.</p>
-<table>
-<tr><th>Object</th><th>Position X</th><th>Position Y</th><th>Size W</th><th>Size H</th></tr>
-<tr><td><b>ground</b> (first)</td><td>160</td><td>620</td><td>256</td><td>64</td></tr>
-<tr><td><b>log</b></td><td>480</td><td>540</td><td>192</td><td>64</td></tr>
-<tr><td><b>block</b></td><td>700</td><td>460</td><td>64</td><td>64</td></tr>
-<tr><td><b>ground</b> (second)</td><td>960</td><td>380</td><td>256</td><td>64</td></tr>
-</table>
-<p>Each size is 4 times the Piskel size, the same way the 32-pixel player is shown at 64.</p>
-<ol>
-<li>Open your <b>Downloads</b> folder beside Construct. Drag <b>ground.png</b> straight onto the layout. It becomes a sprite called <b>ground</b>, listed under <b>Object types</b> in the <b>Project Bar</b> (top-right panel). It looks tiny at first.</li>
-<li>Type the first <b>ground</b>'s Position and Size from the table into the <b>Properties Bar</b> (left side panel). It grows into a wide grassy strip under the character.</li>
-<li>Drag in <b>log.png</b> and <b>block.png</b> the same way, and type their numbers from the table.</li>
-<li>For the last step, drag <b>ground</b> from <b>Object types</b> in the Project Bar onto the layout (not ground.png again), and type the second ground's numbers. The four platforms now step up like stairs from left to right.</li>
-</ol>
-<div class="note pick"><b>Pick the right one:</b> the second ground must come from the <b>Project Bar</b>, so it is the same <b>ground</b> object. Dragging ground.png in again makes a second object type (ground2), which would need its own behaviour later.</div>
-<div class="note what"><b>Blurry?</b> That is normal until you finish 2C, which makes stretched pixel art sharp.</div>
-
 <h3>2C · Sharp pixels</h3>
 <table>
 <tr><th>Project properties</th><th>Value</th></tr>
@@ -218,10 +193,10 @@
 
 <div class="check"><strong>Checkpoint · Part 2</strong>
 <label><input type="checkbox"> Your character is drawn, with its feet on the bottom edge</label>
-<label><input type="checkbox"> Option A: your platform is a flat strip, green on top and brown below. Option B: your ground, log and block are on the layout</label>
+<label><input type="checkbox"> Your platform is a flat strip, green on top and brown below</label>
 <label><input type="checkbox"> The character sits above the first platform</label>
 <label><input type="checkbox"> Four platforms step up from left to right with gaps between them</label>
-<label><input type="checkbox"> The Project Bar shows one Player, and either one Platform (Option A) or ground, log and block (Option B)</label>
+<label><input type="checkbox"> The Project Bar shows one Player and one Platform</label>
 <label><input type="checkbox"> Edges look sharp when zoomed in</label>
 </div>
 </div>
@@ -260,7 +235,7 @@
 
 <h3>3B · Platform: Solid behaviour</h3>
 <ol>
-<li><b>Option A:</b> click any platform and add the <b>Solid</b> behaviour (under <b>Attributes</b>). All four get it: a behaviour belongs to the object type, so every copy of Platform gets it, even ones you add later.<br><b>Option B:</b> add <b>Solid</b> to the <b>ground</b>, then to the <b>log</b>, then to the <b>block</b>. Each object type needs its own; both grounds get it together.</li>
+<li>Click any platform and add the <b>Solid</b> behaviour (under <b>Attributes</b>). All four get it: a behaviour belongs to the object type, so every copy of Platform gets it, even ones you add later.</li>
 <li><b>Preview</b>. The character falls, lands on the first platform, and stays put.</li>
 </ol>
 

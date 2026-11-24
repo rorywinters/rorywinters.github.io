@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jump and Fall with Outside Assets: a Platformer in Construct 3 · Winters Innovative Solutions</title>
+<link rel="stylesheet" href="../../assets/lesson.css?v=20261123b">
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="crumb"><a href="../../">Lessons</a> › <a href="../">Construct 3</a></div>
+  <div class="lessonnum">Construct 3 · Lesson 1 <span class="status wait">◷ Waiting for approval</span></div>
+  <h1>Jump and Fall with Outside Assets: a Platformer in Construct 3</h1>
+  <p class="sub">Bring your Piskel alien and platforms into Construct 3, then make the alien run, jump, land on platforms and fall off the edges.</p>
+</header>
+
+<section class="intro">
+  <h2>What you will build</h2>
+  <p>Your alien runs left and right with the arrow keys and jumps with the Up arrow. It stands on your ground, log and block, and if it walks off the edge it falls. If it falls off the bottom of the screen, it goes back to the start.</p>
+  <table>
+    <tr><th>Tool</th><th>What it is for</th><th>Link</th></tr>
+    <tr><td><b>Construct 3</b></td><td>Building the game</td><td><a href="https://editor.construct.net/" target="_blank" rel="noreferrer">editor.construct.net</a></td></tr>
+  </table>
+  <h3>Files you need (in your Downloads folder)</h3>
+  <table>
+    <tr><th>File</th><th>What it is</th><th>From</th></tr>
+    <tr><td><b>ground.png</b>, <b>block.png</b>, <b>log.png</b></td><td>The three platforms</td><td><a href="../../piskel/lesson-00-three-platforms/"><b>Piskel Lesson 0: Three Platforms</b></a></td></tr>
+    <tr><td>Your alien <b>sprite sheet PNG</b> (5 poses in one row, 160 × 32)</td><td>The player</td><td><a href="../../piskel/lesson-00-jumping-alien/"><b>Piskel Lesson 1: Jumping Alien Sprite</b></a></td></tr>
+  </table>
+  <p><b>Missing one?</b> Download the example: <a href="../../piskel/lesson-00-three-platforms/img/ground.png" download="ground.png">ground.png</a> · <a href="../../piskel/lesson-00-three-platforms/img/block.png" download="block.png">block.png</a> · <a href="../../piskel/lesson-00-three-platforms/img/log.png" download="log.png">log.png</a> · <a href="../../piskel/lesson-00-jumping-alien/img/finished-sprite-sheet.png" download="alien.png">alien.png</a></p>
+  <ul>
+    <li>Construct 3 runs in the browser. Nothing needs installing.</li>
+    <li>Everything you see in the game comes from your Piskel files. Nothing is drawn in Construct 3.</li>
+    <li>The game uses 1 event (3 with the extra in Part 5), so it fits easily in the free version of Construct 3.</li>
+    <li>Time: about one class period.</li>
+    <li>Click a part to open it. Opening one part closes the others. Tick every checkpoint box before you move on; your ticks are remembered on this computer.</li>
+  </ul>
+</section>
+
+<section class="brief">
+  <h2>Lesson brief</h2>
+  <p>If you already know Construct 3, follow the chart and you can finish from it alone. Click any box to jump to its full steps; the Back to the brief button brings you back here.</p>
+  <div class="flow">
+    <div class="band" style="--c:var(--p1)"><h4><a href="#part1">Part 1 · Start the project</a></h4><div class="bubbles">
+      <div class="bubble"><b>1A · New project</b><a href="https://editor.construct.net/" target="_blank" rel="noreferrer">editor.construct.net</a><br>Name Platformer · Viewport 1280 × 720</div><span class="arrow">→</span>
+      <div class="bubble"><b>1B · Layout and sky</b>Layout 1 Size 1280 × 720<br>Layer 0: Transparent off<br>Background color 135, 206, 235</div>
+    </div></div>
+    <div class="down">↓</div>
+    <div class="band" style="--c:var(--p2)"><h4><a href="#part2">Part 2 · Bring in your assets</a></h4><div class="bubbles">
+      <div class="bubble"><b>2A · Player</b>Sprite Player · Import frames<br>From sprite strip: 5 across, 1 down<br>Delete blank frame · Speed 0<br>Position 160, 500 · Size 64 × 64</div><span class="arrow">→</span>
+      <div class="bubble"><b>2B · Platforms</b>Drag in ground, log, block PNGs<br>2nd ground from Object types<br>Size × 4 · see the 2B table</div><span class="arrow">→</span>
+      <div class="bubble"><b>2C · Sharp pixels</b>Project → Sampling Nearest</div>
+    </div></div>
+    <div class="down">↓</div>
+    <div class="band" style="--c:var(--p3)"><h4><a href="#part3">Part 3 · Run, jump and land</a></h4><div class="bubbles">
+      <div class="bubble"><b>3A · Player: Platform</b>Defaults: Max speed 330<br>Jump strength 650 · Gravity 1500<br>Preview: falls through everything</div><span class="arrow">→</span>
+      <div class="bubble"><b>3B · Solid</b>Solid on ground, log and block<br>Preview: lands and stays put</div><span class="arrow">→</span>
+      <div class="bubble"><b>3C · Test</b>← → move · ↑ jump<br>Walk off an edge: falls</div>
+    </div></div>
+    <div class="down">↓</div>
+    <div class="band" style="--c:var(--p4)"><h4><a href="#part4">Part 4 · Back to the start</a></h4><div class="bubbles">
+      <div class="bubble"><b>4A · Event 1</b>Player Compare Y &gt; 800<br>→ Set position 160, 500<br>→ Platform Set vector Y 0</div>
+    </div></div>
+    <div class="down">↓</div>
+    <div class="band" style="--c:var(--p5)"><h4><a href="#part5">Part 5 · Extra: face the way you walk</a></h4><div class="bubbles">
+      <div class="bubble"><b>5A · Keyboard</b>Insert Keyboard</div><span class="arrow">→</span>
+      <div class="bubble"><b>5B · Events 2–3</b>Left is down → Set mirrored<br>Right is down → Set not mirrored</div>
+    </div></div>
+  </div>
+  <p class="key">Each colour is one part. Codes like 2B mean Part 2, section B. Underlined words are links.</p>
+</section>
+
+<div class="controls">
+  <button type="button" id="openAll">Open all parts</button>
+  <button type="button" id="closeAll">Close all parts</button>
+  <button type="button" id="clearTicks">Clear my ticks</button>
+</div>
+
+<!-- PART 1 -->
+<details class="part" id="part1" name="parts" style="--c:var(--p1)">
+<summary><h2>Part 1 · Start the project</h2><span class="done"></span></summary>
+<div class="body">
+<p>The game area is 1280 × 720 with a sky-blue background.</p>
+<table>
+<tr><th>Where things are in Construct 3</th><th>Location on screen</th></tr>
+<tr><td><b>Properties Bar</b></td><td>Left side panel</td></tr>
+<tr><td><b>Project Bar</b></td><td>Top-right panel</td></tr>
+<tr><td><b>Layers Bar</b></td><td>Bottom-right panel</td></tr>
+<tr><td><b>Layout 1</b> and <b>Event sheet 1</b> tabs</td><td>Along the top of the middle area</td></tr>
+<tr><td><b>Preview</b> (▶ play button)</td><td>Main toolbar, top of the window</td></tr>
+</table>
+<p>If a bar is missing, open <b>Menu → View</b> and tick it.</p>
+
+<h3>1A · New project</h3>
+<table>
+<tr><th>New project</th><th>Value</th></tr>
+<tr><td>Name</td><td>Platformer</td></tr>
+<tr><td>Viewport size</td><td>1280 × 720</td></tr>
+</table>
+<ol>
+<li>Go to <a href="https://editor.construct.net/" target="_blank" rel="noreferrer">editor.construct.net</a> and log in if you have an account.</li>
+<li>Click <b>New project</b>, type <b>Platformer</b> in <b>Name</b>, and <b>1280</b> and <b>720</b> in <b>Viewport size</b>. Click <b>Create</b>.</li>
+<li>An empty layout opens with a dotted rectangle on it: that is what the player will see.</li>
+</ol>
+
+<h3>1B · Layout size and sky</h3>
+<table>
+<tr><th>Properties</th><th>Field</th><th>Value</th></tr>
+<tr><td><b>Layout 1</b></td><td>Size</td><td>1280 × 720</td></tr>
+<tr><td><b>Layer 0</b></td><td>Initially visible</td><td>On (leave it)</td></tr>
+<tr><td></td><td>Transparent</td><td>Off (already off to start)</td></tr>
+<tr><td></td><td>Background color</td><td>Red 135, Green 206, Blue 235</td></tr>
+</table>
+<ol>
+<li>In the <b>Project Bar</b> (top-right panel), open <b>Platformer</b> → <b>Layouts</b> and click <b>Layout 1</b>.<img src="../../assets/construct3/project-bar-layout1.png" alt="Construct 3 Project Bar: the Platformer project folder, its Layouts folder open, and Layout 1 inside" width="187" height="92" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">In the <b>Properties Bar</b> (left side panel), find <b>Size</b> and click the small <b>▶</b> (play) arrow beside it. It opens into two boxes, <b>Width</b> and <b>Height</b>. Type <b>1280</b> and <b>720</b>. The arrow now points down, and the Properties Bar should look like this:<img src="../../assets/construct3/layout-size-1280x720.png" alt="Construct 3 Properties Bar for Layout 1: Size opened with its arrow pointing down, showing 1280 x 720, Width 1280 and Height 720" width="327" height="230" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">The layout edge lines up with the dotted rectangle.</li>
+<li>In the <b>Layers Bar</b> (bottom-right panel), click <b>Layer 0</b>.<img src="../../assets/construct3/layers-bar-layer0.png" alt="Construct 3 Layers Bar for Layout 1: Layer 0 with a ticked visibility box and a padlock" width="327" height="85" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"> Its settings appear in the <b>Properties Bar</b> (left side panel). Under <b>Appearance</b>, check that <b>Transparent</b> is unticked. It is unticked to start, so you usually only need to look.<img src="../../assets/construct3/layer-transparent-off.png" alt="Construct 3 Properties Bar, Appearance group: Transparent with an empty tick box" width="238" height="61" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Leave <b>Initially visible</b> ticked.</li>
+<li>Click <b>Background color</b> (left side panel, under Layer 0) and type <b>135</b>, <b>206</b>, <b>235</b> for Red, Green and Blue. The layout turns sky blue, and the Properties Bar shows:<img src="../../assets/construct3/layer-background-sky.png" alt="Construct 3 Properties Bar, Appearance group: Transparent unticked and Background color showing a sky-blue square with 135, 206, 235" width="298" height="87" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></li>
+</ol>
+<div class="note what"><b>Looks small?</b> The editor zooms the layout out to fit (the zoom percentage is at the bottom). Hold <b>Ctrl</b> and scroll the mouse wheel to zoom in and out. To move around, hold the <b>left</b> mouse button on an empty spot and drag to pan the view. Neither one changes your game, only what you see in the editor.</div>
+
+<div class="check"><strong>Checkpoint · Part 1</strong>
+<label><input type="checkbox"> The project is called Platformer</label>
+<label><input type="checkbox"> The layout edge and the dotted rectangle line up</label>
+<label><input type="checkbox"> The layout is sky blue</label>
+</div>
+</div>
+</details>
+
+<!-- PART 2 -->
+<details class="part" id="part2" name="parts" style="--c:var(--p2)">
+<summary><h2>Part 2 · Bring in your assets</h2><span class="done"></span></summary>
+<div class="body">
+<p>Place every object by typing its numbers into the <b>Properties Bar</b> (left side panel). You can also place objects by eye: left-click one on the layout and drag it. That works well, as long as each gap is small enough to jump. You'll find out in Part 3 when you Preview. If something gets nudged, press <b>Ctrl+Z</b> or type the numbers back in.</p>
+<table>
+<tr><th>Object</th><th>File</th><th>Position X</th><th>Position Y</th><th>Size W</th><th>Size H</th></tr>
+<tr><td><b>Player</b></td><td>alien sprite sheet</td><td>160</td><td>500</td><td>64</td><td>64</td></tr>
+<tr><td><b>ground</b> (first)</td><td>ground.png</td><td>160</td><td>620</td><td>256</td><td>64</td></tr>
+<tr><td><b>log</b></td><td>log.png</td><td>480</td><td>540</td><td>192</td><td>64</td></tr>
+<tr><td><b>block</b></td><td>block.png</td><td>700</td><td>460</td><td>64</td><td>64</td></tr>
+<tr><td><b>ground</b> (second)</td><td>from Object types</td><td>960</td><td>380</td><td>256</td><td>64</td></tr>
+</table>
+<p>Each size is 4 times the Piskel size: the 32 × 32 alien shows at 64 × 64, and the 64 × 16 ground shows at 256 × 64.</p>
+<div class="note"><b>Quick notes:</b> Player = Sprite with Import frames → From sprite strip, 5 across × 1 down, then Speed 0. Platforms = drag the PNGs straight onto the layout. Type the table numbers into the Properties Bar.</div>
+
+<h3>2A · Player: your Jumping Alien</h3>
+<table>
+<tr><th>Import sprite strip</th><th>Value</th></tr>
+<tr><td>File</td><td>Your alien sprite sheet PNG</td></tr>
+<tr><td>Horizontal cells</td><td>5</td></tr>
+<tr><td>Vertical cells</td><td>1</td></tr>
+<tr><td>Animation Speed (after importing)</td><td>0</td></tr>
+</table>
+<ol>
+<li>On the <b>Layout 1</b> tab, double-click inside the layout (or right-click it and choose <b>Insert new object</b>).</li>
+<li>The <b>Create new object type</b> window opens. Click <b>Sprite</b> (under <b>General</b>; scroll down, or type <b>Sprite</b> in the <b>Search</b> box at the top-right).<img src="../../assets/construct3/create-new-object-sprite.png" alt="Construct 3 Create new object type window: Sprite selected under General, a Name box at the bottom, and Insert and Cancel buttons" width="761" height="635" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"> Type <b>Player</b> in <b>Name</b> at the bottom.<img src="../../assets/construct3/name-player.png" alt="Bottom of the Create new object type window: Name box reading Player, with Insert and Cancel buttons" width="710" height="122" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Click <b>Insert</b>, then click on the layout. The <b>Animations Editor</b> opens over the middle of the screen with one blank frame.<img src="../../assets/construct3/animations-editor.png" alt="Construct 3 Animations Editor for Player: colour picker on the left, drawing tools down a narrow column, an empty image in the middle, Animations on the right, and Animation frames along the bottom" width="1822" height="873" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></li>
+<li>Find the <b>Animation frames</b> strip (along the bottom of the Animations Editor). It shows one blank frame. Right-click an empty spot in that strip and choose <b>Import frames</b> → <b>From sprite strip</b>.</li>
+<li>Pick your alien sprite sheet PNG from Downloads and click <b>Open</b>. A window asks how the picture is cut up. Type <b>5</b> for <b>Horizontal cells</b> and <b>1</b> for <b>Vertical cells</b>, then click <b>Import</b>. Your five alien poses appear along the bottom strip.</li>
+<li>If the blank frame is still at the start of the strip, right-click it and choose <b>Delete</b>. The first frame should now be your alien standing.</li>
+<li>In the <b>Animations</b> list (right side of the editor), click the animation (it starts as <b>Animation 1</b>). Its settings show in the <b>Properties Bar</b> (left side panel). Set <b>Speed</b> to <b>0</b>, so the alien stays in its standing pose instead of jumping on the spot all the time.</li>
+<li>Close the Animations Editor with the <b>X</b> in its top-right corner. The standing alien is now on the layout.</li>
+<li>Type the Player's <b>Position</b> and <b>Size</b> from the table into the <b>Properties Bar</b> (left side panel). If Position or Size shows as one line, click the small <b>▶</b> arrow beside it to open the X and Y (or Width and Height) boxes.</li>
+</ol>
+<div class="note pick"><b>Pick the right one:</b> use <b>Import frames → From sprite strip</b>, not <b>Load an image from a file</b> (the folder icon). The folder icon loads the whole sheet as one wide picture, so you would see five aliens side by side.</div>
+
+<h3>2B · Platforms: ground, log and block</h3>
+<ol>
+<li>Open your <b>Downloads</b> folder beside Construct. Drag <b>ground.png</b> straight onto the layout. It becomes a sprite called <b>ground</b>, listed under <b>Object types</b> in the <b>Project Bar</b> (top-right panel). It looks tiny at first.<img src="../../assets/construct3/drop-ground-object.png" alt="Construct 3 Project Bar: Object types folder containing a sprite called ground" width="291" height="60" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></li>
+<li>Type the first <b>ground</b>'s Position and Size from the table into the <b>Properties Bar</b> (left side panel). It grows into a wide grassy strip under the alien.</li>
+<li>Drag in <b>log.png</b> and <b>block.png</b> the same way, and type their numbers from the table.</li>
+<li>For the last one, drag <b>ground</b> from <b>Object types</b> in the Project Bar onto the layout (not ground.png again), and type the second ground's numbers. The four platforms now step up like stairs from left to right.</li>
+</ol>
+<div class="note pick"><b>Pick the right one:</b> the second ground must come from the <b>Project Bar</b>, so it is the same <b>ground</b> object. Dragging ground.png in again makes a second object type (ground2), which would need its own behaviour later.</div>
+<div class="note what"><b>Blurry?</b> That is normal until you finish 2C, which makes stretched pixel art sharp.</div>
+
+<h3>2C · Sharp pixels</h3>
+<table>
+<tr><th>Project properties</th><th>Value</th></tr>
+<tr><td>Sampling</td><td>Nearest</td></tr>
+</table>
+<ol>
+<li>Zoom in on the alien (hold <b>Ctrl</b> and scroll). The edges look soft, because the 32-pixel alien is stretched to 64.</li>
+<li>Click the project name <b>Platformer</b> at the top of the Project Bar (top-right panel) and set <b>Sampling</b> (left side panel) to <b>Nearest</b>. The edges turn sharp and blocky.</li>
+</ol>
+
+<div class="check"><strong>Checkpoint · Part 2</strong>
+<label><input type="checkbox"> The standing alien is on the layout (one alien, not five side by side)</label>
+<label><input type="checkbox"> The alien sits above the first ground</label>
+<label><input type="checkbox"> ground, log, block and a second ground step up from left to right with gaps between them</label>
+<label><input type="checkbox"> The Project Bar shows Player, ground, log and block (no ground2)</label>
+<label><input type="checkbox"> Edges look sharp when zoomed in</label>
+</div>
+</div>
+</details>
+
+<!-- PART 3 -->
+<details class="part" id="part3" name="parts" style="--c:var(--p3)">
+<summary><h2>Part 3 · Run, jump and land</h2><span class="done"></span></summary>
+<div class="body">
+<p>Two behaviours do almost all the work. <b>Platform</b> gives the character running, jumping and gravity. <b>Solid</b> makes the ground, log and block something to stand on.</p>
+<p><b>How to add a behaviour:</b> click the object on the layout. In the <b>Properties Bar</b> (left side panel), scroll down to the <b>Behaviors</b> group and click the blue <b>Behaviors</b> link beside <b>Add / edit</b>.<img src="../../assets/construct3/properties-behaviors.png" alt="Construct 3 Properties Bar: Instance variables and Behaviors groups, each with an Add / edit row; the Behaviors link is highlighted" width="342" height="202" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"> A window opens whose title names the object, for example <b>Player behaviors</b> or <b>ground behaviors</b>. Check it is the object you meant.Click <b>Add new behavior</b>, pick the behaviour, and click <b>Add</b>. Close the window. Its settings now show in the Properties Bar.</p>
+
+<h3>3A · Player: Platform behaviour</h3>
+<table>
+<tr><th>Platform</th><th>Value</th></tr>
+<tr><td>Max speed</td><td>330</td></tr>
+<tr><td>Acceleration</td><td>1500</td></tr>
+<tr><td>Deceleration</td><td>1500</td></tr>
+<tr><td>Jump strength</td><td>650</td></tr>
+<tr><td>Gravity</td><td>1500</td></tr>
+<tr><td>Max fall speed</td><td>1000</td></tr>
+<tr><td>Double-jump</td><td>Off</td></tr>
+<tr><td>Jump sustain</td><td>0</td></tr>
+<tr><td>Default controls</td><td>On</td></tr>
+<tr><td>Enabled</td><td>On</td></tr>
+</table>
+<p>These are Construct's starting values, so you only need to check them.</p>
+<ol>
+<li>Click your <b>alien</b> (the Player) on the layout, not a platform. In the <b>Properties Bar</b>, click the <b>Behaviors</b> link. The window title must read <b>Player behaviors</b>.</li>
+<li>Click <b>Add new behavior</b>. In the list, find the <b>Movements</b> group and click <b>Platform</b>, the running figure at the end of the second row (or type <b>Platform</b> in the <b>Search</b> box).<img src="../../assets/construct3/add-behavior-platform.png" alt="Construct 3 Add behavior window, Movements group, with Platform selected and the line Platform: Jump and run along platforms (solid/jump-thru objects) at the bottom, above the Add button" width="752" height="628" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"> Under the list, the description should read <b>Platform: Jump and run along platforms (solid/jump-thru objects).</b> Click <b>Add</b>. The <b>Player behaviors</b> window now lists <b>Platform</b>:<img src="../../assets/construct3/player-behaviors-platform.png" alt="Construct 3 Player behaviors window listing one behaviour: Platform, type Platform, with the running figure icon" width="507" height="381" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Close the window.</li>
+<li>The Player now has the <b>Platform behaviour</b>: running, jumping and gravity. Its settings appear in the Properties Bar under <b>Behaviors</b>. Check the values against the table.</li>
+<li>Click <b>Preview</b> (the play button at the top). (Shortcut: F5)</li>
+<li>The alien drops straight through the ground and off the bottom of the screen. Gravity works, but there is nothing solid to stand on yet. Close the preview tab.</li>
+</ol>
+<div class="note pick"><b>Pick the right one:</b> the <b>Player</b> gets the <b>Platform behaviour</b> (from the Movements group). The ground, log and block get <b>Solid</b> in 3B. The Platform behaviour makes a character move like a platform-game hero; Solid makes something it can stand on.</div>
+
+<h3>3B · Solid on ground, log and block</h3>
+<ol>
+<li>Click the <b>ground</b> and add the <b>Solid</b> behaviour (under <b>Attributes</b>). Then do the same for the <b>log</b> and the <b>block</b>. Each object type needs its own Solid. Both grounds get it together, because they are the same object.</li>
+<li><b>Preview</b>. The character falls, lands on the first platform, and stays put.</li>
+</ol>
+
+<h3>3C · Test the controls</h3>
+<table>
+<tr><th>Key</th><th>What it does</th></tr>
+<tr><td>← Left arrow</td><td>Run left</td></tr>
+<tr><td>→ Right arrow</td><td>Run right</td></tr>
+<tr><td>↑ Up arrow</td><td>Jump</td></tr>
+</table>
+<ol>
+<li><b>Preview</b> and click inside the game once so it has the keyboard.</li>
+<li>Run right and jump up onto each platform in turn.</li>
+<li>Walk off the edge of a platform. The character falls. If it falls past the bottom of the screen, it is gone for good. Part 4 fixes that.</li>
+</ol>
+<div class="note what"><b>Can't reach the next platform?</b> Each platform is 80 pixels higher than the one before, and a jump goes about 140 pixels up, so every jump is possible. Run and jump at the same time.</div>
+
+<div class="check"><strong>Checkpoint · Part 3</strong>
+<label><input type="checkbox"> The character lands on the first platform and stays put</label>
+<label><input type="checkbox"> Left and Right arrows run, Up arrow jumps</label>
+<label><input type="checkbox"> You can climb all four platforms</label>
+<label><input type="checkbox"> Walking off an edge makes the character fall</label>
+</div>
+</div>
+</details>
+
+<!-- PART 4 -->
+<details class="part" id="part4" name="parts" style="--c:var(--p4)">
+<summary><h2>Part 4 · Back to the start</h2><span class="done"></span></summary>
+<div class="body">
+<p>One event puts the character back on the first platform when it falls off the bottom of the screen.</p>
+<table>
+<tr><th>Event</th><th>Condition (left side)</th><th>Actions (right side)</th></tr>
+<tr><td>1</td><td><b>Player</b> → Compare Y → <b>Greater than</b> → <b>800</b></td><td><b>Player</b> → Set position → <b>160</b>, <b>500</b><br><b>Player</b> → Platform → Set vector Y → <b>0</b></td></tr>
+</table>
+<p>In words: if the character is below the bottom of the screen (the screen is 720 tall), move it back to the start and stop its fall speed.</p>
+<ol>
+<li>Click the <b>Event sheet 1</b> tab (along the top of the middle area, beside Layout 1).</li>
+<li>Click <b>Add event</b> → double-click <b>Player</b> → double-click <b>Compare Y</b>. Choose <b>Greater than</b>, type <b>800</b>, click <b>Done</b>. The condition appears on the left.</li>
+<li>On the same row, click the faint grey <b>Add action</b> text in the middle of the row (it looks greyed out, but it works). Double-click <b>Player</b> → <b>Set position</b>. Type <b>160</b> and <b>500</b>, click <b>Done</b>.</li>
+<li>Click the grey <b>Add action</b> under that action → <b>Player</b> → <b>Set vector Y</b> (in the <b>Platform</b> group). Type <b>0</b>, click <b>Done</b>. The event now has two actions.</li>
+<li><b>Preview</b> and walk off a platform into a gap. The character falls off the screen, then drops back onto the first platform.</li>
+</ol>
+<div class="note"><b>Events remaining box:</b> after your first event, a blue box may appear saying how many events you have left. <b>Do not click Purchase a plan.</b> Click the <b>Add event</b> link on the event sheet and the box goes away.</div>
+<div class="note pick"><b>Pick the right one:</b> if the window title says <b>Add 'Player' condition</b> when you wanted an action, click <b>Cancel</b> and use the grey <b>Add action</b> instead. <b>Set vector Y</b> is in the <b>Platform</b> group under Player. Without it the character can land at full falling speed.</div>
+
+<div class="check"><strong>Checkpoint · Part 4</strong>
+<label><input type="checkbox"> Event 1 shows Player Y &gt; 800 on the left and two actions on the right</label>
+<label><input type="checkbox"> Falling off the bottom puts the character back on the first platform</label>
+</div>
+</div>
+</details>
+
+<!-- PART 5 -->
+<details class="part" id="part5" name="parts" style="--c:var(--p5)">
+<summary><h2>Part 5 · Extra: face the way you walk</h2><span class="done"></span></summary>
+<div class="body">
+<p>Right now the character always faces the same way. Two events flip it to face the direction it is running. This part is optional.</p>
+
+<h3>5A · Keyboard object</h3>
+<ol>
+<li>Go to the <b>Layout 1</b> tab, double-click the layout, choose <b>Keyboard</b>, and click <b>Insert</b>.</li>
+</ol>
+<div class="note what"><b>What changed:</b> nothing appears on the layout, because Keyboard is not a picture. Check that <b>Keyboard</b> is now listed under <b>Object types</b> in the Project Bar.</div>
+
+<h3>5B · Events 2 and 3</h3>
+<table>
+<tr><th>Event</th><th>Condition</th><th>Action</th></tr>
+<tr><td>2</td><td><b>Keyboard</b> → Key is down → <b>Left arrow</b></td><td><b>Player</b> → Set mirrored → <b>Mirrored</b></td></tr>
+<tr><td>3</td><td><b>Keyboard</b> → Key is down → <b>Right arrow</b></td><td><b>Player</b> → Set mirrored → <b>Not mirrored</b></td></tr>
+</table>
+<ol>
+<li>On the event sheet, click <b>Add event</b> at the bottom of the sheet → <b>Keyboard</b> → <b>Key is down</b>. Click the key box, press the <b>Left arrow</b>, and click <b>Done</b>.</li>
+<li>Grey <b>Add action</b> → <b>Player</b> → <b>Set mirrored</b> → <b>Mirrored</b> → <b>Done</b>.</li>
+<li>Make <b>event 3</b> the same way with the <b>Right arrow</b> and <b>Not mirrored</b>.</li>
+<li><b>Preview</b>. Run left and the character turns to face left; run right and it turns back.</li>
+</ol>
+<div class="note pick"><b>Pick the right one:</b> use <b>Key is down</b>, not <b>On key pressed</b>. Both work here, but Key is down keeps working while the key is held, which is what you want for running.</div>
+
+<div class="check"><strong>Checkpoint · Part 5</strong>
+<label><input type="checkbox"> Keyboard is listed under Object types</label>
+<label><input type="checkbox"> The character faces left when running left and right when running right</label>
+</div>
+
+<h3>Save your work</h3>
+<ul>
+<li><b>Logged in:</b> the first time, <b>Menu → Project → Save as → Cloud save</b>. After that, the <b>Save</b> button (disk icon) saves to the same place. (Shortcut: Ctrl+S)</li>
+<li><b>Guest:</b> <b>Menu → Project → Save as → Download a copy</b> before you close the tab.</li>
+<li><b>To hand in:</b> <b>Menu → Project → Save as → Download a copy</b> and upload the .c3p file to <a href="https://classroom.google.com/" target="_blank" rel="noreferrer"><b>Google Classroom</b></a> (classroom.google.com).</li>
+</ul>
+</div>
+</details>
+
+<footer>Winters Innovative Solutions · <a href="https://www.youtube.com/@winters.innovative.solutions" target="_blank" rel="noreferrer">YouTube channel</a></footer>
+</div>
+<script src="../../assets/lesson.js?v=20261123b"></script>
+</body>
+</html>
