@@ -175,6 +175,9 @@ Rotation stays 85°, 0°, 0° the whole time. Only **Location Y** changes.
 @figure ../../assets/blender/timeline-frame-boxes.png The right end of the Timeline: the current frame box, the stopwatch, then Start and End.
 
 2. Click in **End**, type **120** and press **Enter**. The ruler now ends at 120.
+
+@figure ../../assets/blender/timeline-end-120.png After: End reads 120.
+
 3. Open **Output Properties** ![Output Properties icon: a printer](../../assets/blender/icon-output-properties.png). Under **Format**, check **Frame Rate** is **24 fps**.
 
 120 frames at 24 frames per second is 5 seconds.
