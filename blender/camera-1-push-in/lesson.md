@@ -45,7 +45,7 @@ You set up a camera, then animate it gliding slowly toward the scene. This is a 
 | **Outliner** | Top-right of the window. Click an object's name to select it. |
 | **Sidebar** (N panel), **Item** tab | Right edge of the 3D Viewport. **View → Sidebar** (Shortcut: N) |
 | **Properties editor** | Bottom-right, under the Outliner. A column of icons down its left side. |
-| **Object Data Properties** (for a camera) | Properties editor, the green movie-camera icon |
+| **Object Data Properties** ![Object Data Properties icon for a camera: a green movie camera](../../assets/blender/icon-camera-data.png) (for a camera) | Properties editor, the green movie-camera icon |
 | **Render Properties** ![Render Properties icon: a camera back](../../assets/blender/icon-render-properties.png) | Properties editor, the camera-back icon near the top |
 | **Output Properties** ![Output Properties icon: a printer](../../assets/blender/icon-output-properties.png) | Properties editor, the printer icon, just under Render Properties |
 | **Scene Properties** ![Scene Properties icon: a cone and sphere](../../assets/blender/icon-scene-properties.png) | Properties editor, the cone-and-sphere icon, a few below Output Properties |
@@ -136,7 +136,7 @@ The camera sits 14 m in front of the scene, at about eye height (2 m), looking s
 | Type | Perspective |
 | Focal Length | 35 mm |
 
-1. With the camera selected, open **Object Data Properties** (the green movie-camera icon in the Properties editor).
+1. With the camera selected, open **Object Data Properties** ![Object Data Properties icon for a camera: a green movie camera](../../assets/blender/icon-camera-data.png) (the green movie-camera icon in the Properties editor). It only shows while a camera is selected.
 2. In the **Lens** panel, type **24** in **Focal Length** and press **Enter**. The view gets wider and you see more of the scene.
 3. Type **50**. The view zooms in, like a telephoto lens.
 4. Type **35** and press **Enter**. This is the value for this lesson: close to what your eyes see.
