@@ -280,6 +280,9 @@ EEVEE renders each frame in about a second on the lab laptops, so a 5-second cli
 
 2. Click the folder icon on the right of the path, go to your class folder and click **Accept**. The path changes to your folder.
 3. Click at the end of the path, type `camera1_pushin_v1` and press **Enter**.
+
+@figure ../../assets/blender/output-path-named.png The path box with the file name camera1_pushin_v1 at the end.
+
 4. Choose **Render → Render Animation**. (Shortcut: Ctrl+F12) A render window opens and the frame counter at the top counts up to 120.
 5. When it reaches 120, close the render window and open your folder. Play `camera1_pushin_v1.mp4`.
 
