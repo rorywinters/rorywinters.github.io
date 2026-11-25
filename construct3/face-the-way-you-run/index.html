@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Face the Way You Run: Mirroring in Construct 3 · Winters Innovative Solutions</title>
+<link rel="stylesheet" href="../../assets/lesson.css?v=20261123b">
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="crumb"><a href="../../">Lessons</a> › <a href="../">Construct 3</a></div>
+  <div class="lessonnum">Construct 3 · Lesson 2 <span class="status wait">◷ Waiting for approval</span></div>
+  <h1>Face the Way You Run: Mirroring in Construct 3</h1>
+  <p class="sub">Swap the alien in your platformer for the side-view runner from Piskel, then add two events so it turns to face left or right as it runs. About half a class.</p>
+</header>
+
+<section class="intro">
+  <h2>What you will build</h2>
+  <p>The same platformer with the same ground, log and block, but the player is now your side-view runner. Press ← and it turns to face left; press → and it turns back to face right.</p>
+  <div class="refrow" style="display:flex;gap:12px;flex-wrap:wrap"><img src="../../piskel/lesson-02-side-view-runner/img/turn.gif" alt="The runner turning from facing right to facing left" width="192" height="192" style="border:1px solid #ccc;border-radius:6px;image-rendering:pixelated"></div>
+  <ul>
+    <li><b>Learning objective:</b> We are learning to make a character face the way it moves.</li>
+    <li><b>Prior knowledge:</b> <a href="../platformer-outside-assets/">Construct 3 Lesson 1: Jump and Fall with Outside Assets</a> (your saved project), and your sprite sheet from <a href="../../piskel/lesson-02-side-view-runner/">Piskel Lesson 2: Side-View Runner</a></li>
+  </ul>
+  <h3>Success criteria</h3>
+  <ul>
+    <li>I can open my saved Construct 3 project.</li>
+    <li>I can swap a sprite's frames for a new sprite sheet.</li>
+    <li>I can use Keyboard events to mirror the player so it faces the way it runs.</li>
+    <li>I can save my game as a new file and hand it in.</li>
+  </ul>
+  <h3>Key vocabulary</h3>
+  <table>
+    <tr><th>Word</th><th>Meaning</th></tr>
+    <tr><td><b>Keyboard object</b></td><td>Lets events check which keys are pressed. It isn't a picture, so it never shows on the layout.</td></tr>
+    <tr><td><b>Key is down</b></td><td>A condition that is true the whole time a key is held.</td></tr>
+    <tr><td><b>Set mirrored</b></td><td>An action that flips a sprite left to right (Mirrored) or back to normal (Not mirrored).</td></tr>
+  </table>
+  <table>
+    <tr><th>File you need</th><th>From</th></tr>
+    <tr><td>Your Outside Assets project (cloud save or the .c3p file you downloaded)</td><td><a href="../platformer-outside-assets/">Construct 3 Lesson 1</a></td></tr>
+    <tr><td>Your runner sprite sheet PNG (2 frames in one row, 64 × 32)</td><td><a href="../../piskel/lesson-02-side-view-runner/">Piskel Lesson 2</a></td></tr>
+  </table>
+  <p><b>Missing the runner?</b> Download the example: <a href="../../piskel/lesson-02-side-view-runner/img/runner-sheet.png" download="runner.png">runner.png</a></p>
+  <ul>
+    <li>The game ends up with 3 events, so it still fits in the free version of Construct 3.</li>
+    <li>Time: about half a class period.</li>
+    <li>Click a part to open it. Opening one part closes the others. Tick every checkpoint box before you move on; your ticks are remembered on this computer.</li>
+  </ul>
+</section>
+
+<section class="brief">
+  <h2>Lesson brief</h2>
+  <p>If you already know Construct 3, follow the chart and you can finish from it alone. Click any box to jump to its full steps; the Back to the brief button brings you back here.</p>
+  <div class="flow">
+    <div class="band" style="--c:var(--p1)"><h4><a href="#part1">Part 1 · Open your platformer</a></h4><div class="bubbles">
+      <div class="bubble"><b>1 · Open</b>Menu → Project → Open<br>Your Outside Assets project</div>
+    </div></div>
+    <div class="down">↓</div>
+    <div class="band" style="--c:var(--p2)"><h4><a href="#part2">Part 2 · Swap in the runner</a></h4><div class="bubbles">
+      <div class="bubble"><b>2A · Import</b>Double-click alien · Import Frames → From Sheet<br>runner PNG · Columns 2 · Rows 1 · 32 × 32<br>Add all frames · Import frames</div><span class="arrow">→</span>
+      <div class="bubble"><b>2B · Tidy up</b>Delete the 5 alien frames (frame 0, five times)<br>Animation 1: Speed 0 · Loop off</div>
+    </div></div>
+    <div class="down">↓</div>
+    <div class="band" style="--c:var(--p3)"><h4><a href="#part3">Part 3 · Face the way you run</a></h4><div class="bubbles">
+      <div class="bubble"><b>3A · Keyboard</b>Insert Keyboard</div><span class="arrow">→</span>
+      <div class="bubble"><b>3B · Events 2–3</b>Left is down → Set mirrored: Mirrored<br>Right is down → Set mirrored: Not mirrored</div>
+    </div></div>
+    <div class="down">↓</div>
+    <div class="band" style="--c:var(--p4)"><h4><a href="#part4">Part 4 · Save as a new game</a></h4><div class="bubbles">
+      <div class="bubble"><b>4 · Save as</b>Menu → Project → Save as<br>New name · Download a copy → Google Classroom</div>
+    </div></div>
+    <div class="down">↓</div>
+    <div class="band" style="--c:var(--p5)"><h4><a href="#part5">Extra · Finished early? (optional)</a></h4><div class="bubbles">
+      <div class="bubble"><b>Your own left frame</b>Set mirrored → Set frame<br>Left: frame 1 · Right: frame 0</div>
+    </div></div>
+  </div>
+  <p class="key">Each colour is one part. Codes like 2B mean Part 2, section B. Underlined words are links.</p>
+</section>
+
+<div class="controls">
+  <button type="button" id="openAll">Open all parts</button>
+  <button type="button" id="closeAll">Close all parts</button>
+  <button type="button" id="clearTicks">Clear my ticks</button>
+</div>
+
+<!-- PART 1 -->
+<details class="part" id="part1" name="parts" style="--c:var(--p1)">
+<summary><h2>Part 1 · Open your platformer</h2><span class="done"></span></summary>
+<div class="body">
+<p>You don't start from scratch. You open the platformer you built in the Outside Assets lesson.</p>
+<ol>
+<li>Go to <a href="https://editor.construct.net/" target="_blank" rel="noreferrer"><b>editor.construct.net</b></a>. If you used a cloud save, log in first.</li>
+<li>Choose <b>Menu → Project → Open</b>, then pick where your project is: your cloud save, or the <b>.c3p</b> file you downloaded (check your Downloads folder).</li>
+<li>Your platformer opens on the <b>Layout 1</b> tab (middle of the screen), with the alien, the ground, the log and the block.</li>
+</ol>
+<div class="note"><b>No saved project?</b> Do <a href="../platformer-outside-assets/">Jump and Fall with Outside Assets</a> first, Parts 1 to 4.</div>
+<div class="check"><strong>Checkpoint · Part 1</strong>
+<label><input type="checkbox"> Your platformer is open, with the alien and the platforms on the layout</label>
+<label><input type="checkbox"> Preview still works: the alien runs, jumps and lands</label>
+</div>
+</div>
+</details>
+
+<!-- PART 2 -->
+<details class="part" id="part2" name="parts" style="--c:var(--p2)">
+<summary><h2>Part 2 · Swap in the runner</h2><span class="done"></span></summary>
+<div class="body">
+<p>The player keeps its name, its size, its Platform behaviour and its event. Only its pictures change: the five alien poses come out and the two runner frames go in.</p>
+
+<h3>2A · Import the runner</h3>
+<table>
+<tr><th>Import Frames → From Sheet</th><th>Value</th></tr>
+<tr><td>File</td><td>Your runner sprite sheet PNG</td></tr>
+<tr><td>Columns</td><td><b>2</b> (type it)</td></tr>
+<tr><td>Rows</td><td>1</td></tr>
+<tr><td>Width</td><td>32</td></tr>
+<tr><td>Height</td><td>32</td></tr>
+</table>
+<ol>
+<li>On the <b>Layout 1</b> tab, double-click the alien. The <b>Animations Editor</b> opens, showing the five alien poses in the <b>Animation 1 Frames</b> panel (bottom middle).</li>
+<li>Right-click an empty white spot in that panel, after the last frame. Hold the mouse over <b>Import Frames</b> and click <b>From Sheet</b>. This is the same as in <a href="../platformer-outside-assets/#part2">Outside Assets, step 2A</a>.</li>
+<li>Pick your runner PNG and click <b>Open</b>. In the window that opens, type <b>2</b> in <b>Columns</b> and check <b>Rows 1</b>, <b>Width 32</b>, <b>Height 32</b>.</li>
+<li>Click <b>Add all frames</b> (the grid button at the left end of the bar). Two frames appear along the bottom, numbered <b>0</b> and <b>1</b>: facing right and facing left.</li>
+<li>Click <b>Import frames</b> (bottom-right, beside Cancel). The panel now reads <b>Animation 1 Frames (7)</b>: the five alien poses as frames 0 to 4, then the runner as frames 5 and 6.</li>
+</ol>
+
+<h3>2B · Remove the alien</h3>
+<table>
+<tr><th>Animation Properties (Animation 1)</th><th>Value</th></tr>
+<tr><td>Speed</td><td><b>0</b> (it was 8 from Outside Assets Part 5)</td></tr>
+<tr><td>Loop</td><td><b>Off</b> (unticked)</td></tr>
+</table>
+<ol>
+<li>Right-click frame <b>0</b> (the first alien pose) and choose <b>Delete</b>. The next alien pose slides into its place.</li>
+<li>Do it four more times, always on frame <b>0</b>, until only the two runner frames are left. The panel reads <b>Animation 1 Frames (2)</b>: frame <b>0</b> faces right, frame <b>1</b> faces left.</li>
+<li>In the <b>Animations</b> list (top-right of the editor), click <b>Animation 1</b>. In <b>Animation Properties</b>, set <b>Speed</b> to <b>0</b> and untick <b>Loop</b>, so the runner stays on frame 0 instead of flipping back and forth.</li>
+<li>Close the Animations Editor with the <b>X</b> in its top-right corner. The runner is on the layout where the alien was, at the same 64 × 64 size.</li>
+<li><b>Preview</b>. The runner runs, jumps and lands, but it always faces right, even when it runs left.</li>
+</ol>
+<div class="note pick"><b>Pick the right one:</b> delete only the alien poses. If you delete a runner frame by mistake, press <b>Ctrl+Z</b>.</div>
+<div class="check"><strong>Checkpoint · Part 2</strong>
+<label><input type="checkbox"> Animation 1 Frames shows (2): the runner facing right, then facing left</label>
+<label><input type="checkbox"> Speed is 0 and Loop is unticked</label>
+<label><input type="checkbox"> In Preview, the runner plays the game but always faces right</label>
+</div>
+</div>
+</details>
+
+<!-- PART 3 -->
+<details class="part" id="part3" name="parts" style="--c:var(--p3)">
+<summary><h2>Part 3 · Face the way you run</h2><span class="done"></span></summary>
+<div class="body">
+<p>Two events flip the runner to face the direction it is running. <b>Mirrored</b> turns the picture left to right, so frame 0 (facing right) faces left.</p>
+
+<h3>3A · Keyboard object</h3>
+
+<ol>
+<li>Go to the <b>Layout 1</b> tab (middle of the screen) and double-click an empty part of the layout. The <b>Create new object type</b> window opens. Click <b>Keyboard</b> (it turns grey when picked), then click <b>Insert</b>.<img src="../../assets/construct3/insert-object-input-keyboard.png?v=2" alt="Construct 3 Create new object type window with Keyboard picked (grey) among Gamepad, Mouse and Touch" width="532" height="182" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></li>
+</ol>
+<div class="note what"><b>What changed:</b> nothing appears on the layout, because Keyboard is not a picture. Check that <b>Keyboard</b> is now listed under <b>Object types</b> in the Project Bar (top-right). A message also pops up: <b>Added 'Keyboard'</b>.<img src="../../assets/construct3/keyboard-added-object-types.png" alt="Project Bar Object types list with Keyboard added under block and ground, and the pop-up message Added Keyboard, this object is available to the entire project" width="460" height="255" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></div>
+
+
+<h3>3B · Events 2 and 3</h3>
+
+<table>
+<tr><th>Event</th><th>Condition</th><th>Action</th></tr>
+<tr><td>2</td><td><b>Keyboard</b> → Key is down → <b>Left arrow</b></td><td><b>Player</b> → Set mirrored → <b>Mirrored</b></td></tr>
+<tr><td>3</td><td><b>Keyboard</b> → Key is down → <b>Right arrow</b></td><td><b>Player</b> → Set mirrored → <b>Not mirrored</b></td></tr>
+</table>
+<ol>
+<li>On the event sheet, click <b>Add event</b> at the bottom of the sheet. The <b>Add condition</b> window opens; double-click <b>Keyboard</b>.<img src="../../assets/construct3/add-condition-keyboard-outside.png" alt="Construct 3 Add condition window: System, block, ground, Keyboard (highlighted) and log" width="751" height="221" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Then double-click <b>Key is down</b> (not <i>On any key pressed</i>).<img src="../../assets/construct3/keyboard-key-is-down.png" alt="Keyboard conditions list with Key is down highlighted, next to On any key pressed" width="513" height="72" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Click the key box, press the <b>Left arrow</b>, and click <b>Done</b>.</li>
+<li>Grey <b>Add action</b> → <b>Player</b> → <b>Set mirrored</b> → <b>Mirrored</b> → <b>Done</b>.</li>
+<li>Now make <b>event 3</b> for the right arrow. Click <b>Add event</b> at the bottom of the sheet again. In the <b>Add condition</b> window, double-click <b>Keyboard</b>, then double-click <b>Key is down</b>. Click the key box, press the <b>Right arrow</b>, and click <b>Done</b>. A new event 3 appears under event 2.</li><li>On event 3, click the grey <b>Add action</b> → <b>Player</b> → <b>Set mirrored</b>. The <b>Parameters for Player: Set mirrored</b> window opens. Change the <b>State</b> dropdown from <b>Mirrored</b> to <b>Not mirrored</b>, then click <b>Done</b>.<img src="../../assets/construct3/set-mirrored-not-mirrored.png" alt="Parameters for Player: Set mirrored window with the State dropdown set to Not mirrored" width="620" height="147" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></li>
+<li><b>Preview</b>. Run left and the character turns to face left; run right and it turns back.</li>
+</ol>
+<div class="note pick"><b>Pick the right one:</b> use <b>Key is down</b>, not <b>On key pressed</b>. Both work here, but Key is down keeps working while the key is held, which is what you want for running.</div>
+
+
+<div class="check"><strong>Checkpoint · Part 3</strong>
+<label><input type="checkbox"> Keyboard is listed under Object types</label>
+<label><input type="checkbox"> The event sheet has event 1 (back to the start) and events 2 and 3 (Left and Right arrows)</label>
+<label><input type="checkbox"> The runner faces left when running left and right when running right</label>
+</div>
+</div>
+</details>
+
+<!-- PART 4 -->
+<details class="part" id="part4" name="parts" style="--c:var(--p4)">
+<summary><h2>Part 4 · Save as a new game</h2><span class="done"></span></summary>
+<div class="body">
+<p>Use <b>Save as</b>, not Save, so your Outside Assets game stays as it was and this becomes a new game.</p>
+<h3>Save your work</h3>
+<ul>
+<li><b>Logged in:</b> the first time, <b>Menu → Project → Save as → Cloud save</b>. After that, the <b>Save</b> button (disk icon) saves to the same place. (Shortcut: Ctrl+S)</li>
+<li><b>Guest:</b> <b>Menu → Project → Save as → Download a copy</b> before you close the tab.</li>
+<li><b>To hand in:</b> <b>Menu → Project → Save as → Download a copy</b> and upload the .c3p file to <a href="https://classroom.google.com/" target="_blank" rel="noreferrer"><b>Google Classroom</b></a> (classroom.google.com).</li>
+</ul>
+<div class="check"><strong>Checkpoint · Part 4</strong>
+<label><input type="checkbox"> The game is saved with a new name</label>
+<label><input type="checkbox"> The .c3p file is uploaded to Google Classroom</label>
+</div>
+</div>
+</details>
+
+<!-- EXTRA -->
+<details class="part" id="part5" name="parts" style="--c:var(--p5)">
+<summary><h2>Extra · Finished early? Use your own left frame</h2><span class="done"></span></summary>
+<div class="body">
+<p>Optional. Mirroring flips the right-facing picture. You also drew a left-facing frame in Piskel (frame 1). Here you use it instead.</p>
+<table>
+<tr><th>Event</th><th>Condition</th><th>Action (replaces Set mirrored)</th></tr>
+<tr><td>2</td><td><b>Keyboard</b> → Key is down → <b>Left arrow</b></td><td><b>Player</b> → Set frame → <b>1</b></td></tr>
+<tr><td>3</td><td><b>Keyboard</b> → Key is down → <b>Right arrow</b></td><td><b>Player</b> → Set frame → <b>0</b></td></tr>
+</table>
+<ol>
+<li>On event 2, click the <b>Set mirrored</b> action and press <b>Delete</b>. Click the grey <b>Add action</b> → <b>Player</b> → <b>Set frame</b> (in the <b>Animations</b> group). Type <b>1</b> and click <b>Done</b>.</li>
+<li>On event 3, delete <b>Set mirrored</b> the same way. Click the grey <b>Add action</b> → <b>Player</b> → <b>Set frame</b>. Type <b>0</b> and click <b>Done</b>.</li>
+<li><b>Preview</b>. The runner turns the same way, but now it shows the frame you drew.</li>
+</ol>
+<div class="note"><b>Why both?</b> Mirroring needs only one picture and works on any character. Separate frames let the left side look different, for example a backpack strap that only shows on one side.</div>
+</div>
+</details>
+
+<footer>Winters Innovative Solutions · <a href="https://www.youtube.com/@winters.innovative.solutions" target="_blank" rel="noreferrer">YouTube channel</a></footer>
+</div>
+<script src="../../assets/lesson.js?v=20261123b"></script>
+</body>
+</html>
