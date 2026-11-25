@@ -213,6 +213,8 @@ Rotation stays 85°, 0°, 0° the whole time. Only **Location Y** changes.
 
 @figure ../../assets/blender/n-panel-location-keyed-120.png After pressing I on frame 120: all three Location fields are yellow.
 
+@figure ../../assets/blender/timeline-key-frame120.png The second keyframe diamond, on frame 120.
+
 4. Go back to frame **1**, stay in camera view and click **Play**. (Shortcut: Spacebar) The camera glides toward the scene. Click **Pause**.
 
 Watch the start and end: the camera eases in slowly and eases out slowly instead of starting and stopping with a jerk. Blender does that on its own. In Lesson 2 you'll learn to control it.
