@@ -58,7 +58,7 @@ Part 2 · Put the camera on the path
 Part 3 · Aim at the globe
 3 · Track To | Add → Track To · Target Globe | Track −Z · Up Y · below Follow Path
 Part 4 · Render the fly-through
-4 · MP4 | EEVEE · 50% (amber) · End 240 | Path //camera3_flythrough_v1 · Ctrl+F12
+4 · MP4 | EEVEE · 50% (amber) · End 240 | Path //camera3_flythrough_v1_ · Ctrl+F12
 Extra · Finished early? (optional)
 Moving gaze | Empty Look Target · Track To → Look Target | Frame 1 globe · Frame 240 desk
 ```
@@ -174,12 +174,12 @@ Use the same settings as [Lesson 1, Part 4](../camera-1-push-in/#part4). This fi
 | **Output → Output** | Media Type | Video |
 | **Output → Encoding** | Container | MPEG-4 |
 | **Output → Encoding → Video** | Output Quality (amber) | Medium Quality |
-| **Output → Output** | Path | `//camera3_flythrough_v1` (or the folder icon + `camera3_flythrough_v1`) |
+| **Output → Output** | Path | `//camera3_flythrough_v1_` (or the folder icon + `camera3_flythrough_v1_`) |
 
 1. Set each value in the table.
 2. Click in the path box to check the whole path, then press **Esc**.
 3. Choose **Render → Render Animation**. (Shortcut: Ctrl+F12) The frame counter goes up to 240.
-4. Open the folder and play `camera3_flythrough_v1.mp4`.
+4. Open the folder and play `camera3_flythrough_v1_0001-0240.mp4`.
 
 - [ ] Your MP4 plays a 10-second fly-through that keeps the globe in view
 

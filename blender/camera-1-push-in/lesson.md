@@ -5,6 +5,8 @@ blurb: The first of five camera lessons. Aim a camera at a scene, keyframe a slo
 ---
 You set up a camera, then animate it gliding slowly toward the scene. This is a **push-in**, the most common camera move in film, and it's the first step toward a walk-through video of your own room or scene. These steps are for Blender 5.2.
 
+@figure finished-pushin.mp4 What you'll make: the finished 5-second push-in. Press play.
+
 - **Learning objective:** We are learning to animate a camera so it moves smoothly toward a scene.
 - **Prior knowledge:** [Animating a Cube](../lesson-00-animating-a-cube/) (keyframes with the **I** key, the Timeline, rendering an MP4)
 - **File you need:** the example room, [camera_practice_scene.blend](camera_practice_scene.blend) (click to download). You use it in all five camera lessons.
@@ -68,7 +70,7 @@ Part 3 · Keyframe the push-in
 Part 4 · Render the MP4
 4A · EEVEE | Render Properties → Render Engine EEVEE
 4B · Output | 1920 × 1080 · 50% (amber) | Media Type Video · MPEG-4 · H.264
-4C · Render | Path //camera1_pushin_v1 (or folder icon + name) | Render → Render Animation (Ctrl+F12)
+4C · Render | Path //camera1_pushin_v1_ (or folder icon + name) | Render → Render Animation (Ctrl+F12)
 Extra · Finished early? (optional)
 Rise up | Frame 1 · key Rotation | Frame 120 · Z 4 · Rot X 75° · key both
 Lens change | Frame 1 · key Focal Length 35 | Frame 120 · 50 mm · key
@@ -272,18 +274,18 @@ EEVEE renders each frame in about a second on the lab laptops, so a 5-second cli
 
 | Output Properties | Field | Value |
 | --- | --- | --- |
-| **Output** | Path | `//camera1_pushin_v1` or your class folder + `camera1_pushin_v1` |
+| **Output** | Path | `//camera1_pushin_v1_` or your class folder + `camera1_pushin_v1_` |
 
 1. In the **Output** section, find the path box. It starts as `/tmp\`, a hidden system folder you'd never find again.
 
 @figure ../../assets/blender/output-path-default.png The Output section before you change it: the path says /tmp\ and the folder icon is on the right.
 
 2. Set where the video goes. Use whichever way you like:
-   - **Quick way:** double-click in the path box, select everything (Ctrl+A), type `//camera1_pushin_v1` and press **Enter**. The two slashes mean "the same folder as my .blend file".
-   - **Folder way:** click the folder icon on the right, go to your class folder and click **Accept**. Then click at the end of the path, type `camera1_pushin_v1` and press **Enter**.
+   - **Quick way:** double-click in the path box, select everything (Ctrl+A), type `//camera1_pushin_v1_` and press **Enter**. The two slashes mean "the same folder as my .blend file".
+   - **Folder way:** click the folder icon on the right, go to your class folder and click **Accept**. Then click at the end of the path, type `camera1_pushin_v1_` and press **Enter**.
 3. Click in the path box once to check the whole path, then press **Esc**. The box only shows the end of a long path, so this is the only way to see the folder part.
 4. Choose **Render → Render Animation**. (Shortcut: Ctrl+F12) A render window opens and the frame counter at the top counts up to 120.
-5. When it reaches 120, close the render window, open the folder from step 2 and play `camera1_pushin_v1.mp4`.
+5. When it reaches 120, close the render window, open the folder from step 2 and play `camera1_pushin_v1_0001-0120.mp4`. Blender adds the frame numbers (0001-0120) to the end of the name by itself; the `_` at the end of your path keeps them separate.
 
 > **Pick the right one:** use **Render Animation**, not **Render Image**. Render Image (F12) makes one still picture of the current frame only.
 

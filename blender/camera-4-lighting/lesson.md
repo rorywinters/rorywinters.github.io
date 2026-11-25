@@ -66,7 +66,7 @@ Part 3 · Add lights where it's dark
 3B · Corner Light | Add → Light → Point · Location −3 · −2.4 · 2.2 | Power 80 W
 Part 4 · Check and render
 4A · Raytracing | Render Properties → Raytracing on (amber) | Scrub 1 · 80 · 160 · 240 again
-4B · MP4 | Solid shading to play · End 240 · 50% (amber) | Path //camera4_lit_v1 · Ctrl+F12
+4B · MP4 | Solid shading to play · End 240 · 50% (amber) | Path //camera4_lit_v1_ · Ctrl+F12
 Extra · Finished early? (optional)
 Warm lamp | Desk Lamp Light Power 40 → 100 W | Colour stays warm
 ```
@@ -188,14 +188,14 @@ A big area light acts like a window: soft light with gentle shadows. Small light
 | --- | --- | --- |
 | **Output → Format** | % (amber) | 50% for tests, 100% for the final |
 | **Output → Frame Range** | End | 240 |
-| **Output → Output** | Path | `//camera4_lit_v1` (or the folder icon + `camera4_lit_v1`) |
+| **Output → Output** | Path | `//camera4_lit_v1_` (or the folder icon + `camera4_lit_v1_`) |
 
 Media Type, Container and Output Quality are still set from Lesson 3.
 
 1. Click the second sphere in **Viewport Shading** to go back to **Solid**, so playback is smooth.
 2. Set the path, click in the box to check it, and press **Esc**.
 3. Choose **Render → Render Animation**. (Shortcut: Ctrl+F12) Each frame takes a little longer than before because of the extra lights and Raytracing.
-4. Open the folder and play `camera4_lit_v1.mp4`. Compare it with `camera3_flythrough_v1.mp4`.
+4. Open the folder and play `camera4_lit_v1_0001-0240.mp4`. Compare it with `camera3_flythrough_v1_0001-0240.mp4`.
 
 - [ ] Raytracing is ticked
 - [ ] Your MP4 shows the whole room lit clearly from start to finish

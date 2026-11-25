@@ -61,8 +61,8 @@ Part 3 · Cut with markers
 3C · Check | Camera view · scrub past 150 | View switches to the desk
 Part 4 · Final render
 4A · Motion Blur | Render Properties → Motion Blur ✓ (amber)
-4B · Test | 50% · //camera5_final_test · Ctrl+F12
-4C · Final | 100% (red, slow) · //camera5_final_v1 · Ctrl+F12
+4B · Test | 50% · //camera5_final_test_ · Ctrl+F12
+4C · Final | 100% (red, slow) · //camera5_final_v1_ · Ctrl+F12
 Extra · Your own scene (optional)
 Your room | Same five lessons on your own scene | Push-in · orbit · path · lights · cuts
 ```
@@ -167,25 +167,25 @@ The fly-through camera keeps moving after the cut; you just don't see it. In a r
 | --- | --- | --- |
 | **Format** | % (amber) | 50% |
 | **Frame Range** | End | 240 |
-| **Output** | Path | `//camera5_final_test` (or the folder icon + `camera5_final_test`) |
+| **Output** | Path | `//camera5_final_test_` (or the folder icon + `camera5_final_test_`) |
 
 1. Set the values, click in the path box to check it, and press **Esc**.
 2. Choose **Render → Render Animation**. (Shortcut: Ctrl+F12)
-3. Play `camera5_final_test.mp4`. Check the blur, the cut and the lighting.
+3. Play `camera5_final_test_0001-0240.mp4`. Check the blur, the cut and the lighting.
 
 ### 4C · Final render
 
 | Output Properties | Field | Value |
 | --- | --- | --- |
 | **Format** | % (red for time) | 100% |
-| **Output** | Path | `//camera5_final_v1` (or the folder icon + `camera5_final_v1`) |
+| **Output** | Path | `//camera5_final_v1_` (or the folder icon + `camera5_final_v1_`) |
 
-1. Set **%** to **100** and change the name to `camera5_final_v1`.
+1. Set **%** to **100** and change the name to `camera5_final_v1_`.
 2. Save your file (**File → Save**), then choose **Render → Render Animation**. Leave the laptop alone while it works; it can take several minutes.
-3. Play `camera5_final_v1.mp4`. This is your finished room tour.
+3. Play `camera5_final_v1_0001-0240.mp4`. This is your finished room tour.
 
 - [ ] The test video shows the blur, the cut and smooth motion
-- [ ] `camera5_final_v1.mp4` plays at full size
+- [ ] `camera5_final_v1_0001-0240.mp4` plays at full size
 
 ## Extra · Use it on your own scene
 

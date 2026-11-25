@@ -62,7 +62,7 @@ Part 2 · Orbit the globe
 2D · Spin | End 240 · Orbit Pivot | Frame 1 Rot Z 0° · I · Frame 240 Rot Z 360° · I
 2E · Steady | Graph Editor · Select → All | Interpolation → Linear · Play
 Part 3 · Render the orbit
-3 · MP4 | EEVEE · 50% (amber) · End 240 | Path //camera2_orbit_v1 · Ctrl+F12
+3 · MP4 | EEVEE · 50% (amber) · End 240 | Path //camera2_orbit_v1_ · Ctrl+F12
 Extra · Finished early? (optional)
 High orbit | Camera Location Z 2 · Rotation X 55°
 Half orbit | Frame 240 Rot Z 180° · Bezier
@@ -186,12 +186,12 @@ Use the same settings as [Lesson 1, Part 4](../camera-1-push-in/#part4). Only th
 | **Output → Output** | Media Type | Video |
 | **Output → Encoding** | Container | MPEG-4 |
 | **Output → Encoding → Video** | Output Quality (amber) | Medium Quality |
-| **Output → Output** | Path | `//camera2_orbit_v1` (or the folder icon + `camera2_orbit_v1`) |
+| **Output → Output** | Path | `//camera2_orbit_v1_` (or the folder icon + `camera2_orbit_v1_`) |
 
 1. Check each value in the table. Your Lesson 1 settings are still saved in this file, so most will already be right.
 2. Click in the path box to check the whole path, then press **Esc**.
 3. Choose **Render → Render Animation**. (Shortcut: Ctrl+F12) The frame counter goes up to 240.
-4. Open the folder and play `camera2_orbit_v1.mp4`.
+4. Open the folder and play `camera2_orbit_v1_0001-0240.mp4`.
 
 - [ ] Your MP4 plays a 10-second orbit around the globe
 
