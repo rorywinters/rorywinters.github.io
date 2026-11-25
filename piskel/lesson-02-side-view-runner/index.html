@@ -32,12 +32,31 @@
   <div class="refrow">
     <img class="ref" src="img/turn.gif" alt="The finished runner turning from facing right to facing left on a loop" width="192" height="192">
   </div>
+  <ul>
+    <li><b>Learning objective:</b> We are learning to draw a character that faces one way, and flip it to face the other way.</li>
+    <li><b>Prior knowledge:</b> <a href="../lesson-00-jumping-alien/">Piskel Lesson 1: Jumping Alien Sprite</a> (Pen, Paint bucket, Duplicate, Export)</li>
+  </ul>
+  <h3>Success criteria</h3>
+  <ul>
+    <li>I can set up a 32 × 32 canvas with a grid.</li>
+    <li>I can draw a side-view character, using the Stroke tool where colours touch.</li>
+    <li>I can duplicate a frame and flip it to face the other way.</li>
+    <li>I can save my work and export a 2-frame sprite sheet.</li>
+  </ul>
+  <h3>Key vocabulary</h3>
+  <table>
+    <tr><th>Word</th><th>Meaning</th></tr>
+    <tr><td><b>Side view</b></td><td>Seeing a character from the side, so it faces left or right.</td></tr>
+    <tr><td><b>Symmetrical</b></td><td>The same on both sides. The Jumping Alien is; the runner is not.</td></tr>
+    <tr><td><b>Flip horizontally</b></td><td>Turn a picture left to right, like a mirror.</td></tr>
+    <tr><td><b>Stroke tool</b></td><td>Draws a straight line of pixels between two points.</td></tr>
+  </table>
+
   <table>
     <tr><th>Tool</th><th>What it is for</th><th>Link</th></tr>
     <tr><td><b>Piskel</b></td><td>Drawing the runner, flipping it and exporting the sprite sheet</td><td><a href="https://www.piskelapp.com/" target="_blank" rel="noreferrer">piskelapp.com</a></td></tr>
   </table>
   <ul>
-    <li><b>Do this first:</b> <a href="../lesson-00-jumping-alien/">Piskel Lesson 1: Jumping Alien Sprite</a>. This lesson uses the same Pen, Paint bucket, Duplicate and Export steps.</li>
     <li><b>Why a side view?</b> The Jumping Alien faces you and is the same on both sides, so flipping it changes nothing. This runner has a cap brim and nose at the front and a backpack at the back, so you can always tell which way it faces.</li>
     <li>Your runner does not have to match the pictures pixel for pixel. Change the colours or the cap if you like, as long as it clearly faces one way.</li>
     <li>Time: about one class period.</li>
@@ -62,7 +81,7 @@
     <div class="down">↓</div>
     <div class="band" style="--c:var(--p3)"><h4><a href="#part3">Part 3 · Frame 2: facing left</a></h4><div class="bubbles">
       <div class="bubble"><b>3A · Copy</b>Duplicate frame 1</div><span class="arrow">→</span>
-      <div class="bubble"><b>3B · Flip</b>Transform panel → Flip<br>Frame 2 faces left</div><span class="arrow">→</span>
+      <div class="bubble"><b>3B · Flip</b>Transform panel → Flip horizontally<br>No keys held · frame 2 faces left</div><span class="arrow">→</span>
       <div class="bubble"><b>3C · Watch it turn</b>Preview slider: 2 FPS</div>
     </div></div>
     <div class="down">↓</div>
@@ -216,9 +235,10 @@
 <ol>
 <li>Check <b>frame 2</b> is the one selected in the Frames column (it has a yellow outline).</li>
 <li>Find the <b>Transform</b> panel on the right side, under the Layers panel.</li>
-<li>Click the <b>Flip</b> button (the first button in the Transform panel). The runner on the canvas turns around: the cap brim and nose now point left and the backpack is on the right.</li>
+<li>Hold the mouse over the first button in the Transform panel (a triangle beside its mirror image). Its name pops up: <b>Flip horizontally</b>.<img src="../../assets/piskel/flip-horizontally-tooltip.png" alt="Transform panel Flip button with its tooltip: Flip horizontally; ALT Flip vertically; CTRL Apply to all layers; SHIFT Apply to all frames" width="263" height="116" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></li>
+<li>Click it, without holding any keys. The runner on the canvas turns around: the cap brim and nose now point left and the backpack is on the right.</li>
 </ol>
-<div class="note pick"><b>Pick the right one:</b> make sure frame 2 is selected before you click Flip. If frame 1 flips instead, press <b>Ctrl+Z</b>, click frame 2 and try again.</div>
+<div class="note pick"><b>Pick the right one:</b> click <b>Flip horizontally</b> on its own. Holding <b>Alt</b> flips upside down, and holding <b>Shift</b> flips every frame, so frame 1 would face left too. Make sure frame 2 is selected first. If the wrong thing flips, press <b>Ctrl+Z</b> and try again.</div>
 <div class="note what"><b>Every number mirrors:</b> on the flipped grid, a pixel in column 10 moves to column 21, because 10 + 21 = 31. The brim that ended at column 23 now starts at column 8.</div>
 
 <h3>3C · Watch it turn</h3>
