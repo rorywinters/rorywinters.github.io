@@ -28,7 +28,7 @@ You set up a camera, then animate it gliding slowly toward the scene. This is a 
 | **Ease in / ease out** | Starting slowly and slowing down at the end, instead of starting and stopping with a jerk. |
 | **Render engine** | The part of Blender that turns the scene into pictures. EEVEE is fast; Cycles is slower and more realistic. |
 
-**The camera series:** 1 Push-in (this lesson) · 2 Smooth moves and orbits · 3 Fly-through on a path · 4 Lighting for a moving camera · 5 Cinematic polish
+**The camera series:** 1 Push-in (this lesson) · [2 Smooth moves and orbits](../camera-2-smooth-orbit/) · [3 Fly-through on a path](../camera-3-fly-through/) · [4 Lighting for a moving camera](../camera-4-lighting/) · [5 Cinematic polish](../camera-5-cinematic/)
 
 | Colour | Meaning |
 | --- | --- |
