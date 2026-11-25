@@ -68,9 +68,10 @@
       <div class="bubble"><b>4A · Event 1</b>Player Compare Y &gt; 800<br>→ Set position 160, 500<br>→ Platform Set vector Y 0</div>
     </div></div>
     <div class="down">↓</div>
-    <div class="band" style="--c:var(--p5)"><h4><a href="#part5">Part 5 · Extra: face the way you walk</a></h4><div class="bubbles">
-      <div class="bubble"><b>5A · Keyboard</b>Insert Keyboard</div><span class="arrow">→</span>
-      <div class="bubble"><b>5B · Events 2–3</b>Left is down → Set mirrored<br>Right is down → Set not mirrored</div>
+    <div class="band" style="--c:var(--p5)"><h4><a href="#part5">Part 5 · Extra: ready to go</a></h4><div class="bubbles">
+      <div class="bubble"><b>5A · Animation on</b>Double-click alien · Animation 1<br>Speed 8 · Loop on</div><span class="arrow">→</span>
+      <div class="bubble"><b>5B · Event 2</b>Player Is moving (Platform)<br>Stop animation · Set animation frame 0</div><span class="arrow">→</span>
+      <div class="bubble"><b>5C · Event 3</b>System Else<br>Start animation · current frame</div>
     </div></div>
   </div>
   <p class="key">Each colour is one part. Codes like 2B mean Part 2, section B. Underlined words are links.</p>
@@ -310,33 +311,53 @@
 
 <!-- PART 5 -->
 <details class="part" id="part5" name="parts" style="--c:var(--p5)">
-<summary><h2>Part 5 · Extra: face the way you walk</h2><span class="done"></span></summary>
+<summary><h2>Part 5 · Extra: ready to go</h2><span class="done"></span></summary>
 <div class="body">
-<p>Right now the character always faces the same way. Two events flip it to face the direction it is running. This part is optional.</p>
+<p>Your alien has five poses from Piskel (stand, crouch, jump, top, land), but so far it only shows the first one. In this part it plays all five over and over while it stands still, like it's bouncing on the spot, ready to go. As soon as it runs or jumps, it stops on the standing pose. This part is optional.</p>
 
-<h3>5A · Keyboard object</h3>
-<ol>
-<li>Go to the <b>Layout 1</b> tab (middle of the screen) and double-click an empty part of the layout. The <b>Create new object type</b> window opens. Click <b>Keyboard</b> (it turns grey when picked), then click <b>Insert</b>.<img src="../../assets/construct3/insert-object-input-keyboard.png?v=2" alt="Construct 3 Create new object type window with Keyboard picked (grey) among Gamepad, Mouse and Touch" width="532" height="182" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></li>
-</ol>
-<div class="note what"><b>What changed:</b> nothing appears on the layout, because Keyboard is not a picture. Check that <b>Keyboard</b> is now listed under <b>Object types</b> in the Project Bar (top-right). A message also pops up: <b>Added 'Keyboard'</b>.<img src="../../assets/construct3/keyboard-added-object-types.png" alt="Project Bar Object types list with Keyboard added under block and ground, and the pop-up message Added Keyboard, this object is available to the entire project" width="460" height="255" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></div>
-
-<h3>5B · Events 2 and 3</h3>
+<h3>5A · Turn the animation on</h3>
 <table>
-<tr><th>Event</th><th>Condition</th><th>Action</th></tr>
-<tr><td>2</td><td><b>Keyboard</b> → Key is down → <b>Left arrow</b></td><td><b>Player</b> → Set mirrored → <b>Mirrored</b></td></tr>
-<tr><td>3</td><td><b>Keyboard</b> → Key is down → <b>Right arrow</b></td><td><b>Player</b> → Set mirrored → <b>Not mirrored</b></td></tr>
+<tr><th>Animation Properties (Animation 1)</th><th>Value</th></tr>
+<tr><td>Speed</td><td><b>8</b> (it was 0)</td></tr>
+<tr><td>Loop</td><td><b>On</b> (ticked)</td></tr>
 </table>
 <ol>
-<li>On the event sheet, click <b>Add event</b> at the bottom of the sheet. The <b>Add condition</b> window opens; double-click <b>Keyboard</b>.<img src="../../assets/construct3/add-condition-keyboard-outside.png" alt="Construct 3 Add condition window: System, block, ground, Keyboard (highlighted) and log" width="751" height="221" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Then double-click <b>Key is down</b> (not <i>On any key pressed</i>).<img src="../../assets/construct3/keyboard-key-is-down.png" alt="Keyboard conditions list with Key is down highlighted, next to On any key pressed" width="513" height="72" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Click the key box, press the <b>Left arrow</b>, and click <b>Done</b>.</li>
-<li>Grey <b>Add action</b> → <b>Player</b> → <b>Set mirrored</b> → <b>Mirrored</b> → <b>Done</b>.</li>
-<li>Now make <b>event 3</b> for the right arrow. Click <b>Add event</b> at the bottom of the sheet again. In the <b>Add condition</b> window, double-click <b>Keyboard</b>, then double-click <b>Key is down</b>. Click the key box, press the <b>Right arrow</b>, and click <b>Done</b>. A new event 3 appears under event 2.</li><li>On event 3, click the grey <b>Add action</b> → <b>Player</b> → <b>Set mirrored</b>. The <b>Parameters for Player: Set mirrored</b> window opens. Change the <b>State</b> dropdown from <b>Mirrored</b> to <b>Not mirrored</b>, then click <b>Done</b>.<img src="../../assets/construct3/set-mirrored-not-mirrored.png" alt="Parameters for Player: Set mirrored window with the State dropdown set to Not mirrored" width="620" height="147" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></li>
-<li><b>Preview</b>. Run left and the character turns to face left; run right and it turns back.</li>
+<li>On the <b>Layout 1</b> tab, double-click the alien. The <b>Animations Editor</b> opens over the middle of the screen, the same one you used in Part 2.</li>
+<li>In the <b>Animations</b> list (top-right of the editor), click <b>Animation 1</b>. The panel under it shows <b>Animation Properties</b>.</li>
+<li>Click the <b>0</b> in <b>Speed</b>, type <b>8</b> and press <b>Enter</b>. Tick <b>Loop</b>.</li>
+<li>Close the Animations Editor and click <b>Preview</b>. The alien now cycles through all five poses the whole time, even while it runs and jumps.</li>
 </ol>
-<div class="note pick"><b>Pick the right one:</b> use <b>Key is down</b>, not <b>On key pressed</b>. Both work here, but Key is down keeps working while the key is held, which is what you want for running.</div>
+<div class="note">Speed is how many frames play each second. 8 shows the whole five-pose cycle a bit faster than once a second.</div>
+
+<h3>5B · Stop it while moving</h3>
+<table>
+<tr><th>Event</th><th>Condition (left side)</th><th>Actions (right side)</th></tr>
+<tr><td>2</td><td><b>Player</b> → Platform → <b>Is moving</b></td><td><b>Player</b> → Stop animation<br><b>Player</b> → Set animation frame → <b>0</b></td></tr>
+</table>
+<ol>
+<li>Click the <b>Event sheet 1</b> tab. Click <b>Add event</b> at the bottom of the sheet → double-click <b>Player</b> → double-click <b>Is moving</b> (in the <b>Platform</b> group). It appears as event 2.</li>
+<li>On event 2, click the grey <b>Add action</b> → <b>Player</b> → double-click <b>Stop animation</b> (in the <b>Animations</b> group).</li>
+<li>Click the grey <b>Add action</b> under it → <b>Player</b> → <b>Set animation frame</b>. Type <b>0</b> and click <b>Done</b>. Event 2 now has two actions.</li>
+<li><b>Preview</b>. The alien still bounces at the start. Run, and it switches to the standing pose. Stop, and it stays standing: nothing starts the animation again yet.</li>
+</ol>
+<div class="note pick"><b>Pick the right one:</b> <b>Is moving</b> is in the <b>Platform</b> group under Player, not the Animations group. It's true while the alien runs, jumps or falls.</div>
+
+<h3>5C · Start it again when standing still</h3>
+<table>
+<tr><th>Event</th><th>Condition (left side)</th><th>Action (right side)</th></tr>
+<tr><td>3</td><td><b>System</b> → <b>Else</b></td><td><b>Player</b> → Start animation → From <b>current frame</b></td></tr>
+</table>
+<ol>
+<li>Click <b>Add event</b> at the bottom of the sheet → double-click <b>System</b> → double-click <b>Else</b>. It appears as event 3, right under event 2.</li>
+<li>On event 3, click the grey <b>Add action</b> → <b>Player</b> → <b>Start animation</b>. Set <b>From</b> to <b>current frame</b> and click <b>Done</b>.</li>
+<li><b>Preview</b>. Stand still: the alien bounces through its five poses. Run or jump: it holds the standing pose. Stop: it starts bouncing again.</li>
+</ol>
+<div class="note">In words: <b>if</b> the alien is moving, stand still in pose 0; <b>else</b> (it isn't moving), play the bounce. <b>Else</b> only works when it sits directly under the event it belongs to, so keep event 3 right under event 2.</div>
 
 <div class="check"><strong>Checkpoint · Part 5</strong>
-<label><input type="checkbox"> Keyboard is listed under Object types</label>
-<label><input type="checkbox"> The character faces left when running left and right when running right</label>
+<label><input type="checkbox"> Event 2 is Player Is moving with two actions; event 3 is Else with Start animation</label>
+<label><input type="checkbox"> Standing still, the alien cycles through all five poses</label>
+<label><input type="checkbox"> Running or jumping, the alien holds the standing pose</label>
 </div>
 
 <h3>Save your work</h3>
