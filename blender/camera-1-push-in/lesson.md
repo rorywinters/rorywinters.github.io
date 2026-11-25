@@ -274,10 +274,14 @@ EEVEE renders each frame in about a second on the lab laptops, so a 5-second cli
 | --- | --- | --- |
 | **Output** | Path | your class folder → `camera1_pushin_v1` |
 
-1. In the **Output** section, click the folder icon beside the path, go to your class folder and click **Accept**.
-2. Click at the end of the path, type `camera1_pushin_v1` and press **Enter**.
-3. Choose **Render → Render Animation**. (Shortcut: Ctrl+F12) A render window opens and the frame counter at the top counts up to 120.
-4. When it reaches 120, close the render window and open your folder. Play `camera1_pushin_v1.mp4`.
+1. In the **Output** section, find the path box. It starts as `/tmp\`, a hidden system folder you'd never find again.
+
+@figure ../../assets/blender/output-path-default.png The Output section before you change it: the path says /tmp\ and the folder icon is on the right.
+
+2. Click the folder icon on the right of the path, go to your class folder and click **Accept**. The path changes to your folder.
+3. Click at the end of the path, type `camera1_pushin_v1` and press **Enter**.
+4. Choose **Render → Render Animation**. (Shortcut: Ctrl+F12) A render window opens and the frame counter at the top counts up to 120.
+5. When it reaches 120, close the render window and open your folder. Play `camera1_pushin_v1.mp4`.
 
 > **Pick the right one:** use **Render Animation**, not **Render Image**. Render Image (F12) makes one still picture of the current frame only.
 
