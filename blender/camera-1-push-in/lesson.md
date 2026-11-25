@@ -188,7 +188,10 @@ Rotation stays 85°, 0°, 0° the whole time. Only **Location Y** changes.
 ### 3B · Keyframe the start
 
 1. Click **Camera** in the Outliner. The Outliner must show **Camera** highlighted, not another object.
-2. Check the blue playhead is on frame **1**.
+2. Check the blue playhead is on frame **1**. It's the blue tab and line at the left end of the Timeline.
+
+@figure ../../assets/blender/timeline-playhead-frame1.png The blue playhead on frame 1.
+
 3. Hover the mouse over the camera's **Location** fields in the N panel and press **I**. The three fields turn **yellow** and a diamond appears in the Timeline. (Or right-click a field → **Insert Keyframes**.)
 
 ### 3C · Keyframe the end
