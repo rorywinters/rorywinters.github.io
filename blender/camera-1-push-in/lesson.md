@@ -202,6 +202,9 @@ Rotation stays 85°, 0°, 0° the whole time. Only **Location Y** changes.
 ### 3C · Keyframe the end
 
 1. Drag the playhead to frame **120**, or type **120** in the **current frame** box (the first box on the right of the Timeline, left of the stopwatch). ![Timeline frame boxes: current frame 1, Start 1, End 250](../../assets/blender/timeline-frame-boxes.png)
+
+@figure ../../assets/blender/timeline-playhead-frame120.png The playhead on frame 120. The Play buttons are just above it.
+
 2. Type **−7** in **Location Y** and press **Enter**. The field turns **orange**: changed, but not keyed yet. The camera view jumps closer.
 3. Hover over the Location fields and press **I**. They turn yellow and a second diamond appears.
 4. Go back to frame **1**, stay in camera view and click **Play**. (Shortcut: Spacebar) The camera glides toward the scene. Click **Pause**.
