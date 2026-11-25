@@ -68,7 +68,7 @@ Part 3 · Keyframe the push-in
 Part 4 · Render the MP4
 4A · EEVEE | Render Properties → Render Engine EEVEE
 4B · Output | 1920 × 1080 · 50% (amber) | Media Type Video · MPEG-4 · H.264
-4C · Render | Path camera1_pushin_v1 | Render → Render Animation (Ctrl+F12)
+4C · Render | Path //camera1_pushin_v1 | Render → Render Animation (Ctrl+F12)
 Extra · Finished early? (optional)
 Rise up | Frame 1 · key Rotation | Frame 120 · Z 4 · Rot X 75° · key both
 Lens change | Frame 1 · key Focal Length 35 | Frame 120 · 50 mm · key
@@ -272,19 +272,17 @@ EEVEE renders each frame in about a second on the lab laptops, so a 5-second cli
 
 | Output Properties | Field | Value |
 | --- | --- | --- |
-| **Output** | Path | your class folder → `camera1_pushin_v1` |
+| **Output** | Path | `//camera1_pushin_v1` |
+
+The two slashes `//` mean "the same folder as my .blend file", so the video lands right beside `camera1_yourname.blend` from 1A.
 
 1. In the **Output** section, find the path box. It starts as `/tmp\`, a hidden system folder you'd never find again.
 
-@figure ../../assets/blender/output-path-default.png The Output section before you change it: the path says /tmp\ and the folder icon is on the right.
+@figure ../../assets/blender/output-path-default.png The Output section before you change it: the path says /tmp\.
 
-2. Click the folder icon on the right of the path, go to your class folder and click **Accept**. The path changes to your folder.
-3. Click at the end of the path, type `camera1_pushin_v1` and press **Enter**.
-
-@figure ../../assets/blender/output-path-named.png The path box with the file name camera1_pushin_v1 at the end.
-
-4. Choose **Render → Render Animation**. (Shortcut: Ctrl+F12) A render window opens and the frame counter at the top counts up to 120.
-5. When it reaches 120, close the render window and open your folder. Play `camera1_pushin_v1.mp4`.
+2. Double-click in the path box, select everything in it (Ctrl+A) and type `//camera1_pushin_v1`. Press **Enter**. The box now reads `//camera1_pushin_v1`.
+3. Choose **Render → Render Animation**. (Shortcut: Ctrl+F12) A render window opens and the frame counter at the top counts up to 120.
+4. When it reaches 120, close the render window. Open the folder where you saved `camera1_yourname.blend` and play `camera1_pushin_v1.mp4`.
 
 > **Pick the right one:** use **Render Animation**, not **Render Image**. Render Image (F12) makes one still picture of the current frame only.
 
@@ -310,4 +308,4 @@ Play each one and compare it with your v1 video.
 | A field stays orange after pressing I | Your mouse wasn't over the fields. Hover on the Location fields and press I again. |
 | The camera jumps instead of gliding | One of the keyframes is missing. Check for two diamonds, at 1 and 120. |
 | The video is black | The camera is inside an object or facing away. Go to frame 1 and check the camera view. |
-| The MP4 isn't in your folder | Check the path in **Output Properties → Output**, and that Media Type says **Video**. |
+| The MP4 isn't in your folder | Check the path starts with `//` and that Media Type says **Video**. The video goes in the same folder as your saved .blend file, so save the .blend first (1A). |
