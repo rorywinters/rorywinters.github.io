@@ -1,0 +1,26 @@
+<!-- Saved 2026-11-25: 5B/5C from "Ready to go" (stop the animation while running, using On moved / On stopped). Not tested; removed when Rory chose to let the animation always play. -->
+<h3>5B · Stop it when the alien starts running</h3>
+<table>
+<tr><th>Event</th><th>Condition (left side)</th><th>Actions (right side)</th></tr>
+<tr><td>2</td><td><b>Player</b> → Platform → <b>On moved</b></td><td><b>Player</b> → Stop<br><b>Player</b> → Set frame → <b>0</b></td></tr>
+</table>
+<ol>
+<li>Click the <b>Event sheet 1</b> tab. Click <b>Add event</b> at the bottom of the sheet → double-click <b>Player</b> → find the <b>Animation triggers</b> group and double-click <b>On moved</b>. It appears as event 2, with a small green arrow beside it.</li>
+<li>On event 2, click the grey <b>Add action</b> → <b>Player</b> → double-click <b>Stop</b> (in the <b>Animations</b> group, bottom right).<img src="../../assets/construct3/sprite-animations-actions.png" alt="Player actions, Animations group: Add/remove animation, Set animation, Set repeat-to frame, Start, Add/remove animation frame, Set frame, Set speed and Stop (highlighted)" width="573" height="182" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></li>
+<li>Click the grey <b>Add action</b> under it → <b>Player</b> → <b>Set frame</b> (same Animations group, right column).<img src="../../assets/construct3/sprite-animations-set-frame.png" alt="Player actions, Animations group, with Set frame highlighted" width="552" height="177" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Type <b>0</b> and click <b>Done</b>. Event 2 now has two actions.</li>
+<li><b>Preview</b>. The alien bounces at the start. Run, and it switches to the standing pose. Stop, and it stays standing: nothing starts the animation again yet.</li>
+</ol>
+<div class="note pick"><b>Pick the right one:</b> use <b>On moved</b>, not <b>Is moving</b>. A green arrow means a <b>trigger</b>: it runs once, the moment something happens. <b>Is moving</b> is checked every frame, and on the ground it can stay true, which freezes the alien.</div>
+
+<h3>5C · Start it again when the alien stops</h3>
+<table>
+<tr><th>Event</th><th>Condition (left side)</th><th>Action (right side)</th></tr>
+<tr><td>3</td><td><b>Player</b> → Platform → <b>On stopped</b></td><td><b>Player</b> → Start → From <b>beginning</b></td></tr>
+</table>
+<ol>
+<li>Click <b>Add event</b> → double-click <b>Player</b> → in <b>Animation triggers</b>, double-click <b>On stopped</b>. It appears as event 3.</li>
+<li>On event 3, click the grey <b>Add action</b> → <b>Player</b> → <b>Start</b> (Animations group, left column, bottom).<img src="../../assets/construct3/sprite-animations-start.png" alt="Player actions, Animations group, with Start highlighted" width="556" height="177" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Set <b>From</b> to <b>beginning</b> and click <b>Done</b>.</li>
+<li><b>Preview</b>. Stand still: the alien bounces through its five poses. Run: it holds the standing pose. Stop: it starts bouncing again.</li>
+</ol>
+<div class="note">In words: <b>when</b> the alien starts running, stop the bounce on the standing pose; <b>when</b> it stops, play the bounce again. Each trigger runs once, at that moment, so the animation is left to play in between. If the alien jumps straight up without running, it keeps bouncing in the air; that's fine.</div>
+

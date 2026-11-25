@@ -37,7 +37,7 @@
   <ul>
     <li>Construct 3 runs in the browser. Nothing needs installing.</li>
     <li>Everything you see in the game comes from your Piskel files. Nothing is drawn in Construct 3.</li>
-    <li>The game uses 1 event (3 with the extra in Part 5), so it fits easily in the free version of Construct 3.</li>
+    <li>The game uses 1 event, so it fits easily in the free version of Construct 3.</li>
     <li>Time: about one class period.</li>
     <li>Click a part to open it. Opening one part closes the others. Tick every checkpoint box before you move on; your ticks are remembered on this computer.</li>
   </ul>
@@ -69,10 +69,7 @@
     </div></div>
     <div class="down">↓</div>
     <div class="band" style="--c:var(--p5)"><h4><a href="#part5">Part 5 · Extra: ready to go</a></h4><div class="bubbles">
-      <div class="bubble"><b>5A · Animation on</b>Double-click alien · Animation 1<br>Speed 8 · Loop on</div><span class="arrow">→</span>
-      <div class="bubble"><b>5B · Event 2</b>Player On moved (Animation triggers)<br>Stop · Set frame 0</div><span class="arrow">→</span>
-      <div class="bubble"><b>5C · Event 3</b>Player On stopped (Animation triggers)<br>Start · from beginning</div>
-    </div></div>
+      <div class="bubble"><b>5A · Animation on</b>Double-click alien · Animation 1<br>Speed 8 · Loop on · Preview</div></div></div>
   </div>
   <p class="key">Each colour is one part. Codes like 2B mean Part 2, section B. Underlined words are links.</p>
 </section>
@@ -313,7 +310,7 @@
 <details class="part" id="part5" name="parts" style="--c:var(--p5)">
 <summary><h2>Part 5 · Extra: ready to go</h2><span class="done"></span></summary>
 <div class="body">
-<p>Your alien has five poses from Piskel (stand, crouch, jump, top, land), but so far it only shows the first one. In this part it plays all five over and over while it stands still, like it's bouncing on the spot, ready to go. As soon as it runs, it stops on the standing pose. This part is optional.</p>
+<p>Your alien has five poses from Piskel (stand, crouch, jump, top, land), but so far it only shows the first one. In this part it plays all five over and over, bouncing on the spot like it's ready to go. It's one setting, no events. This part is optional.</p>
 
 <h3>5A · Turn the animation on</h3>
 <table>
@@ -326,39 +323,13 @@
 <li>In the <b>Animations</b> list (top-right of the editor), click <b>Animation 1</b>. The panel under it shows <b>Animation Properties</b>.</li>
 <li>Click the <b>0</b> in <b>Speed</b>, type <b>8</b> and press <b>Enter</b>. Tick <b>Loop</b>, two rows down.<img src="../../assets/construct3/animation-properties-speed8-loop.png" alt="Animations list with Animation 1, and Animation Properties showing Speed 8 and Loop ticked" width="262" height="555" style="display:block;max-width:240px;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></li>
 <li>Click the <b>Preview animation</b> button <img src="../../assets/construct3/icon-preview-animation.png" alt="Preview animation button: a play triangle in a circle" width="51" height="37" style="height:1.6em;width:auto;vertical-align:middle;margin:0 .25em;border-radius:3px"> in the Animations Editor. A small <b>Preview - Animation 1</b> window opens and the alien bounces through its five poses. <b>Restart</b> plays it from the first pose again. Close the window with its <b>X</b>.<img src="../../assets/construct3/preview-animation-window.png" alt="Preview - Animation 1 window showing the green one-eyed alien, with a Restart button underneath" width="302" height="355" style="display:block;max-width:240px;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></li>
-<li>Close the Animations Editor and click <b>Preview</b>. The alien now cycles through all five poses the whole time, even while it runs and jumps.</li>
+<li>Close the Animations Editor and click <b>Preview</b>. The alien now bounces through all five poses the whole time, even while it runs and jumps.</li>
 </ol>
 <div class="note">Speed is how many frames play each second. 8 shows the whole five-pose cycle a bit faster than once a second.</div>
 
-<h3>5B · Stop it when the alien starts running</h3>
-<table>
-<tr><th>Event</th><th>Condition (left side)</th><th>Actions (right side)</th></tr>
-<tr><td>2</td><td><b>Player</b> → Platform → <b>On moved</b></td><td><b>Player</b> → Stop<br><b>Player</b> → Set frame → <b>0</b></td></tr>
-</table>
-<ol>
-<li>Click the <b>Event sheet 1</b> tab. Click <b>Add event</b> at the bottom of the sheet → double-click <b>Player</b> → find the <b>Animation triggers</b> group and double-click <b>On moved</b>. It appears as event 2, with a small green arrow beside it.</li>
-<li>On event 2, click the grey <b>Add action</b> → <b>Player</b> → double-click <b>Stop</b> (in the <b>Animations</b> group, bottom right).<img src="../../assets/construct3/sprite-animations-actions.png" alt="Player actions, Animations group: Add/remove animation, Set animation, Set repeat-to frame, Start, Add/remove animation frame, Set frame, Set speed and Stop (highlighted)" width="573" height="182" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></li>
-<li>Click the grey <b>Add action</b> under it → <b>Player</b> → <b>Set frame</b> (same Animations group, right column).<img src="../../assets/construct3/sprite-animations-set-frame.png" alt="Player actions, Animations group, with Set frame highlighted" width="552" height="177" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Type <b>0</b> and click <b>Done</b>. Event 2 now has two actions.</li>
-<li><b>Preview</b>. The alien bounces at the start. Run, and it switches to the standing pose. Stop, and it stays standing: nothing starts the animation again yet.</li>
-</ol>
-<div class="note pick"><b>Pick the right one:</b> use <b>On moved</b>, not <b>Is moving</b>. A green arrow means a <b>trigger</b>: it runs once, the moment something happens. <b>Is moving</b> is checked every frame, and on the ground it can stay true, which freezes the alien.</div>
-
-<h3>5C · Start it again when the alien stops</h3>
-<table>
-<tr><th>Event</th><th>Condition (left side)</th><th>Action (right side)</th></tr>
-<tr><td>3</td><td><b>Player</b> → Platform → <b>On stopped</b></td><td><b>Player</b> → Start → From <b>beginning</b></td></tr>
-</table>
-<ol>
-<li>Click <b>Add event</b> → double-click <b>Player</b> → in <b>Animation triggers</b>, double-click <b>On stopped</b>. It appears as event 3.</li>
-<li>On event 3, click the grey <b>Add action</b> → <b>Player</b> → <b>Start</b> (Animations group, left column, bottom).<img src="../../assets/construct3/sprite-animations-start.png" alt="Player actions, Animations group, with Start highlighted" width="556" height="177" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Set <b>From</b> to <b>beginning</b> and click <b>Done</b>.</li>
-<li><b>Preview</b>. Stand still: the alien bounces through its five poses. Run: it holds the standing pose. Stop: it starts bouncing again.</li>
-</ol>
-<div class="note">In words: <b>when</b> the alien starts running, stop the bounce on the standing pose; <b>when</b> it stops, play the bounce again. Each trigger runs once, at that moment, so the animation is left to play in between. If the alien jumps straight up without running, it keeps bouncing in the air; that's fine.</div>
-
 <div class="check"><strong>Checkpoint · Part 5</strong>
-<label><input type="checkbox"> Event 2 is Player On moved with Stop and Set frame; event 3 is Player On stopped with Start</label>
-<label><input type="checkbox"> Standing still, the alien cycles through all five poses</label>
-<label><input type="checkbox"> Running, the alien holds the standing pose</label>
+<label><input type="checkbox"> Animation 1 shows Speed 8 with Loop ticked</label>
+<label><input type="checkbox"> In Preview, the alien bounces through all five poses while it runs and jumps</label>
 </div>
 
 <h3>Save your work</h3>
