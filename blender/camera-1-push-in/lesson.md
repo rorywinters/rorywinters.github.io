@@ -196,6 +196,8 @@ Rotation stays 85°, 0°, 0° the whole time. Only **Location Y** changes.
 
 @figure ../../assets/blender/n-panel-location-keyed.png After pressing I on frame 1: the three Location fields are yellow. Rotation stays grey because it isn't keyed.
 
+@figure ../../assets/blender/timeline-key-frame1.png The keyframe diamond in the Timeline at frame 1. It's small and sits right on the playhead line, so look closely.
+
 
 ### 3C · Keyframe the end
 
