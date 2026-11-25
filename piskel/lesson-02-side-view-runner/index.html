@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Side-View Runner: Facing Right and Left · Winters Innovative Solutions</title>
+<link rel="stylesheet" href="../../assets/lesson.css?v=20261123b">
+<style>
+.ref{display:block;max-width:100%;height:auto;margin:.6em 0;border:1px solid #ccc;border-radius:6px;image-rendering:pixelated}
+.refrow{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start}
+.refrow img{max-width:240px}
+.icon{height:1.6em;width:auto;vertical-align:middle;margin:0 .25em;border-radius:3px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="crumb"><a href="../../">Lessons</a> › <a href="../">Piskel</a></div>
+  <div class="lessonnum">Piskel · Lesson 2 <span class="status wait">◷ Waiting for approval</span></div>
+  <h1>Side-View Runner: Facing Right and Left</h1>
+  <p class="sub">Draw a runner seen from the side, so it clearly faces one way, then flip a copy so it faces the other way. Export both as a sprite sheet for Construct 3.</p>
+</header>
+
+<section class="intro">
+  <h2>What you will build</h2>
+  <p>A 32 × 32 runner with a red cap and a yellow backpack. Frame 1 faces right. Frame 2 is the same runner flipped to face left. In a game, the character can turn to face the way it runs.</p>
+  <div class="refrow">
+    <img class="ref" src="img/turn.gif" alt="The finished runner turning from facing right to facing left on a loop" width="192" height="192">
+  </div>
+  <table>
+    <tr><th>Tool</th><th>What it is for</th><th>Link</th></tr>
+    <tr><td><b>Piskel</b></td><td>Drawing the runner, flipping it and exporting the sprite sheet</td><td><a href="https://www.piskelapp.com/" target="_blank" rel="noreferrer">piskelapp.com</a></td></tr>
+  </table>
+  <ul>
+    <li><b>Do this first:</b> <a href="../lesson-00-jumping-alien/">Piskel Lesson 1: Jumping Alien Sprite</a>. This lesson uses the same Pen, Paint bucket, Duplicate and Export steps.</li>
+    <li><b>Why a side view?</b> The Jumping Alien faces you and is the same on both sides, so flipping it changes nothing. This runner has a cap brim and nose at the front and a backpack at the back, so you can always tell which way it faces.</li>
+    <li>Your runner does not have to match the pictures pixel for pixel. Change the colours or the cap if you like, as long as it clearly faces one way.</li>
+    <li>Time: about one class period.</li>
+    <li>Click a part to open it. Opening one part closes the others. Tick every checkpoint box before you move on; your ticks are remembered on this computer.</li>
+  </ul>
+</section>
+
+<section class="brief">
+  <h2>Lesson brief</h2>
+  <p>If you already know Piskel, follow the chart and you can finish from it alone. Click any box to jump to its full steps; the Back to the brief button brings you back here.</p>
+  <div class="flow">
+    <div class="band" style="--c:var(--p1)"><h4><a href="#part1">Part 1 · Open Piskel</a></h4><div class="bubbles">
+      <div class="bubble"><b>1A · New sprite</b><a href="https://www.piskelapp.com/" target="_blank" rel="noreferrer">piskelapp.com</a><br>Create Sprite</div><span class="arrow">→</span>
+      <div class="bubble"><b>1B · Canvas</b>Resize: 32 × 32 px<br>Settings › Misc: plain light background<br>Settings › Grid: on, thinnest, every pixel, pink</div>
+    </div></div>
+    <div class="down">↓</div>
+    <div class="band" style="--c:var(--p2)"><h4><a href="#part2">Part 2 · Draw frame 1: facing right</a></h4><div class="bubbles">
+      <div class="bubble"><b>2A · Outline</b>Pen size 1 · #1E1E28<br>Copy the outline grid</div><span class="arrow">→</span>
+      <div class="bubble"><b>2B · Touching parts</b>Stroke + Shift: cap rows 4–6, shoes 27–28 #D23C3C<br>Soles row 29 #FFFFFF · pants row 22 #2B3A67<br>Pen hand #F5C9A0</div><span class="arrow">→</span>
+      <div class="bubble"><b>2C · Fills</b>Paint bucket: face #F5C9A0 · shirt #3C78D2<br>backpack #F0B428 · both legs #2B3A67</div>
+    </div></div>
+    <div class="down">↓</div>
+    <div class="band" style="--c:var(--p3)"><h4><a href="#part3">Part 3 · Frame 2: facing left</a></h4><div class="bubbles">
+      <div class="bubble"><b>3A · Copy</b>Duplicate frame 1</div><span class="arrow">→</span>
+      <div class="bubble"><b>3B · Flip</b>Transform panel → Flip<br>Frame 2 faces left</div><span class="arrow">→</span>
+      <div class="bubble"><b>3C · Watch it turn</b>Preview slider: 2 FPS</div>
+    </div></div>
+    <div class="down">↓</div>
+    <div class="band" style="--c:var(--p4)"><h4><a href="#part4">Part 4 · Save and export</a></h4><div class="bubbles">
+      <div class="bubble"><b>4A · Save</b>Save → Save as .piskel<br>runner.piskel</div><span class="arrow">→</span>
+      <div class="bubble"><b>4B · Sprite sheet</b>Export → PNG<br>Columns 2 · Rows 1 · Download (64 × 32)</div><span class="arrow">→</span>
+      <div class="bubble"><b>4C · Hand in</b>Google Classroom<br>.piskel + .png</div>
+    </div></div>
+  </div>
+  <p class="key">Each colour is one part. Codes like 2B mean Part 2, section B. Underlined words are links. Codes like #D23C3C are colours. Row and column numbers count from 0, the same as Piskel's yellow mouse counter and the picture grids.</p>
+</section>
+
+<div class="controls">
+  <button type="button" id="openAll">Open all parts</button>
+  <button type="button" id="closeAll">Close all parts</button>
+  <button type="button" id="clearTicks">Clear my ticks</button>
+</div>
+
+<!-- PART 1 -->
+<details class="part" id="part1" name="parts" style="--c:var(--p1)">
+<summary><h2>Part 1 · Open Piskel</h2><span class="done"></span></summary>
+<div class="body">
+<p>You start with an empty 32 × 32 canvas with a grid on it, so every pixel is easy to see.</p>
+<table>
+<tr><th>Where things are in Piskel</th><th>Location on screen</th></tr>
+<tr><td><b>Tools</b> (Pen, Paint bucket, Eraser, Move…)</td><td>Far left, two columns of icons</td></tr>
+<tr><td><b>Colour squares</b> (primary and secondary)</td><td>Far left, under the tools</td></tr>
+<tr><td><b>Frames</b> column and <b>Add new frame</b> button</td><td>Left side, between the tools and the canvas</td></tr>
+<tr><td><b>Canvas</b> (where you draw)</td><td>Middle of the screen</td></tr>
+<tr><td><b>Preview</b> window, its speed slider and the quick <b>#</b> grid button</td><td>Top-right corner. The # button stays hidden until you move the mouse to the top of the Preview window, under Create Sprite.</td></tr>
+<tr><td><b>Settings</b> (gear) and its <b>Grid</b> tab</td><td>Strip of icons on the far right edge. Background (Misc tab), grid colour and turning the grid on (Grid tab) are set here.</td></tr>
+<tr><td><b>Mouse position</b> (yellow numbers)</td><td>Bottom-right, under the Palettes panel. Shows column:row of the pixel under the mouse, counting from 0.</td></tr>
+<tr><td><b>Resize</b>, <b>Save</b>, <b>Export</b>, <b>Import</b> buttons</td><td>A strip of icons down the far right edge</td></tr>
+</table>
+<p>Hold your mouse over any icon and its name pops up. Piskel has no hidden panels to lose; if the screen looks squashed, make the browser window full screen.</p>
+
+<h3>1A · New sprite</h3>
+<ol>
+<li>Go to <a href="https://www.piskelapp.com/" target="_blank" rel="noreferrer">piskelapp.com</a>.</li>
+<li>Click <b>Create Sprite</b>. The editor opens with a blank canvas in the middle.</li>
+</ol>
+<div class="note"><b>No account needed.</b> If Piskel asks you to sign in, you can skip it. You will save your work as a file in Part 5.</div>
+
+<h3>1B · Canvas size and grid</h3>
+<table>
+<tr><th>Resize</th><th>Value</th></tr>
+<tr><td>Width</td><td>32 px</td></tr>
+<tr><td>Height</td><td>32 px</td></tr>
+</table>
+<ol>
+<li>Click the <b>Resize</b> icon <img class="icon" src="../../assets/piskel/icon-resize.png" alt="Resize icon: a square with an arrow pointing to the top-right corner" width="28" height="26"> (top of the strip on the far right edge). A panel slides out showing <b>Width</b> and <b>Height</b>.</li>
+<li>Check both say <b>32</b>. This is Piskel's starting size, so you usually only need to check. If they are different, type <b>32</b> and <b>32</b> and click <b>Resize</b>. Click the Resize icon again to close the panel.</li>
+<li><b>Set up the grid first.</b> Click the <b>Settings</b> icon <img src="../../assets/piskel/icon-settings.png" alt="Settings icon: a gear" width="28" height="27" style="height:1.6em;width:auto;vertical-align:middle;margin:0 .25em;border-radius:3px"> (the gear in the strip on the far right edge). A panel slides out on the <b>Misc</b> tab. Beside <b>Background</b>, click the <b>third</b> square (plain light grey). The checkerboard behind your drawing looks like a grid of its own and hides the real grid lines, so a plain background makes them stand out.<img src="../../assets/piskel/settings-background.png" alt="Settings panel, Misc tab: four Background choices, two checkerboards and two plain greys" width="230" height="76" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Now click the <b>Grid</b> tab and set:<table><tr><th>Grid tab</th><th>Setting</th></tr><tr><td>Enable grid</td><td>Ticked</td></tr><tr><td>Grid size</td><td>First square (thinnest lines)</td></tr><tr><td>Grid spacing</td><td>First square (a line around every pixel)</td></tr><tr><td>Grid color</td><td>Pink (bottom row, fourth square), or any bright colour that is not one of your runner's colours.</td></tr></table><img src="../../assets/piskel/settings-grid.png?v=2" alt="Settings panel, Grid tab: Enable grid ticked, smallest Grid size, smallest Grid spacing, and Pink picked in the Grid color swatches" width="333" height="312" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Thin lines appear on the canvas, one square per pixel. Click the gear again to close the panel.</li>
+<li><b>Quick on/off button.</b> Once the grid is set up, you can hide or show it without opening Settings. Move your mouse to the top of the <b>Preview</b> window (top-right corner, just under the <b>Create Sprite</b> button). Three small buttons appear. They stay hidden until the mouse is over them.<img src="../../assets/piskel/preview-buttons.png" alt="Three buttons above the Preview window, under Create Sprite: 1x, a grid symbol, and an arrow" width="245" height="107" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">The middle one, <b>#</b>, turns the grid off and on. Click it twice to try it, and leave the grid on.</li>
+</ol>
+
+<div class="check"><strong>Checkpoint · Part 1</strong>
+<label><input type="checkbox"> Piskel is open with a blank canvas in the middle</label>
+<label><input type="checkbox"> Resize shows 32 × 32</label>
+<label><input type="checkbox"> Grid lines show on the canvas</label>
+</div>
+</div>
+</details>
+
+<!-- PART 2 -->
+<details class="part" id="part2" name="parts" style="--c:var(--p2)">
+<summary><h2>Part 2 · Draw frame 1: facing right</h2><span class="done"></span></summary>
+<div class="body">
+<p>You draw the runner facing right: cap brim and nose on the right, backpack on the left. Copy the pictures square by square. The numbers along the top and side count the pixels from 0, so you can find your place.</p>
+<div class="note what"><b>Where is my mouse?</b> The yellow numbers at the bottom-right, under the Palettes panel, show which pixel the mouse is over: the canvas size in brackets, then <b>column:row</b>, counting from 0 like the grids. The top-left pixel is <b>0:0</b>.<img src="../../assets/piskel/mouse-position.png" alt="Yellow numbers at the bottom-right of Piskel: zoom, then canvas size and column:row under the mouse, then frame" width="170" height="70" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></div>
+<img class="ref" src="img/frame-1.png" alt="Frame 1, the runner facing right, on a numbered 32 by 32 grid" width="520" height="550">
+<div class="note what"><b>Faces one way on purpose:</b> unlike the Jumping Alien, the two sides do <b>not</b> match. The front (right side) has the cap brim on row 6 and the nose on rows 9 and 10. The back (left side) has the yellow backpack, columns 7 to 9.</div>
+<table>
+<tr><th>Part of the runner</th><th>Colour code</th><th>Quick notes</th></tr>
+<tr><td>Outline, eye</td><td><b>#1E1E28</b> (almost black)</td><td><b>Pen</b>, copy the outline grid (2A)</td></tr>
+<tr><td>Cap and shoes</td><td><b>#D23C3C</b> (red)</td><td><b>Stroke</b> rows 4, 5, 6 (cap) · rows 27, 28 (shoes)</td></tr>
+<tr><td>Shoe soles</td><td><b>#FFFFFF</b> (white)</td><td><b>Stroke</b> row 29, two short lines</td></tr>
+<tr><td>Pants</td><td><b>#2B3A67</b> (dark blue)</td><td><b>Stroke</b> row 22 · <b>(fill)</b> Bucket, each leg</td></tr>
+<tr><td>Skin</td><td><b>#F5C9A0</b> (light tan)</td><td><b>Pen</b> hand, 4 pixels · <b>(fill)</b> Bucket, face</td></tr>
+<tr><td>Shirt</td><td><b>#3C78D2</b> (blue)</td><td><b>(fill)</b> Bucket, body</td></tr>
+<tr><td>Backpack</td><td><b>#F0B428</b> (yellow)</td><td><b>(fill)</b> Bucket, inside the pack</td></tr>
+</table>
+<p><b>How to pick a colour:</b> click the big <b>primary colour</b> square (far left, under the tools). It starts black. The checkered square behind it is the <b>secondary colour</b> (see-through to start), and the curved arrow swaps the two.<img src="../../assets/piskel/colour-squares.png" alt="Bottom of the tools column: the eyedropper tool, then the big black primary colour square, the smaller see-through secondary square behind it, and a curved arrow between them" width="127" height="167" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">A colour chooser opens.<img src="../../assets/piskel/colour-chooser.png" alt="The Piskel colour chooser: a colour square and rainbow bar, with the text box at the bottom reading #000000, and a label saying Primary - left mouse button" width="327" height="347" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Click in the text box at the bottom (it shows <b>#000000</b> at first), delete what is there, type the colour code (or click any code on this page to copy it, then paste with <b>Ctrl+V</b>) (for example <b>#1E1E28</b>) and press <b>Enter</b>, then click back on the canvas to close the chooser. The primary square changes to that colour. The primary colour paints with the <b>left</b> mouse button.</p>
+<p><b>Tip:</b> the <b>eyedropper</b> just above the colour squares copies a colour already on your canvas. Click the eyedropper, then click a pixel, and the primary square changes to that colour. It is handy for going back to a colour you used earlier.</p>
+
+<h3>2A · Outline</h3>
+<img class="ref" src="img/outline.png" alt="Outline only: the dark pixels of the runner on a numbered 32 by 32 grid" width="520" height="550">
+<ol>
+<li>Choose the <b>Pen tool</b> <img src="../../assets/piskel/icon-pen.png" alt="Pen tool icon: a pencil" width="47" height="50" style="height:1.6em;width:auto;vertical-align:middle;margin:0 .25em;border-radius:3px"> (far left, top of the tools). Above the tools, check the <b>Pen size</b> is the smallest square (1 pixel). The one in use has a yellow outline.<img src="../../assets/piskel/pen-size.png" alt="Pen size: four squares in a row with the first, smallest one outlined in yellow; below it the Pen tool, also outlined in yellow" width="122" height="102" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></li>
+<li>Pick the outline colour <b>#1E1E28</b>.</li>
+<li>Copy every dark square from the outline picture: the cap and its brim, the head with the nose bump, the eye (2 pixels on column 17, rows 9 and 10), the backpack, the body with the arm line on column 16, the two legs and the shoes.</li>
+<li>Made a mistake? <b>Right-click</b> a pixel to erase it, or press <b>Ctrl+Z</b> to undo.</li>
+</ol>
+<div class="note what"><b>Zoom:</b> scroll the mouse wheel over the canvas to zoom in or out. Make the canvas as big as fits on your screen.</div>
+
+<h3>2B · Parts that touch each other</h3>
+<p>Some coloured parts sit right against each other with no outline between them: the cap and the face, the shoes and the pants, the hand and the shirt. The Paint bucket would pour straight from one into the other, so draw these with the <b>Stroke tool</b> first. Then the bucket fills in 2C stay inside their own areas.</p>
+<table>
+<tr><th>Colour</th><th>Row</th><th>From column</th><th>To column</th></tr>
+<tr><td><b>#D23C3C</b> cap</td><td>4</td><td>12</td><td>18</td></tr>
+<tr><td></td><td>5</td><td>11</td><td>19</td></tr>
+<tr><td></td><td>6</td><td>11</td><td>23 (the brim)</td></tr>
+<tr><td><b>#D23C3C</b> shoes</td><td>27</td><td>11 and 16</td><td>13 and 18</td></tr>
+<tr><td></td><td>28</td><td>11 and 16</td><td>14 and 20</td></tr>
+<tr><td><b>#FFFFFF</b> soles</td><td>29</td><td>11 and 17</td><td>13 and 20</td></tr>
+<tr><td><b>#2B3A67</b> pants</td><td>22</td><td>11</td><td>18</td></tr>
+<tr><td><b>#F5C9A0</b> hand (Pen)</td><td>19 and 20</td><td>19</td><td>20</td></tr>
+</table>
+<ol>
+<li>Pick <b>#D23C3C</b> and choose the <b>Stroke tool</b> <img src="../../assets/piskel/icon-stroke.png" alt="Stroke tool icon: a pen drawing a straight line" width="65" height="62" style="height:1.6em;width:auto;vertical-align:middle;margin:0 .25em;border-radius:3px"> (a pen drawing a straight line).</li>
+<li>Hold <b>Shift</b> and drag along <b>row 4</b> from column 12 to column 18. Let go. A straight red line appears. Do the same for <b>row 5</b> (columns 11 to 19) and <b>row 6</b> (columns 11 to 23). The cap is red, with the brim sticking out to the right.</li>
+<li>Still red: draw the shoes. <b>Row 27</b>: columns 11 to 13, then 16 to 18. <b>Row 28</b>: columns 11 to 14, then 16 to 20. The front shoe is longer, pointing right.</li>
+<li>Pick <b>#FFFFFF</b> and draw the soles on <b>row 29</b>: columns 11 to 13, then 17 to 20.</li>
+<li>Pick <b>#2B3A67</b> and draw the top of the pants on <b>row 22</b>, columns 11 to 18.</li>
+<li>Pick <b>#F5C9A0</b>, switch to the <b>Pen</b> <img src="../../assets/piskel/icon-pen.png" alt="Pen tool icon: a pencil" width="47" height="50" style="height:1.6em;width:auto;vertical-align:middle;margin:0 .25em;border-radius:3px">, and click the 4 hand pixels: columns 19 and 20 on rows 19 and 20.</li>
+</ol>
+<div class="note what"><b>Keep the line straight:</b> with Shift held, keep the mouse close to the row and watch the yellow row number stay the same. If the line jumps to a slant, move back toward the row before you let go.</div>
+
+<h3>2C · Fill the big areas</h3>
+<ol>
+<li>Choose the <b>Paint bucket tool</b> <img src="../../assets/piskel/icon-bucket.png" alt="Paint bucket tool icon: a tipping paint can" width="57" height="57" style="height:1.6em;width:auto;vertical-align:middle;margin:0 .25em;border-radius:3px"> (the tipping paint can). Keep <b>#F5C9A0</b> and click inside the face. The face and nose turn light tan.</li>
+<li>Pick <b>#3C78D2</b> and click inside the body. The shirt and sleeve turn blue.</li>
+<li>Pick <b>#F0B428</b> and click inside the backpack. It turns yellow.</li>
+<li>Pick <b>#2B3A67</b> and click inside each leg (two clicks: one leg each).</li>
+<li>If a colour spills out over the whole background or into another part, press <b>Ctrl+Z</b>. Look for a gap in the outline or a missing pixel from 2B and fix it with the Pen.</li>
+</ol>
+<div class="note pick"><b>Pick the right one:</b> use the <b>Paint bucket tool</b> <img src="../../assets/piskel/icon-bucket.png" alt="Paint bucket tool icon: a tipping paint can" width="57" height="57" style="height:1.6em;width:auto;vertical-align:middle;margin:0 .25em;border-radius:3px">, not <b>Paint all pixels of the same color</b>. The second one recolours every matching pixel in the whole picture.</div>
+
+<div class="check"><strong>Checkpoint · Part 2</strong>
+<label><input type="checkbox"> The runner matches the Frame 1 picture (close is fine)</label>
+<label><input type="checkbox"> The cap brim and nose point right; the backpack is on the left</label>
+<label><input type="checkbox"> The background around the runner is still empty</label>
+</div>
+</div>
+</details>
+
+<!-- PART 3 -->
+<details class="part" id="part3" name="parts" style="--c:var(--p3)">
+<summary><h2>Part 3 · Frame 2: facing left</h2><span class="done"></span></summary>
+<div class="body">
+<p>You don't redraw the runner facing left. You copy frame 1 and flip the copy, like a mirror.</p>
+
+<h3>3A · Copy frame 1</h3>
+<p><b>How to duplicate a frame:</b> in the <b>Frames</b> column (left side, between the tools and the canvas), hold your mouse over the frame. Small icons appear in its corners:</p>
+<img src="../../assets/piskel/frame-tile-icons.png" alt="Frame 1 in the Frames column with the mouse over it: the number 1 in a yellow corner at the top-left, a bin at the top-right, a four-way arrow at the bottom-left and two overlapping pages at the bottom-right" width="127" height="123" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"><ul><li><b>Bottom-right, Duplicate</b> <img src="../../assets/piskel/icon-duplicate.png" alt="Duplicate icon: two white pages, one in front of the other" width="33" height="34" style="height:1.6em;width:auto;vertical-align:middle;margin:0 .25em;border-radius:3px"> (two overlapping pages): makes a copy.</li><li><b>Bottom-left, move handle</b> <img src="../../assets/piskel/icon-move-frame.png" alt="Frame move handle: a white four-way arrow" width="35" height="34" style="height:1.6em;width:auto;vertical-align:middle;margin:0 .25em;border-radius:3px"> (four-way arrow): drag it up or down to change the frame order.</li><li><b>Top-right, bin:</b> deletes the frame.</li></ul><p>Click the <b>Duplicate</b> icon <img src="../../assets/piskel/icon-duplicate.png" alt="Duplicate icon: two white pages, one in front of the other" width="33" height="34" style="height:1.6em;width:auto;vertical-align:middle;margin:0 .25em;border-radius:3px">. A copy appears just below it and opens on the canvas.</p>
+
+<p>Frame 2 looks exactly like frame 1 for now. That's expected.</p>
+
+<h3>3B · Flip it</h3>
+<img class="ref" src="img/frame-2.png" alt="Frame 2, the runner flipped to face left, on a numbered 32 by 32 grid" width="520" height="550">
+<ol>
+<li>Check <b>frame 2</b> is the one selected in the Frames column (it has a yellow outline).</li>
+<li>Find the <b>Transform</b> panel on the right side, under the Layers panel.</li>
+<li>Click the <b>Flip</b> button (the first button in the Transform panel). The runner on the canvas turns around: the cap brim and nose now point left and the backpack is on the right.</li>
+</ol>
+<div class="note pick"><b>Pick the right one:</b> make sure frame 2 is selected before you click Flip. If frame 1 flips instead, press <b>Ctrl+Z</b>, click frame 2 and try again.</div>
+<div class="note what"><b>Every number mirrors:</b> on the flipped grid, a pixel in column 10 moves to column 21, because 10 + 21 = 31. The brim that ended at column 23 now starts at column 8.</div>
+
+<h3>3C · Watch it turn</h3>
+<ol>
+<li>Look at the <b>Preview</b> window (top-right). It plays the two frames over and over.</li>
+<li>Drag the speed slider under the Preview down to about <b>2 FPS</b>. The runner turns right, then left, then right again.</li>
+</ol>
+
+<div class="check"><strong>Checkpoint · Part 3</strong>
+<label><input type="checkbox"> The Frames column shows 2 frames</label>
+<label><input type="checkbox"> Frame 1 faces right and frame 2 faces left</label>
+<label><input type="checkbox"> The Preview turns the runner back and forth</label>
+</div>
+</div>
+</details>
+
+<!-- PART 4 -->
+<details class="part" id="part4" name="parts" style="--c:var(--p4)">
+<summary><h2>Part 4 · Save and export</h2><span class="done"></span></summary>
+<div class="body">
+<p>You make two files: a <b>.piskel</b> file so you can keep editing later, and a <b>sprite sheet PNG</b> with both frames side by side, ready for a game.</p>
+<img class="ref" src="img/sheet-big.png" alt="The finished sprite sheet: the runner facing right, then facing left, in one row" width="384" height="192" style="width:384px;background:#3a3c48">
+
+<h3>4A · Save your work</h3>
+<ol>
+<li>Click the <b>Save</b> icon <img src="../../assets/piskel/icon-save.png" alt="Save icon: a floppy disk" width="63" height="58" style="height:1.6em;width:auto;vertical-align:middle;margin:0 .25em;border-radius:3px"> (strip on the far right edge, under Resize). A panel slides out.</li>
+<li>Type <b>runner</b> in <b>Title</b>.</li>
+<li>Under <b>Save offline as file</b>, click the yellow <b>Save as .piskel</b> button. A file called <b>runner.piskel</b> downloads (check your Downloads folder).</li>
+</ol>
+
+<h3>4B · Export the sprite sheet</h3>
+<table>
+<tr><th>Export → PNG</th><th>Value</th></tr>
+<tr><td>Scale</td><td>1 (leave it)</td></tr>
+<tr><td>Columns</td><td>2</td></tr>
+<tr><td>Rows</td><td>1</td></tr>
+</table>
+<ol>
+<li>Click the <b>Export</b> icon <img src="../../assets/piskel/icon-export.png" alt="Export icon: a framed picture of mountains and a sun" width="62" height="57" style="height:1.6em;width:auto;vertical-align:middle;margin:0 .25em;border-radius:3px"> (far right edge, under Save). A panel slides out with tabs along the top: <b>GIF</b>, <b>PNG</b>, <b>Zip</b>, <b>Others</b>.</li>
+<li>Click the <b>PNG</b> tab.</li>
+<li>Set <b>Columns</b> to <b>2</b> and <b>Rows</b> to <b>1</b>.</li>
+<li>Under <b>Spritesheet file export</b>, click <b>Download</b>. A PNG downloads. Open it: you see the runner facing right, then facing left, 64 pixels wide and 32 tall.</li>
+</ol>
+<div class="note pick"><b>Pick the right one:</b> use the <b>Download</b> under <b>Spritesheet file export</b>, not <b>Selected frame export</b>. The selected-frame one saves only one frame.</div>
+
+<h3>4C · Hand in</h3>
+<ul>
+<li>Upload <b>runner.piskel</b> and the <b>sprite sheet PNG</b> to <a href="https://classroom.google.com/" target="_blank" rel="noreferrer"><b>Google Classroom</b></a> (classroom.google.com).</li>
+<li><b>Next:</b> in <a href="https://editor.construct.net/" target="_blank" rel="noreferrer"><b>Construct 3</b></a> (editor.construct.net), the sheet comes in as one sprite with 2 frames (right-click the frames panel → <b>Import Frames</b> → <b>From Sheet</b>, Columns 2, Rows 1, Width and Height 32). Frame 0 faces right and frame 1 faces left.</li>
+</ul>
+
+<div class="check"><strong>Checkpoint · Part 4</strong>
+<label><input type="checkbox"> runner.piskel is in your Downloads folder</label>
+<label><input type="checkbox"> The sprite sheet PNG shows the runner facing right, then left</label>
+<label><input type="checkbox"> Both files are uploaded to Google Classroom</label>
+</div>
+</div>
+</details>
+
+<footer>Winters Innovative Solutions · <a href="https://www.youtube.com/@winters.innovative.solutions" target="_blank" rel="noreferrer">YouTube channel</a></footer>
+</div>
+<script src="../../assets/lesson.js?v=20261123b"></script>
+</body>
+</html>
