@@ -205,7 +205,10 @@ Rotation stays 85°, 0°, 0° the whole time. Only **Location Y** changes.
 
 @figure ../../assets/blender/timeline-playhead-frame120.png The playhead on frame 120. The Play buttons are just above it.
 
-2. Type **−7** in **Location Y** and press **Enter**. The field turns **orange**: changed, but not keyed yet. The camera view jumps closer.
+2. Type **−7** in **Location Y** and press **Enter**. The field turns **orange**: changed, but not keyed yet. **X** and **Z** are **green**: they're animated, but this frame has no keyframe yet. The camera view jumps closer.
+
+@figure ../../assets/blender/n-panel-location-changed.png On frame 120 before pressing I: Y is orange (changed), X and Z are green (animated, no key on this frame). After I, all three turn yellow.
+
 3. Hover over the Location fields and press **I**. They turn yellow and a second diamond appears.
 4. Go back to frame **1**, stay in camera view and click **Play**. (Shortcut: Spacebar) The camera glides toward the scene. Click **Pause**.
 
