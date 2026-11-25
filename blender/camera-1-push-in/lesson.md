@@ -194,6 +194,9 @@ Rotation stays 85°, 0°, 0° the whole time. Only **Location Y** changes.
 
 3. Hover the mouse over the camera's **Location** fields in the N panel and press **I**. The three fields turn **yellow** and a diamond appears in the Timeline. (Or right-click a field → **Insert Keyframes**.)
 
+@figure ../../assets/blender/n-panel-location-keyed.png After pressing I on frame 1: the three Location fields are yellow. Rotation stays grey because it isn't keyed.
+
+
 ### 3C · Keyframe the end
 
 1. Drag the playhead to frame **120**, or type **120** in the **current frame** box (the first box on the right of the Timeline, left of the stopwatch). ![Timeline frame boxes: current frame 1, Start 1, End 250](../../assets/blender/timeline-frame-boxes.png)
