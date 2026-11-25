@@ -119,8 +119,11 @@ To get out of camera view, move around with the middle mouse button as usual. **
 Other fields stay at their defaults.
 
 1. Check **Camera** is still selected in the Outliner.
-2. Choose **View → Sidebar** and click the **Item** tab. (Shortcut: N)
-3. Type the values from the table, pressing **Enter** after each one.
+2. Choose **View → Sidebar** and click the **Item** tab (the tabs run down the right edge of the Sidebar). (Shortcut: N)
+
+@figure ../../assets/blender/n-panel-item-transform.png The Item tab's Transform panel. This picture shows the Ceiling Light's numbers; your camera's numbers go in the same Location and Rotation boxes.
+
+3. Type the values from the table into the **Location** and **Rotation** boxes, pressing **Enter** after each one. The camera jumps to its new spot.
 
 The camera sits 14 m in front of the scene, at about eye height (2 m), looking straight ahead and tipped slightly down. **Rotation X 90°** would look perfectly level; **85°** tips it 5° toward the floor.
 
