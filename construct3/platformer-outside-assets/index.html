@@ -70,8 +70,8 @@
     <div class="down">↓</div>
     <div class="band" style="--c:var(--p5)"><h4><a href="#part5">Part 5 · Extra: ready to go</a></h4><div class="bubbles">
       <div class="bubble"><b>5A · Animation on</b>Double-click alien · Animation 1<br>Speed 8 · Loop on</div><span class="arrow">→</span>
-      <div class="bubble"><b>5B · Event 2</b>Player Is moving (Platform)<br>Stop animation · Set animation frame 0</div><span class="arrow">→</span>
-      <div class="bubble"><b>5C · Event 3</b>System Else<br>Start animation · current frame</div>
+      <div class="bubble"><b>5B · Event 2</b>Player Is moving (Platform)<br>Stop · Set frame 0</div><span class="arrow">→</span>
+      <div class="bubble"><b>5C · Event 3</b>System Else<br>Start · current frame</div>
     </div></div>
   </div>
   <p class="key">Each colour is one part. Codes like 2B mean Part 2, section B. Underlined words are links.</p>
@@ -333,12 +333,12 @@
 <h3>5B · Stop it while moving</h3>
 <table>
 <tr><th>Event</th><th>Condition (left side)</th><th>Actions (right side)</th></tr>
-<tr><td>2</td><td><b>Player</b> → Platform → <b>Is moving</b></td><td><b>Player</b> → Stop animation<br><b>Player</b> → Set animation frame → <b>0</b></td></tr>
+<tr><td>2</td><td><b>Player</b> → Platform → <b>Is moving</b></td><td><b>Player</b> → Stop<br><b>Player</b> → Set frame → <b>0</b></td></tr>
 </table>
 <ol>
 <li>Click the <b>Event sheet 1</b> tab. Click <b>Add event</b> at the bottom of the sheet → double-click <b>Player</b> → double-click <b>Is moving</b> (in the <b>Platform</b> group). It appears as event 2.<img src="../../assets/construct3/platform-is-moving.png" alt="Player conditions, Platform group, with Is moving highlighted among Compare speed, Is falling, Is jumping and Is on floor" width="411" height="180" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></li>
-<li>On event 2, click the grey <b>Add action</b> → <b>Player</b> → double-click <b>Stop animation</b> (in the <b>Animations</b> group).</li>
-<li>Click the grey <b>Add action</b> under it → <b>Player</b> → <b>Set animation frame</b>. Type <b>0</b> and click <b>Done</b>. Event 2 now has two actions.</li>
+<li>On event 2, click the grey <b>Add action</b> → <b>Player</b> → double-click <b>Stop</b> (in the <b>Animations</b> group, bottom right).<img src="../../assets/construct3/sprite-animations-actions.png" alt="Player actions, Animations group: Add/remove animation, Set animation, Set repeat-to frame, Start, Add/remove animation frame, Set frame, Set speed and Stop (highlighted)" width="573" height="182" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></li>
+<li>Click the grey <b>Add action</b> under it → <b>Player</b> → <b>Set frame</b> (same Animations group). Type <b>0</b> and click <b>Done</b>. Event 2 now has two actions.</li>
 <li><b>Preview</b>. The alien still bounces at the start. Run, and it switches to the standing pose. Stop, and it stays standing: nothing starts the animation again yet.</li>
 </ol>
 <div class="note pick"><b>Pick the right one:</b> <b>Is moving</b> is in the <b>Platform</b> group under Player, not the Animations group. It's true while the alien runs, jumps or falls.</div>
@@ -346,17 +346,17 @@
 <h3>5C · Start it again when standing still</h3>
 <table>
 <tr><th>Event</th><th>Condition (left side)</th><th>Action (right side)</th></tr>
-<tr><td>3</td><td><b>System</b> → <b>Else</b></td><td><b>Player</b> → Start animation → From <b>current frame</b></td></tr>
+<tr><td>3</td><td><b>System</b> → <b>Else</b></td><td><b>Player</b> → Start → From <b>current frame</b></td></tr>
 </table>
 <ol>
 <li>Click <b>Add event</b> at the bottom of the sheet → double-click <b>System</b> → double-click <b>Else</b>. It appears as event 3, right under event 2.</li>
-<li>On event 3, click the grey <b>Add action</b> → <b>Player</b> → <b>Start animation</b>. Set <b>From</b> to <b>current frame</b> and click <b>Done</b>.</li>
+<li>On event 3, click the grey <b>Add action</b> → <b>Player</b> → <b>Start</b> (Animations group). Set <b>From</b> to <b>current frame</b> and click <b>Done</b>.</li>
 <li><b>Preview</b>. Stand still: the alien bounces through its five poses. Run or jump: it holds the standing pose. Stop: it starts bouncing again.</li>
 </ol>
 <div class="note">In words: <b>if</b> the alien is moving, stand still in pose 0; <b>else</b> (it isn't moving), play the bounce. <b>Else</b> only works when it sits directly under the event it belongs to, so keep event 3 right under event 2.</div>
 
 <div class="check"><strong>Checkpoint · Part 5</strong>
-<label><input type="checkbox"> Event 2 is Player Is moving with two actions; event 3 is Else with Start animation</label>
+<label><input type="checkbox"> Event 2 is Player Is moving with Stop and Set frame; event 3 is Else with Start</label>
 <label><input type="checkbox"> Standing still, the alien cycles through all five poses</label>
 <label><input type="checkbox"> Running or jumping, the alien holds the standing pose</label>
 </div>
