@@ -76,7 +76,9 @@ Lens change | Frame 1 · key Focal Length 35 | Frame 120 · 50 mm · key
 
 ### 1A · Open and save your copy
 
-1. Download [camera_practice_scene.blend](camera_practice_scene.blend) and open it with **File → Open**. You see a room made of simple shapes: a bed, a desk and chair, a bookshelf, a plant, and a globe on a round table in the middle.
+@figure practice-room.png The practice room: a bed, a desk with a lamp and chair, a bookshelf, a plant, and a globe on a round table in the middle.
+
+1. Download [camera_practice_scene.blend](camera_practice_scene.blend) and open it with **File → Open**. You see the room in the picture above, made from simple shapes.
 2. Choose **File → Save As** and name it `camera1_yourname.blend`. The new name appears at the top of the window.
 
 Saving your own copy keeps the example file clean for the next lesson.

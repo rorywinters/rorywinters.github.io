@@ -97,6 +97,8 @@
       }
       var img = l.match(/^!\[([^\]]*)\]\(([^)]+)\)\s*$/);
       if (img) { flush(); out += '<details class="shot"><summary>Show screenshot</summary><img src="' + img[2] + '" alt="' + esc(img[1]) + '" loading="lazy"></details>'; i++; continue; }
+      var fig = l.match(/^@figure\s+(\S+)(?:\s+(.*))?$/);
+      if (fig) { flush(); out += '<figure class="fig"><img src="' + fig[1] + '" alt="' + esc(fig[2] || '') + '" loading="lazy">' + (fig[2] ? '<figcaption>' + inline(fig[2]) + '</figcaption>' : '') + '</figure>'; i++; continue; }
       var vid = l.match(/^@video\s+(\S+)(?:\s+(.*))?$/);
       if (vid) { flush(); out += '<details class="shot"><summary>▶ ' + esc(vid[2] || 'Show video') + '</summary><div class="video"><iframe src="' + ytEmbed(vid[1]) + '" allowfullscreen loading="lazy"></iframe></div></details>'; i++; continue; }
       para.push(l.trim()); i++;

@@ -96,3 +96,8 @@
 .hex{cursor:pointer;white-space:nowrap;border-bottom:1px dashed currentColor}
 .hex .chip{display:inline-block;width:.9em;height:.9em;margin-right:.25em;border:1px solid #555;border-radius:2px;vertical-align:-.1em}
 .hex.copied::after{content:" ✓ copied";color:#2a8a2a;font-weight:normal;font-size:.85em}
+
+/* Always-visible picture (@figure) */
+figure.fig{margin:12px 0}
+figure.fig img{max-width:100%;border:1px solid var(--line);border-radius:8px;display:block}
+figure.fig figcaption{font-size:14px;color:var(--quiet);margin-top:4px}
