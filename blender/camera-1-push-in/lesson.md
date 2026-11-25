@@ -142,7 +142,10 @@ The camera sits 14 m in front of the scene, at about eye height (2 m), looking s
 
 1. With the camera selected, open **Object Data Properties** ![Object Data Properties icon for a camera: a green movie camera](../../assets/blender/icon-camera-data.png) (the green movie-camera icon in the Properties editor). It only shows while a camera is selected.
 2. In the **Lens** panel, type **24** in **Focal Length** and press **Enter**. The view gets wider and you see more of the scene.
-3. Type **50**. The view zooms in, like a telephoto lens.
+
+@figure ../../assets/blender/camera-lens-panel.png The Lens panel with Focal Length at 24 mm.
+
+3. Type **50**. The view zooms back in, like a telephoto lens.
 4. Type **35** and press **Enter**. This is the value for this lesson: close to what your eyes see.
 
 Moving the camera closer and changing the focal length both make the scene look bigger, but they look different. A push-in **moves** the camera, so things in front grow faster than things at the back. That's what makes it feel like you're walking in.
