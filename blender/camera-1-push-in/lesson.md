@@ -263,6 +263,9 @@ EEVEE renders each frame in about a second on the lab laptops, so a 5-second cli
 3. In the **Output** section, change **Media Type** to **Video**. An **Encoding** section appears underneath.
 4. Set **Container** to **MPEG-4** and check the rest matches the table.
 
+@figure ../../assets/blender/output-video-encoding.png The Output and Encoding settings: Media Type Video, Container MPEG-4, Video Codec H.264, Output Quality Medium Quality. The path at the top still says /tmp\ — you change it in 4C.
+
+
 > **Pick the right one:** older Blender versions have no Media Type. There, set **File Format** to **FFmpeg Video**.
 
 ### 4C · Name it and render
