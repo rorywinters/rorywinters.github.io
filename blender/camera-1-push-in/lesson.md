@@ -90,7 +90,9 @@ Saving your own copy keeps the example file clean for the next lesson.
 
 @figure ../../assets/blender/outliner-collections.png The Outliner with the Room and Furniture collections open. Fold Furniture with its ▾ arrow to see Lights and Camera below.
 
-2. Click **Camera** in the Camera collection. It turns orange in the viewport.
+2. Click the word **Camera** in the Camera collection, at the bottom. Its row highlights in the Outliner and the camera turns orange in the viewport.
+
+@figure ../../assets/blender/outliner-lights-camera.png The bottom of the Outliner: the Lights and Camera collections. The camera's row has an orange camera icon (the object) and a green camera icon (its camera settings, the same icon as Object Data Properties).
 3. Choose **View → Cameras → Active Camera**. (Shortcut: Numpad 0, with the mouse over the viewport)
 
 The viewport now shows what the camera sees, inside a frame with a darker border. Everything outside the border won't be in the video.
