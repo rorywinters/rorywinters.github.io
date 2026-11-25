@@ -233,7 +233,10 @@ Watch the start and end: the camera eases in slowly and eases out slowly instead
 | Render Engine | EEVEE |
 
 1. Open **Render Properties** ![Render Properties icon: a camera back](../../assets/blender/icon-render-properties.png) (near the top of the Properties editor).
-2. Set **Render Engine** to **EEVEE**. If it already says EEVEE, leave it.
+2. Check **Render Engine** says **EEVEE**, at the top of Render Properties. If it says something else, click it and choose **EEVEE**.
+
+@figure ../../assets/blender/render-engine-eevee.png Render Properties with Render Engine set to EEVEE.
+
 
 EEVEE renders each frame in about a second on the lab laptops, so a 5-second clip is ready in a couple of minutes. Cycles looks more realistic but is much slower, so this series uses EEVEE.
 
