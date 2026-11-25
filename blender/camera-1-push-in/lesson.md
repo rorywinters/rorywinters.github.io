@@ -5,10 +5,28 @@ blurb: The first of five camera lessons. Aim a camera at a scene, keyframe a slo
 ---
 You set up a camera, then animate it gliding slowly toward the scene. This is a **push-in**, the most common camera move in film, and it's the first step toward a walk-through video of your own room or scene. These steps are for Blender 5.2.
 
+- **Learning objective:** We are learning to animate a camera so it moves smoothly toward a scene.
+- **Prior knowledge:** [Animating a Cube](../lesson-00-animating-a-cube/) (keyframes with the **I** key, the Timeline, rendering an MP4)
 - **File you need** (shared by your teacher in Google Classroom): the example scene, `camera_practice_scene.blend`
-- **Do this first:** [Animating a Cube](../lesson-00-animating-a-cube/), which covers keyframes with the **I** key and the Timeline
-- **Skills:** looking through the camera, typing camera positions, focal length, keyframing the camera, EEVEE render to MP4
 - **Time:** about 10 minutes
+
+### Success criteria
+
+- I can look through the active camera and frame my scene.
+- I can set a camera's position and focal length by typing values.
+- I can keyframe the camera so it glides toward the scene.
+- I can render a 5-second MP4 of my camera move with EEVEE.
+
+### Key vocabulary
+
+| Word | Meaning |
+| --- | --- |
+| **Active camera** | The camera Blender films through when it renders. A scene can have many cameras, but only one is active at a time. |
+| **Camera view** | Looking through the active camera. The dark border shows what will be in the video. |
+| **Push-in** | A camera move that glides toward the subject, like walking into a room. |
+| **Focal length** | How zoomed the lens is, in mm. Low numbers (24 mm) are wide; high numbers (50 mm and up) zoom in. |
+| **Ease in / ease out** | Starting slowly and slowing down at the end, instead of starting and stopping with a jerk. |
+| **Render engine** | The part of Blender that turns the scene into pictures. EEVEE is fast; Cycles is slower and more realistic. |
 
 **The camera series:** 1 Push-in (this lesson) · 2 Smooth moves and orbits · 3 Fly-through on a path · 4 Lighting for a moving camera · 5 Cinematic polish
 
@@ -49,6 +67,9 @@ Part 4 · Render the MP4
 4A · EEVEE | Render Properties → Render Engine EEVEE
 4B · Output | 1920 × 1080 · 50% (amber) | Media Type Video · MPEG-4 · H.264
 4C · Render | Path camera1_pushin_v1 | Render → Render Animation (Ctrl+F12)
+Extra · Finished early? (optional)
+Rise up | Frame 1 · key Rotation | Frame 120 · Z 4 · Rot X 75° · key both
+Lens change | Frame 1 · key Focal Length 35 | Frame 120 · 50 mm · key
 ```
 
 ## Part 1 · Open the scene and the camera view
@@ -205,6 +226,15 @@ EEVEE renders each frame in about a second on the lab laptops, so a 5-second cli
 
 - [ ] The render window counted all the way to frame 120
 - [ ] Your MP4 plays a 5-second push-in toward the scene
+
+## Extra · Finished early?
+
+Optional. Try one of these, then render it as `camera1_pushin_v2`.
+
+1. **Rise up:** go to frame **1**, hover over the **Rotation** fields and press **I** (they turn yellow at 85°). Go to frame **120**, set **Location Z** to **4 m** and **Rotation X** to **75°**, then press **I** over Location and again over Rotation. The camera lifts and looks down as it moves in.
+2. **Lens change:** go to frame **1**, hover over **Focal Length** (35 mm) and press **I**. It turns yellow. Go to frame **120**, set **Focal Length** to **50 mm** and press **I** again. The camera zooms as it moves.
+
+Play each one and compare it with your v1 video.
 
 ## Troubleshooting
 
