@@ -90,8 +90,9 @@ Saving your own copy keeps the example file clean for the next lesson.
 
 @figure ../../assets/blender/outliner-furniture-folded.png The Outliner after folding Furniture (the 23 means 23 objects are tucked inside). Now Lights and Camera show at the bottom. The camera's row has an orange camera icon (the object) and a green camera icon (its camera settings, the same icon as Object Data Properties).
 
-2. Click the word **Camera** in the Camera collection. Its row highlights in the Outliner and the camera turns orange in the viewport.
-3. Choose **View → Cameras → Active Camera**. (Shortcut: Numpad 0, with the mouse over the viewport)
+2. Click the word **Camera** in the Camera collection. Its row highlights in the Outliner.
+3. The camera may be off the edge of the viewport. Put the mouse over the viewport and scroll the mouse wheel to zoom out until you see the camera on the right side, outlined in orange.
+4. Choose **View → Cameras → Active Camera**. (Shortcut: Numpad 0, with the mouse over the viewport)
 
 The viewport now shows what the camera sees, inside a frame with a darker border. Everything outside the border won't be in the video.
 
