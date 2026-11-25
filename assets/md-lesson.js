@@ -11,6 +11,7 @@
     s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
     s = s.replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>');
     s = s.replace(/(^|[^*])\*([^*\s][^*]*)\*/g, '$1<i>$2</i>');
+    s = s.replace(/!\[([^\]]*)\]\(([^)\s]+)\)/g, '<img class="icon" src="$2" alt="$1">');
     s = s.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, function (m, t, u) {
       var ext = /^https?:/.test(u);
       return '<a href="' + u + '"' + (ext ? ' target="_blank" rel="noreferrer"' : '') + '>' + t + '</a>';

@@ -46,8 +46,9 @@ You set up a camera, then animate it gliding slowly toward the scene. This is a 
 | **Sidebar** (N panel), **Item** tab | Right edge of the 3D Viewport. **View → Sidebar** (Shortcut: N) |
 | **Properties editor** | Bottom-right, under the Outliner. A column of icons down its left side. |
 | **Object Data Properties** (for a camera) | Properties editor, the green movie-camera icon |
-| **Render Properties** | Properties editor, the camera-back icon near the top |
-| **Output Properties** | Properties editor, the printer icon, just under Render Properties |
+| **Render Properties** ![Render Properties icon: a camera back](../../assets/blender/icon-render-properties.png) | Properties editor, the camera-back icon near the top |
+| **Output Properties** ![Output Properties icon: a printer](../../assets/blender/icon-output-properties.png) | Properties editor, the printer icon, just under Render Properties |
+| **Scene Properties** ![Scene Properties icon: a cone and sphere](../../assets/blender/icon-scene-properties.png) | Properties editor, the cone-and-sphere icon, a few below Output Properties |
 | **Timeline** | Bottom of the window, with Play buttons, the blue playhead and **Start** / **End** boxes |
 
 If a panel is missing, open it from the **View** menu at the top of the 3D Viewport. If the Timeline is only a thin strip, drag its top edge up.
@@ -55,7 +56,7 @@ If a panel is missing, open it from the **View** menu at the top of the 3D Viewp
 ```brief
 Part 1 · Open the scene and the camera view
 1A · Open | [camera_practice_scene.blend](camera_practice_scene.blend) | Save As camera1_yourname
-1B · Camera view | Outliner → Camera | View → Cameras → Active Camera (Numpad 0)
+1B · Camera view | Outliner · fold Furniture ▾ · click Camera | View → Cameras → Active Camera (Numpad 0)
 Part 2 · Set the start shot
 2A · Position | Location 0 · −14 · 2 | Rotation 85° · 0 · 0
 2B · Lens | Object Data (green camera) → Lens | Focal Length 35 mm
@@ -85,12 +86,18 @@ Saving your own copy keeps the example file clean for the next lesson.
 
 ### 1B · Look through the camera
 
-1. Click **Camera** in the **Outliner** (top-right). It turns orange in the viewport.
-2. Choose **View → Cameras → Active Camera**. (Shortcut: Numpad 0, with the mouse over the viewport)
+1. Look at the **Outliner** (top-right). It lists every object in folders called collections: **Room**, **Furniture**, **Lights** and **Camera**. The Camera collection is at the bottom, so click the **▾** arrow beside **Furniture** to fold that long list up.
+
+@figure ../../assets/blender/outliner-collections.png The Outliner with the Room and Furniture collections open. Fold Furniture with its ▾ arrow to see Lights and Camera below.
+
+2. Click **Camera** in the Camera collection. It turns orange in the viewport.
+3. Choose **View → Cameras → Active Camera**. (Shortcut: Numpad 0, with the mouse over the viewport)
 
 The viewport now shows what the camera sees, inside a frame with a darker border. Everything outside the border won't be in the video.
 
-> **Pick the right one:** if **Camera** isn't in the Outliner, choose **Add → Camera**. A new camera appears at the 3D cursor. Then choose **View → Cameras → Set Active Object as Camera** so Blender films through it.
+> **Pick the right one:** Blender films through the camera named in **Scene Properties** ![Scene Properties icon: a cone and sphere](../../assets/blender/icon-scene-properties.png) → **Scene** → **Camera**. If camera view shows the wrong thing, open Scene Properties and check the **Camera** box says **Camera**. Click the box to pick a different one.
+
+@figure ../../assets/blender/scene-properties-camera.png Scene Properties: the Camera box shows which camera Blender films through.
 
 To get out of camera view, move around with the middle mouse button as usual. **View → Cameras → Active Camera** brings you back.
 
@@ -154,7 +161,7 @@ Rotation stays 85°, 0°, 0° the whole time. Only **Location Y** changes.
 | **Output → Format** | Frame Rate | 24 fps |
 
 1. In the **Timeline**, click in **End**, type **120** and press **Enter**. The ruler now ends at 120.
-2. Open **Output Properties** (printer icon). Under **Format**, check **Frame Rate** is **24 fps**.
+2. Open **Output Properties** ![Output Properties icon: a printer](../../assets/blender/icon-output-properties.png). Under **Format**, check **Frame Rate** is **24 fps**.
 
 120 frames at 24 frames per second is 5 seconds.
 
@@ -186,7 +193,7 @@ Watch the start and end: the camera eases in slowly and eases out slowly instead
 | --- | --- |
 | Render Engine | EEVEE |
 
-1. Open **Render Properties** (the camera-back icon near the top of the Properties editor).
+1. Open **Render Properties** ![Render Properties icon: a camera back](../../assets/blender/icon-render-properties.png) (near the top of the Properties editor).
 2. Set **Render Engine** to **EEVEE**. If it already says EEVEE, leave it.
 
 EEVEE renders each frame in about a second on the lab laptops, so a 5-second clip is ready in a couple of minutes. Cycles looks more realistic but is much slower, so this series uses EEVEE.
@@ -206,7 +213,7 @@ EEVEE renders each frame in about a second on the lab laptops, so a 5-second cli
 | **Encoding → Video** | Video Codec | H.264 |
 |  | Output Quality (amber) | Medium Quality |
 
-1. Open **Output Properties** (printer icon).
+1. Open **Output Properties** ![Output Properties icon: a printer](../../assets/blender/icon-output-properties.png).
 2. Check **Resolution X** and **Y** read **1920** and **1080**, and set **%** to **50** for this test. The dark camera border keeps the same shape.
 3. In the **Output** section, change **Media Type** to **Video**. An **Encoding** section appears underneath.
 4. Set **Container** to **MPEG-4** and check the rest matches the table.
@@ -242,7 +249,7 @@ Play each one and compare it with your v1 video.
 
 | Problem | Fix |
 | --- | --- |
-| The render shows a different view than you set up | Blender is filming through another camera. Select your camera and choose **View → Cameras → Set Active Object as Camera**. |
+| The render shows a different view than you set up | Blender is filming through another camera. In **Scene Properties → Scene**, set **Camera** to **Camera** (1B). |
 | You moved the view and the camera didn't follow | That's normal. Moving around the viewport doesn't move the camera. Type values in the N panel instead. |
 | The camera moved, but another object moved too | You keyframed the wrong object. **Edit → Undo**, click **Camera** in the Outliner, and key again. |
 | A field stays orange after pressing I | Your mouse wasn't over the fields. Hover on the Location fields and press I again. |
