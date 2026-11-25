@@ -160,8 +160,12 @@ Rotation stays 85°, 0°, 0° the whole time. Only **Location Y** changes.
 |  | End | 120 |
 | **Output → Format** | Frame Rate | 24 fps |
 
-1. In the **Timeline**, click in **End**, type **120** and press **Enter**. The ruler now ends at 120.
-2. Open **Output Properties** ![Output Properties icon: a printer](../../assets/blender/icon-output-properties.png). Under **Format**, check **Frame Rate** is **24 fps**.
+1. In the **Timeline** (bottom of the window), find the three number boxes on the right: the **current frame** box, then **Start** and **End**. It opens showing **End 250**.
+
+@figure ../../assets/blender/timeline-frame-boxes.png The right end of the Timeline: the current frame box, the stopwatch, then Start and End.
+
+2. Click in **End**, type **120** and press **Enter**. The ruler now ends at 120.
+3. Open **Output Properties** ![Output Properties icon: a printer](../../assets/blender/icon-output-properties.png). Under **Format**, check **Frame Rate** is **24 fps**.
 
 120 frames at 24 frames per second is 5 seconds.
 
@@ -173,7 +177,7 @@ Rotation stays 85°, 0°, 0° the whole time. Only **Location Y** changes.
 
 ### 3C · Keyframe the end
 
-1. Drag the playhead to frame **120** (or type **120** in the current-frame box at the right of the Timeline).
+1. Drag the playhead to frame **120**, or type **120** in the **current frame** box (the first box on the right of the Timeline, left of the stopwatch). ![Timeline frame boxes: current frame 1, Start 1, End 250](../../assets/blender/timeline-frame-boxes.png)
 2. Type **−7** in **Location Y** and press **Enter**. The field turns **orange**: changed, but not keyed yet. The camera view jumps closer.
 3. Hover over the Location fields and press **I**. They turn yellow and a second diamond appears.
 4. Go back to frame **1**, stay in camera view and click **Play**. (Shortcut: Spacebar) The camera glides toward the scene. Click **Pause**.
