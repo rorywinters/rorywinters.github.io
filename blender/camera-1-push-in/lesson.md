@@ -88,11 +88,9 @@ Saving your own copy keeps the example file clean for the next lesson.
 
 1. Look at the **Outliner** (top-right). It lists every object in folders called collections: **Room**, **Furniture**, **Lights** and **Camera**. The Camera collection is at the bottom, so click the **▾** arrow beside **Furniture** to fold that long list up.
 
-@figure ../../assets/blender/outliner-collections.png The Outliner with the Room and Furniture collections open. Fold Furniture with its ▾ arrow to see Lights and Camera below.
+@figure ../../assets/blender/outliner-furniture-folded.png The Outliner after folding Furniture (the 23 means 23 objects are tucked inside). Now Lights and Camera show at the bottom. The camera's row has an orange camera icon (the object) and a green camera icon (its camera settings, the same icon as Object Data Properties).
 
-2. Click the word **Camera** in the Camera collection, at the bottom. Its row highlights in the Outliner and the camera turns orange in the viewport.
-
-@figure ../../assets/blender/outliner-lights-camera.png The bottom of the Outliner: the Lights and Camera collections. The camera's row has an orange camera icon (the object) and a green camera icon (its camera settings, the same icon as Object Data Properties).
+2. Click the word **Camera** in the Camera collection. Its row highlights in the Outliner and the camera turns orange in the viewport.
 3. Choose **View → Cameras → Active Camera**. (Shortcut: Numpad 0, with the mouse over the viewport)
 
 The viewport now shows what the camera sees, inside a frame with a darker border. Everything outside the border won't be in the video.
