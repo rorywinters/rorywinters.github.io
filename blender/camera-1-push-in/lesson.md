@@ -258,7 +258,7 @@ EEVEE renders each frame in about a second on the lab laptops, so a 5-second cli
 1. Open **Output Properties** ![Output Properties icon: a printer](../../assets/blender/icon-output-properties.png).
 2. Check **Resolution X** and **Y** read **1920** and **1080**, and set **%** to **50** for this test. The dark camera border keeps the same shape.
 
-@figure ../../assets/blender/output-format-frame-range.png The Format panel. This picture shows % at 100 (the final setting); type 50 for your test render.
+@figure ../../assets/blender/output-properties-tab.png Output Properties: the printer tab is highlighted in the icon column on the left. This picture shows % at 100 (the final setting); type 50 for your test render.
 
 3. In the **Output** section, change **Media Type** to **Video**. An **Encoding** section appears underneath.
 4. Set **Container** to **MPEG-4** and check the rest matches the table.
