@@ -7,7 +7,7 @@ You set up a camera, then animate it gliding slowly toward the scene. This is a 
 
 - **Learning objective:** We are learning to animate a camera so it moves smoothly toward a scene.
 - **Prior knowledge:** [Animating a Cube](../lesson-00-animating-a-cube/) (keyframes with the **I** key, the Timeline, rendering an MP4)
-- **File you need** (shared by your teacher in Google Classroom): the example scene, `camera_practice_scene.blend`
+- **File you need:** the example room, [camera_practice_scene.blend](camera_practice_scene.blend) (click to download). You use it in all five camera lessons.
 - **Time:** about 10 minutes
 
 ### Success criteria
@@ -54,7 +54,7 @@ If a panel is missing, open it from the **View** menu at the top of the 3D Viewp
 
 ```brief
 Part 1 · Open the scene and the camera view
-1A · Open | camera_practice_scene.blend | Save As camera1_yourname
+1A · Open | [camera_practice_scene.blend](camera_practice_scene.blend) | Save As camera1_yourname
 1B · Camera view | Outliner → Camera | View → Cameras → Active Camera (Numpad 0)
 Part 2 · Set the start shot
 2A · Position | Location 0 · −14 · 2 | Rotation 85° · 0 · 0
@@ -76,7 +76,7 @@ Lens change | Frame 1 · key Focal Length 35 | Frame 120 · 50 mm · key
 
 ### 1A · Open and save your copy
 
-1. Download `camera_practice_scene.blend` from Google Classroom and open it with **File → Open**.
+1. Download [camera_practice_scene.blend](camera_practice_scene.blend) and open it with **File → Open**. You see a room made of simple shapes: a bed, a desk and chair, a bookshelf, a plant, and a globe on a round table in the middle.
 2. Choose **File → Save As** and name it `camera1_yourname.blend`. The new name appears at the top of the window.
 
 Saving your own copy keeps the example file clean for the next lesson.
