@@ -61,6 +61,7 @@ You model an aluminum block with a rounded-rectangle groove on top, program the 
 | --- | --- |
 | **Workspace switcher** (DESIGN / MANUFACTURE) | Fusion: far left of the toolbar, top-left |
 | **Save** ![Save icon: a grey floppy disk](../../assets/fusion/icon-save.png) | Fusion: top-left, in the bar above the toolbar |
+| **Create Sketch** ![Create Sketch icon: a dashed sketch outline with a green plus](../../assets/fusion/icon-create-sketch.png) | Fusion: toolbar, left end of the SOLID tab |
 | **Toolbar** | Fusion: across the top. Sketch, Create, Modify, Setup and 2D tools |
 | **Browser** | Fusion: left side, under the toolbar. Document Settings, bodies, sketches, Setups |
 | **ViewCube** | Fusion: top-right corner of the canvas |
@@ -141,7 +142,7 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 | Plane | XY (lying flat) |
 | Rectangle | 2-Point, from the origin, 4 × 3 in |
 
-1. On the toolbar, click **Create Sketch** (at the left end of the **SOLID** tab). The three origin planes appear in the canvas.
+1. On the toolbar, click **Create Sketch** ![Create Sketch icon: a dashed sketch outline with a green plus](../../assets/fusion/icon-create-sketch.png) (at the left end of the **SOLID** tab). The three origin planes appear in the canvas.
 2. Click the flat **XY** plane, the one lying flat. The view turns to look straight down on it and a grid appears.
 3. Open the **Create** menu and choose **Rectangle → 2-Point Rectangle**.
 4. Click on the **origin** (the dot where the red and green axes cross). Move the mouse up and to the right. Two dimension boxes appear.
@@ -171,7 +172,7 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 | Sketch fillet (4 corners) | 0.5 in |
 | Offset (inside) | 0.25 in |
 
-1. Click **Create Sketch**, then click the **top face** of the block. The view turns to look straight down on it.
+1. Click **Create Sketch** ![Create Sketch icon: a dashed sketch outline with a green plus](../../assets/fusion/icon-create-sketch.png), then click the **top face** of the block. The view turns to look straight down on it.
 2. **Create → Rectangle → 2-Point Rectangle.** Click anywhere inside the top face, then click again to finish a rough rectangle. Its exact size does not matter yet.
 3. Open the **Create** menu and choose **Sketch Dimension**. (Shortcut: D) Click the bottom line of the new rectangle, then click below it to place the number. Type **3** and press **Enter**. The rectangle becomes 3 in wide.
 4. Still in Sketch Dimension, click the left line and place the number. Type **2** and press **Enter**. The rectangle becomes 2 in tall.
