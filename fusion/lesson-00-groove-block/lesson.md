@@ -224,7 +224,9 @@ Job time | About 15 in per level × 7 ÷ 10 in/min | About 11 min · compare to 
 | Distance | −0.0625 in |
 | Operation | Cut |
 
-1. On the **SOLID** tab, choose **CREATE ▾ → Extrude** ![Extrude icon: a blue box with an arrow pointing up](../../assets/fusion/icon-extrude.png). (Shortcut: E) Click the **thin ring** between the two loops. Only the ring turns blue, not the middle.
+1. On the **SOLID** tab, choose **CREATE ▾ → Extrude** ![Extrude icon: a blue box with an arrow pointing up](../../assets/fusion/icon-extrude.png). (Shortcut: E) Fusion asks you to **Select sketch profiles or planar faces**. Hover over the **ring** between the two loops: it lights up with a dark outline. Click it. Only the ring is selected, not the island in the middle.
+
+@figure select-ring.png Choosing the profile for the cut. With the mouse over the ring, it lights up between the outer loop and the island. The island in the middle stays out.
 2. In **Distance**, type **-0.0625**. The arrow points down into the block.
 3. Check that **Operation** says **Cut** (red preview). Click **OK**. The groove is cut into the top of the block.
 4. Click **Save** ![Save icon: a grey floppy disk](../../assets/fusion/icon-save.png). Type a short note such as **groove done** and click **OK**.
