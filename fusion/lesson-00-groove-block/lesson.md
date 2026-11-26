@@ -267,10 +267,12 @@ The Setup tells Fusion what the stock is, where zero is, and which way is up. If
 1. Under **SETUP** on the toolbar, click **New Setup** ![New Setup icon: a grey folder with a blue box](../../assets/fusion/icon-new-setup.png) (the first button). The **Setup** box opens on the right, on its **Setup** tab. An orange box (the stock) appears around the part.
 
 @figure setup-menu.png New Setup is the first button under SETUP. It is also the first item in the SETUP ▾ list, if you open that instead.
-2. Set **Operation Type** to **Milling**.
+2. Leave **Machine** empty (don't click Select...). Check **Operation Type** says **Milling**.
 3. Under **Work Coordinate System (WCS)**, set **Orientation** to **Model orientation**. The WCS arrows show Z pointing straight up out of the top face. If Z points sideways, choose **Select Z axis/plane & X axis**, click the top face, then click the front 4 in edge.
-4. Set **Origin** to **Stock box point**. Small dots appear on the corners and edges of the stock box. Click the dot in the **centre of the top face**. The WCS arrows jump to the middle of the top.
-5. Check that **Model** shows **Body1**.
+4. Set **Origin** to **Stock box point**. A **Stock Point** line appears under it with a blue **Box Point** button, already pressed. Small dots appear on the corners, edges and faces of the stock box. Click the dot in the **centre of the top face**. The WCS arrows jump to the middle of the top.
+
+@figure setup-tab.png The Setup tab: Machine left empty, Operation Type Milling, Orientation Model orientation, Origin Stock box point with the Box Point button pressed, and Model showing Body.
+5. Check that **Model** shows **Body** (your block). Leave **Fixture** and **Accessibility Analysis** alone.
 6. Click the **Stock** tab. Set **Mode** to **Fixed size box**. Type **Width (X) 4**, **Depth (Y) 3**, **Height (Z) 1**. Set every offset to **0** so the stock box sits exactly on the block.
 7. Click the **Post Process** tab. Set **Program Name/Number** to **1001** and **Program Comment** to **Groove Block**. Leave **WCS Offset** at **0**.
 8. Click **OK**. **Setup1** appears in the Browser.
