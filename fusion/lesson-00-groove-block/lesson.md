@@ -70,7 +70,7 @@ You model an aluminum block with a rounded-rectangle groove on top, program the 
 | **Jog** | Carbide Motion: top menu bar. Load Tool, Probe, Set Zero |
 | **Run** | Carbide Motion: top menu bar. Load New File, Start Job |
 
-A folded folder in the **Browser** opens with the small **▶** arrow beside it.
+A folded item in the **Browser** opens with the small **›** arrow on its left. Open, the arrow points down (**⌄**).
 
 ### Shop safety: read before Part 3
 
@@ -120,9 +120,13 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 
 1. Open Fusion. Check that the **workspace switcher** (far left of the toolbar) says **DESIGN**.
 2. Open the **File** menu and choose **New Design**. A new **Untitled** tab appears along the top.
-3. In the **Browser** (left side), click the **▶** arrow beside **Document Settings** to open it. Hover over **Units** and click the pencil icon that appears. The **Change Active Units** box opens on the right.
-4. Set **Unit Type** to **Inch** and click **OK**. Units in the Browser now reads **in**.
-5. Click **Save** (the disk icon, top-left). Name the design **Groove Block** and click **Save**. The tab name changes to **Groove Block**.
+3. In the **Browser** (left side), click the small **›** arrow beside **Document Settings** to open it. The arrow turns to point down and two lines appear under it: **Units: mm, g** and **Part Design**.
+
+@figure browser-document-settings.png The Browser with Document Settings open. A new design starts in millimetres (Units: mm, g); the next step changes it to inches.
+
+4. Hover over **Units: mm, g** and click the pencil icon that appears at the right end of the line. The **Change Active Units** box opens on the right.
+5. Set **Unit Type** to **Inch** and click **OK**. The Units line in the Browser now starts with **in** instead of mm.
+6. Click **Save** (the disk icon, top-left). Name the design **Groove Block** and click **Save**. The tab name changes to **Groove Block**.
 
 ### 1B · Sketch the block
 
@@ -184,7 +188,7 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 3. Check that **Operation** says **Cut** (red preview). Click **OK**. The groove is cut into the top of the block.
 4. Click **Save**. Type a short note such as **groove done** and click **OK**.
 
-- [ ] The Browser shows **Units: in**
+- [ ] The Browser's Units line starts with **in**
 - [ ] One body, a 4 × 3 × 1 in block
 - [ ] A rounded-rectangle groove on top, 0.5 in from every edge, with round outer and inner corners
 - [ ] The Timeline (bottom) shows Sketch, Extrude, Sketch, Extrude
