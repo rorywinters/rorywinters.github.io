@@ -48,7 +48,8 @@ No saved platformer at all? Do [Lesson 1: Jump and Fall with Outside Assets](../
 | **Properties Bar** | Left side panel. Shows the settings of whatever you clicked. |
 | **Project Bar** (**Object types**) | Top-right panel |
 | **Behaviors** link | Properties Bar, **Behaviors** group, beside **Add / edit** |
-| **Preview** (▶ play button) | Main toolbar, top of the window (Shortcut: F5) |
+| **Preview** ![Preview button: a black play triangle](../../assets/construct3/icon-preview.png) | Main toolbar, top of the window, right of the undo arrows (Shortcut: F5) |
+| **Save** ![Save button: a disk](../../assets/construct3/icon-save.png) | Main toolbar, just right of **Menu** (Shortcut: Ctrl+S) |
 
 If a bar is missing, open **Menu → View** and tick it.
 
@@ -76,7 +77,7 @@ You don't start from scratch. You open the platformer you already built and save
 1. Go to [editor.construct.net](https://editor.construct.net/). If you used a cloud save, log in first.
 2. Choose **Menu → Project → Open**, then pick where your project is: your cloud save, or the .c3p file you downloaded (check your Downloads folder). Your platformer opens on the **Layout 1** tab (middle of the screen), with the player, the ground, the log and the block.
 3. Look in the **Project Bar** (top-right panel) under **Object types**. You should see **Player**, **ground**, **log** and **block**.
-4. Click **Preview** (the ▶ play button at the top). The player still runs, jumps and lands. Close the preview tab.
+4. Click **Preview** ![Preview button: a black play triangle](../../assets/construct3/icon-preview.png) (the play button at the top). The player still runs, jumps and lands. Close the preview tab.
 
 - [ ] Your platformer is open, with the player, ground, log and block on the layout
 - [ ] **Object types** lists Player, ground, log and block
@@ -103,7 +104,7 @@ Quick notes: one platform gets **either** Solid **or** Jump-thru, never both. Be
 3. Right-click **Solid** in the list and choose **Delete**. Solid disappears from the list.
 4. Click **Add new behavior**. In the **Attributes** group, click **Jump-thru** (or type **Jump** in the **Search** box at the top-right). Click **Add**. The **log behaviors** window now lists **JumpThru** and no Solid.
 5. Close the window with its **X**.
-6. Preview. Jump onto the log from the first ground the way you always have. You still land on it and stand on it, because Jump-thru is solid from above.
+6. Click **Preview** ![Preview button: a black play triangle](../../assets/construct3/icon-preview.png). Jump onto the log from the first ground the way you always have. You still land on it and stand on it, because Jump-thru is solid from above.
 
 > **Pick the right one:** remove **Solid** before you test. If the log has both, Solid wins and the player still bumps its head from underneath.
 
@@ -122,7 +123,7 @@ Quick notes: X 960 is right above the top ground. Y 252 puts the log 128 pixels 
 
 ### 2C · Test it
 
-1. Preview. Climb up to the top ground: the first ground, the log, the block, then the top ground.
+1. Click **Preview** ![Preview button: a black play triangle](../../assets/construct3/icon-preview.png). Climb up to the top ground: the first ground, the log, the block, then the top ground.
 2. Walk under the high log and press the **Up arrow**. The player jumps straight up **through** the log and lands **on top** of it.
 3. Walk off the end of the high log. The player drops back down to the top ground.
 
@@ -150,7 +151,7 @@ Quick notes: the block slides 40 pixels each way from where you placed it (700),
 
 1. On the **Layout 1** tab, click the **block** once. Check the top of the Properties Bar says **block**.
 2. Click the blue **Behaviors** link (Properties Bar, Behaviors group). The window title must read **block behaviors**, and it lists **Solid**. Leave Solid there.
-3. Click **Add new behavior**. In the **Movements** group, click **Sine**, the wavy line at the bottom beside **Rotate**. Under the list, the description starts with **Sine:**. Click **Add**.
+3. Click **Add new behavior**. In the **Movements** group, click **Sine** ![Sine behaviour icon: an orange wavy line](../../assets/construct3/icon-sine.png), the wavy line at the bottom beside **Rotate**. Under the list, the description starts with **Sine:**. Click **Add**.
 
 @figure ../../assets/construct3/add-behavior-platform.png The Add behavior window's Movements group. Sine is the wavy line on the bottom row, beside Rotate. (Platform is highlighted here from Lesson 1; you click Sine.)
 
@@ -161,7 +162,7 @@ Quick notes: the block slides 40 pixels each way from where you placed it (700),
 
 ### 3B · Ride it
 
-1. Preview. The block slides smoothly left and right, slowing down at each end, then coming back.
+1. Click **Preview** ![Preview button: a black play triangle](../../assets/construct3/icon-preview.png). The block slides smoothly left and right, slowing down at each end, then coming back.
 2. Climb onto the log, wait for the block to come close, and jump onto it. Stand still. The block carries the player left and right.
 3. When the block slides toward the top ground, jump across.
 
@@ -176,7 +177,7 @@ Quick notes: the block slides 40 pixels each way from where you placed it (700),
 Use **Save as**, not Save, so your earlier game stays as it was and this becomes a new game.
 
 1. Choose **Menu → Project → Save as** and give it a new name, for example `Platformer jump-thru yourname`.
-   - **Logged in:** choose **Cloud save**. After that, the Save button (disk icon) saves to the same place. (Shortcut: Ctrl+S)
+   - **Logged in:** choose **Cloud save**. After that, the **Save** button ![Save button: a disk](../../assets/construct3/icon-save.png) (just right of Menu) saves to the same place. (Shortcut: Ctrl+S)
    - **Guest:** choose **Download a copy** before you close the tab.
 2. **To hand in:** **Menu → Project → Save as → Download a copy** and upload the .c3p file to [Google Classroom](https://classroom.google.com/).
 
@@ -191,7 +192,7 @@ Optional. Try one or both, then Save again.
 | --- | --- | --- |
 | New | Keyboard → Key is down → Down arrow | Player → Platform → Fall through |
 
-1. **Drop down through a log:** on the **Event sheet 1** tab, click **Add event** at the bottom of the sheet → **Keyboard** → **Key is down**. Click the key box, press the **Down arrow**, and click **Done**. Then click the grey **Add action** on that row → **Player** → **Fall through** (in the **Platform** group) → **Done**. Preview, stand on a log and press the Down arrow: the player drops through it. On the ground or the block nothing happens, because they're Solid.
+1. **Drop down through a log:** on the **Event sheet 1** tab, click **Add event** at the bottom of the sheet → **Keyboard** → **Key is down**. Click the key box, press the **Down arrow**, and click **Done**. Then click the grey **Add action** on that row → **Player** → **Fall through** (in the **Platform** ![Platform behaviour icon: an orange running figure](../../assets/construct3/icon-platform-behavior.png) group) → **Done**. Preview, stand on a log and press the Down arrow: the player drops through it. On the ground or the block nothing happens, because they're Solid.
    - No **Keyboard** in the Add condition list? Your game came from Lesson 1. Insert it first: double-click an empty part of the layout, click **Keyboard**, click **Insert**, as in [Lesson 2, Part 3A](../face-the-way-you-run/).
 2. **Faster ride:** click the block and change its Sine **Period** from 4 to **2**. Preview. The block slides twice as fast, so the timing is harder.
 
