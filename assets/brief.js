@@ -1,3 +1,45 @@
+// Teacher share button: copies a clean link to this lesson for Google Classroom
+// (Add > Link), and offers Google's own "Share to Classroom" page.
+(function () {
+  if (document.querySelector('.sharebtn') || !document.querySelector('header')) return;
+  var url = location.origin + location.pathname.replace(/index\.html$/, '');
+  var css = document.createElement('style');
+  css.textContent =
+    '.sharebtn{font:inherit;font-size:14px;padding:6px 12px;border-radius:8px;border:1px solid #1e8e3e;background:#e6f4ea;color:#14632b;cursor:pointer;margin:6px 0 4px}' +
+    '.sharebtn:hover{background:#d2ecda}' +
+    '.sharebox{display:none;margin:8px 0 16px;padding:12px;border:1px solid #9fd3aa;border-radius:10px;background:#f6fbf7;font-size:14px;max-width:640px}' +
+    '.sharebox.show{display:block}' +
+    '.sharebox input{width:100%;box-sizing:border-box;font:inherit;font-size:14px;padding:6px 8px;border:1px solid #bbb;border-radius:6px;margin:6px 0;background:#fff;color:#222}' +
+    '.sharebox .row{display:flex;gap:8px;flex-wrap:wrap}' +
+    '.sharebox .row a,.sharebox .row button{font:inherit;font-size:14px;padding:6px 12px;border-radius:8px;border:1px solid #bbb;background:#fff;color:#222;cursor:pointer;text-decoration:none}' +
+    '.sharebox .ok{color:#1e7a34;font-weight:700}' +
+    '.sharebox p{margin:4px 0}';
+  document.head.appendChild(css);
+  var btn = document.createElement('button');
+  btn.type = 'button'; btn.className = 'sharebtn';
+  btn.textContent = '🔗 Teacher: copy link for Google Classroom';
+  var box = document.createElement('div');
+  box.className = 'sharebox';
+  box.innerHTML = '<p><span class="ok"></span> In Google Classroom: <b>Classwork › Create › Assignment</b> (or Material), then <b>Add › Link</b> and paste.</p>' +
+    '<input type="text" readonly aria-label="Lesson link">' +
+    '<div class="row"><button type="button" class="copyagain">Copy again</button>' +
+    '<a target="_blank" rel="noreferrer" class="gcshare">Open Share to Classroom</a></div>';
+  var input = box.querySelector('input'), ok = box.querySelector('.ok');
+  input.value = url;
+  box.querySelector('.gcshare').href = 'https://classroom.google.com/share?url=' + encodeURIComponent(url);
+  function copy() {
+    function done(good) { ok.textContent = good ? 'Link copied ✓' : 'Select the link below and copy it.'; }
+    input.select();
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(url).then(function () { done(true); }, function () { done(false); });
+    else { var good = false; try { good = document.execCommand('copy'); } catch (e) {} done(good); }
+  }
+  btn.addEventListener('click', function () { box.classList.add('show'); copy(); });
+  box.querySelector('.copyagain').addEventListener('click', copy);
+  input.addEventListener('focus', function () { input.select(); });
+  var header = document.querySelector('header');
+  header.appendChild(btn); header.appendChild(box);
+})();
+
 // Lesson brief: click anywhere on a box (bubble) to jump to its section,
 // or anywhere else on a coloured band to jump to that part. A floating
 // "Back to the brief" button returns to the box you clicked.
