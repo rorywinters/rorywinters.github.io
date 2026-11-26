@@ -61,6 +61,7 @@ You model an aluminum block with a rounded-rectangle groove on top, program the 
 | --- | --- |
 | **Workspace switcher** (DESIGN / MANUFACTURE) | Fusion: far left of the toolbar, top-left |
 | **Save** ![Save icon: a grey floppy disk](../../assets/fusion/icon-save.png) | Fusion: top-left, in the bar above the toolbar |
+| **Extrude** ![Extrude icon: a blue box with an arrow pointing up](../../assets/fusion/icon-extrude.png) | Fusion: SOLID tab, CREATE ▾ menu (Shortcut: E) |
 | **Create Sketch** ![Create Sketch icon: a dashed sketch outline with a green plus](../../assets/fusion/icon-create-sketch.png) | Fusion: toolbar, left end of the SOLID tab |
 | **SKETCH** tab | Fusion: toolbar, opens on its own while you sketch. CREATE ▾ (![Center Rectangle icon: a grey rectangle with a blue dot in the middle](../../assets/fusion/icon-center-rectangle.png)), MODIFY (![Fillet icon: a blue curved corner](../../assets/fusion/icon-fillet.png) ![Offset icon: two blue U shapes, one inside the other](../../assets/fusion/icon-offset.png)) |
 | **Toolbar** | Fusion: across the top. Sketch, Create, Modify, Setup and 2D tools |
@@ -185,7 +186,9 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 
 @figure ../../assets/fusion/viewcube.png The ViewCube, top-right of the canvas, with the Home button (the little house) above its top-left corner. Hover there to make the house appear.
 
-2. On the **SOLID** tab, open the **CREATE ▾** menu and choose **Extrude**. The **Extrude** box opens on the right.
+2. On the **SOLID** tab, open the **CREATE ▾** menu and choose **Extrude** ![Extrude icon: a blue box with an arrow pointing up](../../assets/fusion/icon-extrude.png). (Shortcut: E) The **Extrude** box opens on the right.
+
+@figure solid-create-menu.png The CREATE menu on the SOLID tab. Extrude is the fifth item, with the shortcut E beside it.
 3. Click inside the rectangle. It turns blue and an arrow appears.
 4. In **Distance**, type **1** and press **Enter**. The preview grows into a block 1 in tall.
 5. Click **OK**. **Body1** appears in the Browser under **Bodies**. If the block is off screen, click **Fit** ![Fit icon: a magnifying glass in a dashed box](../../assets/fusion/icon-fit.png) on the navigation bar.
@@ -215,7 +218,7 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 | Distance | −0.0625 in |
 | Operation | Cut |
 
-1. **Create → Extrude.** Click the **thin ring** between the two loops. Only the ring turns blue, not the middle.
+1. On the **SOLID** tab, choose **CREATE ▾ → Extrude** ![Extrude icon: a blue box with an arrow pointing up](../../assets/fusion/icon-extrude.png). (Shortcut: E) Click the **thin ring** between the two loops. Only the ring turns blue, not the middle.
 2. In **Distance**, type **-0.0625**. The arrow points down into the block.
 3. Check that **Operation** says **Cut** (red preview). Click **OK**. The groove is cut into the top of the block.
 4. Click **Save** ![Save icon: a grey floppy disk](../../assets/fusion/icon-save.png). Type a short note such as **groove done** and click **OK**.
