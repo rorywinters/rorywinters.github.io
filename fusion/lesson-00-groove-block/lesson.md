@@ -60,7 +60,7 @@ You model an aluminum block with a rounded-rectangle groove on top, program the 
 | Thing | Where on the screen |
 | --- | --- |
 | **Workspace switcher** (DESIGN / MANUFACTURE) | Fusion: far left of the toolbar, top-left |
-| **Save** ![Save icon: a grey floppy disk](../../assets/fusion/icon-save.png) | Fusion: top-left, in the bar above the toolbar |
+| **Save** ![Save icon: a grey floppy disk](../../assets/fusion/icon-save.png) | Fusion: top-left bar, just right of the File menu |
 | **Extrude** ![Extrude icon: a blue box with an arrow pointing up](../../assets/fusion/icon-extrude.png) | Fusion: SOLID tab, CREATE ▾ menu (Shortcut: E) |
 | **Create Sketch** ![Create Sketch icon: a dashed sketch outline with a green plus](../../assets/fusion/icon-create-sketch.png) | Fusion: toolbar, left end of the SOLID tab |
 | **SKETCH** tab | Fusion: toolbar, opens on its own while you sketch. CREATE ▾ (![Center Rectangle icon: a grey rectangle with a blue dot in the middle](../../assets/fusion/icon-center-rectangle.png)), MODIFY (![Fillet icon: a blue curved corner](../../assets/fusion/icon-fillet.png) ![Offset icon: two blue U shapes, one inside the other](../../assets/fusion/icon-offset.png)) |
@@ -133,11 +133,11 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 @figure new-design-dialog.png The What do you want to design? box: Part Design picked, and the Unit System list open with inch (in), ouncemass ticked.
 
 5. Click **Create New**. A new **Untitled** tab appears along the top.
-6. In the **Browser** (left side), click the small **›** arrow beside **Document Settings**. The arrow turns to point down, and the **Units** line under it starts with **in**.
+6. In the **Browser** (left side), click the small **›** arrow beside **Document Settings**. The arrow turns to point down, and the line under it reads **Units: in, ouncemass**.
 
 @figure browser-document-settings.png Document Settings open in the Browser. This one still says mm, g: if yours does too, see Troubleshooting.
 
-7. Click **Save** ![Save icon: a grey floppy disk](../../assets/fusion/icon-save.png) (top-left, in the bar above the toolbar). Name the design **Groove Block** and click **Save**. The tab name changes to **Groove Block**.
+7. Click **Save** ![Save icon: a grey floppy disk](../../assets/fusion/icon-save.png) (top-left bar, just right of the File menu). Name the design **Groove Block** and click **Save**. The tab name changes to **Groove Block**.
 
 ### 1B · Sketch the block
 
@@ -223,7 +223,7 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 3. Check that **Operation** says **Cut** (red preview). Click **OK**. The groove is cut into the top of the block.
 4. Click **Save** ![Save icon: a grey floppy disk](../../assets/fusion/icon-save.png). Type a short note such as **groove done** and click **OK**.
 
-- [ ] The Browser's Units line starts with **in**
+- [ ] The Browser shows **Units: in, ouncemass**
 - [ ] One body, a 4 × 3 × 1 in block
 - [ ] A rounded-rectangle groove centred on top, 0.5 in from every edge, with round outer and inner corners
 - [ ] The Timeline (bottom) shows Sketch, Extrude, Sketch, Extrude
