@@ -142,7 +142,7 @@
 <li>Do it four more times, always on frame <b>0</b>, until only the two runner frames are left. The panel reads <b>Animation 1 Frames (2)</b>: frame <b>0</b> faces right, frame <b>1</b> faces left.</li>
 <li>In the <b>Animations</b> list (top-right of the editor), click <b>Animation 1</b>. In <b>Animation Properties</b>, set <b>Speed</b> to <b>0</b> and untick <b>Loop</b>, so the runner stays on frame 0 instead of flipping back and forth.</li>
 <li>Close the Animations Editor with the <b>X</b> in its top-right corner. The runner is on the layout where the alien was, at the same 64 × 64 size.</li>
-<li><b>Preview</b>. The runner runs, jumps and lands, but it always faces right, even when it runs left.</li>
+<li>Click <b>Preview</b> <img class="icon" src="../../assets/construct3/icon-preview.png" alt="Preview button: a black play triangle">. The runner runs, jumps and lands, but it always faces right, even when it runs left.</li>
 </ol>
 <div class="note pick"><b>Pick the right one:</b> delete only the alien poses. If you delete a runner frame by mistake, press <b>Ctrl+Z</b>.</div>
 <div class="check"><strong>Checkpoint · Part 2</strong>
@@ -178,7 +178,7 @@
 <li>On the event sheet, click <b>Add event</b> at the bottom of the sheet. The <b>Add condition</b> window opens; double-click <b>Keyboard</b>.<img src="../../assets/construct3/add-condition-keyboard-outside.png" alt="Construct 3 Add condition window: System, block, ground, Keyboard (highlighted) and log" width="751" height="221" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Then double-click <b>Key is down</b> (not <i>On any key pressed</i>).<img src="../../assets/construct3/keyboard-key-is-down.png" alt="Keyboard conditions list with Key is down highlighted, next to On any key pressed" width="513" height="72" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Click the key box, press the <b>Left arrow</b>, and click <b>Done</b>.</li>
 <li>Grey <b>Add action</b> → <b>Player</b> → <b>Set mirrored</b> → <b>Mirrored</b> → <b>Done</b>.</li>
 <li>Now make <b>event 3</b> for the right arrow. Click <b>Add event</b> at the bottom of the sheet again. In the <b>Add condition</b> window, double-click <b>Keyboard</b>, then double-click <b>Key is down</b>. Click the key box, press the <b>Right arrow</b>, and click <b>Done</b>. A new event 3 appears under event 2.</li><li>On event 3, click the grey <b>Add action</b> → <b>Player</b> → <b>Set mirrored</b>. The <b>Parameters for Player: Set mirrored</b> window opens. Change the <b>State</b> dropdown from <b>Mirrored</b> to <b>Not mirrored</b>, then click <b>Done</b>.<img src="../../assets/construct3/set-mirrored-not-mirrored.png" alt="Parameters for Player: Set mirrored window with the State dropdown set to Not mirrored" width="620" height="147" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></li>
-<li><b>Preview</b>. Run left and the character turns to face left; run right and it turns back.</li>
+<li>Click <b>Preview</b> <img class="icon" src="../../assets/construct3/icon-preview.png" alt="Preview button: a black play triangle">. Run left and the character turns to face left; run right and it turns back.</li>
 </ol>
 <div class="note pick"><b>Pick the right one:</b> use <b>Key is down</b>, not <b>On key pressed</b>. Both work here, but Key is down keeps working while the key is held, which is what you want for running.</div>
 
@@ -198,7 +198,7 @@
 <p>Use <b>Save as</b>, not Save, so your Outside Assets game stays as it was and this becomes a new game.</p>
 <h3>Save your work</h3>
 <ul>
-<li><b>Logged in:</b> the first time, <b>Menu → Project → Save as → Cloud save</b>. After that, the <b>Save</b> button (disk icon) saves to the same place. (Shortcut: Ctrl+S)</li>
+<li><b>Logged in:</b> the first time, <b>Menu → Project → Save as → Cloud save</b>. After that, the <b>Save</b> button <img class="icon" src="../../assets/construct3/icon-save.png" alt="Save button: a disk"> (just right of Menu) saves to the same place. (Shortcut: Ctrl+S)</li>
 <li><b>Guest:</b> <b>Menu → Project → Save as → Download a copy</b> before you close the tab.</li>
 <li><b>To hand in:</b> <b>Menu → Project → Save as → Download a copy</b> and upload the .c3p file to <a href="https://classroom.google.com/" target="_blank" rel="noreferrer"><b>Google Classroom</b></a> (classroom.google.com).</li>
 </ul>
@@ -222,7 +222,7 @@
 <ol>
 <li>On event 2, click the <b>Set mirrored</b> action and press <b>Delete</b>. Click the grey <b>Add action</b> → <b>Player</b> → <b>Set frame</b> (in the <b>Animations</b> group). Type <b>1</b> and click <b>Done</b>.</li>
 <li>On event 3, delete <b>Set mirrored</b> the same way. Click the grey <b>Add action</b> → <b>Player</b> → <b>Set frame</b>. Type <b>0</b> and click <b>Done</b>.</li>
-<li><b>Preview</b>. The runner turns the same way, but now it shows the frame you drew.</li>
+<li>Click <b>Preview</b> <img class="icon" src="../../assets/construct3/icon-preview.png" alt="Preview button: a black play triangle">. The runner turns the same way, but now it shows the frame you drew.</li>
 </ol>
 <div class="note"><b>Why both?</b> Mirroring needs only one picture and works on any character. Separate frames let the left side look different, for example a backpack strap that only shows on one side.</div>
 </div>

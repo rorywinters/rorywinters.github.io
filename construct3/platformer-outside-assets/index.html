@@ -113,7 +113,7 @@
 <tr><td><b>Project Bar</b></td><td>Top-right panel</td></tr>
 <tr><td><b>Layers Bar</b></td><td>Bottom-right panel</td></tr>
 <tr><td><b>Layout 1</b> and <b>Event sheet 1</b> tabs</td><td>Along the top of the middle area</td></tr>
-<tr><td><b>Preview</b> (▶ play button)</td><td>Main toolbar, top of the window</td></tr>
+<tr><td><b>Preview</b> <img class="icon" src="../../assets/construct3/icon-preview.png" alt="Preview button: a black play triangle"></td><td>Main toolbar, top of the window</td></tr>
 </table>
 <p>If a bar is missing, open <b>Menu → View</b> and tick it.</p>
 
@@ -265,9 +265,9 @@
 <p>These are Construct's starting values, so you only need to check them.</p>
 <ol>
 <li>Click your <b>alien</b> (the Player) on the layout, not a platform. In the <b>Properties Bar</b>, click the <b>Behaviors</b> link. The window title must read <b>Player behaviors</b>.</li>
-<li>Click <b>Add new behavior</b>. In the list, find the <b>Movements</b> group and click <b>Platform</b>, the running figure at the end of the second row (or type <b>Platform</b> in the <b>Search</b> box).<img src="../../assets/construct3/add-behavior-platform.png" alt="Construct 3 Add behavior window, Movements group, with Platform selected and the line Platform: Jump and run along platforms (solid/jump-thru objects) at the bottom, above the Add button" width="752" height="628" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"> Under the list, the description should read <b>Platform: Jump and run along platforms (solid/jump-thru objects).</b> Click <b>Add</b>. The <b>Player behaviors</b> window now lists <b>Platform</b>:<img src="../../assets/construct3/player-behaviors-platform.png" alt="Construct 3 Player behaviors window listing one behaviour: Platform, type Platform, with the running figure icon" width="507" height="381" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Close the window.</li>
+<li>Click <b>Add new behavior</b>. In the list, find the <b>Movements</b> group and click <b>Platform</b> <img class="icon" src="../../assets/construct3/icon-platform-behavior.png" alt="Platform behaviour icon: an orange running figure">, the running figure at the end of the second row (or type <b>Platform</b> in the <b>Search</b> box).<img src="../../assets/construct3/add-behavior-platform.png" alt="Construct 3 Add behavior window, Movements group, with Platform selected and the line Platform: Jump and run along platforms (solid/jump-thru objects) at the bottom, above the Add button" width="752" height="628" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"> Under the list, the description should read <b>Platform: Jump and run along platforms (solid/jump-thru objects).</b> Click <b>Add</b>. The <b>Player behaviors</b> window now lists <b>Platform</b>:<img src="../../assets/construct3/player-behaviors-platform.png" alt="Construct 3 Player behaviors window listing one behaviour: Platform, type Platform, with the running figure icon" width="507" height="381" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Close the window.</li>
 <li>The Player now has the <b>Platform behaviour</b>: running, jumping and gravity. Its settings appear in the Properties Bar under <b>Behaviors</b>. Check the values against the table.</li>
-<li>Click <b>Preview</b> (the play button at the top). (Shortcut: F5)</li>
+<li>Click <b>Preview</b> <img class="icon" src="../../assets/construct3/icon-preview.png" alt="Preview button: a black play triangle"> (the play button at the top). (Shortcut: F5)</li>
 <li>The alien drops straight through the ground and off the bottom of the screen. Gravity works, but there is nothing solid to stand on yet. Close the preview tab.</li>
 </ol>
 <div class="note pick"><b>Pick the right one:</b> the <b>Player</b> gets the <b>Platform behaviour</b> (from the Movements group). The ground, log and block get <b>Solid</b> in 3B. The Platform behaviour makes a character move like a platform-game hero; Solid makes something it can stand on.</div>
@@ -275,7 +275,7 @@
 <h3>3B · Solid on ground, log and block</h3>
 <ol>
 <li>Click the <b>ground</b> and add the <b>Solid</b> behaviour (under <b>Attributes</b>). Then do the same for the <b>log</b> and the <b>block</b>. Each object type needs its own Solid. Both grounds get it together, because they are the same object.</li>
-<li><b>Preview</b>. The character falls, lands on the first platform, and stays put.</li>
+<li>Click <b>Preview</b> <img class="icon" src="../../assets/construct3/icon-preview.png" alt="Preview button: a black play triangle">. The character falls, lands on the first platform, and stays put.</li>
 </ol>
 
 <h3>3C · Test the controls</h3>
@@ -286,7 +286,7 @@
 <tr><td>↑ Up arrow</td><td>Jump</td></tr>
 </table>
 <ol>
-<li><b>Preview</b> and click inside the game once so it has the keyboard.</li>
+<li>Click <b>Preview</b> <img class="icon" src="../../assets/construct3/icon-preview.png" alt="Preview button: a black play triangle">, then click inside the game once so it has the keyboard.</li>
 <li>Run right and jump up onto each platform in turn.</li>
 <li>Walk off the edge of a platform. The character falls. If it falls past the bottom of the screen, it is gone for good. Part 4 fixes that.</li>
 </ol>
@@ -315,11 +315,11 @@
 <li>Click the <b>Event sheet 1</b> tab (along the top of the middle area, beside Layout 1).</li>
 <li>Click <b>Add event</b> → double-click <b>Player</b> → double-click <b>Compare Y</b>. Choose <b>Greater than</b>, type <b>800</b>, click <b>Done</b>. The condition appears on the left.</li>
 <li>On the same row, click the faint grey <b>Add action</b> text in the middle of the row (it looks greyed out, but it works). Double-click <b>Player</b> → <b>Set position</b>. Type <b>160</b> and <b>500</b>, click <b>Done</b>.</li>
-<li>Click the grey <b>Add action</b> under that action → <b>Player</b> → <b>Set vector Y</b> (in the <b>Platform</b> group). Type <b>0</b>, click <b>Done</b>. The event now has two actions.</li>
-<li><b>Preview</b> and walk off a platform into a gap. The character falls off the screen, then drops back onto the first platform.</li>
+<li>Click the grey <b>Add action</b> under that action → <b>Player</b> → <b>Set vector Y</b> (in the <b>Platform</b> <img class="icon" src="../../assets/construct3/icon-platform-behavior.png" alt="Platform behaviour icon: an orange running figure"> group). Type <b>0</b>, click <b>Done</b>. The event now has two actions.</li>
+<li>Click <b>Preview</b> <img class="icon" src="../../assets/construct3/icon-preview.png" alt="Preview button: a black play triangle"> and walk off a platform into a gap. The character falls off the screen, then drops back onto the first platform.</li>
 </ol>
 <div class="note"><b>Events remaining box:</b> after your first event, a blue box may appear saying how many events you have left. <b>Do not click Purchase a plan.</b> Click the <b>Add event</b> link on the event sheet and the box goes away.</div>
-<div class="note pick"><b>Pick the right one:</b> if the window title says <b>Add 'Player' condition</b> when you wanted an action, click <b>Cancel</b> and use the grey <b>Add action</b> instead. <b>Set vector Y</b> is in the <b>Platform</b> group under Player. Without it the character can land at full falling speed.</div>
+<div class="note pick"><b>Pick the right one:</b> if the window title says <b>Add 'Player' condition</b> when you wanted an action, click <b>Cancel</b> and use the grey <b>Add action</b> instead. <b>Set vector Y</b> is in the <b>Platform</b> <img class="icon" src="../../assets/construct3/icon-platform-behavior.png" alt="Platform behaviour icon: an orange running figure"> group under Player. Without it the character can land at full falling speed.</div>
 
 <div class="check"><strong>Checkpoint · Part 4</strong>
 <label><input type="checkbox"> Event 1 shows Player Y &gt; 800 on the left and two actions on the right</label>
@@ -345,7 +345,7 @@
 <li>In the <b>Animations</b> list (top-right of the editor), click <b>Animation 1</b>. The panel under it shows <b>Animation Properties</b>.</li>
 <li>Click the <b>0</b> in <b>Speed</b>, type <b>8</b> and press <b>Enter</b>. Tick <b>Loop</b>, two rows down.<img src="../../assets/construct3/animation-properties-speed8-loop.png" alt="Animations list with Animation 1, and Animation Properties showing Speed 8 and Loop ticked" width="262" height="555" style="display:block;max-width:240px;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></li>
 <li>Click the <b>Preview animation</b> button <img src="../../assets/construct3/icon-preview-animation.png" alt="Preview animation button: a play triangle in a circle" width="51" height="37" style="height:1.6em;width:auto;vertical-align:middle;margin:0 .25em;border-radius:3px"> in the Animations Editor. A small <b>Preview - Animation 1</b> window opens and the alien bounces through its five poses. <b>Restart</b> plays it from the first pose again. Close the window with its <b>X</b>.<img src="../../assets/construct3/preview-animation-window.png" alt="Preview - Animation 1 window showing the green one-eyed alien, with a Restart button underneath" width="302" height="355" style="display:block;max-width:240px;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></li>
-<li>Close the Animations Editor and click <b>Preview</b>. The alien now bounces through all five poses the whole time, even while it runs and jumps.</li>
+<li>Close the Animations Editor and click <b>Preview</b> <img class="icon" src="../../assets/construct3/icon-preview.png" alt="Preview button: a black play triangle">. The alien now bounces through all five poses the whole time, even while it runs and jumps.</li>
 </ol>
 <div class="note">Speed is how many frames play each second. 8 shows the whole five-pose cycle a bit faster than once a second.</div>
 
@@ -356,7 +356,7 @@
 
 <h3>Save your work</h3>
 <ul>
-<li><b>Logged in:</b> the first time, <b>Menu → Project → Save as → Cloud save</b>. After that, the <b>Save</b> button (disk icon) saves to the same place. (Shortcut: Ctrl+S)</li>
+<li><b>Logged in:</b> the first time, <b>Menu → Project → Save as → Cloud save</b>. After that, the <b>Save</b> button <img class="icon" src="../../assets/construct3/icon-save.png" alt="Save button: a disk"> (just right of Menu) saves to the same place. (Shortcut: Ctrl+S)</li>
 <li><b>Guest:</b> <b>Menu → Project → Save as → Download a copy</b> before you close the tab.</li>
 <li><b>To hand in:</b> <b>Menu → Project → Save as → Download a copy</b> and upload the .c3p file to <a href="https://classroom.google.com/" target="_blank" rel="noreferrer"><b>Google Classroom</b></a> (classroom.google.com).</li>
 </ul>
