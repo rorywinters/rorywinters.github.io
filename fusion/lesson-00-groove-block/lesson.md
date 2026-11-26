@@ -232,6 +232,8 @@ Job time | About 15 in per level × 7 ÷ 10 in/min | About 11 min · compare to 
 3. Check that **Operation** says **Cut** (red preview) and **Profiles** says **1 selected**. Leave the other settings as they are. Click **OK**. The groove is cut into the top of the block.
 
 @figure extrude-cut-settings.png The Extrude settings for the groove: Profiles 1 selected, Distance −0.0625 in, Operation Cut. (This picture was taken while editing the feature, so its title says EDIT FEATURE. Yours says EXTRUDE.)
+
+@figure groove-finished.png The finished model: a 1/2 in groove, 1/16 in deep, running around a 2 × 1 in island in the middle of the block.
 4. Click **Save** ![Save icon: a grey floppy disk](../../assets/fusion/icon-save.png). Type a short note such as **groove done** and click **OK**.
 
 - [ ] The Browser shows **Units: in, ouncemass**
