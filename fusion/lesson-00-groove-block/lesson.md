@@ -151,8 +151,13 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 
 @figure create-menu.png The CREATE menu on the SKETCH tab: Rectangle → Center Rectangle, the third choice.
 
-4. Click on the **origin** (the dot where the red and green axes cross). This is the centre of the rectangle. Move the mouse up and to the right. Two dimension boxes appear.
-5. Type **4** and press **Tab**. Type **3** and press **Enter**. A 4 × 3 rectangle appears with the origin in its middle.
+4. Click on the **origin** (the dot where the red and green axes cross). This is the centre of the rectangle. Move the mouse up and to the right. Two dimension boxes appear: one along the **bottom** edge and one on the **left side**.
+
+> **Take your hand off the mouse before you type.** If the mouse moves while you are typing, the rectangle changes and your numbers can be lost.
+>
+> **Tab** jumps back and forth between the two boxes. The number you type goes into the **highlighted** box, so check which one is highlighted before you type.
+
+5. Type **4** into the **bottom** box. Press **Tab** to move to the **left side** box and type **3**. Press **Enter**. A 4 × 3 rectangle appears with the origin in its middle: 4 in wide (left to right) and 3 in deep (front to back).
 6. Click **Finish Sketch**, the button at the bottom of the **Sketch Palette** (right side of the screen). The Sketch Palette closes and the toolbar goes back to the **SOLID** tab.
 
 @figure sketch-palette.png The Sketch Palette on the right while you sketch. Finish Sketch is the button at the bottom. Leave the options as they are.
@@ -187,8 +192,8 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 
 1. Click **Create Sketch** ![Create Sketch icon: a dashed sketch outline with a green plus](../../assets/fusion/icon-create-sketch.png), then click the **top face** of the block. The view turns to look straight down on it.
 2. On the **SKETCH** tab, open **CREATE ▾** and choose **Rectangle → Center Rectangle** ![Center Rectangle icon: a grey rectangle with a blue dot in the middle](../../assets/fusion/icon-center-rectangle.png).
-3. Click the **origin** dot in the middle of the top face. Move the mouse out toward a corner. Two dimension boxes appear.
-4. Type **3** and press **Tab**. Type **2** and press **Enter**. A 3 × 2 rectangle appears in the centre of the top face, 0.5 in in from every edge.
+3. Click the **origin** dot in the middle of the top face. Move the mouse out toward a corner. Two dimension boxes appear, one along the bottom and one on the left side.
+4. **Hand off the mouse.** Type **3** into the **bottom** box, press **Tab** to move to the **left side** box, and type **2**. Press **Enter**. A 3 × 2 rectangle appears in the centre of the top face, 0.5 in in from every edge.
 5. On the **SKETCH** tab, click **Fillet** ![Fillet icon: a blue curved corner](../../assets/fusion/icon-fillet.png) (the first button under **MODIFY**). Click the two lines that meet at one corner, type **0.5** and press **Enter**. That corner rounds. Do the other three corners the same way.
 6. Click **Offset** ![Offset icon: two blue U shapes, one inside the other](../../assets/fusion/icon-offset.png) (the third button under **MODIFY**). Click one line of the rounded rectangle. The whole loop highlights and an arrow appears.
 7. Type **0.25** in **Offset position**. If the preview line sits outside the loop, type **-0.25** instead, so the new loop sits **inside**. Click **OK**. You now see two rounded loops, 1/4 in apart.
