@@ -246,7 +246,9 @@ Job time | About 15 in per level × 7 ÷ 10 in/min | About 11 min · compare to 
 
 ### 2A · Switch to Manufacture
 
-1. Click the **workspace switcher** (far left of the toolbar) and choose **MANUFACTURE**. The toolbar changes to **MILLING** tools.
+1. Click the **DESIGN ▾** box (the workspace switcher, far left of the toolbar). A list of workspaces drops down. Click **MANUFACTURE**. The box now says MANUFACTURE and the toolbar changes to **MILLING** tools.
+
+@figure ../../assets/fusion/workspace-menu.png The workspace list under the DESIGN ▾ box. MANUFACTURE is about two-thirds of the way down.
 
 ### 2B · The Setup: stock and work zero
 
