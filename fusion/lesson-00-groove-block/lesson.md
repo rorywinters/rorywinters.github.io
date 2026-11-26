@@ -148,6 +148,8 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 2. Click the **XY** plane: the square lying flat on the grid, beside the red X and green Y axes. The blue Z axis points straight up. The view turns to look straight down on it.
 
 @figure origin-planes.png The origin planes after clicking Create Sketch. The flat square on the grid is the XY plane. Blue Z points up, and the grid numbers (0.5, 1, 1.5, 2) are inches.
+
+@figure ../../assets/fusion/viewcube-top.png After you click the XY plane, the ViewCube shows **TOP**: you are looking straight down, with Y (green) pointing up the screen and X (red) to the right.
 3. The toolbar has switched to the **SKETCH** tab. Open its **CREATE ▾** menu and choose **Rectangle → Center Rectangle** ![Center Rectangle icon: a grey rectangle with a blue dot in the middle](../../assets/fusion/icon-center-rectangle.png).
 
 @figure create-menu.png The CREATE menu on the SKETCH tab: Rectangle → Center Rectangle, the third choice.
