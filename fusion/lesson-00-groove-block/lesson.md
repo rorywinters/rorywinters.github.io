@@ -149,7 +149,7 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 @figure origin-planes.png The origin planes after clicking Create Sketch. The flat square on the grid is the XY plane. Blue Z points up, and the grid numbers (0.5, 1, 1.5, 2) are inches.
 3. The toolbar has switched to the **SKETCH** tab. Open its **CREATE ▾** menu and choose **Rectangle → Center Rectangle** ![Center Rectangle icon: a grey rectangle with a blue dot in the middle](../../assets/fusion/icon-center-rectangle.png).
 
-@figure create-menu.png The CREATE menu on the SKETCH tab, with Rectangle open. Center Rectangle is the third choice.
+@figure create-menu.png The CREATE menu on the SKETCH tab: Rectangle → Center Rectangle, the third choice.
 
 4. Click on the **origin** (the dot where the red and green axes cross). This is the centre of the rectangle. Move the mouse up and to the right. Two dimension boxes appear.
 5. Type **4** and press **Tab**. Type **3** and press **Enter**. A 4 × 3 rectangle appears with the origin in its middle.
