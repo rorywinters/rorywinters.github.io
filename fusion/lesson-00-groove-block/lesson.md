@@ -66,7 +66,7 @@ You model an aluminum block with a rounded-rectangle groove on top, program the 
 | **Toolbar** | Fusion: across the top. Sketch, Create, Modify, Setup and 2D tools |
 | **Browser** | Fusion: left side, under the toolbar. Document Settings, bodies, sketches, Setups |
 | **ViewCube** | Fusion: top-right corner of the canvas |
-| **Sketch Palette** | Fusion: right side, shows while you sketch. Finish Sketch is here |
+| **Sketch Palette** | Fusion: right side, shows while you sketch. **Finish Sketch** is the button at its bottom |
 | **Timeline** | Fusion: along the bottom. Every feature in order; double-click one to edit it |
 | **Actions** | Fusion: right end of the MANUFACTURE toolbar. Simulate and Post Process |
 | **Connect to Cutter / Initialize** | Carbide Motion: middle of the start screen |
@@ -150,7 +150,9 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 3. The toolbar has switched to the **SKETCH** tab. Open its **CREATE ▾** menu and choose **Rectangle → 2-Point Rectangle** ![2-Point Rectangle icon: a grey rectangle with blue corner dots](../../assets/fusion/icon-rectangle.png).
 4. Click on the **origin** (the dot where the red and green axes cross). Move the mouse up and to the right. Two dimension boxes appear.
 5. Type **4** and press **Tab**. Type **3** and press **Enter**. A 4 × 3 rectangle appears, starting at the origin.
-6. Click **Finish Sketch** (green tick, top-right of the toolbar). The **Sketch Palette** (right side) closes.
+6. Click **Finish Sketch**, the button at the bottom of the **Sketch Palette** (right side of the screen). The Sketch Palette closes and the toolbar goes back to the **SOLID** tab.
+
+@figure sketch-palette.png The Sketch Palette on the right while you sketch. Finish Sketch is the button at the bottom. Leave the options as they are.
 
 **Quick notes:** 4 in runs along X (red axis), 3 in along Y (green axis). Keeping the corner on the origin makes the front-left corner easy to find later in CAM.
 
@@ -185,7 +187,7 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 6. On the **SKETCH** tab, click **Fillet** ![Fillet icon: a blue curved corner](../../assets/fusion/icon-fillet.png) (the first button under **MODIFY**). Click the two lines that meet at one corner, type **0.5** and press **Enter**. That corner rounds. Do the other three corners the same way.
 7. Click **Offset** ![Offset icon: two blue U shapes, one inside the other](../../assets/fusion/icon-offset.png) (the third button under **MODIFY**). Click one line of the rounded rectangle. The whole loop highlights and an arrow appears.
 8. Type **0.25** in **Offset position**. If the preview line sits outside the loop, type **-0.25** instead, so the new loop sits **inside**. Click **OK**. You now see two rounded loops, 1/4 in apart.
-9. Click **Finish Sketch**.
+9. Click **Finish Sketch** at the bottom of the **Sketch Palette**. The toolbar goes back to the **SOLID** tab.
 
 ### 1E · Cut the groove 1/16 in deep
 
