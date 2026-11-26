@@ -143,7 +143,9 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 | Rectangle | 2-Point, from the origin, 4 × 3 in |
 
 1. On the toolbar, click **Create Sketch** ![Create Sketch icon: a dashed sketch outline with a green plus](../../assets/fusion/icon-create-sketch.png) (at the left end of the **SOLID** tab). The three origin planes appear in the canvas.
-2. Click the flat **XY** plane, the one lying flat. The view turns to look straight down on it and a grid appears.
+2. Click the **XY** plane: the square lying flat on the grid, beside the red X and green Y axes. The blue Z axis points straight up. The view turns to look straight down on it.
+
+@figure origin-planes.png The origin planes after clicking Create Sketch. The flat square on the grid is the XY plane. Blue Z points up, and the grid numbers (0.5, 1, 1.5, 2) are inches.
 3. Open the **Create** menu and choose **Rectangle → 2-Point Rectangle**.
 4. Click on the **origin** (the dot where the red and green axes cross). Move the mouse up and to the right. Two dimension boxes appear.
 5. Type **4** and press **Tab**. Type **3** and press **Enter**. A 4 × 3 rectangle appears, starting at the origin.
