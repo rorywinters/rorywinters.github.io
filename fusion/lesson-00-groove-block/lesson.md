@@ -66,6 +66,7 @@ You model an aluminum block with a rounded-rectangle groove on top, program the 
 | **Toolbar** | Fusion: across the top. Sketch, Create, Modify, Setup and 2D tools |
 | **Browser** | Fusion: left side, under the toolbar. Document Settings, bodies, sketches, Setups |
 | **ViewCube** | Fusion: top-right corner of the canvas |
+| **Navigation bar**: Orbit ![Orbit icon: a curved arrow around a blue dot](../../assets/fusion/icon-orbit.png) · Look At ![Look At icon: a blue screen with a camera top](../../assets/fusion/icon-look-at.png) · Pan ![Pan icon: an open hand](../../assets/fusion/icon-pan.png) · Zoom ![Zoom icon: a magnifying glass with plus and minus](../../assets/fusion/icon-zoom.png) · Fit ![Fit icon: a magnifying glass in a dashed box](../../assets/fusion/icon-fit.png) | Fusion: bottom centre of the canvas, just above the Timeline |
 | **Finish Sketch** ![Finish Sketch icon: a green circle with a white tick](../../assets/fusion/icon-finish-sketch.png) | Fusion: green tick at the right end of the SKETCH tab |
 | **Sketch Palette** | Fusion: right side, shows while you sketch. Its **Finish Sketch** button at the bottom ![Finish Sketch button at the bottom of the Sketch Palette, under the 3D Sketch box](../../assets/fusion/finish-sketch-palette.png) does the same job as the green tick |
 | **Timeline** | Fusion: along the bottom. Every feature in order; double-click one to edit it |
@@ -183,7 +184,7 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 1. Open the **Create** menu and choose **Extrude**. The **Extrude** box opens on the right.
 2. Click inside the rectangle. It turns blue and an arrow appears.
 3. In **Distance**, type **1** and press **Enter**. The canvas shows a solid block 1 in tall.
-4. Click **OK**. **Body1** appears in the Browser under **Bodies**. Click the **ViewCube** corner where TOP, FRONT and RIGHT meet to see the block at an angle.
+4. Click **OK**. **Body1** appears in the Browser under **Bodies**. Click the **ViewCube** corner where TOP, FRONT and RIGHT meet to see the block at an angle. If the block is off screen, click **Fit** ![Fit icon: a magnifying glass in a dashed box](../../assets/fusion/icon-fit.png) on the navigation bar.
 
 @figure ../../assets/fusion/viewcube.png The ViewCube (top-right of the canvas). Click the corner where TOP, FRONT and RIGHT meet. The little house above it goes back to the home view.
 
@@ -195,7 +196,7 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 | Sketch fillet (4 corners) | 0.5 in |
 | Offset (inside) | 0.25 in |
 
-1. Click **Create Sketch** ![Create Sketch icon: a dashed sketch outline with a green plus](../../assets/fusion/icon-create-sketch.png), then click the **top face** of the block. The view turns to look straight down on it.
+1. Click **Create Sketch** ![Create Sketch icon: a dashed sketch outline with a green plus](../../assets/fusion/icon-create-sketch.png), then click the **top face** of the block. The view turns to look straight down on it. If it doesn't, click **Look At** ![Look At icon: a blue screen with a camera top](../../assets/fusion/icon-look-at.png) on the navigation bar (bottom centre).
 2. On the **SKETCH** tab, open **CREATE ▾** and choose **Rectangle → Center Rectangle** ![Center Rectangle icon: a grey rectangle with a blue dot in the middle](../../assets/fusion/icon-center-rectangle.png).
 3. Click the **origin** dot in the middle of the top face. Move the mouse out toward a corner. Two dimension boxes appear, one along the bottom and one on the left side.
 4. **Hand off the mouse.** Type **3** into the **bottom** box, press **Tab** to move to the **left side** box, and type **2**. Press **Enter**. A 3 × 2 rectangle appears in the centre of the top face, 0.5 in in from every edge.
