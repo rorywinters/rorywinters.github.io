@@ -85,7 +85,7 @@ A folded item in the **Browser** opens with the small **›** arrow on its left.
 
 ```brief
 Part 1 · Make the object
-1A · Inch design | File → New Design | Units pencil → Unit System: inch
+1A · Inch design | File → New Design → Part Design | Unit System: inch (in), ouncemass
 1B · Sketch the block | XY plane · 2-Point Rectangle | From the origin: 4 × 3
 1C · Extrude 1 in | Create → Extrude | Distance 1 · OK
 1D · Groove sketch | Top face: 3 × 2, 0.5 from edges | Fillet 0.5 · Offset 0.25 inside
@@ -111,25 +111,27 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 
 ## Part 1 · Make the object
 
-### 1A · Start a design in inches
+### 1A · Start a Part Design in inches
 
 | Setting | Value |
 | --- | --- |
-| Unit System | inch (in) |
+| Design type | Part Design |
+| Unit System | inch (in), ouncemass |
 | Design name | Groove Block |
 
 1. Open Fusion. Check that the **workspace switcher** (far left of the toolbar) says **DESIGN**.
-2. Open the **File** menu and choose **New Design**. A new **Untitled** tab appears along the top.
-3. In the **Browser** (left side), click the small **›** arrow beside **Document Settings** to open it. The arrow turns to point down and two lines appear under it: **Units: mm, g** and **Part Design**.
+2. Open the **File** menu and choose **New Design**. The **What do you want to design?** box opens.
+3. Click **Part Design** (top-left card). It turns blue, and its settings show on the right.
+4. Click the **Unit System** list and choose **inch (in), ouncemass**. A tick appears beside it.
 
-@figure browser-document-settings.png The Browser with Document Settings open. A new design starts in millimetres (Units: mm, g); the next step changes it to inches.
+@figure new-design-dialog.png The What do you want to design? box: Part Design picked, and the Unit System list open with inch (in), ouncemass ticked.
 
-4. Hover over **Units: mm, g**. A pencil icon appears at the right end of the line, and its label says **Change Active Units**. Click the pencil. The **Change Active Units** box opens.
+5. Click **Create New**. A new **Untitled** tab appears along the top.
+6. In the **Browser** (left side), click the small **›** arrow beside **Document Settings**. The arrow turns to point down, and the **Units** line under it starts with **in**.
 
-@figure change-active-units.png The pencil at the end of the Units line opens the Change Active Units box. It starts on millimetre (mm), gram (g); Length and Mass are greyed out because they follow the Unit System.
+@figure browser-document-settings.png Document Settings open in the Browser. This one still says mm, g: if yours does too, see Troubleshooting.
 
-5. Click the **Unit System** list and choose the **inch (in)** option. **Length** changes to inch. Leave **Set as default** ticked so your next designs also start in inches. Click **OK**. The Units line in the Browser now starts with **in** instead of mm.
-6. Click **Save** (the disk icon, top-left). Name the design **Groove Block** and click **Save**. The tab name changes to **Groove Block**.
+7. Click **Save** (the disk icon, top-left). Name the design **Groove Block** and click **Save**. The tab name changes to **Groove Block**.
 
 ### 1B · Sketch the block
 
@@ -386,6 +388,7 @@ Optional. These don't change the cut.
 
 | Problem | Fix |
 | --- | --- |
+| The Units line says mm, not in | In the Browser, hover over **Units** and click the pencil at the end of the line. Set **Unit System** to **inch (in), ouncemass** and click **OK**. |
 | Fusion says the toolpath is empty | Flip the red arrow to the inside of the groove, and untick Lead-In and Lead-Out. |
 | Simulation cuts outside the groove | Re-select the **bottom** outer edge of the groove, not the top edge. |
 | Cut is in the wrong spot on the block | The Fusion origin and the BitZero corner must both be the **top, front-left** corner. Re-probe. |
