@@ -160,7 +160,6 @@
 <p>Two events flip the runner to face the direction it is running. <b>Mirrored</b> turns the picture left to right, so frame 0 (facing right) faces left.</p>
 
 <h3>3A · Keyboard object</h3>
-<div class="note pick"><b>Already have Keyboard?</b> Look under <b>Object types</b> in the Project Bar (top-right) first. If <b>Keyboard</b> <img class="icon" src="../../assets/construct3/icon-keyboard.png" alt="Keyboard icon: a blue keyboard"> is already listed (for example from an earlier extra part), skip 3A and go to 3B. A project only needs one Keyboard.</div>
 
 <ol>
 <li>Go to the <b>Layout 1</b> tab (middle of the screen) and double-click an empty part of the layout. The <b>Create new object type</b> window opens. Click <b>Keyboard</b> <img class="icon" src="../../assets/construct3/icon-keyboard.png" alt="Keyboard icon: a blue keyboard"> (it turns grey when picked), then click <b>Insert</b>.<img src="../../assets/construct3/insert-object-input-keyboard.png?v=2" alt="Construct 3 Create new object type window with Keyboard picked (grey) among Gamepad, Mouse and Touch" width="532" height="182" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></li>
@@ -226,6 +225,21 @@
 <li>Click <b>Preview</b> <img class="icon" src="../../assets/construct3/icon-preview.png" alt="Preview button: a black play triangle">. The runner turns the same way, but now it shows the frame you drew.</li>
 </ol>
 <div class="note"><b>Why both?</b> Mirroring needs only one picture and works on any character. Separate frames let the left side look different, for example a backpack strap that only shows on one side.</div>
+</div>
+</details>
+
+<!-- TROUBLESHOOTING -->
+<details class="part" id="part6" name="parts" style="--c:var(--p6)">
+<summary><h2>Troubleshooting</h2><span class="done"></span></summary>
+<div class="body">
+<table>
+<tr><th>Problem</th><th>Fix</th></tr>
+<tr><td><b>Keyboard</b> <img class="icon" src="../../assets/construct3/icon-keyboard.png" alt="Keyboard icon: a blue keyboard"> is already under <b>Object types</b> before 3A (for example, from an earlier extra part)</td><td>A project only needs one Keyboard. Skip 3A and go to 3B. Or right-click <b>Keyboard</b> in the Project Bar, choose <b>Delete</b> (any events that use it go too), then do 3A and 3B again.</td></tr>
+<tr><td>No <b>Keyboard</b> in the Add condition window</td><td>Keyboard isn't in the project yet. Do 3A first.</td></tr>
+<tr><td>The runner keeps flipping back and forth by itself</td><td>Animation 1 is still playing. Set <b>Speed</b> to <b>0</b> and untick <b>Loop</b> (2B).</td></tr>
+<tr><td>You see two runners side by side in one frame</td><td>The sheet came in with <b>From Files</b>. Delete that frame and use <b>Import Frames → From Sheet</b> with <b>Columns 2</b> (2A).</td></tr>
+<tr><td>The runner faces the wrong way when it runs</td><td>The two events are swapped. Left arrow gets <b>Mirrored</b>; Right arrow gets <b>Not mirrored</b> (3B).</td></tr>
+</table>
 </div>
 </details>
 
