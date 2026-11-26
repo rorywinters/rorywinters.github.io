@@ -190,10 +190,10 @@ Optional. Try one or both, then Save again.
 
 | Event | Condition | Action |
 | --- | --- | --- |
-| New | Keyboard → Key is down → Down arrow | Player → Platform → Fall through |
+| New | Keyboard ![Keyboard icon: a blue keyboard](../../assets/construct3/icon-keyboard.png) → Key is down → Down arrow | Player → Platform → Fall through |
 
-1. **Drop down through a log:** on the **Event sheet 1** tab, click **Add event** at the bottom of the sheet → **Keyboard** → **Key is down**. Click the key box, press the **Down arrow**, and click **Done**. Then click the grey **Add action** on that row → **Player** → **Fall through** (in the **Platform** ![Platform behaviour icon: an orange running figure](../../assets/construct3/icon-platform-behavior.png) group) → **Done**. Preview, stand on a log and press the Down arrow: the player drops through it. On the ground or the block nothing happens, because they're Solid.
-   - No **Keyboard** in the Add condition list? Your game came from Lesson 1. Insert it first: double-click an empty part of the layout, click **Keyboard**, click **Insert**, as in [Lesson 2, Part 3A](../face-the-way-you-run/).
+1. **Drop down through a log:** on the **Event sheet 1** tab, click **Add event** at the bottom of the sheet → **Keyboard** ![Keyboard icon: a blue keyboard](../../assets/construct3/icon-keyboard.png) → **Key is down**. Click the key box, press the **Down arrow**, and click **Done**. Then click the grey **Add action** on that row → **Player** → **Fall through** (in the **Platform** ![Platform behaviour icon: an orange running figure](../../assets/construct3/icon-platform-behavior.png) group) → **Done**. Preview, stand on a log and press the Down arrow: the player drops through it. On the ground or the block nothing happens, because they're Solid.
+   - No **Keyboard** in the Add condition list? Your game came from Lesson 1. Insert it first: double-click an empty part of the layout, click **Keyboard** ![Keyboard icon: a blue keyboard](../../assets/construct3/icon-keyboard.png), click **Insert**, as in [Lesson 2, Part 3A](../face-the-way-you-run/).
 2. **Faster ride:** click the block and change its Sine **Period** from 4 to **2**. Preview. The block slides twice as fast, so the timing is harder.
 
 ## Troubleshooting

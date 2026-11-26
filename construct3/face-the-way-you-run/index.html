@@ -127,7 +127,7 @@
 <li>On the <b>Layout 1</b> tab, double-click the alien. The <b>Animations Editor</b> opens, showing the five alien poses in the <b>Animation 1 Frames</b> panel (bottom middle).</li>
 <li>Right-click an empty white spot in that panel, after the last frame. Hold the mouse over <b>Import Frames</b> and click <b>From Sheet</b>. This is the same as in <a href="../platformer-outside-assets/#part2">Outside Assets, step 2A</a>.</li>
 <li>Pick your runner PNG and click <b>Open</b>. In the window that opens, type <b>2</b> in <b>Columns</b> and check <b>Rows 1</b>, <b>Width 32</b>, <b>Height 32</b>.</li>
-<li>Click <b>Add all frames</b> (the grid button at the left end of the bar). Two frames appear along the bottom, numbered <b>0</b> and <b>1</b>: facing right and facing left.</li>
+<li>Click <b>Add all frames</b> <img class="icon" src="../../assets/construct3/icon-add-all-frames.png" alt="Add all frames button: a 3 by 3 grid of small black squares"> (the grid button at the left end of the bar). Two frames appear along the bottom, numbered <b>0</b> and <b>1</b>: facing right and facing left.</li>
 <li>Click <b>Import frames</b> (bottom-right, beside Cancel). The panel now reads <b>Animation 1 Frames (7)</b>: the five alien poses as frames 0 to 4, then the runner as frames 5 and 6.</li>
 </ol>
 
@@ -162,7 +162,7 @@
 <h3>3A · Keyboard object</h3>
 
 <ol>
-<li>Go to the <b>Layout 1</b> tab (middle of the screen) and double-click an empty part of the layout. The <b>Create new object type</b> window opens. Click <b>Keyboard</b> (it turns grey when picked), then click <b>Insert</b>.<img src="../../assets/construct3/insert-object-input-keyboard.png?v=2" alt="Construct 3 Create new object type window with Keyboard picked (grey) among Gamepad, Mouse and Touch" width="532" height="182" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></li>
+<li>Go to the <b>Layout 1</b> tab (middle of the screen) and double-click an empty part of the layout. The <b>Create new object type</b> window opens. Click <b>Keyboard</b> <img class="icon" src="../../assets/construct3/icon-keyboard.png" alt="Keyboard icon: a blue keyboard"> (it turns grey when picked), then click <b>Insert</b>.<img src="../../assets/construct3/insert-object-input-keyboard.png?v=2" alt="Construct 3 Create new object type window with Keyboard picked (grey) among Gamepad, Mouse and Touch" width="532" height="182" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></li>
 </ol>
 <div class="note what"><b>What changed:</b> nothing appears on the layout, because Keyboard is not a picture. Check that <b>Keyboard</b> is now listed under <b>Object types</b> in the Project Bar (top-right). A message also pops up: <b>Added 'Keyboard'</b>.<img src="../../assets/construct3/keyboard-added-object-types.png" alt="Project Bar Object types list with Keyboard added under block and ground, and the pop-up message Added Keyboard, this object is available to the entire project" width="460" height="255" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></div>
 
@@ -171,13 +171,13 @@
 
 <table>
 <tr><th>Event</th><th>Condition</th><th>Action</th></tr>
-<tr><td>2</td><td><b>Keyboard</b> → Key is down → <b>Left arrow</b></td><td><b>Player</b> → Set mirrored → <b>Mirrored</b></td></tr>
-<tr><td>3</td><td><b>Keyboard</b> → Key is down → <b>Right arrow</b></td><td><b>Player</b> → Set mirrored → <b>Not mirrored</b></td></tr>
+<tr><td>2</td><td><b>Keyboard</b> <img class="icon" src="../../assets/construct3/icon-keyboard.png" alt="Keyboard icon: a blue keyboard"> → Key is down → <b>Left arrow</b></td><td><b>Player</b> → Set mirrored → <b>Mirrored</b></td></tr>
+<tr><td>3</td><td><b>Keyboard</b> <img class="icon" src="../../assets/construct3/icon-keyboard.png" alt="Keyboard icon: a blue keyboard"> → Key is down → <b>Right arrow</b></td><td><b>Player</b> → Set mirrored → <b>Not mirrored</b></td></tr>
 </table>
 <ol>
-<li>On the event sheet, click <b>Add event</b> at the bottom of the sheet. The <b>Add condition</b> window opens; double-click <b>Keyboard</b>.<img src="../../assets/construct3/add-condition-keyboard-outside.png" alt="Construct 3 Add condition window: System, block, ground, Keyboard (highlighted) and log" width="751" height="221" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Then double-click <b>Key is down</b> (not <i>On any key pressed</i>).<img src="../../assets/construct3/keyboard-key-is-down.png" alt="Keyboard conditions list with Key is down highlighted, next to On any key pressed" width="513" height="72" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Click the key box, press the <b>Left arrow</b>, and click <b>Done</b>.</li>
+<li>On the event sheet, click <b>Add event</b> at the bottom of the sheet. The <b>Add condition</b> window opens; double-click <b>Keyboard</b> <img class="icon" src="../../assets/construct3/icon-keyboard.png" alt="Keyboard icon: a blue keyboard">.<img src="../../assets/construct3/add-condition-keyboard-outside.png" alt="Construct 3 Add condition window: System, block, ground, Keyboard (highlighted) and log" width="751" height="221" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Then double-click <b>Key is down</b> (not <i>On any key pressed</i>).<img src="../../assets/construct3/keyboard-key-is-down.png" alt="Keyboard conditions list with Key is down highlighted, next to On any key pressed" width="513" height="72" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px">Click the key box, press the <b>Left arrow</b>, and click <b>Done</b>.</li>
 <li>Grey <b>Add action</b> → <b>Player</b> → <b>Set mirrored</b> → <b>Mirrored</b> → <b>Done</b>.</li>
-<li>Now make <b>event 3</b> for the right arrow. Click <b>Add event</b> at the bottom of the sheet again. In the <b>Add condition</b> window, double-click <b>Keyboard</b>, then double-click <b>Key is down</b>. Click the key box, press the <b>Right arrow</b>, and click <b>Done</b>. A new event 3 appears under event 2.</li><li>On event 3, click the grey <b>Add action</b> → <b>Player</b> → <b>Set mirrored</b>. The <b>Parameters for Player: Set mirrored</b> window opens. Change the <b>State</b> dropdown from <b>Mirrored</b> to <b>Not mirrored</b>, then click <b>Done</b>.<img src="../../assets/construct3/set-mirrored-not-mirrored.png" alt="Parameters for Player: Set mirrored window with the State dropdown set to Not mirrored" width="620" height="147" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></li>
+<li>Now make <b>event 3</b> for the right arrow. Click <b>Add event</b> at the bottom of the sheet again. In the <b>Add condition</b> window, double-click <b>Keyboard</b> <img class="icon" src="../../assets/construct3/icon-keyboard.png" alt="Keyboard icon: a blue keyboard">, then double-click <b>Key is down</b>. Click the key box, press the <b>Right arrow</b>, and click <b>Done</b>. A new event 3 appears under event 2.</li><li>On event 3, click the grey <b>Add action</b> → <b>Player</b> → <b>Set mirrored</b>. The <b>Parameters for Player: Set mirrored</b> window opens. Change the <b>State</b> dropdown from <b>Mirrored</b> to <b>Not mirrored</b>, then click <b>Done</b>.<img src="../../assets/construct3/set-mirrored-not-mirrored.png" alt="Parameters for Player: Set mirrored window with the State dropdown set to Not mirrored" width="620" height="147" style="display:block;max-width:100%;height:auto;margin:.5em 0;border:1px solid #ccc;border-radius:6px"></li>
 <li>Click <b>Preview</b> <img class="icon" src="../../assets/construct3/icon-preview.png" alt="Preview button: a black play triangle">. Run left and the character turns to face left; run right and it turns back.</li>
 </ol>
 <div class="note pick"><b>Pick the right one:</b> use <b>Key is down</b>, not <b>On key pressed</b>. Both work here, but Key is down keeps working while the key is held, which is what you want for running.</div>
@@ -216,11 +216,11 @@
 <p>Optional. Mirroring flips the right-facing picture. You also drew a left-facing frame in Piskel (frame 1). Here you use it instead.</p>
 <table>
 <tr><th>Event</th><th>Condition</th><th>Action (replaces Set mirrored)</th></tr>
-<tr><td>2</td><td><b>Keyboard</b> → Key is down → <b>Left arrow</b></td><td><b>Player</b> → Set frame → <b>1</b></td></tr>
-<tr><td>3</td><td><b>Keyboard</b> → Key is down → <b>Right arrow</b></td><td><b>Player</b> → Set frame → <b>0</b></td></tr>
+<tr><td>2</td><td><b>Keyboard</b> <img class="icon" src="../../assets/construct3/icon-keyboard.png" alt="Keyboard icon: a blue keyboard"> → Key is down → <b>Left arrow</b></td><td><b>Player</b> → Set frame → <b>1</b></td></tr>
+<tr><td>3</td><td><b>Keyboard</b> <img class="icon" src="../../assets/construct3/icon-keyboard.png" alt="Keyboard icon: a blue keyboard"> → Key is down → <b>Right arrow</b></td><td><b>Player</b> → Set frame → <b>0</b></td></tr>
 </table>
 <ol>
-<li>On event 2, click the <b>Set mirrored</b> action and press <b>Delete</b>. Click the grey <b>Add action</b> → <b>Player</b> → <b>Set frame</b> (in the <b>Animations</b> group). Type <b>1</b> and click <b>Done</b>.</li>
+<li>On event 2, click the <b>Set mirrored</b> action and press <b>Delete</b>. Click the grey <b>Add action</b> → <b>Player</b> → <b>Set frame</b> (in the <b>Animations</b> <img class="icon" src="../../assets/construct3/icon-animations.png" alt="Animations group icon: a green film strip"> group). Type <b>1</b> and click <b>Done</b>.</li>
 <li>On event 3, delete <b>Set mirrored</b> the same way. Click the grey <b>Add action</b> → <b>Player</b> → <b>Set frame</b>. Type <b>0</b> and click <b>Done</b>.</li>
 <li>Click <b>Preview</b> <img class="icon" src="../../assets/construct3/icon-preview.png" alt="Preview button: a black play triangle">. The runner turns the same way, but now it shows the frame you drew.</li>
 </ol>
