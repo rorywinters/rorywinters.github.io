@@ -65,7 +65,7 @@ You model an aluminum block with a rounded-rectangle groove on top, program the 
 | **SKETCH** tab | Fusion: toolbar, opens on its own while you sketch. CREATE ▾ (![Center Rectangle icon: a grey rectangle with a blue dot in the middle](../../assets/fusion/icon-center-rectangle.png)), MODIFY (![Fillet icon: a blue curved corner](../../assets/fusion/icon-fillet.png) ![Offset icon: two blue U shapes, one inside the other](../../assets/fusion/icon-offset.png)) |
 | **Toolbar** | Fusion: across the top. Sketch, Create, Modify, Setup and 2D tools |
 | **Browser** | Fusion: left side, under the toolbar. Document Settings, bodies, sketches, Setups |
-| **ViewCube** | Fusion: top-right corner of the canvas |
+| **ViewCube** and **Home** ![Home icon: a small white house](../../assets/fusion/icon-home.png) | Fusion: top-right corner of the canvas. The Home button shows only when the mouse is near the ViewCube |
 | **Navigation bar**: Orbit ![Orbit icon: a curved arrow around a blue dot](../../assets/fusion/icon-orbit.png) · Look At ![Look At icon: a blue screen with a camera top](../../assets/fusion/icon-look-at.png) · Pan ![Pan icon: an open hand](../../assets/fusion/icon-pan.png) · Zoom ![Zoom icon: a magnifying glass with plus and minus](../../assets/fusion/icon-zoom.png) · Fit ![Fit icon: a magnifying glass in a dashed box](../../assets/fusion/icon-fit.png) | Fusion: bottom centre of the canvas, just above the Timeline |
 | **Finish Sketch** ![Finish Sketch icon: a green circle with a white tick](../../assets/fusion/icon-finish-sketch.png) | Fusion: green tick at the right end of the SKETCH tab |
 | **Sketch Palette** | Fusion: right side, shows while you sketch. Its **Finish Sketch** button at the bottom ![Finish Sketch button at the bottom of the Sketch Palette, under the 3D Sketch box](../../assets/fusion/finish-sketch-palette.png) does the same job as the green tick |
@@ -92,7 +92,7 @@ A folded item in the **Browser** opens with the small **›** arrow on its left.
 Part 1 · Make the object
 1A · Inch design | File → New Design → Part Design | Unit System: inch (in), ouncemass
 1B · Sketch the block | XY plane · Center Rectangle | Centre on the origin: 4 × 3
-1C · Extrude 1 in | Create → Extrude | Distance 1 · OK
+1C · Extrude 1 in | Home view (house by ViewCube) | Extrude · Distance 1 · OK
 1D · Groove sketch | Top face · Center Rectangle 3 × 2 | Fillet 0.5 · Offset 0.25 inside
 1E · Cut the groove | Extrude the ring −0.0625 | Operation Cut · Save
 Part 2 · Toolpath and post
@@ -181,12 +181,14 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 | Distance | 1 in |
 | Operation | New Body |
 
-1. Open the **Create** menu and choose **Extrude**. The **Extrude** box opens on the right.
-2. Click inside the rectangle. It turns blue and an arrow appears.
-3. In **Distance**, type **1** and press **Enter**. The canvas shows a solid block 1 in tall.
-4. Click **OK**. **Body1** appears in the Browser under **Bodies**. Click the **ViewCube** corner where TOP, FRONT and RIGHT meet to see the block at an angle. If the block is off screen, click **Fit** ![Fit icon: a magnifying glass in a dashed box](../../assets/fusion/icon-fit.png) on the navigation bar.
+1. Move the mouse up to the **ViewCube** (top-right corner of the canvas). A small **Home** ![Home icon: a small white house](../../assets/fusion/icon-home.png) button appears just above its top-left corner. It only shows while the mouse is in that area. Click it. The view turns to an angle, so the flat rectangle looks like a tile on the floor and the extrusion will make sense.
 
-@figure ../../assets/fusion/viewcube.png The ViewCube (top-right of the canvas). Click the corner where TOP, FRONT and RIGHT meet. The little house above it goes back to the home view.
+@figure ../../assets/fusion/viewcube.png The ViewCube, top-right of the canvas, with the Home button (the little house) above its top-left corner. Hover there to make the house appear.
+
+2. On the **SOLID** tab, open the **CREATE ▾** menu and choose **Extrude**. The **Extrude** box opens on the right.
+3. Click inside the rectangle. It turns blue and an arrow appears.
+4. In **Distance**, type **1** and press **Enter**. The preview grows into a block 1 in tall.
+5. Click **OK**. **Body1** appears in the Browser under **Bodies**. If the block is off screen, click **Fit** ![Fit icon: a magnifying glass in a dashed box](../../assets/fusion/icon-fit.png) on the navigation bar.
 
 ### 1D · Sketch the groove on the top face
 
