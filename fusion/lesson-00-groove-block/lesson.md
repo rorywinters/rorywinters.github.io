@@ -1,14 +1,15 @@
 ---
-title: Groove Block: from Fusion to the Nomad 3
+title: Groove Block 1: Make the Object
 program: Fusion
-blurb: Model a 4 × 3 × 1 in aluminum block with a 1/16 in deep rounded groove, make a 2D Pocket toolpath, post it with the Carbide 3D post, and cut it on the Nomad 3 with a 1/4 in end mill. About three class periods.
+blurb: Model a 4 × 3 × 1 in block centred on the origin, then cut a 1/2 in wide, 1/16 in deep rounded groove around a 2 × 1 in island. First of three Groove Block lessons. About one class period.
 ---
-You model an aluminum block with a rounded-rectangle groove on top, program the groove in Fusion's Manufacture workspace, and cut it on the Carbide 3D Nomad 3. The finished part is a 4 × 3 × 1 in block with a groove 1/2 in wide and 1/16 in deep. These steps are for the current version of Autodesk Fusion and Carbide Motion.
+You model a 4 × 3 × 1 in block with a rounded-rectangle groove on top. This is the part you will program in the next lesson and cut on the Nomad 3 after that. These steps are for the current version of Autodesk Fusion.
 
-- **Learning objective:** We are learning to take a part from a CAD model to a finished cut on a CNC mill.
-- **Prior knowledge:** Basic Fusion navigation (orbit, pan and zoom with the ViewCube and mouse). This is the first Fusion lesson.
-- **What you need:** One aluminum block cut to 4 × 3 × 1 in (6061 is easiest to machine). One 1/4 in 2-flute flat carbide end mill made for aluminum. A **1/4 in ER-11 collet**: the Nomad 3 only ships with the 1/8 in one ([Nomad 3 specs](https://shop.carbide3d.com/products/nomad-3)). The BitZero V2 probe and double-sided tape that come with the Nomad 3. Safety glasses.
-- **Time:** about three class periods, one per part
+- **Learning objective:** We are learning to model a part from exact sizes with sketches, fillets, offsets and extrudes.
+- **Prior knowledge:** Basic Fusion navigation (orbit, pan and zoom). This is the first Fusion lesson.
+- **Time:** about one class period
+
+**The Groove Block series:** 1 Make the object (this lesson) · [2 Toolpath and post](../lesson-01-groove-block-toolpath/) · [3 Set up the Nomad and run the part](../../nomad/lesson-00-groove-block-run/)
 
 ### The part
 
@@ -21,31 +22,24 @@ You model an aluminum block with a rounded-rectangle groove on top, program the 
 | Middle island | 2 in × 1 in, square corners (these come from the offset) |
 | Groove depth | 1/16 in (0.0625 in) |
 
-**Quick notes:** The groove is twice as wide as the 1/4 in cutter, so the toolpath has room to move: the cutter makes two laps at each depth to clear it. The island's corners come out square because 0.5 in − 0.5 in = 0, and the cutter can cut those outside corners sharp.
+**Quick notes:** The groove is twice as wide as the 1/4 in end mill used in the next lessons, so the toolpath has room to move. The island's corners come out square because 0.5 in − 0.5 in = 0, and the cutter can cut those outside corners sharp.
 
 ### Success criteria
 
-- I can model a block with a filleted groove cut to an exact depth.
-- I can set up stock, work zero and a tool in Fusion, simulate a 2D Pocket and post a .nc file with the Carbide 3D post.
-- I can hold the stock, install and measure the cutter, set zero with the BitZero, and run the program safely on the Nomad 3.
+- I can start a design in inches and model a block centred on the origin.
+- I can sketch, fillet and offset a groove and cut it to an exact depth.
 
 ### Key vocabulary
 
 | Word | Meaning |
 | --- | --- |
-| **Stock** | The raw block of material the machine cuts the part from. |
-| **WCS** (work coordinate system) | The X, Y, Z zero point that the program measures every move from. |
-| **Toolpath** | The route the cutter follows, calculated by Fusion's CAM. |
-| **G-code** | The text commands (G0, G1, M3) that tell a CNC machine how to move. |
-| **Post processor** | A translator that turns a Fusion toolpath into G-code for one brand of machine. |
-| **Spindle speed** (rpm) | How fast the cutter spins, in revolutions per minute. |
-| **Feed rate** | How fast the cutter moves through the material, in inches per minute (in/min). |
-| **Chip load** | How thick a chip each flute takes on every turn. |
-| **Stepdown** | How deep the cutter goes on each pass. |
-| **Collet** | The split sleeve that grips the cutter's shank inside the spindle. |
-| **Stick-out** | How far the cutter sticks out below the collet nut. |
-| **BitSetter** | The Nomad's built-in switch that measures how long the tool is. |
-| **BitZero** | The corner probe that finds the X, Y and Z zero of your stock. |
+| **Sketch** | A flat 2D drawing on a plane or face that 3D features are built from. |
+| **Center Rectangle** | A rectangle drawn out from its middle point. |
+| **Fillet** | A rounded corner of a set radius. |
+| **Offset** | A copy of a shape a set distance inside or outside it. |
+| **Profile** | A closed area of a sketch that can be extruded. |
+| **Extrude** | Pull a profile up into a solid, or push it down to cut. |
+| **Timeline** | The row of features along the bottom, in the order they were made. |
 
 | Colour | Meaning |
 | --- | --- |
@@ -53,7 +47,7 @@ You model an aluminum block with a rounded-rectangle groove on top, program the 
 | Amber | Changes the load on the cutter and spindle. Fine at the values given. |
 | Red | Use with caution. A wrong value can break the end mill or wreck the part. |
 
-**Spindle speed**, **cutting feedrate** and **stepdown** (Part 2) are amber. The **WCS origin** (Part 2) and **Z zero** (Part 3) are red: if they are wrong, the cutter goes into the wrong place.
+This lesson has no amber or red settings: nothing here can harm a machine. The sizes still matter, because the next lessons cut exactly what you model.
 
 ### Where things are
 
@@ -61,61 +55,31 @@ You model an aluminum block with a rounded-rectangle groove on top, program the 
 | --- | --- |
 | **Workspace switcher** (DESIGN / MANUFACTURE) | Fusion: far left of the toolbar, top-left |
 | **Save** ![Save icon: a grey floppy disk](../../assets/fusion/icon-save.png) | Fusion: top-left bar, just right of the File menu |
-| **Extrude** ![Extrude icon: a blue box with an arrow pointing up](../../assets/fusion/icon-extrude.png) | Fusion: SOLID tab, CREATE ▾ menu (Shortcut: E) |
 | **Create Sketch** ![Create Sketch icon: a dashed sketch outline with a green plus](../../assets/fusion/icon-create-sketch.png) | Fusion: toolbar, left end of the SOLID tab |
+| **Extrude** ![Extrude icon: a blue box with an arrow pointing up](../../assets/fusion/icon-extrude.png) | Fusion: SOLID tab, CREATE ▾ menu (Shortcut: E) |
 | **SKETCH** tab | Fusion: toolbar, opens on its own while you sketch. CREATE ▾ (![Center Rectangle icon: a grey rectangle with a blue dot in the middle](../../assets/fusion/icon-center-rectangle.png)), MODIFY (![Fillet icon: a blue curved corner](../../assets/fusion/icon-fillet.png) ![Offset icon: two blue U shapes, one inside the other](../../assets/fusion/icon-offset.png)) |
-| **Toolbar** | Fusion: across the top. Sketch, Create, Modify, Setup and 2D tools |
+| **Finish Sketch** ![Finish Sketch icon: a green circle with a white tick](../../assets/fusion/icon-finish-sketch.png) | Fusion: green tick at the right end of the SKETCH tab |
+| **Sketch Palette** | Fusion: right side, shows while you sketch. Its **Finish Sketch** button at the bottom ![Finish Sketch button at the bottom of the Sketch Palette, under the 3D Sketch box](../../assets/fusion/finish-sketch-palette.png) does the same job as the green tick |
 | **Browser** | Fusion: left side, under the toolbar. Document Settings, bodies, sketches, Setups |
 | **ViewCube** and **Home** ![Home icon: a small white house](../../assets/fusion/icon-home.png) | Fusion: top-right corner of the canvas. The Home button shows only when the mouse is near the ViewCube |
 | **Navigation bar**: Orbit ![Orbit icon: a curved arrow around a blue dot](../../assets/fusion/icon-orbit.png) · Look At ![Look At icon: a blue screen with a camera top](../../assets/fusion/icon-look-at.png) · Pan ![Pan icon: an open hand](../../assets/fusion/icon-pan.png) · Zoom ![Zoom icon: a magnifying glass with plus and minus](../../assets/fusion/icon-zoom.png) · Fit ![Fit icon: a magnifying glass in a dashed box](../../assets/fusion/icon-fit.png) | Fusion: bottom centre of the canvas, just above the Timeline |
-| **Finish Sketch** ![Finish Sketch icon: a green circle with a white tick](../../assets/fusion/icon-finish-sketch.png) | Fusion: green tick at the right end of the SKETCH tab |
-| **Sketch Palette** | Fusion: right side, shows while you sketch. Its **Finish Sketch** button at the bottom ![Finish Sketch button at the bottom of the Sketch Palette, under the 3D Sketch box](../../assets/fusion/finish-sketch-palette.png) does the same job as the green tick |
 | **Timeline** | Fusion: along the bottom. Every feature in order; double-click one to edit it |
-| **MILLING** tab (MANUFACTURE) | Fusion: toolbar after switching to MANUFACTURE. **SETUP** group: New Setup ![New Setup icon: a grey folder with a blue box](../../assets/fusion/icon-new-setup.png) · **2D** group: 2D Pocket ![2D Pocket icon: a grey square with a blue swirl sunk into it](../../assets/fusion/icon-2d-pocket.png) · **ACTIONS** group: Simulate ![Simulate icon: an end mill over a small blue machine](../../assets/fusion/icon-simulate.png), Post Process ![Post Process icon: G1 G2 in blue](../../assets/fusion/icon-post-process.png) · **MANAGE** group: Tool Library ![Tool Library icon: three cutting tools side by side](../../assets/fusion/icon-tool-library.png) |
-| **Connect to Cutter / Initialize** | Carbide Motion: middle of the start screen |
-| **Jog** | Carbide Motion: top menu bar. Load Tool, Probe, Set Zero |
-| **Run** | Carbide Motion: top menu bar. Load New File, Start Job |
 
 A folded item in the **Browser** opens with the small **›** arrow on its left. Open, the arrow points down (**⌄**).
 
-### Shop safety: read before Part 3
-
-- **Safety glasses on** whenever the Nomad door is open or chips are being cleaned up.
-- **Tie back long hair**, roll up loose sleeves, and take off dangling lanyards or jewellery.
-- **Never bypass the door interlock.** The interlock key is only for probing with the spindle off, and it comes off before the job runs.
-- **Emergency stop = the Power Switch** on the Nomad ([Nomad 3 Getting Started Guide](https://cdn.sparkfun.com/assets/3/5/c/6/0/Nomad3_Getting_Started_Guide_12_22_2020_v1_smaller.pdf)). Know where it is before you press Start.
-- **One operator at the controls.** Everyone else stands back.
-- **End mills are razor sharp.** Hold them by the shank or in a shop rag, never by the flutes.
-- **Aluminum chips are sharp and hot.** Vacuum them out. Never blow them with compressed air or sweep them with bare hands.
-- **Stay with the machine** for the whole job.
-
 ```brief
-Part 1 · Make the object
+Part 1 · The block
 1A · Inch design | File → New Design → Part Design | Unit System: inch (in), ouncemass
 1B · Sketch the block | XY plane · Center Rectangle | Centre on the origin: 4 × 3
 1C · Extrude 1 in | Home view (house by ViewCube) | Extrude · Distance 1 · OK
-1D · Groove sketch | Top face · Center Rectangle 3 × 2 | Fillet 0.5 · Offset −0.5 inside
-1E · Cut the groove | Extrude the ring −0.0625 | Operation Cut · Save
-Part 2 · Toolpath and post
-2A · Manufacture | Workspace switcher → MANUFACTURE
-2B · Setup | Origin: stock box point, top centre | Stock: No additional stock (101.6 × 76.2 × 25.4 mm)
-2C · Tool #1 | 1/4 in flat end mill, 2 flutes | 10,000 rpm · 10 in/min (amber)
-2D · 2D Pocket | Groove floor (the ring) | 0.01 steps · stepover 0.1 · ramp 2°
-2E · Simulate | ACTIONS → Simulate | 7 passes, no red marks
-2F · Post | Carbide 3D (Grbl) post | Save 1001.nc
-Part 3 · Nomad 3 and run
-3A · Hold the stock | Clean · tape · press 30 s | Front-left, 4 in along X
-3B · Start | Power on · Connect to Cutter | Initialize (homes)
-3C · Install the cutter | Load Tool #1 · 1/4 ER-11 collet | 3/4 in stick-out · BitSetter
-3D · Touch down | BitZero front-left · Probe XYZ | MDI to X2 Y1.5 · Zero X Y · remove key
-3E · Run | Load 1001.nc · door shut | Start Job · hand near Pause
-3F · Finish | Wait for stop · vacuum chips | Deburr · check 0.0625 deep
+Part 2 · The groove
+2A · Groove sketch | Top face · Center Rectangle 3 × 2 | Fillet 0.5 · Offset −0.5 inside
+2B · Cut the groove | Extrude the ring −0.0625 | Operation Cut · Save
 Extra · Finished early? (optional)
-Chamfer | Design only: Modify → Chamfer | Top edges 0.03 in · no cut
-Job time | About 15 in per level × 7 ÷ 10 in/min | About 11 min · compare to Simulate
+Chamfer | MODIFY ▾ → Chamfer · top outer edges 0.03 in | Then Suppress it on the Timeline
 ```
 
-## Part 1 · Make the object
+## Part 1 · The block
 
 ### 1A · Start a Part Design in inches
 
@@ -195,7 +159,13 @@ Job time | About 15 in per level × 7 ÷ 10 in/min | About 11 min · compare to 
 
 @figure block-extruded.png The finished block after 1C, seen from the Home view: 4 × 3 in, 1 in tall.
 
-### 1D · Sketch the groove on the top face
+- [ ] The Browser shows **Units: in, ouncemass**
+- [ ] One body, a 4 × 3 × 1 in block, centred on the origin
+- [ ] The Timeline (bottom) shows Sketch, Extrude
+
+## Part 2 · The groove
+
+### 2A · Sketch the groove on the top face
 
 | Setting | Value |
 | --- | --- |
@@ -216,7 +186,7 @@ Job time | About 15 in per level × 7 ÷ 10 in/min | About 11 min · compare to 
 7. Type **-0.5** in **Offset position**. The preview line moves **inside** the loop. If it sits outside, type **0.5** instead. Click **OK**. You now see the rounded outer loop and a smaller 2 × 1 rectangle with square corners inside it, 1/2 in apart.
 8. Click **Finish Sketch** ![Finish Sketch icon: a green circle with a white tick](../../assets/fusion/icon-finish-sketch.png) (green tick, right end of the **SKETCH** tab). The toolbar goes back to the **SOLID** tab.
 
-### 1E · Cut the groove 1/16 in deep
+### 2B · Cut the groove 1/16 in deep
 
 | Setting | Value |
 | --- | --- |
@@ -236,234 +206,22 @@ Job time | About 15 in per level × 7 ÷ 10 in/min | About 11 min · compare to 
 @figure groove-finished.png The finished model: a 1/2 in groove, 1/16 in deep, running around a 2 × 1 in island in the middle of the block.
 4. Click **Save** ![Save icon: a grey floppy disk](../../assets/fusion/icon-save.png). Type a short note such as **groove done** and click **OK**.
 
-- [ ] The Browser shows **Units: in, ouncemass**
-- [ ] One body, a 4 × 3 × 1 in block
 - [ ] A rounded-rectangle groove centred on top, 0.5 in from every edge, 1/2 in wide, round outer corners and a square-cornered island in the middle
 - [ ] The Timeline (bottom) shows Sketch, Extrude, Sketch, Extrude
 - [ ] The design is saved as **Groove Block**
 
-## Part 2 · Toolpath and post
-
-### 2A · Switch to Manufacture
-
-1. Click the **DESIGN ▾** box (the workspace switcher, far left of the toolbar). A list of workspaces drops down. Click **MANUFACTURE**. The box now says MANUFACTURE and the toolbar changes to **MILLING** tools.
-
-@figure ../../assets/fusion/workspace-menu.png The workspace list under the DESIGN ▾ box. MANUFACTURE is about two-thirds of the way down.
-
-@figure ../../assets/fusion/manufacture-toolbar.png The MILLING tab of the MANUFACTURE toolbar. From left: SETUP, 2D, 3D, DRILLING, MULTI-AXIS, MODIFY, ACTIONS, MANAGE, INSPECT and SELECT. This lesson uses SETUP, 2D, ACTIONS and MANAGE.
-
-### 2B · The Setup: stock and work zero
-
-The Setup tells Fusion what the stock is, where zero is, and which way is up. If any of these is wrong, the machine cuts in the wrong place.
-
-| Setup setting | Value | Why |
-| --- | --- | --- |
-| Operation Type | Milling | The Nomad is a 3-axis mill |
-| Orientation | Z up, X along the 4 in side | Matches how the block sits in the Nomad |
-| Origin (red) | Stock box point: top centre | Zero in the middle of the block; Part 3 sets the same point on the Nomad |
-| Stock | Relative size box, No additional stock (101.6 × 76.2 × 25.4 mm = 4 × 3 × 1 in) | The block is already cut to size; only the groove is machined |
-| Program | 1001, WCS offset 0 | Names the file; uses G54, the default work offset |
-
-1. Under **SETUP** on the toolbar, click **New Setup** ![New Setup icon: a grey folder with a blue box](../../assets/fusion/icon-new-setup.png) (the first button). The **Setup** box opens on the right, on its **Setup** tab. An orange box (the stock) appears around the part.
-
-@figure setup-menu.png New Setup is the first button under SETUP. It is also the first item in the SETUP ▾ list, if you open that instead.
-2. Leave **Machine** empty (don't click Select...). Check **Operation Type** says **Milling**.
-3. Under **Work Coordinate System (WCS)**, set **Orientation** to **Model orientation**. The WCS arrows show Z pointing straight up out of the top face. If Z points sideways, choose **Select Z axis/plane & X axis**, click the top face, then click the front 4 in edge.
-4. Set **Origin** to **Stock box point**. A **Stock Point** line appears under it with a blue **Box Point** button, already pressed. Small dots appear on the corners, edges and faces of the stock box. Click the dot in the **centre of the top face**. The WCS arrows jump to the middle of the top.
-
-@figure setup-tab.png The Setup tab: Machine left empty, Operation Type Milling, Orientation Model orientation, Origin Stock box point with the Box Point button pressed, and Model showing Body.
-
-@figure wcs-top-centre.png Work zero on the top centre. The white dots are the stock box points you can pick. After clicking the dot in the middle of the top, the arrows start there: blue Z up, red X to the right, green Y to the back.
-5. Check that **Model** shows **Body** (your block). Leave **Fixture** and **Accessibility Analysis** alone.
-6. Click the **Stock** tab. Leave **Mode** on **Relative size box**. Fusion starts with 1 mm of extra stock added to the sides and top, as in the picture below.
-
-@figure stock-tab-default.png The Stock tab as it first opens: Relative size box, with 1.00 mm added to the sides and top. Stock Dimensions shows 103.6 × 78.2 × 26.4 mm, a little bigger than the block. The next step takes that extra away.
-
-7. Click the **Stock Offset Mode** list and choose **No additional stock**. The offset boxes go away and **Stock Dimensions** changes to **101.6 × 76.2 × 25.4 mm**. That is exactly 4 × 3 × 1 in (Fusion shows CAM sizes in mm here), so the stock box now sits right on the block.
-
-> **Why this matters:** the work zero you picked is the centre of the **stock** top. With 1 mm of extra stock, zero would float 1 mm above the real block and the groove would come out 1 mm too shallow.
-8. Click the **Post Process** tab. Set **Program Name/Number** to **1001** and **Program Comment** to **Groove Block**. Leave **WCS Offset** at **0**.
-9. Click **OK**. **Setup1** appears in the Browser.
-
-**Quick notes:** Zero = top of the stock in Z, centre of the block in X and Y, the same spot as the design origin. Every Z move in the program is negative, into the metal. The groove bottom is Z −0.0625.
-
-### 2C · Make the 1/4 in end mill
-
-| Cutting data | Value |
-| --- | --- |
-| Spindle speed (amber) | 10,000 rpm |
-| Cutting feedrate (amber) | 10 in/min |
-| Feed per tooth (chip load) | 0.0005 in |
-| Plunge feedrate | 2 in/min |
-| Ramp feedrate | 5 in/min |
-| Coolant | Disabled |
-| Tool number | 1 |
-
-1. Under **MANAGE** on the toolbar, click **Tool Library** ![Tool Library icon: three cutting tools side by side](../../assets/fusion/icon-tool-library.png) (the first button). The **Tool Library** window opens.
-2. On the left, under **My Libraries**, click **Local**. Click the **+** (New tool) button at the top and choose **Flat end mill**.
-3. On the **Cutter** tab, enter the numbers from your end mill's package. Typical values for a 1/4 in 2-flute: **Number of flutes 2**, **Diameter 0.25**, **Shaft diameter 0.25**, **Flute length 0.75**, **Overall length 2.5**, **Body length 1**. Set **Unit** to **inches** if it isn't already.
-4. On the **Post processor** tab, set **Number** to **1**. Carbide Motion uses this number when it asks you to load the tool.
-5. On the **Cutting data** tab, enter the values in the table above. Set **Coolant** to **Disabled**.
-6. On the **Info** tab, type the description **1/4 2FL aluminum**. Click **Accept**. The tool appears in the list. Close the Tool Library.
-
-**Quick notes:** 10,000 rpm × 2 flutes × 0.0005 in = 10 in/min. These are cautious starting numbers. Carbide 3D publishes no 1/4 in aluminum recipe for the Nomad, and owners report its 130 W spindle struggles with 1/4 in tools in aluminum ([Carbide 3D forum](https://community.carbide3d.com/t/nomad-3-bogging-down/44765)). Test on a scrap block first.
-
-### 2D · The 2D Pocket toolpath for the groove
-
-| 2D Pocket setting | Value |
-| --- | --- |
-| Tool | #1, 1/4 2FL aluminum |
-| Geometry | The groove floor (the flat ring at the bottom of the groove) |
-| Bottom height | Selected contour(s), offset 0 (Z −0.0625) |
-| Maximum Stepover | 0.1 in |
-| Multiple Depths (amber) | On, Maximum Roughing Stepdown 0.01 in (7 levels) |
-| Ramp | Profile ramp, 2° |
-
-1. Under **2D** on the toolbar, click **2D Pocket** ![2D Pocket icon: a grey square with a blue swirl sunk into it](../../assets/fusion/icon-2d-pocket.png) (the second button). The **2D Pocket** box opens on its **Tool** tab.
-2. Click **Select** beside **Tool**. Pick **1/4 2FL aluminum** and click **Select**. The feeds and speeds fill in from the tool.
-3. Click the **Geometry** tab. Click the **floor of the groove**, the flat ring at the bottom. The whole ring turns blue. Fusion knows to stay between the outer wall and the island.
-4. Click the **Heights** tab. Leave **Top Height** at **Stock top**. Check **Bottom Height** says **Selected contour(s)** with **Offset 0**.
-5. Click the **Passes** tab. Set **Maximum Stepover** to **0.1 in**. Tick **Multiple Depths** and set **Maximum Roughing Stepdown** to **0.01 in**. Leave **Stock to Leave** unticked.
-6. Click the **Linking** tab. Under **Ramp**, set **Ramp Type** to **Profile** and **Ramp Angle** to **2 deg**, so the cutter slopes into the metal along the groove instead of plunging straight down.
-7. Click **OK**. Fusion calculates and lines fill the groove. **2D Pocket1** appears under Setup1.
-
-**Quick notes:** The 1/4 in cutter in a 1/2 in groove makes about two laps per level: one along the outer wall and one along the island. The stepover keeps the cutter overlapping, so no thin strip is left in the middle.
-
-### 2E · Simulate
-
-1. In the Browser, click **Setup1**. Under **ACTIONS** on the toolbar, click **Simulate** ![Simulate icon: an end mill over a small blue machine](../../assets/fusion/icon-simulate.png) (the first button). The **Simulate** box opens and the stock turns solid.
-2. Press **Play** along the bottom. Watch the cutter ramp in and clear the groove in seven levels, two laps each.
-3. Check that the groove is cut and nothing else is touched. Red marks on the bottom timeline mean a collision or a cut in the wrong place: stop and fix the Setup or the pocket selection.
-4. Note the **Machining time** in the Simulate box (about 11 to 14 minutes is expected). Click **Close**.
-
-### 2F · Post with the Carbide 3D post processor
-
-| Post setting | Value |
-| --- | --- |
-| Post processor | Carbide 3D (Grbl), carbide3d.cps, from the Fusion Library |
-| Program name | 1001 |
-| Units | Inches |
-
-1. With **Setup1** selected, click **Post Process** ![Post Process icon: G1 G2 in blue](../../assets/fusion/icon-post-process.png) (the **G1 G2** button under **ACTIONS**). The **Post Process** window opens.
-2. Click the post processor list, search for **Carbide 3D** and choose **Carbide 3D (Grbl)** from the **Fusion Library** ([Carbide 3D: Fusion 360](https://docs.carbide3d.com/software-faq/fusion360/)). Tick its star to keep it in your favourites.
-3. Check **Program name** is **1001** and **Units** are **Inches**. Choose an **Output folder** you can reach from the Nomad's computer (USB stick or shared drive).
-4. Click **Post**. A **1001.nc** file is saved and usually opens in a text window.
-5. Look at the first lines. You should see **G20** (inches), **T1**, **S10000 M3** (spindle on at 10,000 rpm) and a **G0** move to a safe height. Close the window.
-
-> **Licence note:** On the free Personal use licence of Fusion, rapid moves are slowed to the cutting feed, so the job runs longer. The school Education licence does not have that limit.
-
-- [ ] **Setup1** shows the WCS in the centre of the top of the stock, with Z up
-- [ ] Stock Dimensions read 101.6 × 76.2 × 25.4 mm (4 × 3 × 1 in)
-- [ ] Tool **#1** is a 1/4 in 2-flute flat end mill at 10,000 rpm and 10 in/min
-- [ ] **2D Pocket1** clears the whole groove in seven levels with no red marks
-- [ ] A **1001.nc** file is saved where the Nomad computer can reach it
-
-## Part 3 · Nomad 3 and run
-
-### 3A · Prepare the stock and the bed
-
-| Item | Value |
-| --- | --- |
-| Stock size check | 4 × 3 × 1 in with calipers |
-| Hold-down | Double-sided tape over most of the bottom |
-| Placement | Front-left of the bed, 4 in side along X |
-
-1. Put on **safety glasses**.
-2. Measure the block with calipers. It should be 4 × 3 × 1 in, within a few thousandths. File any sharp saw edges.
-3. Wipe the bottom of the block and the Nomad's MDF wasteboard with isopropyl alcohol. Tape will not stick to oil or dust.
-4. Cover most of the bottom of the block with strips of the **double-sided tape** that came with the Nomad.
-5. Place the block near the **front-left** of the bed, the 4 in side running left to right (along X). Leave room around the front-left corner for the BitZero, which you use to find the centre.
-6. Press down hard for about 30 seconds. Try to slide it with your hand: it must not move.
-
-> **Safety:** A part that comes loose can break the end mill and throw pieces. If the tape will not hold, use the Nomad clamps or a small vise, with every clamp away from the groove path.
-
-### 3B · Start and home the Nomad
-
-1. Close the Nomad door. Turn on the **Power Switch**.
-2. Open **Carbide Motion** on the computer and click **Connect to Cutter**. The status changes to connected.
-3. Click **Initialize**. The Nomad homes each axis. Keep your hands out while it moves.
-
-### 3C · Install the 1/4 in end mill
-
-| Item | Value |
-| --- | --- |
-| Collet | 1/4 in ER-11 |
-| Stick-out | about 3/4 in (at least 1/2 in for the BitSetter) |
-| Tool number | 1 |
-
-Only change tools when Carbide Motion asks you to, or after you click **Load Tool**. Otherwise the BitSetter measurement and your zero no longer agree ([Carbide 3D: Set Zero](https://my.carbide3d.com/docs/set-zero/)).
-
-1. Click **Jog** (top menu bar), then **Load Tool**. Choose tool **#1** when asked. The spindle moves forward to the tool-change spot and stops.
-2. Open the door. Snap the **1/4 in ER-11 collet** into the collet nut first, until it clicks. Then thread the nut loosely onto the spindle.
-3. Holding the end mill in a shop rag, slide it up into the collet. Leave about **3/4 in** sticking out below the nut.
-4. Hold the spindle with one wrench and tighten the nut with the other: snug and firm, without leaning your whole weight on it.
-5. Pull gently on the end mill. It must not move. Take the wrenches out and close the door.
-6. Click **Resume** or **Done**. The Nomad moves over the **BitSetter** and touches the end mill on it to measure its length.
-
-### 3D · Touch down: set zero with the BitZero V2
-
-| Item | Value |
-| --- | --- |
-| Probe | BitZero V2 on the front-left corner, XYZ |
-| Move to the centre (MDI) | G0 Z0.5, then G0 X2 Y1.5 |
-| Set Zero | X and Y only (Z stays on the top from the probe) |
-
-The BitZero finds the top, front-left corner. Because the block is 4 × 3 in, its centre is 2 in right and 1.5 in back from that corner. You move there and make it the new X and Y zero, to match the Fusion Setup.
-
-1. Open the door. Set the **BitZero V2** on the **front-left corner** of the block, its locating edges pressed against the front and left sides ([BitZero V2 for Nomad 3 guide](https://my.carbide3d.com/pdf/BitZero_V2_Nomad3_Setup_and_User_Guide__03-08-2021_v1.pdf)).
-2. Clip the BitZero's magnetic ground lead onto the **collet nut**.
-3. Place the **interlock key** on the door's interlock sensor, as the guide shows. The spindle stays **off** during probing.
-4. In Carbide Motion's **Jog** screen, jog the end mill until it is over the BitZero's hole, about 1/4 in above it.
-5. Click **Probe**, choose **XYZ**, and choose the **1/4 in end mill** as the probing tool. Click **Start**. The end mill touches the inside of the hole, then the top. Carbide Motion now reads X 0, Y 0, Z 0 at that corner.
-6. Jog Z up about 1/2 in. Take off the ground clip and the BitZero, and lift them out of the machine.
-7. Open **MDI** in Carbide Motion. Type **G0 Z0.5** and send it. The end mill rises to 1/2 in above the block. Then type **G0 X2 Y1.5** and send it. The end mill moves to the centre of the block.
-8. Look from the front and the side: the end mill should sit over the middle of the block.
-9. On the **Jog** screen, click **Set Zero** and choose **X** and **Y** only. X and Y now read 0 here. Leave Z alone: it is already zero on the top of the block.
-10. Take off the **interlock key** and close the door.
-
-> **Safety:** The interlock key must come off before the job runs. With it on, opening the door will not stop the spindle.
-
-### 3E · Load and run the program
-
-1. Click **Run** (top menu bar), then **Load New File**. Open **1001.nc**. A preview of the groove path appears with the job time.
-2. Check that the preview is a rounded rectangle inside the block, and the time is close to the Fusion simulation.
-3. If you like, put a few drops of cutting fluid or WD-40 along the groove line now, with the door open and the spindle stopped.
-4. Close the door. Put your hand near **Pause**, and know where the **Power Switch** is.
-5. Click **Start Job**. The spindle spins up and the end mill ramps into the top of the block.
-6. Watch the first full pass. A steady hiss with small chips is good. Loud squealing, chatter or a bogging spindle means **Pause** (see Troubleshooting).
-7. Let all seven levels finish. Wait for the spindle to **stop completely** before you open the door.
-
-### 3F · Clean up and finish
-
-1. Vacuum the chips out of the groove and the machine. Do not use compressed air.
-2. Slide a plastic scraper under the block to release the tape. A little isopropyl alcohol helps.
-3. Deburr the groove edges with a deburring tool or fine file. Wipe the part clean.
-4. Measure the groove depth with the depth rod of the calipers: about **0.0625 in**.
-5. Click **Load Tool** and take the end mill out with the rag. Put it back in its case.
-
-- [ ] The block stayed tight and did not move during the cut
-- [ ] The end mill was installed through **Load Tool** and measured by the BitSetter
-- [ ] Z zero is on the top of the block, X and Y zero in its centre, and the interlock key was removed
-- [ ] The groove is centred, 1/2 in wide, about 0.0625 in deep, with round corners
-- [ ] The edges are deburred and the machine is vacuumed clean
-
 ## Extra · Finished early?
 
-Optional. These don't change the cut.
+Optional, and not part of the cut in the next lessons.
 
-- **Chamfer in Design only:** switch back to **DESIGN**, choose **Modify → Chamfer**, click the four top outer edges of the block and type **0.03**. Watch the Timeline grow. Do not post or cut this.
-- **Work out the job time by hand:** at each level the cutter makes an outer lap of about **8.4 in** and an inner lap around the island of about **6.8 in**, about **15 in** in all. Seven levels at 10 in/min is about **11 minutes**. Compare that with Fusion's Simulate time and explain the difference (ramps, rapid moves).
+- **Chamfer the top edges:** choose **MODIFY ▾ → Chamfer**, click the four top outer edges of the block and type **0.03**. Watch a new icon appear on the Timeline. Then right-click that Chamfer icon on the Timeline and choose **Suppress Features**, so the next lesson cuts the plain block.
 
 ## Troubleshooting
 
 | Problem | Fix |
 | --- | --- |
 | The Units line says mm, not in | In the Browser, hover over **Units** and click the pencil at the end of the line. Set **Unit System** to **inch (in), ouncemass** and click **OK**. |
-| Fusion says the toolpath is empty | Check the Geometry tab has the groove **floor** (the ring) selected, not an edge or the top face. |
-| Simulation cuts the island or outside the groove | Re-select only the groove **floor**. If the island is selected too, Fusion pockets it away. |
-| Cut is in the wrong spot on the block | The Fusion origin must be the **top centre**, and X and Y zero on the Nomad must be set after the move to X2 Y1.5. Re-probe and set zero again. |
-| Groove too deep or too shallow | The tool was changed without **Load Tool**. Use Load Tool, then re-probe zero. |
-| Loud squeal or chatter | Shorten the stick-out, add a little cutting fluid, and change the feed in small steps on scrap. |
-| Spindle bogs down | The cut is too heavy for the 130 W spindle. Try stepdown 0.005 in or feed 6 in/min, or switch to a 1/8 in end mill. |
-| Carbide Motion rejects the file | Re-post with **Carbide 3D (Grbl)**, units inches. |
-| Block moves during the cut | Pause, power off, clean both surfaces, re-tape or clamp, then re-zero. |
+| The rectangle came out the wrong size | The mouse moved while you typed. Press **Ctrl + Z** and draw it again with your hand off the mouse. |
+| The numbers went into the wrong boxes | Only the **highlighted** box takes your typing. Use **Tab** to move to the other box before you type. |
+| The groove is cut in the island instead of the ring | Double-click the second Extrude on the Timeline, clear the profile with the **×**, and click only the ring. |
+| The block is off screen | Click **Fit** on the navigation bar. |
