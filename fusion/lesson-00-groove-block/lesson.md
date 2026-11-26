@@ -98,7 +98,7 @@ Part 1 · Make the object
 1E · Cut the groove | Extrude the ring −0.0625 | Operation Cut · Save
 Part 2 · Toolpath and post
 2A · Manufacture | Workspace switcher → MANUFACTURE
-2B · Setup | Origin: stock box point, top centre | Stock: fixed box 4 × 3 × 1
+2B · Setup | Origin: stock box point, top centre | Stock: No additional stock (101.6 × 76.2 × 25.4 mm)
 2C · Tool #1 | 1/4 in flat end mill, 2 flutes | 10,000 rpm · 10 in/min (amber)
 2D · 2D Pocket | Groove floor (the ring) | 0.01 steps · stepover 0.1 · ramp 2°
 2E · Simulate | ACTIONS → Simulate | 7 passes, no red marks
@@ -261,7 +261,7 @@ The Setup tells Fusion what the stock is, where zero is, and which way is up. If
 | Operation Type | Milling | The Nomad is a 3-axis mill |
 | Orientation | Z up, X along the 4 in side | Matches how the block sits in the Nomad |
 | Origin (red) | Stock box point: top centre | Zero in the middle of the block; Part 3 sets the same point on the Nomad |
-| Stock | Fixed size box 4 × 3 × 1 in, 0 offsets | The block is already cut to size; only the groove is machined |
+| Stock | Relative size box, No additional stock (101.6 × 76.2 × 25.4 mm = 4 × 3 × 1 in) | The block is already cut to size; only the groove is machined |
 | Program | 1001, WCS offset 0 | Names the file; uses G54, the default work offset |
 
 1. Under **SETUP** on the toolbar, click **New Setup** ![New Setup icon: a grey folder with a blue box](../../assets/fusion/icon-new-setup.png) (the first button). The **Setup** box opens on the right, on its **Setup** tab. An orange box (the stock) appears around the part.
@@ -275,9 +275,15 @@ The Setup tells Fusion what the stock is, where zero is, and which way is up. If
 
 @figure wcs-top-centre.png Work zero on the top centre. The white dots are the stock box points you can pick. After clicking the dot in the middle of the top, the arrows start there: blue Z up, red X to the right, green Y to the back.
 5. Check that **Model** shows **Body** (your block). Leave **Fixture** and **Accessibility Analysis** alone.
-6. Click the **Stock** tab. Set **Mode** to **Fixed size box**. Type **Width (X) 4**, **Depth (Y) 3**, **Height (Z) 1**. Set every offset to **0** so the stock box sits exactly on the block.
-7. Click the **Post Process** tab. Set **Program Name/Number** to **1001** and **Program Comment** to **Groove Block**. Leave **WCS Offset** at **0**.
-8. Click **OK**. **Setup1** appears in the Browser.
+6. Click the **Stock** tab. Leave **Mode** on **Relative size box**. Fusion starts with 1 mm of extra stock added to the sides and top, as in the picture below.
+
+@figure stock-tab-default.png The Stock tab as it first opens: Relative size box, with 1.00 mm added to the sides and top. Stock Dimensions shows 103.6 × 78.2 × 26.4 mm, a little bigger than the block. The next step takes that extra away.
+
+7. Click the **Stock Offset Mode** list and choose **No additional stock**. The offset boxes go away and **Stock Dimensions** changes to **101.6 × 76.2 × 25.4 mm**. That is exactly 4 × 3 × 1 in (Fusion shows CAM sizes in mm here), so the stock box now sits right on the block.
+
+> **Why this matters:** the work zero you picked is the centre of the **stock** top. With 1 mm of extra stock, zero would float 1 mm above the real block and the groove would come out 1 mm too shallow.
+8. Click the **Post Process** tab. Set **Program Name/Number** to **1001** and **Program Comment** to **Groove Block**. Leave **WCS Offset** at **0**.
+9. Click **OK**. **Setup1** appears in the Browser.
 
 **Quick notes:** Zero = top of the stock in Z, centre of the block in X and Y, the same spot as the design origin. Every Z move in the program is negative, into the metal. The groove bottom is Z −0.0625.
 
@@ -347,7 +353,7 @@ The Setup tells Fusion what the stock is, where zero is, and which way is up. If
 > **Licence note:** On the free Personal use licence of Fusion, rapid moves are slowed to the cutting feed, so the job runs longer. The school Education licence does not have that limit.
 
 - [ ] **Setup1** shows the WCS in the centre of the top of the stock, with Z up
-- [ ] The stock box is exactly 4 × 3 × 1 in
+- [ ] Stock Dimensions read 101.6 × 76.2 × 25.4 mm (4 × 3 × 1 in)
 - [ ] Tool **#1** is a 1/4 in 2-flute flat end mill at 10,000 rpm and 10 in/min
 - [ ] **2D Pocket1** clears the whole groove in seven levels with no red marks
 - [ ] A **1001.nc** file is saved where the Nomad computer can reach it
