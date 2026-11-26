@@ -229,7 +229,9 @@ Job time | About 15 in per level × 7 ÷ 10 in/min | About 11 min · compare to 
 @figure select-ring.png Choosing the profile for the cut. With the mouse over the ring, it lights up between the outer loop and the island. The island in the middle stays out.
 
 2. In **Distance**, type **-0.0625**. The arrow points down into the block.
-3. Check that **Operation** says **Cut** (red preview). Click **OK**. The groove is cut into the top of the block.
+3. Check that **Operation** says **Cut** (red preview) and **Profiles** says **1 selected**. Leave the other settings as they are. Click **OK**. The groove is cut into the top of the block.
+
+@figure extrude-cut-settings.png The Extrude settings for the groove: Profiles 1 selected, Distance −0.0625 in, Operation Cut. (This picture was taken while editing the feature, so its title says EDIT FEATURE. Yours says EXTRUDE.)
 4. Click **Save** ![Save icon: a grey floppy disk](../../assets/fusion/icon-save.png). Type a short note such as **groove done** and click **OK**.
 
 - [ ] The Browser shows **Units: in, ouncemass**
