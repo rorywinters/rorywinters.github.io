@@ -85,7 +85,7 @@ A folded item in the **Browser** opens with the small **›** arrow on its left.
 
 ```brief
 Part 1 · Make the object
-1A · Inch design | File → New Design | Document Settings → Units: Inch
+1A · Inch design | File → New Design | Units pencil → Unit System: inch
 1B · Sketch the block | XY plane · 2-Point Rectangle | From the origin: 4 × 3
 1C · Extrude 1 in | Create → Extrude | Distance 1 · OK
 1D · Groove sketch | Top face: 3 × 2, 0.5 from edges | Fillet 0.5 · Offset 0.25 inside
@@ -115,7 +115,7 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 
 | Setting | Value |
 | --- | --- |
-| Unit Type | Inch |
+| Unit System | inch (in) |
 | Design name | Groove Block |
 
 1. Open Fusion. Check that the **workspace switcher** (far left of the toolbar) says **DESIGN**.
@@ -124,8 +124,11 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 
 @figure browser-document-settings.png The Browser with Document Settings open. A new design starts in millimetres (Units: mm, g); the next step changes it to inches.
 
-4. Hover over **Units: mm, g** and click the pencil icon that appears at the right end of the line. The **Change Active Units** box opens on the right.
-5. Set **Unit Type** to **Inch** and click **OK**. The Units line in the Browser now starts with **in** instead of mm.
+4. Hover over **Units: mm, g**. A pencil icon appears at the right end of the line, and its label says **Change Active Units**. Click the pencil. The **Change Active Units** box opens.
+
+@figure change-active-units.png The pencil at the end of the Units line opens the Change Active Units box. It starts on millimetre (mm), gram (g); Length and Mass are greyed out because they follow the Unit System.
+
+5. Click the **Unit System** list and choose the **inch (in)** option. **Length** changes to inch. Leave **Set as default** ticked so your next designs also start in inches. Click **OK**. The Units line in the Browser now starts with **in** instead of mm.
 6. Click **Save** (the disk icon, top-left). Name the design **Groove Block** and click **Save**. The tab name changes to **Groove Block**.
 
 ### 1B · Sketch the block
