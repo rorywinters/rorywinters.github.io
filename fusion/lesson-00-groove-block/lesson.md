@@ -71,7 +71,7 @@ You model an aluminum block with a rounded-rectangle groove on top, program the 
 | **Finish Sketch** ![Finish Sketch icon: a green circle with a white tick](../../assets/fusion/icon-finish-sketch.png) | Fusion: green tick at the right end of the SKETCH tab |
 | **Sketch Palette** | Fusion: right side, shows while you sketch. Its **Finish Sketch** button at the bottom ![Finish Sketch button at the bottom of the Sketch Palette, under the 3D Sketch box](../../assets/fusion/finish-sketch-palette.png) does the same job as the green tick |
 | **Timeline** | Fusion: along the bottom. Every feature in order; double-click one to edit it |
-| **Actions** | Fusion: right end of the MANUFACTURE toolbar. Simulate and Post Process |
+| **MILLING** tab (MANUFACTURE) | Fusion: toolbar after switching to MANUFACTURE. **SETUP** group: New Setup ![New Setup icon: a grey folder with a blue box](../../assets/fusion/icon-new-setup.png) · **2D** group: 2D Pocket ![2D Pocket icon: a grey square with a blue swirl sunk into it](../../assets/fusion/icon-2d-pocket.png) · **ACTIONS** group: Simulate ![Simulate icon: an end mill over a small blue machine](../../assets/fusion/icon-simulate.png), Post Process ![Post Process icon: G1 G2 in blue](../../assets/fusion/icon-post-process.png) · **MANAGE** group: Tool Library ![Tool Library icon: three cutting tools side by side](../../assets/fusion/icon-tool-library.png) |
 | **Connect to Cutter / Initialize** | Carbide Motion: middle of the start screen |
 | **Jog** | Carbide Motion: top menu bar. Load Tool, Probe, Set Zero |
 | **Run** | Carbide Motion: top menu bar. Load New File, Start Job |
@@ -101,7 +101,7 @@ Part 2 · Toolpath and post
 2B · Setup | Origin: stock box point, top centre | Stock: fixed box 4 × 3 × 1
 2C · Tool #1 | 1/4 in flat end mill, 2 flutes | 10,000 rpm · 10 in/min (amber)
 2D · 2D Pocket | Groove floor (the ring) | 0.01 steps · stepover 0.1 · ramp 2°
-2E · Simulate | Actions → Simulate | 7 passes, no red marks
+2E · Simulate | ACTIONS → Simulate | 7 passes, no red marks
 2F · Post | Carbide 3D (Grbl) post | Save 1001.nc
 Part 3 · Nomad 3 and run
 3A · Hold the stock | Clean · tape · press 30 s | Front-left, 4 in along X
@@ -250,6 +250,8 @@ Job time | About 15 in per level × 7 ÷ 10 in/min | About 11 min · compare to 
 
 @figure ../../assets/fusion/workspace-menu.png The workspace list under the DESIGN ▾ box. MANUFACTURE is about two-thirds of the way down.
 
+@figure ../../assets/fusion/manufacture-toolbar.png The MILLING tab of the MANUFACTURE toolbar. From left: SETUP, 2D, 3D, DRILLING, MULTI-AXIS, MODIFY, ACTIONS, MANAGE, INSPECT and SELECT. This lesson uses SETUP, 2D, ACTIONS and MANAGE.
+
 ### 2B · The Setup: stock and work zero
 
 The Setup tells Fusion what the stock is, where zero is, and which way is up. If any of these is wrong, the machine cuts in the wrong place.
@@ -262,7 +264,7 @@ The Setup tells Fusion what the stock is, where zero is, and which way is up. If
 | Stock | Fixed size box 4 × 3 × 1 in, 0 offsets | The block is already cut to size; only the groove is machined |
 | Program | 1001, WCS offset 0 | Names the file; uses G54, the default work offset |
 
-1. On the toolbar, click **Setup → New Setup**. The **Setup** box opens on the right, on its **Setup** tab. An orange box (the stock) appears around the part.
+1. Under **SETUP** on the toolbar, click **New Setup** ![New Setup icon: a grey folder with a blue box](../../assets/fusion/icon-new-setup.png) (the first button). The **Setup** box opens on the right, on its **Setup** tab. An orange box (the stock) appears around the part.
 2. Set **Operation Type** to **Milling**.
 3. Under **Work Coordinate System (WCS)**, set **Orientation** to **Model orientation**. The WCS arrows show Z pointing straight up out of the top face. If Z points sideways, choose **Select Z axis/plane & X axis**, click the top face, then click the front 4 in edge.
 4. Set **Origin** to **Stock box point**. Small dots appear on the corners and edges of the stock box. Click the dot in the **centre of the top face**. The WCS arrows jump to the middle of the top.
@@ -285,7 +287,7 @@ The Setup tells Fusion what the stock is, where zero is, and which way is up. If
 | Coolant | Disabled |
 | Tool number | 1 |
 
-1. On the toolbar, click **Manage → Tool Library**. The **Tool Library** window opens.
+1. Under **MANAGE** on the toolbar, click **Tool Library** ![Tool Library icon: three cutting tools side by side](../../assets/fusion/icon-tool-library.png) (the first button). The **Tool Library** window opens.
 2. On the left, under **My Libraries**, click **Local**. Click the **+** (New tool) button at the top and choose **Flat end mill**.
 3. On the **Cutter** tab, enter the numbers from your end mill's package. Typical values for a 1/4 in 2-flute: **Number of flutes 2**, **Diameter 0.25**, **Shaft diameter 0.25**, **Flute length 0.75**, **Overall length 2.5**, **Body length 1**. Set **Unit** to **inches** if it isn't already.
 4. On the **Post processor** tab, set **Number** to **1**. Carbide Motion uses this number when it asks you to load the tool.
@@ -305,7 +307,7 @@ The Setup tells Fusion what the stock is, where zero is, and which way is up. If
 | Multiple Depths (amber) | On, Maximum Roughing Stepdown 0.01 in (7 levels) |
 | Ramp | Profile ramp, 2° |
 
-1. On the toolbar, click **2D → 2D Pocket**. The **2D Pocket** box opens on its **Tool** tab.
+1. Under **2D** on the toolbar, click **2D Pocket** ![2D Pocket icon: a grey square with a blue swirl sunk into it](../../assets/fusion/icon-2d-pocket.png) (the second button). The **2D Pocket** box opens on its **Tool** tab.
 2. Click **Select** beside **Tool**. Pick **1/4 2FL aluminum** and click **Select**. The feeds and speeds fill in from the tool.
 3. Click the **Geometry** tab. Click the **floor of the groove**, the flat ring at the bottom. The whole ring turns blue. Fusion knows to stay between the outer wall and the island.
 4. Click the **Heights** tab. Leave **Top Height** at **Stock top**. Check **Bottom Height** says **Selected contour(s)** with **Offset 0**.
@@ -317,7 +319,7 @@ The Setup tells Fusion what the stock is, where zero is, and which way is up. If
 
 ### 2E · Simulate
 
-1. In the Browser, click **Setup1**. Open **Actions** (right end of the toolbar) and choose **Simulate**. The **Simulate** box opens and the stock turns solid.
+1. In the Browser, click **Setup1**. Under **ACTIONS** on the toolbar, click **Simulate** ![Simulate icon: an end mill over a small blue machine](../../assets/fusion/icon-simulate.png) (the first button). The **Simulate** box opens and the stock turns solid.
 2. Press **Play** along the bottom. Watch the cutter ramp in and clear the groove in seven levels, two laps each.
 3. Check that the groove is cut and nothing else is touched. Red marks on the bottom timeline mean a collision or a cut in the wrong place: stop and fix the Setup or the pocket selection.
 4. Note the **Machining time** in the Simulate box (about 11 to 14 minutes is expected). Click **Close**.
@@ -330,7 +332,7 @@ The Setup tells Fusion what the stock is, where zero is, and which way is up. If
 | Program name | 1001 |
 | Units | Inches |
 
-1. With **Setup1** selected, open **Actions** and choose **Post Process**. The **Post Process** window opens.
+1. With **Setup1** selected, click **Post Process** ![Post Process icon: G1 G2 in blue](../../assets/fusion/icon-post-process.png) (the **G1 G2** button under **ACTIONS**). The **Post Process** window opens.
 2. Click the post processor list, search for **Carbide 3D** and choose **Carbide 3D (Grbl)** from the **Fusion Library** ([Carbide 3D: Fusion 360](https://docs.carbide3d.com/software-faq/fusion360/)). Tick its star to keep it in your favourites.
 3. Check **Program name** is **1001** and **Units** are **Inches**. Choose an **Output folder** you can reach from the Nomad's computer (USB stick or shared drive).
 4. Click **Post**. A **1001.nc** file is saved and usually opens in a text window.
