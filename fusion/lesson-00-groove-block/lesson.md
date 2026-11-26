@@ -265,6 +265,8 @@ The Setup tells Fusion what the stock is, where zero is, and which way is up. If
 | Program | 1001, WCS offset 0 | Names the file; uses G54, the default work offset |
 
 1. Under **SETUP** on the toolbar, click **New Setup** ![New Setup icon: a grey folder with a blue box](../../assets/fusion/icon-new-setup.png) (the first button). The **Setup** box opens on the right, on its **Setup** tab. An orange box (the stock) appears around the part.
+
+@figure setup-menu.png New Setup is the first button under SETUP. It is also the first item in the SETUP ▾ list, if you open that instead.
 2. Set **Operation Type** to **Milling**.
 3. Under **Work Coordinate System (WCS)**, set **Orientation** to **Model orientation**. The WCS arrows show Z pointing straight up out of the top face. If Z points sideways, choose **Select Z axis/plane & X axis**, click the top face, then click the front 4 in edge.
 4. Set **Origin** to **Stock box point**. Small dots appear on the corners and edges of the stock box. Click the dot in the **centre of the top face**. The WCS arrows jump to the middle of the top.
