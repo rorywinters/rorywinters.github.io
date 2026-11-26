@@ -272,6 +272,8 @@ The Setup tells Fusion what the stock is, where zero is, and which way is up. If
 4. Set **Origin** to **Stock box point**. A **Stock Point** line appears under it with a blue **Box Point** button, already pressed. Small dots appear on the corners, edges and faces of the stock box. Click the dot in the **centre of the top face**. The WCS arrows jump to the middle of the top.
 
 @figure setup-tab.png The Setup tab: Machine left empty, Operation Type Milling, Orientation Model orientation, Origin Stock box point with the Box Point button pressed, and Model showing Body.
+
+@figure wcs-top-centre.png Work zero on the top centre. The white dots are the stock box points you can pick. After clicking the dot in the middle of the top, the arrows start there: blue Z up, red X to the right, green Y to the back.
 5. Check that **Model** shows **Body** (your block). Leave **Fixture** and **Accessibility Analysis** alone.
 6. Click the **Stock** tab. Set **Mode** to **Fixed size box**. Type **Width (X) 4**, **Depth (Y) 3**, **Height (Z) 1**. Set every offset to **0** so the stock box sits exactly on the block.
 7. Click the **Post Process** tab. Set **Program Name/Number** to **1001** and **Program Comment** to **Groove Block**. Leave **WCS Offset** at **0**.
