@@ -210,6 +210,8 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 
 @figure groove-dimension-boxes.png Typing the groove size. After 3 and Tab, the bottom box shows **3 in** with a gold padlock (that size is locked in), and the left box is highlighted, ready for **2**. A 3 × 2 rectangle appears in the centre of the top face, 0.5 in in from every edge.
 5. On the **SKETCH** tab, click **Fillet** ![Fillet icon: a blue curved corner](../../assets/fusion/icon-fillet.png) (the first button under **MODIFY**). Click the two lines that meet at one corner, type **0.5** and press **Enter**. That corner rounds. Do the other three corners the same way.
+
+@figure groove-fillets.png All four corners rounded. Only one **R0.50** label shows: the small = marks at the other corners mean Fusion made them equal to it. The 3.00 and 2.00 sizes stay the same.
 6. Click **Offset** ![Offset icon: two blue U shapes, one inside the other](../../assets/fusion/icon-offset.png) (the third button under **MODIFY**). Click one line of the rounded rectangle. The whole loop highlights and an arrow appears.
 7. Type **0.25** in **Offset position**. If the preview line sits outside the loop, type **-0.25** instead, so the new loop sits **inside**. Click **OK**. You now see two rounded loops, 1/4 in apart.
 8. Click **Finish Sketch** ![Finish Sketch icon: a green circle with a white tick](../../assets/fusion/icon-finish-sketch.png) (green tick, right end of the **SKETCH** tab). The toolbar goes back to the **SOLID** tab.
