@@ -60,6 +60,7 @@ You model an aluminum block with a rounded-rectangle groove on top, program the 
 | Thing | Where on the screen |
 | --- | --- |
 | **Workspace switcher** (DESIGN / MANUFACTURE) | Fusion: far left of the toolbar, top-left |
+| **Save** ![Save icon: a grey floppy disk](../../assets/fusion/icon-save.png) | Fusion: top-left, in the bar above the toolbar |
 | **Toolbar** | Fusion: across the top. Sketch, Create, Modify, Setup and 2D tools |
 | **Browser** | Fusion: left side, under the toolbar. Document Settings, bodies, sketches, Setups |
 | **ViewCube** | Fusion: top-right corner of the canvas |
@@ -131,7 +132,7 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 
 @figure browser-document-settings.png Document Settings open in the Browser. This one still says mm, g: if yours does too, see Troubleshooting.
 
-7. Click **Save** (the disk icon, top-left). Name the design **Groove Block** and click **Save**. The tab name changes to **Groove Block**.
+7. Click **Save** ![Save icon: a grey floppy disk](../../assets/fusion/icon-save.png) (top-left, in the bar above the toolbar). Name the design **Groove Block** and click **Save**. The tab name changes to **Groove Block**.
 
 ### 1B · Sketch the block
 
@@ -191,7 +192,7 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 1. **Create → Extrude.** Click the **thin ring** between the two loops. Only the ring turns blue, not the middle.
 2. In **Distance**, type **-0.0625**. The arrow points down into the block.
 3. Check that **Operation** says **Cut** (red preview). Click **OK**. The groove is cut into the top of the block.
-4. Click **Save**. Type a short note such as **groove done** and click **OK**.
+4. Click **Save** ![Save icon: a grey floppy disk](../../assets/fusion/icon-save.png). Type a short note such as **groove done** and click **OK**.
 
 - [ ] The Browser's Units line starts with **in**
 - [ ] One body, a 4 × 3 × 1 in block
