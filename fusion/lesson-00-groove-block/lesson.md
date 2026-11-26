@@ -62,7 +62,7 @@ You model an aluminum block with a rounded-rectangle groove on top, program the 
 | **Workspace switcher** (DESIGN / MANUFACTURE) | Fusion: far left of the toolbar, top-left |
 | **Save** ![Save icon: a grey floppy disk](../../assets/fusion/icon-save.png) | Fusion: top-left, in the bar above the toolbar |
 | **Create Sketch** ![Create Sketch icon: a dashed sketch outline with a green plus](../../assets/fusion/icon-create-sketch.png) | Fusion: toolbar, left end of the SOLID tab |
-| **SKETCH** tab | Fusion: toolbar, opens on its own while you sketch. CREATE ▾ (![Sketch Dimension icon: a blue arrow between two grey lines](../../assets/fusion/icon-sketch-dimension.png) ![2-Point Rectangle icon: a grey rectangle with blue corner dots](../../assets/fusion/icon-rectangle.png)), MODIFY (![Fillet icon: a blue curved corner](../../assets/fusion/icon-fillet.png) ![Offset icon: two blue U shapes, one inside the other](../../assets/fusion/icon-offset.png)) |
+| **SKETCH** tab | Fusion: toolbar, opens on its own while you sketch. CREATE ▾ (![Center Rectangle icon: a grey rectangle with a blue dot in the middle](../../assets/fusion/icon-center-rectangle.png)), MODIFY (![Fillet icon: a blue curved corner](../../assets/fusion/icon-fillet.png) ![Offset icon: two blue U shapes, one inside the other](../../assets/fusion/icon-offset.png)) |
 | **Toolbar** | Fusion: across the top. Sketch, Create, Modify, Setup and 2D tools |
 | **Browser** | Fusion: left side, under the toolbar. Document Settings, bodies, sketches, Setups |
 | **ViewCube** | Fusion: top-right corner of the canvas |
@@ -89,13 +89,13 @@ A folded item in the **Browser** opens with the small **›** arrow on its left.
 ```brief
 Part 1 · Make the object
 1A · Inch design | File → New Design → Part Design | Unit System: inch (in), ouncemass
-1B · Sketch the block | XY plane · 2-Point Rectangle | From the origin: 4 × 3
+1B · Sketch the block | XY plane · Center Rectangle | Centre on the origin: 4 × 3
 1C · Extrude 1 in | Create → Extrude | Distance 1 · OK
-1D · Groove sketch | Top face: 3 × 2, 0.5 from edges | Fillet 0.5 · Offset 0.25 inside
+1D · Groove sketch | Top face · Center Rectangle 3 × 2 | Fillet 0.5 · Offset 0.25 inside
 1E · Cut the groove | Extrude the ring −0.0625 | Operation Cut · Save
 Part 2 · Toolpath and post
 2A · Manufacture | Workspace switcher → MANUFACTURE
-2B · Setup | Origin: stock box point, top front-left | Stock: fixed box 4 × 3 × 1
+2B · Setup | Origin: stock box point, top centre | Stock: fixed box 4 × 3 × 1
 2C · Tool #1 | 1/4 in flat end mill, 2 flutes | 10,000 rpm · 10 in/min (amber)
 2D · 2D Contour | Groove bottom edge, tool inside | 0.01 steps · ramp 2° · no leads
 2E · Simulate | Actions → Simulate | 7 passes, no red marks
@@ -104,7 +104,7 @@ Part 3 · Nomad 3 and run
 3A · Hold the stock | Clean · tape · press 30 s | Front-left, 4 in along X
 3B · Start | Power on · Connect to Cutter | Initialize (homes)
 3C · Install the cutter | Load Tool #1 · 1/4 ER-11 collet | 3/4 in stick-out · BitSetter
-3D · Touch down | BitZero front-left · clip on | Probe XYZ · remove the key
+3D · Touch down | BitZero front-left · Probe XYZ | MDI to X2 Y1.5 · Zero X Y · remove key
 3E · Run | Load 1001.nc · door shut | Start Job · hand near Pause
 3F · Finish | Wait for stop · vacuum chips | Deburr · check 0.0625 deep
 Extra · Finished early? (optional)
@@ -141,18 +141,18 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 | Setting | Value |
 | --- | --- |
 | Plane | XY (lying flat) |
-| Rectangle | 2-Point, from the origin, 4 × 3 in |
+| Rectangle | Center Rectangle, centre on the origin, 4 × 3 in |
 
 1. On the toolbar, click **Create Sketch** ![Create Sketch icon: a dashed sketch outline with a green plus](../../assets/fusion/icon-create-sketch.png) (at the left end of the **SOLID** tab). The three origin planes appear in the canvas.
 2. Click the **XY** plane: the square lying flat on the grid, beside the red X and green Y axes. The blue Z axis points straight up. The view turns to look straight down on it.
 
 @figure origin-planes.png The origin planes after clicking Create Sketch. The flat square on the grid is the XY plane. Blue Z points up, and the grid numbers (0.5, 1, 1.5, 2) are inches.
-3. The toolbar has switched to the **SKETCH** tab. Open its **CREATE ▾** menu and choose **Rectangle → 2-Point Rectangle** ![2-Point Rectangle icon: a grey rectangle with blue corner dots](../../assets/fusion/icon-rectangle.png). (Shortcut: R)
+3. The toolbar has switched to the **SKETCH** tab. Open its **CREATE ▾** menu and choose **Rectangle → Center Rectangle** ![Center Rectangle icon: a grey rectangle with a blue dot in the middle](../../assets/fusion/icon-center-rectangle.png).
 
-@figure create-menu.png The CREATE menu on the SKETCH tab: Rectangle → 2-Point Rectangle near the top, Sketch Dimension at the very bottom.
+@figure create-menu.png The CREATE menu on the SKETCH tab, with Rectangle open. Center Rectangle is the third choice.
 
-4. Click on the **origin** (the dot where the red and green axes cross). Move the mouse up and to the right. Two dimension boxes appear.
-5. Type **4** and press **Tab**. Type **3** and press **Enter**. A 4 × 3 rectangle appears, starting at the origin.
+4. Click on the **origin** (the dot where the red and green axes cross). This is the centre of the rectangle. Move the mouse up and to the right. Two dimension boxes appear.
+5. Type **4** and press **Tab**. Type **3** and press **Enter**. A 4 × 3 rectangle appears with the origin in its middle.
 6. Click **Finish Sketch**, the button at the bottom of the **Sketch Palette** (right side of the screen). The Sketch Palette closes and the toolbar goes back to the **SOLID** tab.
 
 @figure sketch-palette.png The Sketch Palette on the right while you sketch. Finish Sketch is the button at the bottom. Leave the options as they are.
@@ -161,7 +161,7 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 
 @figure ../../assets/fusion/timeline.png The Timeline after the first sketch: the Play buttons on the left, then a sketch icon. Each new feature adds an icon to the right.
 
-**Quick notes:** 4 in runs along X (red axis), 3 in along Y (green axis). Keeping the corner on the origin makes the front-left corner easy to find later in CAM.
+**Quick notes:** 4 in runs along X (red axis), 3 in along Y (green axis). The origin sits in the middle of the block, which is where work zero goes for the CNC program in Part 2.
 
 ### 1C · Extrude it 1 in tall
 
@@ -181,20 +181,18 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 
 | Setting | Value |
 | --- | --- |
-| Rectangle | 3 in × 2 in |
-| Distance from left and front edges | 0.5 in |
+| Rectangle | Center Rectangle, centre on the origin, 3 in × 2 in |
 | Sketch fillet (4 corners) | 0.5 in |
 | Offset (inside) | 0.25 in |
 
 1. Click **Create Sketch** ![Create Sketch icon: a dashed sketch outline with a green plus](../../assets/fusion/icon-create-sketch.png), then click the **top face** of the block. The view turns to look straight down on it.
-2. On the **SKETCH** tab, open **CREATE ▾** and choose **Rectangle → 2-Point Rectangle** ![2-Point Rectangle icon: a grey rectangle with blue corner dots](../../assets/fusion/icon-rectangle.png). Click anywhere inside the top face, then click again to finish a rough rectangle. Its exact size does not matter yet.
-3. Open **CREATE ▾** and choose **Sketch Dimension** ![Sketch Dimension icon: a blue arrow between two grey lines](../../assets/fusion/icon-sketch-dimension.png), the last item in the list. (Shortcut: D) Click the bottom line of the new rectangle, then click below it to place the number. Type **3** and press **Enter**. The rectangle becomes 3 in wide.
-4. Still in Sketch Dimension, click the left line and place the number. Type **2** and press **Enter**. The rectangle becomes 2 in tall.
-5. Click the left line of the small rectangle, then the left edge of the block. Place the number, type **0.5** and press **Enter**. Do the same with the bottom line and the front edge of the block: **0.5**. The rectangle slides into the centre and its lines turn black (fully defined).
-6. On the **SKETCH** tab, click **Fillet** ![Fillet icon: a blue curved corner](../../assets/fusion/icon-fillet.png) (the first button under **MODIFY**). Click the two lines that meet at one corner, type **0.5** and press **Enter**. That corner rounds. Do the other three corners the same way.
-7. Click **Offset** ![Offset icon: two blue U shapes, one inside the other](../../assets/fusion/icon-offset.png) (the third button under **MODIFY**). Click one line of the rounded rectangle. The whole loop highlights and an arrow appears.
-8. Type **0.25** in **Offset position**. If the preview line sits outside the loop, type **-0.25** instead, so the new loop sits **inside**. Click **OK**. You now see two rounded loops, 1/4 in apart.
-9. Click **Finish Sketch** at the bottom of the **Sketch Palette**. The toolbar goes back to the **SOLID** tab.
+2. On the **SKETCH** tab, open **CREATE ▾** and choose **Rectangle → Center Rectangle** ![Center Rectangle icon: a grey rectangle with a blue dot in the middle](../../assets/fusion/icon-center-rectangle.png).
+3. Click the **origin** dot in the middle of the top face. Move the mouse out toward a corner. Two dimension boxes appear.
+4. Type **3** and press **Tab**. Type **2** and press **Enter**. A 3 × 2 rectangle appears in the centre of the top face, 0.5 in in from every edge.
+5. On the **SKETCH** tab, click **Fillet** ![Fillet icon: a blue curved corner](../../assets/fusion/icon-fillet.png) (the first button under **MODIFY**). Click the two lines that meet at one corner, type **0.5** and press **Enter**. That corner rounds. Do the other three corners the same way.
+6. Click **Offset** ![Offset icon: two blue U shapes, one inside the other](../../assets/fusion/icon-offset.png) (the third button under **MODIFY**). Click one line of the rounded rectangle. The whole loop highlights and an arrow appears.
+7. Type **0.25** in **Offset position**. If the preview line sits outside the loop, type **-0.25** instead, so the new loop sits **inside**. Click **OK**. You now see two rounded loops, 1/4 in apart.
+8. Click **Finish Sketch** at the bottom of the **Sketch Palette**. The toolbar goes back to the **SOLID** tab.
 
 ### 1E · Cut the groove 1/16 in deep
 
@@ -211,7 +209,7 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 
 - [ ] The Browser's Units line starts with **in**
 - [ ] One body, a 4 × 3 × 1 in block
-- [ ] A rounded-rectangle groove on top, 0.5 in from every edge, with round outer and inner corners
+- [ ] A rounded-rectangle groove centred on top, 0.5 in from every edge, with round outer and inner corners
 - [ ] The Timeline (bottom) shows Sketch, Extrude, Sketch, Extrude
 - [ ] The design is saved as **Groove Block**
 
@@ -229,20 +227,20 @@ The Setup tells Fusion what the stock is, where zero is, and which way is up. If
 | --- | --- | --- |
 | Operation Type | Milling | The Nomad is a 3-axis mill |
 | Orientation | Z up, X along the 4 in side | Matches how the block sits in the Nomad |
-| Origin (red) | Stock box point: top, front-left corner | The BitZero finds this same corner in Part 3 |
+| Origin (red) | Stock box point: top centre | Zero in the middle of the block; Part 3 sets the same point on the Nomad |
 | Stock | Fixed size box 4 × 3 × 1 in, 0 offsets | The block is already cut to size; only the groove is machined |
 | Program | 1001, WCS offset 0 | Names the file; uses G54, the default work offset |
 
 1. On the toolbar, click **Setup → New Setup**. The **Setup** box opens on the right, on its **Setup** tab. An orange box (the stock) appears around the part.
 2. Set **Operation Type** to **Milling**.
 3. Under **Work Coordinate System (WCS)**, set **Orientation** to **Model orientation**. The WCS arrows show Z pointing straight up out of the top face. If Z points sideways, choose **Select Z axis/plane & X axis**, click the top face, then click the front 4 in edge.
-4. Set **Origin** to **Stock box point**. Small dots appear on the corners and edges of the stock box. Click the dot on the **top, front-left corner**. The WCS arrows jump to that corner.
+4. Set **Origin** to **Stock box point**. Small dots appear on the corners and edges of the stock box. Click the dot in the **centre of the top face**. The WCS arrows jump to the middle of the top.
 5. Check that **Model** shows **Body1**.
 6. Click the **Stock** tab. Set **Mode** to **Fixed size box**. Type **Width (X) 4**, **Depth (Y) 3**, **Height (Z) 1**. Set every offset to **0** so the stock box sits exactly on the block.
 7. Click the **Post Process** tab. Set **Program Name/Number** to **1001** and **Program Comment** to **Groove Block**. Leave **WCS Offset** at **0**.
 8. Click **OK**. **Setup1** appears in the Browser.
 
-**Quick notes:** Zero = top of the stock in Z, front-left corner in X and Y. Every Z move in the program is negative, into the metal. The groove bottom is Z −0.0625.
+**Quick notes:** Zero = top of the stock in Z, centre of the block in X and Y, the same spot as the design origin. Every Z move in the program is negative, into the metal. The groove bottom is Z −0.0625.
 
 ### 2C · Make the 1/4 in end mill
 
@@ -308,7 +306,7 @@ The Setup tells Fusion what the stock is, where zero is, and which way is up. If
 
 > **Licence note:** On the free Personal use licence of Fusion, rapid moves are slowed to the cutting feed, so the job runs longer. The school Education licence does not have that limit.
 
-- [ ] **Setup1** shows the WCS on the top, front-left corner of the stock, with Z up
+- [ ] **Setup1** shows the WCS in the centre of the top of the stock, with Z up
 - [ ] The stock box is exactly 4 × 3 × 1 in
 - [ ] Tool **#1** is a 1/4 in 2-flute flat end mill at 10,000 rpm and 10 in/min
 - [ ] **2D Contour1** simulates seven passes inside the groove with no red marks
@@ -328,7 +326,7 @@ The Setup tells Fusion what the stock is, where zero is, and which way is up. If
 2. Measure the block with calipers. It should be 4 × 3 × 1 in, within a few thousandths. File any sharp saw edges.
 3. Wipe the bottom of the block and the Nomad's MDF wasteboard with isopropyl alcohol. Tape will not stick to oil or dust.
 4. Cover most of the bottom of the block with strips of the **double-sided tape** that came with the Nomad.
-5. Place the block near the **front-left** of the bed, the 4 in side running left to right (along X). Leave room around the front-left corner for the BitZero.
+5. Place the block near the **front-left** of the bed, the 4 in side running left to right (along X). Leave room around the front-left corner for the BitZero, which you use to find the centre.
 6. Press down hard for about 30 seconds. Try to slide it with your hand: it must not move.
 
 > **Safety:** A part that comes loose can break the end mill and throw pieces. If the tape will not hold, use the Nomad clamps or a small vise, with every clamp away from the groove path.
@@ -358,14 +356,24 @@ Only change tools when Carbide Motion asks you to, or after you click **Load Too
 
 ### 3D · Touch down: set zero with the BitZero V2
 
-This sets X, Y and Z zero on the top, front-left corner of the block, the same corner as the Fusion Setup.
+| Item | Value |
+| --- | --- |
+| Probe | BitZero V2 on the front-left corner, XYZ |
+| Move to the centre (MDI) | G0 Z0.5, then G0 X2 Y1.5 |
+| Set Zero | X and Y only (Z stays on the top from the probe) |
+
+The BitZero finds the top, front-left corner. Because the block is 4 × 3 in, its centre is 2 in right and 1.5 in back from that corner. You move there and make it the new X and Y zero, to match the Fusion Setup.
 
 1. Open the door. Set the **BitZero V2** on the **front-left corner** of the block, its locating edges pressed against the front and left sides ([BitZero V2 for Nomad 3 guide](https://my.carbide3d.com/pdf/BitZero_V2_Nomad3_Setup_and_User_Guide__03-08-2021_v1.pdf)).
 2. Clip the BitZero's magnetic ground lead onto the **collet nut**.
 3. Place the **interlock key** on the door's interlock sensor, as the guide shows. The spindle stays **off** during probing.
 4. In Carbide Motion's **Jog** screen, jog the end mill until it is over the BitZero's hole, about 1/4 in above it.
-5. Click **Probe**, choose **XYZ**, and choose the **1/4 in end mill** as the probing tool. Click **Start**. The end mill touches the inside of the hole, then the top. Carbide Motion shows the new zero.
-6. Jog Z up about 1/2 in. Take off the ground clip, the BitZero and the **interlock key**. Close the door.
+5. Click **Probe**, choose **XYZ**, and choose the **1/4 in end mill** as the probing tool. Click **Start**. The end mill touches the inside of the hole, then the top. Carbide Motion now reads X 0, Y 0, Z 0 at that corner.
+6. Jog Z up about 1/2 in. Take off the ground clip and the BitZero, and lift them out of the machine.
+7. Open **MDI** in Carbide Motion. Type **G0 Z0.5** and send it. The end mill rises to 1/2 in above the block. Then type **G0 X2 Y1.5** and send it. The end mill moves to the centre of the block.
+8. Look from the front and the side: the end mill should sit over the middle of the block.
+9. On the **Jog** screen, click **Set Zero** and choose **X** and **Y** only. X and Y now read 0 here. Leave Z alone: it is already zero on the top of the block.
+10. Take off the **interlock key** and close the door.
 
 > **Safety:** The interlock key must come off before the job runs. With it on, opening the door will not stop the spindle.
 
@@ -389,7 +397,7 @@ This sets X, Y and Z zero on the top, front-left corner of the block, the same c
 
 - [ ] The block stayed tight and did not move during the cut
 - [ ] The end mill was installed through **Load Tool** and measured by the BitSetter
-- [ ] Zero was set with the BitZero on the top, front-left corner, and the interlock key was removed
+- [ ] Z zero is on the top of the block, X and Y zero in its centre, and the interlock key was removed
 - [ ] The groove is centred, 1/4 in wide, about 0.0625 in deep, with round corners
 - [ ] The edges are deburred and the machine is vacuumed clean
 
@@ -407,7 +415,7 @@ Optional. These don't change the cut.
 | The Units line says mm, not in | In the Browser, hover over **Units** and click the pencil at the end of the line. Set **Unit System** to **inch (in), ouncemass** and click **OK**. |
 | Fusion says the toolpath is empty | Flip the red arrow to the inside of the groove, and untick Lead-In and Lead-Out. |
 | Simulation cuts outside the groove | Re-select the **bottom** outer edge of the groove, not the top edge. |
-| Cut is in the wrong spot on the block | The Fusion origin and the BitZero corner must both be the **top, front-left** corner. Re-probe. |
+| Cut is in the wrong spot on the block | The Fusion origin must be the **top centre**, and X and Y zero on the Nomad must be set after the move to X2 Y1.5. Re-probe and set zero again. |
 | Groove too deep or too shallow | The tool was changed without **Load Tool**. Use Load Tool, then re-probe zero. |
 | Loud squeal or chatter | Shorten the stick-out, add a little cutting fluid, and change the feed in small steps on scrap. |
 | Spindle bogs down | The cut is too heavy for the 130 W spindle. Try stepdown 0.005 in or feed 6 in/min, or switch to a 1/8 in end mill. |
