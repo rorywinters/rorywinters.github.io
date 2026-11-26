@@ -193,6 +193,8 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 4. In **Distance**, type **1** and press **Enter**. The preview grows into a block 1 in tall.
 5. Click **OK**. **Body1** appears in the Browser under **Bodies**. If the block is off screen, click **Fit** ![Fit icon: a magnifying glass in a dashed box](../../assets/fusion/icon-fit.png) on the navigation bar.
 
+@figure block-extruded.png The finished block after 1C, seen from the Home view: 4 × 3 in, 1 in tall. The ViewCube in the top-right shows TOP, FRONT and RIGHT.
+
 ### 1D · Sketch the groove on the top face
 
 | Setting | Value |
