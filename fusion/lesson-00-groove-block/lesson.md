@@ -158,6 +158,8 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 > **Tab** jumps back and forth between the two boxes. The number you type goes into the **highlighted** box, so check which one is highlighted before you type.
 
 5. Type **4** into the **bottom** box. Press **Tab** to move to the **left side** box and type **3**. Press **Enter**. A 4 × 3 rectangle appears with the origin in its middle: 4 in wide (left to right) and 3 in deep (front to back).
+
+@figure block-rectangle.png The finished Center Rectangle: 4.00 along the bottom, 3.00 on the left side. The dashed lines cross at the origin, so the rectangle is centred on it.
 6. Click **Finish Sketch**, the button at the bottom of the **Sketch Palette** (right side of the screen). The Sketch Palette closes and the toolbar goes back to the **SOLID** tab.
 
 @figure sketch-palette.png The Sketch Palette on the right while you sketch. Finish Sketch is the button at the bottom. Leave the options as they are.
