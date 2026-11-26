@@ -1,9 +1,9 @@
 ---
 title: Groove Block: from Fusion to the Nomad 3
 program: Fusion
-blurb: Model a 4 × 3 × 1 in aluminum block with a 1/16 in deep rounded groove, make a 2D Contour toolpath, post it with the Carbide 3D post, and cut it on the Nomad 3 with a 1/4 in end mill. About three class periods.
+blurb: Model a 4 × 3 × 1 in aluminum block with a 1/16 in deep rounded groove, make a 2D Pocket toolpath, post it with the Carbide 3D post, and cut it on the Nomad 3 with a 1/4 in end mill. About three class periods.
 ---
-You model an aluminum block with a rounded-rectangle groove on top, program the groove in Fusion's Manufacture workspace, and cut it on the Carbide 3D Nomad 3. The finished part is a 4 × 3 × 1 in block with a groove 1/4 in wide and 1/16 in deep. These steps are for the current version of Autodesk Fusion and Carbide Motion.
+You model an aluminum block with a rounded-rectangle groove on top, program the groove in Fusion's Manufacture workspace, and cut it on the Carbide 3D Nomad 3. The finished part is a 4 × 3 × 1 in block with a groove 1/2 in wide and 1/16 in deep. These steps are for the current version of Autodesk Fusion and Carbide Motion.
 
 - **Learning objective:** We are learning to take a part from a CAD model to a finished cut on a CNC mill.
 - **Prior knowledge:** Basic Fusion navigation (orbit, pan and zoom with the ViewCube and mouse). This is the first Fusion lesson.
@@ -17,16 +17,16 @@ You model an aluminum block with a rounded-rectangle groove on top, program the 
 | Block (X × Y × Z) | 4 in × 3 in × 1 in |
 | Groove outer edge | 3 in × 2 in rectangle, centred, 0.5 in from every side |
 | Groove outer corner fillets | 0.5 in |
-| Groove width | 1/4 in (0.25 in), the same as the cutter |
-| Groove inner corner fillets | 0.25 in (these come from the offset) |
+| Groove width | 1/2 in (0.5 in), twice the cutter |
+| Middle island | 2 in × 1 in, square corners (these come from the offset) |
 | Groove depth | 1/16 in (0.0625 in) |
 
-**Quick notes:** The groove is exactly one cutter wide, so the end mill rides in it like a train on a track. The inner corners come out at 0.25 in because 0.5 in − 0.25 in = 0.25 in.
+**Quick notes:** The groove is twice as wide as the 1/4 in cutter, so the toolpath has room to move: the cutter makes two laps at each depth to clear it. The island's corners come out square because 0.5 in − 0.5 in = 0, and the cutter can cut those outside corners sharp.
 
 ### Success criteria
 
 - I can model a block with a filleted groove cut to an exact depth.
-- I can set up stock, work zero and a tool in Fusion, simulate a 2D Contour and post a .nc file with the Carbide 3D post.
+- I can set up stock, work zero and a tool in Fusion, simulate a 2D Pocket and post a .nc file with the Carbide 3D post.
 - I can hold the stock, install and measure the cutter, set zero with the BitZero, and run the program safely on the Nomad 3.
 
 ### Key vocabulary
@@ -94,13 +94,13 @@ Part 1 · Make the object
 1A · Inch design | File → New Design → Part Design | Unit System: inch (in), ouncemass
 1B · Sketch the block | XY plane · Center Rectangle | Centre on the origin: 4 × 3
 1C · Extrude 1 in | Home view (house by ViewCube) | Extrude · Distance 1 · OK
-1D · Groove sketch | Top face · Center Rectangle 3 × 2 | Fillet 0.5 · Offset 0.25 inside
+1D · Groove sketch | Top face · Center Rectangle 3 × 2 | Fillet 0.5 · Offset −0.5 inside
 1E · Cut the groove | Extrude the ring −0.0625 | Operation Cut · Save
 Part 2 · Toolpath and post
 2A · Manufacture | Workspace switcher → MANUFACTURE
 2B · Setup | Origin: stock box point, top centre | Stock: fixed box 4 × 3 × 1
 2C · Tool #1 | 1/4 in flat end mill, 2 flutes | 10,000 rpm · 10 in/min (amber)
-2D · 2D Contour | Groove bottom edge, tool inside | 0.01 steps · ramp 2° · no leads
+2D · 2D Pocket | Groove floor (the ring) | 0.01 steps · stepover 0.1 · ramp 2°
 2E · Simulate | Actions → Simulate | 7 passes, no red marks
 2F · Post | Carbide 3D (Grbl) post | Save 1001.nc
 Part 3 · Nomad 3 and run
@@ -112,7 +112,7 @@ Part 3 · Nomad 3 and run
 3F · Finish | Wait for stop · vacuum chips | Deburr · check 0.0625 deep
 Extra · Finished early? (optional)
 Chamfer | Design only: Modify → Chamfer | Top edges 0.03 in · no cut
-Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simulate
+Job time | About 15 in per level × 7 ÷ 10 in/min | About 11 min · compare to Simulate
 ```
 
 ## Part 1 · Make the object
@@ -201,7 +201,7 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 | --- | --- |
 | Rectangle | Center Rectangle, centre on the origin, 3 in × 2 in |
 | Sketch fillet (4 corners) | 0.5 in |
-| Offset (inside) | 0.25 in |
+| Offset (inside) | −0.5 in |
 
 1. Click **Create Sketch** ![Create Sketch icon: a dashed sketch outline with a green plus](../../assets/fusion/icon-create-sketch.png), then click the **top face** of the block. The view turns to look straight down on it. If it doesn't, click **Look At** ![Look At icon: a blue screen with a camera top](../../assets/fusion/icon-look-at.png) on the navigation bar (bottom centre).
 2. On the **SKETCH** tab, open **CREATE ▾** and choose **Rectangle → Center Rectangle** ![Center Rectangle icon: a grey rectangle with a blue dot in the middle](../../assets/fusion/icon-center-rectangle.png).
@@ -213,7 +213,7 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 
 @figure groove-fillets.png All four corners rounded. Only one **R0.50** label shows: the small = marks at the other corners mean Fusion made them equal to it. The 3.00 and 2.00 sizes stay the same.
 6. Click **Offset** ![Offset icon: two blue U shapes, one inside the other](../../assets/fusion/icon-offset.png) (the third button under **MODIFY**). Click one line of the rounded rectangle. The whole loop highlights and an arrow appears.
-7. Type **0.25** in **Offset position**. If the preview line sits outside the loop, type **-0.25** instead, so the new loop sits **inside**. Click **OK**. You now see two rounded loops, 1/4 in apart.
+7. Type **-0.5** in **Offset position**. The preview line moves **inside** the loop. If it sits outside, type **0.5** instead. Click **OK**. You now see the rounded outer loop and a smaller 2 × 1 rectangle with square corners inside it, 1/2 in apart.
 8. Click **Finish Sketch** ![Finish Sketch icon: a green circle with a white tick](../../assets/fusion/icon-finish-sketch.png) (green tick, right end of the **SKETCH** tab). The toolbar goes back to the **SOLID** tab.
 
 ### 1E · Cut the groove 1/16 in deep
@@ -231,7 +231,7 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 
 - [ ] The Browser shows **Units: in, ouncemass**
 - [ ] One body, a 4 × 3 × 1 in block
-- [ ] A rounded-rectangle groove centred on top, 0.5 in from every edge, with round outer and inner corners
+- [ ] A rounded-rectangle groove centred on top, 0.5 in from every edge, 1/2 in wide, round outer corners and a square-cornered island in the middle
 - [ ] The Timeline (bottom) shows Sketch, Extrude, Sketch, Extrude
 - [ ] The design is saved as **Groove Block**
 
@@ -285,32 +285,33 @@ The Setup tells Fusion what the stock is, where zero is, and which way is up. If
 
 **Quick notes:** 10,000 rpm × 2 flutes × 0.0005 in = 10 in/min. These are cautious starting numbers. Carbide 3D publishes no 1/4 in aluminum recipe for the Nomad, and owners report its 130 W spindle struggles with 1/4 in tools in aluminum ([Carbide 3D forum](https://community.carbide3d.com/t/nomad-3-bogging-down/44765)). Test on a scrap block first.
 
-### 2D · The 2D Contour toolpath for the groove
+### 2D · The 2D Pocket toolpath for the groove
 
-| 2D Contour setting | Value |
+| 2D Pocket setting | Value |
 | --- | --- |
 | Tool | #1, 1/4 2FL aluminum |
-| Geometry | Outer bottom edge of the groove, tool on the inside |
+| Geometry | The groove floor (the flat ring at the bottom of the groove) |
 | Bottom height | Selected contour(s), offset 0 (Z −0.0625) |
-| Multiple Depths (amber) | On, Maximum Roughing Stepdown 0.01 in (7 passes) |
-| Lead-In / Lead-Out | Off |
-| Ramp | On, 2° |
+| Maximum Stepover | 0.1 in |
+| Multiple Depths (amber) | On, Maximum Roughing Stepdown 0.01 in (7 levels) |
+| Ramp | Profile ramp, 2° |
 
-1. On the toolbar, click **2D → 2D Contour**. The **2D Contour** box opens on its **Tool** tab.
+1. On the toolbar, click **2D → 2D Pocket**. The **2D Pocket** box opens on its **Tool** tab.
 2. Click **Select** beside **Tool**. Pick **1/4 2FL aluminum** and click **Select**. The feeds and speeds fill in from the tool.
-3. Click the **Geometry** tab. Click the **outer bottom edge** of the groove, where the groove floor meets its outer wall. The whole loop turns blue and a red arrow appears.
-4. The red arrow must point to the **inside** of the loop, so the cutter rides inside the groove. If the preview tool sits outside, click the arrow to flip it.
-5. Click the **Heights** tab. Leave **Top Height** at **Stock top**. Check **Bottom Height** says **Selected contour(s)** with **Offset 0**.
-6. Click the **Passes** tab. Tick **Multiple Depths** and set **Maximum Roughing Stepdown** to **0.01 in**. Leave **Stock to Leave** unticked.
-7. Click the **Linking** tab. Untick **Lead-In (Entry)** and **Lead-Out (Exit)**: an arc lead-in would cut outside the groove. Tick **Ramp** and set **Ramp Angle** to **2 deg**, so the cutter slopes into the metal instead of plunging straight down.
-8. Click **OK**. Fusion calculates and lines appear along the groove. **2D Contour1** appears under Setup1.
+3. Click the **Geometry** tab. Click the **floor of the groove**, the flat ring at the bottom. The whole ring turns blue. Fusion knows to stay between the outer wall and the island.
+4. Click the **Heights** tab. Leave **Top Height** at **Stock top**. Check **Bottom Height** says **Selected contour(s)** with **Offset 0**.
+5. Click the **Passes** tab. Set **Maximum Stepover** to **0.1 in**. Tick **Multiple Depths** and set **Maximum Roughing Stepdown** to **0.01 in**. Leave **Stock to Leave** unticked.
+6. Click the **Linking** tab. Under **Ramp**, set **Ramp Type** to **Profile** and **Ramp Angle** to **2 deg**, so the cutter slopes into the metal along the groove instead of plunging straight down.
+7. Click **OK**. Fusion calculates and lines fill the groove. **2D Pocket1** appears under Setup1.
+
+**Quick notes:** The 1/4 in cutter in a 1/2 in groove makes about two laps per level: one along the outer wall and one along the island. The stepover keeps the cutter overlapping, so no thin strip is left in the middle.
 
 ### 2E · Simulate
 
 1. In the Browser, click **Setup1**. Open **Actions** (right end of the toolbar) and choose **Simulate**. The **Simulate** box opens and the stock turns solid.
-2. Press **Play** along the bottom. Watch the cutter ramp in and go around the groove seven times.
-3. Check that the groove is cut and nothing else is touched. Red marks on the bottom timeline mean a collision or a cut in the wrong place: stop and fix the Setup or the contour side.
-4. Note the **Machining time** in the Simulate box (about 6 to 8 minutes is expected). Click **Close**.
+2. Press **Play** along the bottom. Watch the cutter ramp in and clear the groove in seven levels, two laps each.
+3. Check that the groove is cut and nothing else is touched. Red marks on the bottom timeline mean a collision or a cut in the wrong place: stop and fix the Setup or the pocket selection.
+4. Note the **Machining time** in the Simulate box (about 11 to 14 minutes is expected). Click **Close**.
 
 ### 2F · Post with the Carbide 3D post processor
 
@@ -331,7 +332,7 @@ The Setup tells Fusion what the stock is, where zero is, and which way is up. If
 - [ ] **Setup1** shows the WCS in the centre of the top of the stock, with Z up
 - [ ] The stock box is exactly 4 × 3 × 1 in
 - [ ] Tool **#1** is a 1/4 in 2-flute flat end mill at 10,000 rpm and 10 in/min
-- [ ] **2D Contour1** simulates seven passes inside the groove with no red marks
+- [ ] **2D Pocket1** clears the whole groove in seven levels with no red marks
 - [ ] A **1001.nc** file is saved where the Nomad computer can reach it
 
 ## Part 3 · Nomad 3 and run
@@ -407,7 +408,7 @@ The BitZero finds the top, front-left corner. Because the block is 4 × 3 in, it
 4. Close the door. Put your hand near **Pause**, and know where the **Power Switch** is.
 5. Click **Start Job**. The spindle spins up and the end mill ramps into the top of the block.
 6. Watch the first full pass. A steady hiss with small chips is good. Loud squealing, chatter or a bogging spindle means **Pause** (see Troubleshooting).
-7. Let all seven passes finish. Wait for the spindle to **stop completely** before you open the door.
+7. Let all seven levels finish. Wait for the spindle to **stop completely** before you open the door.
 
 ### 3F · Clean up and finish
 
@@ -420,7 +421,7 @@ The BitZero finds the top, front-left corner. Because the block is 4 × 3 in, it
 - [ ] The block stayed tight and did not move during the cut
 - [ ] The end mill was installed through **Load Tool** and measured by the BitSetter
 - [ ] Z zero is on the top of the block, X and Y zero in its centre, and the interlock key was removed
-- [ ] The groove is centred, 1/4 in wide, about 0.0625 in deep, with round corners
+- [ ] The groove is centred, 1/2 in wide, about 0.0625 in deep, with round corners
 - [ ] The edges are deburred and the machine is vacuumed clean
 
 ## Extra · Finished early?
@@ -428,15 +429,15 @@ The BitZero finds the top, front-left corner. Because the block is 4 × 3 in, it
 Optional. These don't change the cut.
 
 - **Chamfer in Design only:** switch back to **DESIGN**, choose **Modify → Chamfer**, click the four top outer edges of the block and type **0.03**. Watch the Timeline grow. Do not post or cut this.
-- **Work out the job time by hand:** the groove's centre line is a 2.75 × 1.75 in rounded rectangle with 0.375 in corners, about **8.36 in** long. Seven passes at 10 in/min is about **5.9 minutes**. Compare that with Fusion's Simulate time and explain the difference (ramps, rapid moves).
+- **Work out the job time by hand:** at each level the cutter makes an outer lap of about **8.4 in** and an inner lap around the island of about **6.8 in**, about **15 in** in all. Seven levels at 10 in/min is about **11 minutes**. Compare that with Fusion's Simulate time and explain the difference (ramps, rapid moves).
 
 ## Troubleshooting
 
 | Problem | Fix |
 | --- | --- |
 | The Units line says mm, not in | In the Browser, hover over **Units** and click the pencil at the end of the line. Set **Unit System** to **inch (in), ouncemass** and click **OK**. |
-| Fusion says the toolpath is empty | Flip the red arrow to the inside of the groove, and untick Lead-In and Lead-Out. |
-| Simulation cuts outside the groove | Re-select the **bottom** outer edge of the groove, not the top edge. |
+| Fusion says the toolpath is empty | Check the Geometry tab has the groove **floor** (the ring) selected, not an edge or the top face. |
+| Simulation cuts the island or outside the groove | Re-select only the groove **floor**. If the island is selected too, Fusion pockets it away. |
 | Cut is in the wrong spot on the block | The Fusion origin must be the **top centre**, and X and Y zero on the Nomad must be set after the move to X2 Y1.5. Re-probe and set zero again. |
 | Groove too deep or too shallow | The tool was changed without **Load Tool**. Use Load Tool, then re-probe zero. |
 | Loud squeal or chatter | Shorten the stick-out, add a little cutting fluid, and change the feed in small steps on scrap. |
