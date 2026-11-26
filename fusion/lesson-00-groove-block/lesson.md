@@ -62,6 +62,7 @@ You model an aluminum block with a rounded-rectangle groove on top, program the 
 | **Workspace switcher** (DESIGN / MANUFACTURE) | Fusion: far left of the toolbar, top-left |
 | **Save** ![Save icon: a grey floppy disk](../../assets/fusion/icon-save.png) | Fusion: top-left, in the bar above the toolbar |
 | **Create Sketch** ![Create Sketch icon: a dashed sketch outline with a green plus](../../assets/fusion/icon-create-sketch.png) | Fusion: toolbar, left end of the SOLID tab |
+| **SKETCH** tab | Fusion: toolbar, opens on its own while you sketch. CREATE ▾ (![2-Point Rectangle icon: a grey rectangle with blue corner dots](../../assets/fusion/icon-rectangle.png)), MODIFY (![Fillet icon: a blue curved corner](../../assets/fusion/icon-fillet.png) ![Offset icon: two blue U shapes, one inside the other](../../assets/fusion/icon-offset.png)) |
 | **Toolbar** | Fusion: across the top. Sketch, Create, Modify, Setup and 2D tools |
 | **Browser** | Fusion: left side, under the toolbar. Document Settings, bodies, sketches, Setups |
 | **ViewCube** | Fusion: top-right corner of the canvas |
@@ -146,7 +147,7 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 2. Click the **XY** plane: the square lying flat on the grid, beside the red X and green Y axes. The blue Z axis points straight up. The view turns to look straight down on it.
 
 @figure origin-planes.png The origin planes after clicking Create Sketch. The flat square on the grid is the XY plane. Blue Z points up, and the grid numbers (0.5, 1, 1.5, 2) are inches.
-3. Open the **Create** menu and choose **Rectangle → 2-Point Rectangle**.
+3. The toolbar has switched to the **SKETCH** tab. Open its **CREATE ▾** menu and choose **Rectangle → 2-Point Rectangle** ![2-Point Rectangle icon: a grey rectangle with blue corner dots](../../assets/fusion/icon-rectangle.png).
 4. Click on the **origin** (the dot where the red and green axes cross). Move the mouse up and to the right. Two dimension boxes appear.
 5. Type **4** and press **Tab**. Type **3** and press **Enter**. A 4 × 3 rectangle appears, starting at the origin.
 6. Click **Finish Sketch** (green tick, top-right of the toolbar). The **Sketch Palette** (right side) closes.
@@ -163,7 +164,9 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 1. Open the **Create** menu and choose **Extrude**. The **Extrude** box opens on the right.
 2. Click inside the rectangle. It turns blue and an arrow appears.
 3. In **Distance**, type **1** and press **Enter**. The canvas shows a solid block 1 in tall.
-4. Click **OK**. **Body1** appears in the Browser under **Bodies**. Click the **ViewCube** corner between TOP, FRONT and RIGHT to see the block at an angle.
+4. Click **OK**. **Body1** appears in the Browser under **Bodies**. Click the **ViewCube** corner where TOP, FRONT and RIGHT meet to see the block at an angle.
+
+@figure ../../assets/fusion/viewcube.png The ViewCube (top-right of the canvas). Click the corner where TOP, FRONT and RIGHT meet. The little house above it goes back to the home view.
 
 ### 1D · Sketch the groove on the top face
 
@@ -175,12 +178,12 @@ Job time | 8.36 in × 7 passes ÷ 10 in/min | About 5.9 min · compare to Simula
 | Offset (inside) | 0.25 in |
 
 1. Click **Create Sketch** ![Create Sketch icon: a dashed sketch outline with a green plus](../../assets/fusion/icon-create-sketch.png), then click the **top face** of the block. The view turns to look straight down on it.
-2. **Create → Rectangle → 2-Point Rectangle.** Click anywhere inside the top face, then click again to finish a rough rectangle. Its exact size does not matter yet.
+2. On the **SKETCH** tab, open **CREATE ▾** and choose **Rectangle → 2-Point Rectangle** ![2-Point Rectangle icon: a grey rectangle with blue corner dots](../../assets/fusion/icon-rectangle.png). Click anywhere inside the top face, then click again to finish a rough rectangle. Its exact size does not matter yet.
 3. Open the **Create** menu and choose **Sketch Dimension**. (Shortcut: D) Click the bottom line of the new rectangle, then click below it to place the number. Type **3** and press **Enter**. The rectangle becomes 3 in wide.
 4. Still in Sketch Dimension, click the left line and place the number. Type **2** and press **Enter**. The rectangle becomes 2 in tall.
 5. Click the left line of the small rectangle, then the left edge of the block. Place the number, type **0.5** and press **Enter**. Do the same with the bottom line and the front edge of the block: **0.5**. The rectangle slides into the centre and its lines turn black (fully defined).
-6. Open the **Modify** menu and choose **Fillet**. Click the two lines that meet at one corner, type **0.5** and press **Enter**. That corner rounds. Do the other three corners the same way.
-7. Open the **Modify** menu and choose **Offset**. Click one line of the rounded rectangle. The whole loop highlights and an arrow appears.
+6. On the **SKETCH** tab, click **Fillet** ![Fillet icon: a blue curved corner](../../assets/fusion/icon-fillet.png) (the first button under **MODIFY**). Click the two lines that meet at one corner, type **0.5** and press **Enter**. That corner rounds. Do the other three corners the same way.
+7. Click **Offset** ![Offset icon: two blue U shapes, one inside the other](../../assets/fusion/icon-offset.png) (the third button under **MODIFY**). Click one line of the rounded rectangle. The whole loop highlights and an arrow appears.
 8. Type **0.25** in **Offset position**. If the preview line sits outside the loop, type **-0.25** instead, so the new loop sits **inside**. Click **OK**. You now see two rounded loops, 1/4 in apart.
 9. Click **Finish Sketch**.
 
