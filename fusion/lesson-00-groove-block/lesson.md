@@ -67,7 +67,7 @@ You model an aluminum block with a rounded-rectangle groove on top, program the 
 | **Browser** | Fusion: left side, under the toolbar. Document Settings, bodies, sketches, Setups |
 | **ViewCube** | Fusion: top-right corner of the canvas |
 | **Finish Sketch** ![Finish Sketch icon: a green circle with a white tick](../../assets/fusion/icon-finish-sketch.png) | Fusion: green tick at the right end of the SKETCH tab |
-| **Sketch Palette** | Fusion: right side, shows while you sketch |
+| **Sketch Palette** | Fusion: right side, shows while you sketch. Its **Finish Sketch** button at the bottom ![Finish Sketch button at the bottom of the Sketch Palette, under the 3D Sketch box](../../assets/fusion/finish-sketch-palette.png) does the same job as the green tick |
 | **Timeline** | Fusion: along the bottom. Every feature in order; double-click one to edit it |
 | **Actions** | Fusion: right end of the MANUFACTURE toolbar. Simulate and Post Process |
 | **Connect to Cutter / Initialize** | Carbide Motion: middle of the start screen |
