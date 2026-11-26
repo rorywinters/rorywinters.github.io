@@ -7,7 +7,7 @@ You start from the platformer you already saved. You change the log so the playe
 
 - **Learning objective:** We are learning to use behaviours to change how platforms act: one you can jump through from below, and one that moves.
 - **Prior knowledge:** [Construct 3 Lesson 2: Face the Way You Run](../face-the-way-you-run/) (opening a saved project, adding a behaviour, Save as). Your saved platformer from [Lesson 1: Jump and Fall with Outside Assets](../platformer-outside-assets/) or Lesson 2 works. It needs a **Player**, a **ground**, a **log** and a **block**.
-- **File you need:** your saved platformer (cloud save or the .c3p file you downloaded). Nothing new to download.
+- **File you need:** your saved platformer (cloud save or the .c3p file you downloaded). No saved game? Use the starter game in the Asset library below.
 - **Time:** about half a class period.
 
 ### Success criteria
@@ -38,7 +38,7 @@ Missing a picture from Piskel? Use these examples. Click a file name to download
 | ![The example alien sprite sheet](../../piskel/lesson-00-jumping-alien/img/finished-sprite-sheet.png) | [alien.png](../../piskel/lesson-00-jumping-alien/img/finished-sprite-sheet.png) | Jumping Alien, 5 poses (160 × 32) | [Piskel Lesson 1: Jumping Alien Sprite](../../piskel/lesson-00-jumping-alien/) |
 | ![The example side-view runner sprite sheet](../../piskel/lesson-02-side-view-runner/img/runner-sheet.png) | [runner.png](../../piskel/lesson-02-side-view-runner/img/runner-sheet.png) | Side-view runner, 2 frames (64 × 32) | [Piskel Lesson 2: Side-View Runner](../../piskel/lesson-02-side-view-runner/) |
 
-No saved platformer at all? Do [Lesson 1: Jump and Fall with Outside Assets](../platformer-outside-assets/) Parts 1 to 4 first, using these files.
+**No saved platformer?** Download the starter game, [platformer-starter.c3p](platformer-starter.c3p): the finished Lesson 2 platformer with the runner, ground, log and block, ready for this lesson. Open it with **Menu → Project → Open** (Part 1). Or build your own first in [Lesson 1: Jump and Fall with Outside Assets](../platformer-outside-assets/) Parts 1 to 4.
 
 ### Where things are
 
