@@ -12,6 +12,8 @@ You practise setting zero and running the Groove Block on a pretend Nomad inside
   - [nomad_sim_p9_part2_controls.py](nomad_sim_p9_part2_controls.py) adds the controls
 - **Time:** about 30 minutes
 
+> **No Blender? Use the browser version.** The [Nomad Simulator in your browser](../simulator/) (Program 10) works the same way on any computer or Chromebook, with nothing to download. Its jog pad sits beside the machine instead of on a 3D laptop, and the steps in Part 2 and Part 3 below work the same.
+
 **The Groove Block series:** [1 Make the object](../../fusion/lesson-00-groove-block/) · [2 Toolpath and post](../../fusion/lesson-01-groove-block-toolpath/) · Practice on the simulator (this lesson) · [3 Set up the Nomad and run the part](../lesson-00-groove-block-run/)
 
 ### Success criteria

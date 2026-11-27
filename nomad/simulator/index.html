@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- NOMAD SIM - PROGRAM 10 (browser version) -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nomad Simulator (P10) · Winters Innovative Solutions</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: #1b1d21; color: #eee;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  #app { display: flex; height: 100vh; }
+  #view { flex: 1; position: relative; min-width: 0; }
+  #view canvas { display: block; width: 100%; height: 100%; outline: none; }
+  #crumb { position: absolute; top: 8px; left: 10px; font-size: 14px; }
+  #crumb a { color: #9cc9ff; }
+  #hint { position: absolute; bottom: 8px; left: 10px; font-size: 12px; color: #aaa; }
+  #panel { width: 330px; background: #4b4f53; padding: 12px; overflow-y: auto;
+    border-left: 3px solid #2e3134; transition: background .08s; }
+  #panel.err { background: #b3221d; }
+  h1 { font-size: 20px; margin: 0 0 8px; letter-spacing: 1px; }
+  #readout { font-family: Consolas, "Courier New", monospace; font-size: 26px; line-height: 1.25;
+    background: #2e3134; border-radius: 6px; padding: 8px 10px; }
+  #state { min-height: 42px; margin: 8px 0; font-weight: 700; font-size: 15px;
+    background: #2e3134; border-radius: 6px; padding: 8px 10px; }
+  .row { display: grid; gap: 6px; margin-bottom: 8px; }
+  button { font: inherit; font-weight: 700; border: 0; border-radius: 6px; padding: 10px 4px;
+    cursor: pointer; color: #fff; background: #1a9a3a; }
+  button:hover { filter: brightness(1.15); }
+  button:active { transform: translateY(1px); }
+  button.grey { background: #73787d; }
+  button.step { background: #264d2f; color: #cfe; }
+  button.step.on { background: #4dff66; color: #0b2a12; }
+  button.run { background: #0f7d2e; font-size: 18px; }
+  #pad { grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(3, 44px); }
+  .lbl { font-size: 12px; color: #ddd; margin: 6px 0 3px; }
+  #keys { font-size: 12px; color: #ddd; line-height: 1.5; }
+  kbd { background: #2e3134; border-radius: 3px; padding: 0 4px; font-size: 11px; }
+  @media (max-width: 760px) {
+    #app { flex-direction: column; height: auto; }
+    #view { height: 60vh; flex: none; }
+    #panel { width: 100%; border-left: 0; border-top: 3px solid #2e3134; }
+  }
+</style>
+<script type="importmap">
+{ "imports": { "three": "../../assets/three/three.module.min.js" } }
+</script>
+</head>
+<body>
+<div id="app">
+  <div id="view">
+    <div id="crumb"><a href="../../">Lessons</a> › <a href="../">Nomad</a> › Simulator · <a href="../groove-block-simulator/">How to use it</a></div>
+    <div id="hint">Drag to orbit · right-drag to pan · wheel to zoom</div>
+  </div>
+  <div id="panel">
+    <h1>JOG &nbsp;P10</h1>
+    <div id="readout"><div id="rx">X +0.000</div><div id="ry">Y +0.000</div><div id="rz">Z +0.000</div></div>
+    <div id="state">at HOME - jog to the block</div>
+
+    <div class="lbl">Setup</div>
+    <div class="row" style="grid-template-columns: 1fr 1fr 1fr;">
+      <button class="grey" data-a="PAPER">PAPER</button>
+      <button class="grey" data-a="ZXY">ZERO XY</button>
+      <button class="grey" data-a="ZZ">ZERO Z</button>
+    </div>
+
+    <div class="lbl">Jog</div>
+    <div class="row" id="pad">
+      <span></span><button data-a="Y+">Y+</button><span></span><button data-a="Z+">Z+</button>
+      <button data-a="X-">X-</button><span></span><button data-a="X+">X+</button><span></span>
+      <span></span><button data-a="Y-">Y-</button><span></span><button data-a="Z-">Z-</button>
+    </div>
+
+    <div class="lbl">Step size (inches)</div>
+    <div class="row" style="grid-template-columns: repeat(4, 1fr);">
+      <button class="step" data-a="S1">.001</button>
+      <button class="step" data-a="S2">.01</button>
+      <button class="step" data-a="S3">.1</button>
+      <button class="step" data-a="S4">1</button>
+    </div>
+
+    <div class="row" style="grid-template-columns: 1fr 1.4fr;">
+      <button class="grey" data-a="RESET">RESET</button>
+      <button class="run" data-a="RUN">RUN</button>
+    </div>
+
+    <div class="lbl">View</div>
+    <div class="row" style="grid-template-columns: repeat(3, 1fr);">
+      <button class="grey" data-a="VTOP">Top</button>
+      <button class="grey" data-a="VFRONT">Front</button>
+      <button class="grey" data-a="V3D">3D</button>
+    </div>
+
+    <div id="keys">
+      <kbd>←</kbd><kbd>→</kbd> X &nbsp; <kbd>↑</kbd><kbd>↓</kbd> Y &nbsp; <kbd>PgUp</kbd><kbd>PgDn</kbd> Z<br>
+      <kbd>1</kbd>–<kbd>4</kbd> step &nbsp; <kbd>P</kbd> paper &nbsp; <kbd>R</kbd> reset &nbsp; <kbd>Esc</kbd> stop program<br>
+      <kbd>T</kbd> top view &nbsp; <kbd>F</kbd> front view &nbsp; <kbd>V</kbd> 3D view
+    </div>
+  </div>
+</div>
+<script type="module" src="sim.js?v=20261127a"></script>
+</body>
+</html>
