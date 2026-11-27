@@ -9,7 +9,7 @@ You model a 4 × 3 × 1 in block with a rounded-rectangle groove on top. This is
 - **Prior knowledge:** Basic Fusion navigation (orbit, pan and zoom). This is the first Fusion lesson.
 - **Time:** about one class period
 
-**The Groove Block series:** 1 Make the object (this lesson) · [2 Toolpath and post](../lesson-01-groove-block-toolpath/) · [3 Set up the Nomad and run the part](../../nomad/lesson-00-groove-block-run/)
+**The Groove Block series:** 1 Make the object (this lesson) · [2 Toolpath and post](../lesson-01-groove-block-toolpath/) · [Practice on the simulator](../../nomad/groove-block-simulator/) · [3 Set up the Nomad and run the part](../../nomad/lesson-00-groove-block-run/)
 
 ### The part
 

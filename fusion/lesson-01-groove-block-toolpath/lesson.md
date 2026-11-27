@@ -10,7 +10,7 @@ You turn the Groove Block model into a CNC program. Fusion's Manufacture workspa
 - **File you need:** your **Groove Block** design from the last lesson, open in Fusion
 - **Time:** about one class period
 
-**The Groove Block series:** [1 Make the object](../lesson-00-groove-block/) · 2 Toolpath and post (this lesson) · [3 Set up the Nomad and run the part](../../nomad/lesson-00-groove-block-run/)
+**The Groove Block series:** [1 Make the object](../lesson-00-groove-block/) · 2 Toolpath and post (this lesson) · [Practice on the simulator](../../nomad/groove-block-simulator/) · [3 Set up the Nomad and run the part](../../nomad/lesson-00-groove-block-run/)
 
 ### Success criteria
 

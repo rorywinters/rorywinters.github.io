@@ -15,7 +15,7 @@
     s = s.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, function (m, t, u) {
       var ext = /^https?:/.test(u);
       // Local picture or project files download when clicked, saved under the link text if it is a file name.
-      var dl = !ext && /\.(png|jpe?g|gif|c3p)$/i.test(u) ? ' download' + (/^[\w.-]+\.\w+$/.test(t) ? '="' + t + '"' : '') : '';
+      var dl = !ext && /\.(png|jpe?g|gif|c3p|py)$/i.test(u) ? ' download' + (/^[\w.-]+\.\w+$/.test(t) ? '="' + t + '"' : '') : '';
       return '<a href="' + u + '"' + (ext ? ' target="_blank" rel="noreferrer"' : '') + dl + '>' + t + '</a>';
     });
     return s;
