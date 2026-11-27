@@ -49,6 +49,7 @@ The machine type, **Nomad 3** (2B and 2D), is red: picking a Shapeoko or another
 | **RUN** / **SETTINGS** | Carbide Motion: green bar along the top, right side |
 | **Position** and **STOP** | Job Info screen: left side, STOP in red at the bottom left |
 | **LOAD NEW FILE** / **INITIALIZE MACHINE** | Job Info screen: middle, green and yellow |
+| **JOG** | Green bar along the top, between RUN and SETTINGS. Only shows after homing |
 
 If the wizard window disappears, it is usually hidden behind the main Carbide Motion window. Click it on the Windows taskbar (bottom of the screen) to bring it back.
 
@@ -75,7 +76,7 @@ Part 2 · Machine Setup Wizard
 Part 3 · Connect and home
 3A · Home | Job Info screen · door shut | INITIALIZE MACHINE · next class: Connect to Cutter first
 Extra · Finished early? (optional)
-Check | SETTINGS · machine shows Nomad 3 | Jog a little with the arrows
+Jog | JOG · INCREMENT + to about 1 mm | X- · Y- · Z- / Z+ · then home again
 ```
 
 ## Part 1 · Install and plug in
@@ -238,6 +239,7 @@ The **Job Info** screen is Carbide Motion's main screen once it is connected. Yo
 1. Look at the screen: **Position** (left side) shows **X**, **Y** and **Z**, with the units under them. The big red **STOP** button (bottom left) stops the machine. **No file loaded** sits above the two buttons in the middle.
 2. Check the door is shut and nothing is in the bed.
 3. Click **INITIALIZE MACHINE** (yellow, middle). The Nomad homes to the back right corner and stops. Keep your hands out while it moves.
+4. When it stops, a new **JOG** tab appears in the green bar along the top, between **RUN** and **SETTINGS**. It only shows once the machine is homed.
 
 **Every class after this one,** the wizard is already done:
 
@@ -246,14 +248,21 @@ The **Job Info** screen is Carbide Motion's main screen once it is connected. Yo
 
 - [ ] Carbide Motion shows the **Job Info** screen with **No file loaded**
 - [ ] The Nomad homed to the back right corner and stopped
+- [ ] **JOG** now shows in the top bar
 - [ ] You know where **STOP** is
 
 ## Extra · Finished early?
 
 Optional.
 
-- **Check the setup:** click **SETTINGS** (top right). Check that the machine shown is the **Nomad 3**.
-- **Try jogging:** click **Jog** and press the **arrow keys** a few times. The spindle moves left, right, back and forward. Press **Page Up** to lift it. Click **Initialize Machine** again to send it home.
+- **Try jogging:** click **JOG** (top bar). The **Jog / Position** screen opens.
+  1. Under the buttons on the right, the step size shows (for example **0.025 mm**). Click **INCREMENT +** until it reads about **1 mm**.
+  2. Click **X-** three times. The spindle moves left a little each click, and **X** under **Position** changes by the step size.
+  3. Click **Y-** three times. The spindle moves toward you.
+  4. Click **Z-** once, then **Z+** once. The spindle goes down and back up.
+  5. Click **RUN** (top bar), then **INITIALIZE MACHINE** to send it home again.
+
+@figure cm-jog-position.png The Jog / Position screen after homing. The numbers under Position are measured from home, so they are negative. SET ZERO, RAPID POSITION and PROBE along the bottom are for later lessons.
 
 ## Troubleshooting
 
@@ -263,5 +272,6 @@ Optional.
 | **Connect to Cutter** stays pale, or **No machine found** | Check the Power Switch is on and the USB cable is pushed in at both ends. Try another USB port, then click Connect to Cutter again. |
 | Wrong machine picked in the wizard | Click **Setup New Machine** again and start over, picking **Nomad 3**. |
 | The wizard window disappeared | It is behind the main window. Click it on the Windows taskbar. |
+| No **JOG** tab in the top bar | The machine isn't homed yet. Click **RUN**, then **INITIALIZE MACHINE**. |
 | "Please close machine door" or the screen says BUSY | The door is not fully shut, so the interlock holds the machine. Close the door firmly. |
 | The installer asks for an administrator password | Ask your teacher. |
