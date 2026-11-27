@@ -62,7 +62,7 @@ Part 1 · Set up the machine
 1B · Start | Power on · Connect to Cutter | Initialize (homes)
 1C · Install the cutter | Load Tool #1 · 1/4 ER-11 collet | 3/4 in stick-out · BitSetter
 Part 2 · Touch down and run
-2A · Touch down | Pencil cross corner to corner · arrows over the cross | Page Down to paper drag · Set Zero XYZ
+2A · Touch down | Pencil cross corner to corner · arrows over the cross | 4 to get close · 1 for paper drag · Set Zero XYZ
 2B · Run | Load 1001.nc · door shut | Start Job · hand near Pause
 2C · Finish | Wait for stop · vacuum chips | Deburr · check 0.0625 deep
 Extra · Finished early? (optional)
@@ -136,16 +136,16 @@ Only change tools when Carbide Motion asks you to, or after you click **Load Too
 | **← →** arrow keys | X: left and right |
 | **↑ ↓** arrow keys | Y: back and forward |
 | **Page Up** / **Page Down** | Z: up and down |
-| **Number keys** | Change the jog speed (step size). Use the fast setting to get close, the slowest for the last bit |
+| **1 2 3 4** number keys | Set the step size: **1** is the smallest step, **4** the biggest. Use **4** or **3** to get close, **1** for the last bit. You can also click **INCREMENT +** and **INCREMENT -** on the Jog screen |
 
-> **Take your time near the block.** Switch to the slowest speed before the end mill gets within about 1/4 in of the top. A fast Page Down into the block can break the end mill.
+> **Take your time near the block.** Switch to key **1** (the smallest step) before the end mill gets within about 1/4 in of the top. A fast Page Down into the block can break the end mill.
 
 1. On the **Jog** screen, click once on an empty part of the screen so the keys go to Carbide Motion.
-2. Pick a fast speed with a number key. Use the **arrow keys** to move the end mill over the **pencil cross**. Keep it well above the block.
-3. Press **Page Down** to lower the end mill to about 1/4 in above the top. Switch to a slower speed as you get close.
+2. Press **4** for the biggest step. Use the **arrow keys** to move the end mill over the **pencil cross**. Keep it well above the block.
+3. Press **Page Down** to lower the end mill to about 1/4 in above the top. Press **2**, then **1**, as you get close.
 4. Look from the **front**, then from the **side**. Nudge with the arrow keys until the tip of the end mill sits right over the cross from both views.
 5. Open the door. Hold a strip of **paper** flat on the top of the block, under the end mill. The spindle stays off.
-6. Switch to the **slowest** speed. Press **Page Down** one step at a time, sliding the paper back and forth after each step. Stop as soon as the paper **just drags** (it catches but still slides). If the paper won't move at all, press **Page Up** one step.
+6. Press **1** for the smallest step. Press **Page Down** one step at a time, sliding the paper back and forth after each step. Stop as soon as the paper **just drags** (it catches but still slides). If the paper won't move at all, press **Page Up** one step.
 7. Slide the paper out. Close the door.
 8. Click **Set Zero** and choose **XYZ** (all three). X, Y and Z now read 0: the top centre of the block, to match the Fusion Setup from Groove Block 2.
 9. Press **Page Up** a few times to lift the end mill clear of the block.

@@ -76,7 +76,7 @@ Part 2 · Machine Setup Wizard
 Part 3 · Connect and home
 3A · Home | Job Info screen · door shut | INITIALIZE MACHINE · next class: Connect to Cutter first
 Extra · Finished early? (optional)
-Jog | JOG · INCREMENT + to about 1 mm | X- · Y- · Z- / Z+ · then home again
+Jog | JOG · keys 1–4 = smallest to biggest step | Arrows · Page Up/Down · then home again
 ```
 
 ## Part 1 · Install and plug in
@@ -255,12 +255,20 @@ The **Job Info** screen is Carbide Motion's main screen once it is connected. Yo
 
 Optional.
 
-- **Try jogging:** click **JOG** (top bar). The **Jog / Position** screen opens.
-  1. Under the buttons on the right, the step size shows (for example **0.025 mm**). Click **INCREMENT +** until it reads about **1 mm**.
-  2. Click **X-** three times. The spindle moves left a little each click, and **X** under **Position** changes by the step size.
-  3. Click **Y-** three times. The spindle moves toward you.
-  4. Click **Z-** once, then **Z+** once. The spindle goes down and back up.
-  5. Click **RUN** (top bar), then **INITIALIZE MACHINE** to send it home again.
+**Try jogging:** click **JOG** (top bar). The **Jog / Position** screen opens. Click once on an empty part of the screen so the keys go to Carbide Motion.
+
+| Key | Does |
+| --- | --- |
+| **1 2 3 4** | Step size: **1** is the smallest step, **4** the biggest. The size shows between **INCREMENT +** and **INCREMENT -** (right side), which do the same job |
+| **← →** arrow keys | X: left and right (same as **X-** / **X+**) |
+| **↑ ↓** arrow keys | Y: back and forward (same as **Y+** / **Y-**) |
+| **Page Up** / **Page Down** | Z: up and down (same as **Z+** / **Z-**) |
+
+1. Press **3**. Watch the step size change on the right.
+2. Press **←** three times. The spindle moves left a little each time, and **X** under **Position** changes by the step size.
+3. Press **↓** three times. The spindle moves toward you.
+4. Press **Page Down** once, then **Page Up** once. The spindle goes down and back up.
+5. Click **RUN** (top bar), then **INITIALIZE MACHINE** to send it home again.
 
 @figure cm-jog-position.png The Jog / Position screen after homing. The numbers under Position are measured from home, so they are negative. SET ZERO, RAPID POSITION and PROBE along the bottom are for later lessons.
 
