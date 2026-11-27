@@ -14,7 +14,7 @@ You set up a computer to run the Carbide 3D Nomad 3: install Carbide Motion, tel
 
 - I can install Carbide Motion and plug the Nomad 3 into the computer.
 - I can run the Machine Setup Wizard, send it the Nomad 3 settings, and home the machine.
-- I can connect to the Nomad 3 from the start screen and home it again.
+- I can find my way around the Job Info screen and home the Nomad 3 from it.
 
 ### Key vocabulary
 
@@ -47,6 +47,8 @@ The machine type, **Nomad 3** (2B and 2D), is red: picking a Shapeoko or another
 | **Connect to Machine**, **Download**, **Initialize Machine**, **Save Changes** | Machine Setup Wizard: middle of their pages |
 | **Finish** | Machine Setup Wizard, last page: bottom right, where Next was |
 | **RUN** / **SETTINGS** | Carbide Motion: green bar along the top, right side |
+| **Position** and **STOP** | Job Info screen: left side, STOP in red at the bottom left |
+| **LOAD NEW FILE** / **INITIALIZE MACHINE** | Job Info screen: middle, green and yellow |
 
 If the wizard window disappears, it is usually hidden behind the main Carbide Motion window. Click it on the Windows taskbar (bottom of the screen) to bring it back.
 
@@ -71,7 +73,7 @@ Part 2 · Machine Setup Wizard
 2G · Options | Units: Inch · Remote Access off | Save Changes · Next
 2H · Done | Setup Complete | Finish
 Part 3 · Connect and home
-3A · Connect and home | Connect to Cutter | Door shut · Initialize Machine
+3A · Home | Job Info screen · door shut | INITIALIZE MACHINE · next class: Connect to Cutter first
 Extra · Finished early? (optional)
 Check | SETTINGS · machine shows Nomad 3 | Jog a little with the arrows
 ```
@@ -210,7 +212,7 @@ The **Set Machine Options** page only changes how Carbide Motion looks. Nothing 
 ### 2H · Setup Complete
 
 1. The last page says **Setup Complete** and **Your machine should now be ready to run.**
-2. Click **Finish** (bottom right, where Next was). The wizard closes. Carbide Motion saves the setup and disconnects from the Nomad, so you connect again in Part 3.
+2. Click **Finish** (bottom right, where Next was). The wizard closes and Carbide Motion opens on its **Job Info** screen, still connected to the Nomad.
 
 @figure wizard-setup-complete.png The Setup Complete page. Finish replaces Next at the bottom right.
 
@@ -221,19 +223,30 @@ The **Set Machine Options** page only changes how Carbide Motion looks. Nothing 
 
 ## Part 3 · Connect and home
 
-### 3A · Connect and home the Nomad
+### 3A · The Job Info screen, and every class after this
 
 | Item | Value |
 | --- | --- |
-| Door | Shut |
+| Door | Shut, bed empty |
+| **Initialize Machine** | Red: the machine moves |
 | Home position | Back right corner |
 
-1. Click **Connect to Cutter** (middle of the start screen). The screen changes to show the machine is connected.
-2. Check the door is shut and nothing is in the bed.
-3. Click **Initialize Machine**. The Nomad moves to the back right corner, one axis at a time, and stops. Keep your hands out while it moves.
+The **Job Info** screen is Carbide Motion's main screen once it is connected. You see it after the wizard, and every class after **Connect to Cutter**.
 
-- [ ] Carbide Motion says it is connected
+@figure cm-job-info.png The Job Info screen. Position (left) shows X, Y and Z, with the units underneath. STOP (red, bottom left) stops the machine. LOAD NEW FILE and INITIALIZE MACHINE are in the middle.
+
+1. Look at the screen: **Position** (left side) shows **X**, **Y** and **Z**, with the units under them. The big red **STOP** button (bottom left) stops the machine. **No file loaded** sits above the two buttons in the middle.
+2. Check the door is shut and nothing is in the bed.
+3. Click **INITIALIZE MACHINE** (yellow, middle). The Nomad homes to the back right corner and stops. Keep your hands out while it moves.
+
+**Every class after this one,** the wizard is already done:
+
+1. Turn on the Nomad, open **Carbide Motion**, and click **Connect to Cutter** (middle of the start screen).
+2. The **Job Info** screen opens. Click **INITIALIZE MACHINE** before anything else.
+
+- [ ] Carbide Motion shows the **Job Info** screen with **No file loaded**
 - [ ] The Nomad homed to the back right corner and stopped
+- [ ] You know where **STOP** is
 
 ## Extra · Finished early?
 
