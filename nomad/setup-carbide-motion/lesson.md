@@ -260,8 +260,8 @@ Optional.
 | Key | Does |
 | --- | --- |
 | **1 2 3 4** | Step size: **1** is the smallest step, **4** the biggest. The size shows between **INCREMENT +** and **INCREMENT -** (right side), which do the same job |
-| **← →** arrow keys | X: left and right (same as **X-** / **X+**) |
-| **↑ ↓** arrow keys | Y: back and forward (same as **Y+** / **Y-**) |
+| **←** / **→** | X: **←** moves left, **→** moves right (same as **X-** / **X+**) |
+| **↑** / **↓** | Y: **↑** moves away from the front of the machine, **↓** toward the front (same as **Y+** / **Y-**) |
 | **Page Up** / **Page Down** | Z: up and down (same as **Z+** / **Z-**) |
 
 1. Press **3**. Watch the step size change on the right.

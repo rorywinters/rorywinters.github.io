@@ -133,8 +133,8 @@ Only change tools when Carbide Motion asks you to, or after you click **Load Too
 
 | Key | Moves |
 | --- | --- |
-| **← →** arrow keys | X: left and right |
-| **↑ ↓** arrow keys | Y: back and forward |
+| **←** / **→** | X: **←** moves left, **→** moves right |
+| **↑** / **↓** | Y: **↑** moves away from the front of the machine, **↓** toward the front |
 | **Page Up** / **Page Down** | Z: up and down |
 | **1 2 3 4** number keys | Set the step size: **1** is the smallest step, **4** the biggest. Use **4** or **3** to get close, **1** for the last bit. You can also click **INCREMENT +** and **INCREMENT -** on the Jog screen |
 
