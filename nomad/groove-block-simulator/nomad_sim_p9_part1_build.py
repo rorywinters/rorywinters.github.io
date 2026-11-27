@@ -1,7 +1,7 @@
 # ==========================================================
-#  NOMAD SIM - PROGRAM 8 - PART 1 OF 2: BUILD THE MACHINE
-#  Program 8: red laser cross, plus paper and too-deep warnings (Part 2).
-#  Run this first, then run Part 2 (the controls).
+#  NOMAD SIM - PROGRAM 9 - PART 1 OF 2: BUILD THE MACHINE
+#  Program 9: starts at home (back right, top), paper pinches then tears.
+#  Run this first, then run Program 9 Part 2 (the controls).
 # ==========================================================
 import bpy, bmesh, math
 from mathutils import Matrix
@@ -107,6 +107,7 @@ laser  = mat("Sim Laser", (1.0, 0.0, 0.0, 1), glow=12.0)
 pencil = mat("Sim Pencil", (0.05, 0.05, 0.06, 1), 0.3, 0.6)
 paperw = mat("Sim Paper", (0.95, 0.95, 0.92, 1), glow=0.3)
 mat("Sim Paper Grab", (1.0, 0.25, 0.25, 1), glow=1.0)
+mat("Sim Paper Pinch", (1.0, 0.9, 0.0, 1), glow=1.2)
 mat("Sim Paper Torn", (0.35, 0.35, 0.35, 1))
 lapm   = mat("Sim Laptop", (0.18, 0.18, 0.20, 1), 0.6, 0.4)
 scrm   = mat("Sim Screen Grey", (0.30, 0.32, 0.33, 1), glow=0.4)
@@ -196,9 +197,7 @@ cyl("Collet Nut", 0.75, 0.5, 0, -0.75, TIP_HOME + 2.0, steel, z_axis)
 cyl("Shank 1/4", 0.25, 1.0, 0, -0.75, TIP_HOME + 1.25, steel, z_axis)
 cyl("Flutes 1/4 2FL", 0.25, 0.75, 0, -0.75, TIP_HOME + 0.375, carb, z_axis)
 
-# laser: a thin beam under the cutter tip and a red cross on the block.
-# They ride on the X carriage, so they always sit right under the cutter centre.
-# Part 2 stretches the beam and moves the cross as the machine jogs.
+# laser beam and red cross under the cutter centre
 cyl("Laser Beam", 0.012, 1.0, 0, TOOL_Y, STOCK_TOP + 0.5, laser, x_axis)
 box("Laser Cross X", 0.6, 0.012, 0.002, 0, TOOL_Y, STOCK_TOP + 0.007, laser, x_axis, bevel=0)
 box("Laser Cross Y", 0.012, 0.6, 0.002, 0, TOOL_Y, STOCK_TOP + 0.007, laser, x_axis, bevel=0)
@@ -223,7 +222,7 @@ def btn(name, label, x, z, w, h, jog, m=green, size=0.45):
     b["jog"] = jog
     text(name + " Label", label, x, z, size, white, hinge, 'CENTER', jog, y=-0.34)
 
-text("Screen Title", "JOG  P8", -4.6, 6.6, 0.6, white, hinge)
+text("Screen Title", "JOG  P9", -4.6, 6.6, 0.6, white, hinge)
 text("Readout X", "X +0.000", -4.6, 5.6, 0.55, white, hinge)
 text("Readout Y", "Y +0.000", -4.6, 4.8, 0.55, white, hinge)
 text("Readout Z", "Z +0.000", -4.6, 4.0, 0.55, white, hinge)
@@ -260,4 +259,4 @@ for area in bpy.context.screen.areas:
         except Exception:
             pass
 
-print("Nomad Sim Program 8 Part 1 done - now run Part 2")
+print("Nomad Sim Program 9 Part 1 done - now run Program 9 Part 2")

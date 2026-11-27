@@ -1,9 +1,11 @@
 # ==========================================================
-#  NOMAD SIM - PROGRAM 8 - PART 2 OF 2: THE CONTROLS
-#  Run Program 8 Part 1 (build) first, then this file.
-#  New in Program 8: paper shakes and flashes yellow when it grabs,
-#  rips in half if you go too low, and the screen flashes red with
-#  chips when the end mill goes into the metal.
+#  NOMAD SIM - PROGRAM 9 - PART 2 OF 2: THE CONTROLS
+#  Run Program 9 Part 1 (build) first, then this file.
+#  New in Program 9:
+#   - the machine starts at HOME: back right corner, all the way up
+#   - paper slides back and forth, drags as you get close,
+#     PINCHES (stops dead, turns yellow) just above the block,
+#     and tears in half with bits raining down if you go lower
 #  Last line: bpy.ops.nomad.jog('INVOKE_DEFAULT')
 # ==========================================================
 import bpy, math, random
@@ -13,14 +15,18 @@ IN = 0.0254
 BED_TOP, SX, SY = 1.5, 4.0, 3.0
 STOCK_TOP = BED_TOP + 1.0
 TIP_HOME, TOOL_Y, R_TOOL, RES, PAPER = 4.0, -0.75, 0.125, 0.02, 0.004
+DRAG = 0.02          # paper starts to drag this far above the block
 NX, NY = int(round(SX / RES)) + 1, int(round(SY / RES)) + 1
 EPS = 1e-6
+X_MIN, X_MAX = -3.5, 3.5
+Y_MIN, Y_MAX = TOOL_Y - 2.0, TOOL_Y + 2.5
+HOME = (X_MAX, Y_MAX, TIP_HOME)     # back right, all the way up
 M = bpy.data.materials
 SIM = bpy.data.collections["Nomad Sim"]
 
-if "Sim Paper Flash" not in M:
+if "Sim Paper Pinch" not in M:
     f = M["Sim Paper Grab"].copy()
-    f.name = "Sim Paper Flash"
+    f.name = "Sim Paper Pinch"
     f.diffuse_color = (1.0, 0.9, 0.0, 1)
     b = f.node_tree.nodes.get("Principled BSDF") if f.node_tree else None
     for n in ("Base Color", "Emission Color"):
@@ -92,11 +98,12 @@ class NOMAD_OT_jog(bpy.types.Operator):
         self.beam = ob["Laser Beam"]
         self.cross = (ob["Laser Cross X"], ob["Laser Cross Y"])
         self.halves = (ob["Paper Half A"], ob["Paper Half B"])
-        ob["Screen Title"].data.body = "JOG  P8"
+        ob["Screen Title"].data.body = "JOG  P9"
+        self.set_tool(HOME)
         self.paper_in = self.torn = self.tear_shown = self.broken = self.running = False
         self.zxy_set = self.zz_set = False
         self.zero = list(self.tool())
-        self.path, self.msg, self.flash, self.wig = [], "", 0, 0
+        self.path, self.msg, self.flash, self.wig, self.rain = [], "", 0, 0, []
         self.set_step("S3")
         self.timer = context.window_manager.event_timer_add(0.03, window=context.window)
         context.window_manager.modal_handler_add(self)
@@ -133,8 +140,12 @@ class NOMAD_OT_jog(bpy.types.Operator):
             self.torn = True
         if self.torn:
             return "torn"
-        if self.over() and z <= STOCK_TOP + PAPER + EPS:
-            return "grab"
+        if self.over():
+            gap = z - STOCK_TOP
+            if gap <= PAPER + EPS:
+                return "pinch"
+            if gap <= DRAG + EPS:
+                return "drag"
         return "free"
 
     def update_laser(self):
@@ -147,15 +158,31 @@ class NOMAD_OT_jog(bpy.types.Operator):
         for c in self.cross:
             c.hide_viewport = c.hide_render = not self.over()
 
+    def rain_bits(self):
+        x, y, _ = self.tool()
+        for k in range(14):
+            o = raw_box("Paper Bit", random.uniform(0.05, 0.12), random.uniform(0.04, 0.09), PAPER,
+                        x + random.uniform(-0.8, 0.8), y + random.uniform(-0.8, 0.8),
+                        STOCK_TOP + random.uniform(0.6, 2.5), M["Sim Paper"], self.y)
+            o.rotation_euler = (random.uniform(0, 3), random.uniform(0, 3), random.uniform(0, 3))
+            self.rain.append([o, random.uniform(0.04, 0.09)])
+
+    def clear_bits(self):
+        self.rain = []
+        for o in [o for o in SIM.objects if o.name.startswith(("Paper Bit", "Chip", "Shard "))]:
+            bpy.data.objects.remove(o, do_unlink=True)
+
     def update_paper(self):
         st = self.paper_state()
         p = self.paper
         torn = st == "torn"
         p.hide_viewport = p.hide_render = (not self.paper_in) or torn
-        p.location = (self.x.location.x, (TOOL_Y - 1.2)*IN, (STOCK_TOP + PAPER/2)*IN)
-        if st != "grab":
-            p.rotation_euler.z = 0.0
-            p.material_slots[0].material = M["Sim Paper"]
+        p.location.x = self.x.location.x
+        p.location.z = (STOCK_TOP + PAPER/2) * IN
+        p.rotation_euler.z = 0.0
+        if st == "pinch":
+            p.location.y = (TOOL_Y - 1.2) * IN
+        p.material_slots[0].material = M["Sim Paper Pinch"] if st == "pinch" else M["Sim Paper"]
         for h, s in zip(self.halves, (-1, 1)):
             h.hide_viewport = h.hide_render = not torn
             if torn:
@@ -164,7 +191,8 @@ class NOMAD_OT_jog(bpy.types.Operator):
                 h.rotation_euler.z = math.radians(18*s)
         if torn and not self.tear_shown:
             self.tear_shown = True
-            self.error("PAPER RIPPED! Too low. Page Up, then P")
+            self.rain_bits()
+            self.error("PAPER TORN! Too low. Page Up, then P")
         return st
 
     def show(self, context):
@@ -179,13 +207,17 @@ class NOMAD_OT_jog(bpy.types.Operator):
         elif self.running:
             state = "RUNNING PROGRAM... (Esc stops)"
         elif st == "torn":
-            state = "PAPER RIPPED - Page Up, then P for new paper"
-        elif st == "grab":
-            state = "PAPER GRABS - set Z zero"
+            state = "PAPER TORN - Page Up, then P for new paper"
+        elif st == "pinch":
+            state = "PINCHED - paper won't move. Set Z zero"
+        elif st == "drag":
+            state = "paper dragging - go slow (key 1)"
         elif self.over() and z < STOCK_TOP - EPS:
             state = "IN THE METAL - Page Up!"
         elif st == "free":
             state = "paper slides freely"
+        elif not self.zxy_set:
+            state = "at HOME - jog to the block"
         else:
             state = "clear"
         ob = bpy.data.objects
@@ -195,7 +227,7 @@ class NOMAD_OT_jog(bpy.types.Operator):
         ob["Readout State"].data.body = state
         ob["Readout Step"].data.body = f"step {self.step} in"
         context.workspace.status_text_set(
-            f"NOMAD SIM P8   X {wx:+.3f}   Y {wy:+.3f}   Z {wz:+.3f} in   [{state}]   | Esc stop")
+            f"NOMAD SIM P9   X {wx:+.3f}   Y {wy:+.3f}   Z {wz:+.3f} in   [{state}]   | Esc stop")
         for a in context.screen.areas:
             a.tag_redraw()
 
@@ -230,7 +262,7 @@ class NOMAD_OT_jog(bpy.types.Operator):
         s = self.step
         cl = lambda v, lo, hi: max(lo, min(hi, round(v, 4)))
         p0 = self.tool()
-        self.set_tool((cl(p0[0] + dx*s, -3.5, 3.5), cl(p0[1] + dy*s, TOOL_Y - 2.0, TOOL_Y + 2.5),
+        self.set_tool((cl(p0[0] + dx*s, X_MIN, X_MAX), cl(p0[1] + dy*s, Y_MIN, Y_MAX),
                        cl(p0[2] + dz*s, BED_TOP, TIP_HOME)))
         p1 = self.tool()
         if self.broken:
@@ -239,7 +271,7 @@ class NOMAD_OT_jog(bpy.types.Operator):
             self.shatter(p1)
             return
         self.cut_move(p0, p1)
-        if dz < 0 and self.over() and p1[2] < STOCK_TOP - EPS:
+        if dz < 0 and self.over() and p1[2] < STOCK_TOP - EPS and not self.paper_in:
             self.chips(p1)
             self.error("TOO DEEP: YOU'RE IN THE METAL! Page Up")
 
@@ -277,12 +309,28 @@ class NOMAD_OT_jog(bpy.types.Operator):
                 self.msg = ""
                 self.show(context)
             redraw = True
-        if self.paper_in and not self.torn and not self.running and self.paper_state() == "grab":
-            self.wig += 1
-            p = self.paper
-            p.rotation_euler.z = math.radians(random.uniform(-12, 12))
-            p.location.x = self.x.location.x + random.uniform(-0.08, 0.08) * IN
-            p.material_slots[0].material = M["Sim Paper Flash"] if (self.wig // 4) % 2 else M["Sim Paper Grab"]
+        # paper slides back and forth like a hand moving it; less as it drags, none when pinched
+        if self.paper_in and not self.torn and not self.running:
+            st = self.paper_state()
+            amp = {"free": 0.35, "drag": 0.08}.get(st, 0.0)
+            if amp:
+                self.wig += 1
+                speed = 0.25 if st == "free" else 0.12
+                self.paper.location.y = (TOOL_Y - 1.2 + amp*math.sin(self.wig*speed)) * IN
+                self.paper.rotation_euler.z = math.radians(random.uniform(-2, 2)) if st == "drag" else 0.0
+                redraw = True
+        # paper bits falling after a tear
+        if self.rain:
+            floor = (STOCK_TOP + 0.005) * IN
+            for item in self.rain:
+                o, v = item
+                o.location.z = max(floor, o.location.z - v*IN)
+                o.rotation_euler.x += 0.2
+                o.rotation_euler.y += 0.15
+                if o.location.z <= floor:
+                    o.rotation_euler.x = o.rotation_euler.y = 0.0
+                    item[1] = 0
+            self.rain = [i for i in self.rain if i[1] > 0]
             redraw = True
         if self.running and self.path:
             p = self.tool()
@@ -311,14 +359,14 @@ class NOMAD_OT_jog(bpy.types.Operator):
             for i in range(NX*NY):
                 self.me.vertices[i].co.z = STOCK_TOP * IN
             self.me.update()
-            for o in [o for o in SIM.objects if o.name.startswith(("Shard ", "Chip"))]:
-                bpy.data.objects.remove(o, do_unlink=True)
+            self.clear_bits()
             self.flutes.hide_viewport = self.flutes.hide_render = False
             self.broken = self.paper_in = self.torn = self.tear_shown = False
         elif action == "RUN":
             self.start_run()
         elif action == "PAPER":
             if self.torn or not self.paper_in:
+                self.clear_bits() if self.torn else None
                 self.paper_in, self.torn, self.tear_shown = True, False, False
             else:
                 self.paper_in = False
