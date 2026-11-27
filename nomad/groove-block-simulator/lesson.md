@@ -1,13 +1,14 @@
 ---
 title: Groove Block Practice: The Nomad Simulator
 program: Nomad
+simulator: ../simulator/
 blurb: Practise the whole Groove Block setup on a pretend Nomad in your web browser before touching the real machine. Jog with the keyboard or the jog panel, line a red laser cross up with the pencil cross, jog from home to the block, set zero by pinching paper, then press RUN and watch the groove cut. About 30 minutes.
 ---
-You practise setting zero and running the Groove Block on a pretend Nomad in your web browser. You can't break a real end mill here, so it's a safe place to make mistakes. It runs on any computer or Chromebook with nothing to download: no Nomad, no Carbide Motion, no Blender.
+You practise setting zero and running the Groove Block on a pretend Nomad in your web browser. You can't break a real end mill here, so it's a safe place to make mistakes. It runs on any phone, computer or Chromebook with nothing to download: no Nomad, no Carbide Motion, no Blender.
 
 - **Learning objective:** We are learning the steps for setting work zero and running a CNC program, by practising them on a simulator.
 - **Prior knowledge:** Using a mouse and the arrow keys. Doing [Groove Block 2: Toolpath and Post](../../fusion/lesson-01-groove-block-toolpath/) first helps, but you don't need it.
-- **What you need:** a computer with a keyboard and a web browser (Chrome, Edge or Firefox). Open the [Nomad Simulator](../simulator/).
+- **What you need:** a phone or a computer with a web browser (Chrome, Edge, Firefox or Safari). Press the big green **Simulator** button at the top of this page.
 - **Time:** about 30 minutes
 
 **The Groove Block series:** [1 Make the object](../../fusion/lesson-00-groove-block/) · [2 Toolpath and post](../../fusion/lesson-01-groove-block-toolpath/) · Practice on the simulator (this lesson) · [3 Set up the Nomad and run the part](../lesson-00-groove-block-run/)

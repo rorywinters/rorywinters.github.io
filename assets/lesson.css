@@ -70,6 +70,11 @@
   .empty { color: var(--quiet); font-style: italic; }
   a.card .num { display: block; font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--c, #2f6fdb); margin-bottom: 2px; }
   .lessonnum { font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--quiet); margin-top: 6px; }
+  .simlink { margin: 14px 0 10px; }
+  .simlink a { display: block; width: 100%; max-width: 520px; margin: 0 auto; padding: 18px 16px; border-radius: 12px; background: #1e7a34; color: #fff; text-decoration: none; text-align: center; font-size: 26px; font-weight: 800; letter-spacing: .04em; box-shadow: 0 3px 0 #145224; }
+  .simlink a:hover, .simlink a:focus { background: #23903d; }
+  .simlink a:active { transform: translateY(2px); box-shadow: 0 1px 0 #145224; }
+  @media (max-width: 600px) { .simlink a { max-width: none; font-size: 28px; padding: 22px 16px; } }
   .vidlink a { display: inline-block; padding: 6px 12px; border-radius: 8px; background: #c4302b; color: #fff; text-decoration: none; font-size: 14px; }
   code { background: #eef1f5; padding: 1px 5px; border-radius: 4px; font-size: 14px; }
   pre { background: #eef1f5; padding: 10px 12px; border-radius: 8px; overflow-x: auto; }

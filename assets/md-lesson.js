@@ -149,6 +149,7 @@
     var html = '<header><div class="crumb"><a href="' + base + '">Lessons</a> › <a href="' + base + folder + '/">' + esc(meta.program || '') + '</a></div>' +
       '<div class="lessonnum">' + esc(meta.program || '') + ' · Lesson ' + esc(meta.lesson || '') + ' ' + statusBadge(meta.status) + '</div><h1>' + inline(meta.title || '') + '</h1>' +
       (meta.blurb ? '<p class="sub">' + inline(meta.blurb) + '</p>' : '') + '</header>';
+    if (meta.simulator) html += '<p class="simlink"><a href="' + meta.simulator + '">Simulator</a></p>';
     if (meta.video) html += '<p class="vidlink"><a href="' + meta.video + '" target="_blank" rel="noreferrer">▶ Watch the video for this lesson</a></p>';
 
     // Split: intro (before first ## or ```brief), brief, parts.
