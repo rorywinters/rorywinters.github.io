@@ -8,8 +8,8 @@ You practise setting zero and running the Groove Block on a pretend Nomad inside
 - **Learning objective:** We are learning the steps for setting work zero and running a CNC program, by practising them on a simulator.
 - **Prior knowledge:** Orbiting and zooming in Blender's 3D Viewport (middle mouse button and mouse wheel). Doing [Groove Block 2: Toolpath and Post](../../fusion/lesson-01-groove-block-toolpath/) first helps, but you don't need it.
 - **Files you need:** two Blender scripts. Click each one to download it, then save it to your folder:
-  - [nomad_sim_p7_part1_build.py](nomad_sim_p7_part1_build.py) builds the machine
-  - [nomad_sim_p7_part2_controls.py](nomad_sim_p7_part2_controls.py) adds the controls
+  - [nomad_sim_p8_part1_build.py](nomad_sim_p8_part1_build.py) builds the machine
+  - [nomad_sim_p8_part2_controls.py](nomad_sim_p8_part2_controls.py) adds the controls
 - **Time:** about 30 minutes
 
 **The Groove Block series:** [1 Make the object](../../fusion/lesson-00-groove-block/) · [2 Toolpath and post](../../fusion/lesson-01-groove-block-toolpath/) · Practice on the simulator (this lesson) · [3 Set up the Nomad and run the part](../lesson-00-groove-block-run/)
@@ -55,10 +55,10 @@ You practise setting zero and running the Groove Block on a pretend Nomad inside
 Part 1 · Load the simulator
 1A · Get the files | Download part1_build.py · part2_controls.py | Save both in your folder
 1B · Build | Scripting tab · Text Editor → Open → part1 | Run Script ▶ · machine + laptop appear
-1C · Controls | Open → part2 · Run Script ▶ | Laptop says JOG P7 · arrows move the machine
+1C · Controls | Open → part2 · Run Script ▶ | Laptop says JOG P8 · arrows move the machine
 Part 2 · Touch down
 2A · Over the cross | Step 1 in (key 4) · then 0.1 (key 3) | Red laser cross on the pencil cross · ZERO XY
-2B · Paper | P brings in paper · Page Down 3 → 2 → 1 | Paper goes red: PAPER GRABS · ZERO Z
+2B · Paper | P brings in paper · Page Down 3 → 2 → 1 | Paper shakes, flashes yellow: PAPER GRABS · ZERO Z
 Part 3 · Run the program
 3A · Lift | P takes paper out · Page Up to Z +0.200 or more | Step 0.1 (key 3)
 3B · Run | Click RUN · watch two laps × two depths | Esc stops · RESET for a new block
@@ -72,11 +72,11 @@ Break it on purpose | RUN without lifting · Page Down with step 1 | Read the re
 
 | Item | Value |
 | --- | --- |
-| Part 1 | [nomad_sim_p7_part1_build.py](nomad_sim_p7_part1_build.py) |
-| Part 2 | [nomad_sim_p7_part2_controls.py](nomad_sim_p7_part2_controls.py) |
+| Part 1 | [nomad_sim_p8_part1_build.py](nomad_sim_p8_part1_build.py) |
+| Part 2 | [nomad_sim_p8_part2_controls.py](nomad_sim_p8_part2_controls.py) |
 
-1. Click [nomad_sim_p7_part1_build.py](nomad_sim_p7_part1_build.py). Your browser downloads it.
-2. Click [nomad_sim_p7_part2_controls.py](nomad_sim_p7_part2_controls.py). It downloads too.
+1. Click [nomad_sim_p8_part1_build.py](nomad_sim_p8_part1_build.py). Your browser downloads it.
+2. Click [nomad_sim_p8_part2_controls.py](nomad_sim_p8_part2_controls.py). It downloads too.
 3. Move both files from **Downloads** into your own class folder, so you can find them again.
 
 ### 1B · Build the machine
@@ -84,13 +84,13 @@ Break it on purpose | RUN without lifting · Page Down with step 1 | Read the re
 | Item | Value |
 | --- | --- |
 | Tab | Scripting |
-| File | nomad_sim_p7_part1_build.py |
+| File | nomad_sim_p8_part1_build.py |
 | Button | Run Script ▶ |
 
 1. Open Blender with a new **General** file. You see the grey default cube.
 2. Click the **Scripting** tab at the top right of the window. The layout changes: a big empty Text Editor fills the middle.
 3. In the Text Editor's header strip, click **Open**. A file browser opens.
-4. Find **nomad_sim_p7_part1_build.py** and double-click it. The script's text fills the Text Editor. The first line says **NOMAD SIM - PROGRAM 7 - PART 1 OF 2**.
+4. Find **nomad_sim_p8_part1_build.py** and double-click it. The script's text fills the Text Editor. The first line says **NOMAD SIM - PROGRAM 8 - PART 1 OF 2**.
 5. Click **Run Script** (the ▶ play button at the right end of the Text Editor header). After a second or two, the cube disappears and the machine appears in the 3D Viewport at the top left, with a laptop beside it. A new **Nomad Sim** collection shows in the Outliner.
 
 **Quick notes:** If the machine looks tiny or cut off, hover over the 3D Viewport and press **Home**. The view zooms to fit everything.
@@ -99,11 +99,11 @@ Break it on purpose | RUN without lifting · Page Down with step 1 | Read the re
 
 | Item | Value |
 | --- | --- |
-| File | nomad_sim_p7_part2_controls.py |
+| File | nomad_sim_p8_part2_controls.py |
 | Last line of the script | `bpy.ops.nomad.jog('INVOKE_DEFAULT')` |
 
-1. In the Text Editor header, click **Open** again and double-click **nomad_sim_p7_part2_controls.py**. Its text replaces Part 1 in the editor. The first line says **PART 2 OF 2**.
-2. Click **Run Script** ▶. The laptop screen title changes to **JOG P7**, and the status bar at the bottom of Blender shows **NOMAD SIM P7** with X, Y and Z.
+1. In the Text Editor header, click **Open** again and double-click **nomad_sim_p8_part2_controls.py**. Its text replaces Part 1 in the editor. The first line says **PART 2 OF 2**.
+2. Click **Run Script** ▶. The laptop screen title changes to **JOG P8**, and the status bar at the bottom of Blender shows **NOMAD SIM P8** with X, Y and Z.
 3. Move your mouse over the 3D Viewport and press **→** (right arrow). The spindle slides to the right, and a thin **red laser** line runs from the end mill down to a **red cross** on the block.
 4. Hover over the 3D Viewport and press **Ctrl+Space**. The 3D Viewport fills the whole window, so you can see the machine better. (Press **Ctrl+Space** again later to bring the Text Editor back.)
 5. Zoom in on the laptop with the mouse wheel and click the green **X-** button. The machine moves left, and the X number on the laptop screen changes.
@@ -122,7 +122,7 @@ Break it on purpose | RUN without lifting · Page Down with step 1 | Read the re
 | **R** | **RESET** | New block and new end mill, paper put away |
 | **Esc** | | Stops a running program. Press it again to switch the simulator off |
 
-- [ ] The machine and the laptop are in the 3D Viewport, and the laptop screen says **JOG P7**
+- [ ] The machine and the laptop are in the 3D Viewport, and the laptop screen says **JOG P8**
 - [ ] The arrow keys and the green buttons both move the machine
 - [ ] A red laser line and a red cross follow the end mill
 
@@ -150,19 +150,19 @@ Break it on purpose | RUN without lifting · Page Down with step 1 | Read the re
 | --- | --- |
 | Paper | **P** key or **PAPER** button |
 | Coming down | Step 0.1 (key **3**) until about 1/4 in above, then 0.01 (key **2**), then 0.001 (key **1**) |
-| Target | Paper turns red, screen says **PAPER GRABS** |
+| Target | Paper shakes and flashes yellow, screen says **PAPER GRABS** |
 | Button | **ZERO Z** |
 
 1. Press **P**. A white paper strip slides in under the end mill.
 2. Press **3** and **Page Down** until the end mill is about 1/4 in above the block. Watch the laser line get shorter.
 3. Press **2** and keep pressing **Page Down**, slowly. When the gap is tiny, press **1**.
-4. Keep going one press at a time until the paper turns **red** and wiggles, and the laptop says **PAPER GRABS - set Z zero**. Stop there.
+4. Keep going one press at a time until the paper starts to **shake and flash yellow and red**, and the laptop says **PAPER GRABS - set Z zero**. Stop there.
 5. Click **ZERO Z**. Z on the laptop reads **+0.000**.
 
-> If the paper turns grey and the screen says **PAPER TORN**, you went too low. Press **Page Up** a few times, press **P** for new paper, and come down again more slowly.
+> If the paper **rips into two grey halves**, the screen flashes red and says **PAPER TORN**, you went too low. Press **Page Up** a few times, press **P** for new paper, and come down again more slowly.
 
 - [ ] The red laser cross is on the pencil cross, and X and Y read **+0.000**
-- [ ] The paper turned red at the top of the block, and Z reads **+0.000**
+- [ ] The paper shook and flashed yellow at the top of the block, and Z reads **+0.000**
 
 ## Part 3 · Run the program
 
@@ -203,11 +203,12 @@ Optional. Make the mistakes on purpose, so you know what they look like before y
 
 | Problem | Fix |
 | --- | --- |
-| Nothing happens when I click Run Script | Check the first line of the text says **PROGRAM 7**. Look at the status bar for a red error. Part 2 only works after Part 1 has been run. |
+| Nothing happens when I click Run Script | Check the first line of the text says **PROGRAM 8**. Look at the status bar for a red error. Part 2 only works after Part 1 has been run. |
 | Can't see the machine, only a big grey cube | Run Part 1 again. It deletes the default cube. Then hover over the 3D Viewport and press **Home**. |
 | The arrow keys move the text cursor, not the machine | Run Part 2 again, then move the mouse over the 3D Viewport before pressing keys. |
 | Clicking the laptop buttons does nothing | Zoom in closer and click right on the green or grey button. If it still does nothing, run Part 2 again. |
 | The laptop says **SET ZERO XY FIRST** or **SET ZERO Z FIRST** | Do Part 2: zero X and Y on the pencil cross, then Z with the paper. |
 | The laptop says **LIFT THE CUTTER UP FIRST** | Press **Page Up** until Z reads at least **+0.200**, then click **RUN**. |
 | The end mill disappeared and gold bits are on the block | It shattered: you jogged down into the metal with a big step. Click **RESET**. |
+| The screen flashes **TOO DEEP: YOU'RE IN THE METAL!** and glowing chips appear | You jogged the end mill below the top of the block. Press **Page Up** until it's clear, then **RESET** for a fresh block and to clear the chips. |
 | The groove is in the wrong place | X and Y zero weren't on the pencil cross. Click **RESET**, line the red laser cross up again, and zero again. |

@@ -1,6 +1,6 @@
 # ==========================================================
-#  NOMAD SIM - PROGRAM 7 - PART 1 OF 2: BUILD THE MACHINE
-#  New in Program 7: a red laser cross shows where the cutter is.
+#  NOMAD SIM - PROGRAM 8 - PART 1 OF 2: BUILD THE MACHINE
+#  Program 8: red laser cross, plus paper and too-deep warnings (Part 2).
 #  Run this first, then run Part 2 (the controls).
 # ==========================================================
 import bpy, bmesh, math
@@ -223,7 +223,7 @@ def btn(name, label, x, z, w, h, jog, m=green, size=0.45):
     b["jog"] = jog
     text(name + " Label", label, x, z, size, white, hinge, 'CENTER', jog, y=-0.34)
 
-text("Screen Title", "JOG  P7", -4.6, 6.6, 0.6, white, hinge)
+text("Screen Title", "JOG  P8", -4.6, 6.6, 0.6, white, hinge)
 text("Readout X", "X +0.000", -4.6, 5.6, 0.55, white, hinge)
 text("Readout Y", "Y +0.000", -4.6, 4.8, 0.55, white, hinge)
 text("Readout Z", "Z +0.000", -4.6, 4.0, 0.55, white, hinge)
@@ -260,4 +260,4 @@ for area in bpy.context.screen.areas:
         except Exception:
             pass
 
-print("Nomad Sim Program 7 Part 1 done - now run Part 2")
+print("Nomad Sim Program 8 Part 1 done - now run Part 2")
