@@ -1,5 +1,5 @@
 // ==========================================================
-//  NOMAD SIM - PROGRAM 10 (browser version, Three.js)
+//  NOMAD SIM - PROGRAM 11 (browser version, Three.js)
 //  Ported from the Blender Program 9 scripts.
 //  All sizes are in inches. Sim axes: X right, Y back, Z up.
 //  Three.js axes: x = X, y = Z (up), z = -Y.
@@ -268,8 +268,11 @@ function startRun() {
       for (const q of lap.slice(1)) pts.push([[q[0], q[1], d], false]);
       pts.push([[lap[0][0], lap[0][1], zc], true]);
     }
-  pts.push([[0, 0, S.p[2] - S.zero[2]], true]);
   S.path = pts.map(([p, r]) => [p.map((v, i) => v + S.zero[i]), r]);
+  // finished: lift straight up, then go back to HOME (back right, top)
+  const last = S.path[S.path.length - 1][0];
+  S.path.push([[last[0], last[1], TIP_HOME], true]);
+  S.path.push([HOME.slice(), true]);
   S.running = true;
 }
 
@@ -365,7 +368,7 @@ function frame(now) {
       else { p1 = p.map((v, i) => v + (target[i] - v) * budget / d); budget = 0; }
       cutMove(p, p1);
       S.p = p1;
-      if (!S.path.length) S.running = false;
+      if (!S.path.length) { S.running = false; S.msg = 'PROGRAM DONE - back at HOME'; }
       else if (S.path[0][1] !== rapid) budget = budget * (S.path[0][1] ? 10 / 2.5 : 2.5 / 10);
     }
   }

@@ -6,7 +6,7 @@ blurb: Tape down the aluminum block, install and measure a 1/4 in end mill, find
 You cut the Groove Block on the Carbide 3D Nomad 3, using the 1001.nc file from the last lesson. These steps are for the Nomad 3 with Carbide Motion.
 
 - **Learning objective:** We are learning to set up a CNC mill safely and run a program on real metal.
-- **Prior knowledge:** [Groove Block 2: Toolpath and Post](../../fusion/lesson-01-groove-block-toolpath/) (you bring the posted 1001.nc file). Practising first on [the Nomad simulator in Blender](../groove-block-simulator/) helps.
+- **Prior knowledge:** [Groove Block 2: Toolpath and Post](../../fusion/lesson-01-groove-block-toolpath/) (you bring the posted 1001.nc file). Practising first on [the Nomad simulator](../groove-block-simulator/) in your browser helps.
 - **What you need:** the **1001.nc** file. One aluminum block cut to 4 × 3 × 1 in (6061 is easiest to machine). One 1/4 in 2-flute flat carbide end mill made for aluminum. A **1/4 in ER-11 collet**: the Nomad 3 only ships with the 1/8 in one ([Nomad 3 specs](https://shop.carbide3d.com/products/nomad-3)). Double-sided tape that comes with the Nomad 3. A ruler and a fine marker or sharp pencil. A strip of plain printer paper. Safety glasses.
 - **Time:** about one class period
 
