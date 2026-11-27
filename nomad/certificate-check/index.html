@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- NOMAD SIM - PROGRAM 12 - certificate checker -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Check a Nomad Simulator certificate · Winters Innovative Solutions</title>
+<link rel="stylesheet" href="../../assets/lesson.css?v=20261123b">
+<style>
+  .ckform { display: grid; gap: 8px; max-width: 460px; margin: 16px 0; }
+  .ckform label { font-weight: 700; }
+  .ckform input { font: inherit; font-size: 18px; padding: 10px; border: 1px solid #999; border-radius: 6px; }
+  .ckform input#code { font-family: Consolas, "Courier New", monospace; text-transform: uppercase; }
+  .ckform button { font: inherit; font-weight: 700; font-size: 18px; padding: 10px; border: 0; border-radius: 6px;
+    background: #0f7d2e; color: #fff; cursor: pointer; }
+  #result { max-width: 460px; padding: 12px 14px; border-radius: 8px; font-weight: 700; font-size: 17px; }
+  #result.good { background: #d8f5df; color: #0b4d1c; border: 2px solid #0f7d2e; }
+  #result.bad { background: #fde0de; color: #7a1410; border: 2px solid #b3221d; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="crumb"><a href="../../">Lessons</a> › <a href="../">Nomad</a> › Check a certificate</div>
+  <h1>Check a Nomad Simulator certificate</h1>
+  <p class="sub">For teachers. Type the student's name and the code exactly as they are on the certificate.</p>
+</header>
+
+<form class="ckform" id="f">
+  <label for="name">Name on the certificate</label>
+  <input id="name" type="text" autocomplete="off" required>
+  <label for="code">Code</label>
+  <input id="code" type="text" placeholder="NOMAD-261127-XXXX-XXXX" autocomplete="off" required>
+  <button type="submit">Check</button>
+</form>
+<div id="result" hidden></div>
+
+<p>Spaces, capitals and punctuation in the name don't matter (<em>Jo Smith</em> and <em>jo smith</em> both match).
+A code only matches the name it was made for, so it can't be copied to another student.
+It stops casual copying, but it isn't cheat-proof.</p>
+<p><a href="../simulator/">Open the Nomad Simulator</a> · <a href="../groove-block-simulator/">How to use it</a></p>
+
+<footer>Winters Innovative Solutions · <a href="https://www.youtube.com/@winters.innovative.solutions" target="_blank" rel="noreferrer">YouTube channel</a></footer>
+</div>
+<script type="module">
+import { checkCode } from '../simulator/certcode.js?v=20261127p12';
+const $ = id => document.getElementById(id);
+$('f').addEventListener('submit', e => {
+  e.preventDefault();
+  const r = checkCode($('name').value, $('code').value), out = $('result');
+  out.hidden = false;
+  out.className = r.ok ? 'good' : 'bad';
+  out.textContent = r.ok ? '✔ Real certificate: 10 / 10, made on ' + r.date + '.' : '✘ Not a match. ' + r.why;
+});
+</script>
+</body>
+</html>

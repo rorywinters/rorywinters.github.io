@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- NOMAD SIM - PROGRAM 11 (browser version) -->
+<!-- NOMAD SIM - PROGRAM 12 (browser version, with certificate) -->
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nomad Simulator (P11) · Winters Innovative Solutions</title>
+<title>Nomad Simulator (P12) · Winters Innovative Solutions</title>
 <style>
   * { box-sizing: border-box; }
   html, body { margin: 0; height: 100%; background: #1b1d21; color: #eee;
@@ -40,6 +40,35 @@
   .lbl { font-size: 12px; color: #ddd; margin: 6px 0 3px; }
   #keys { font-size: 12px; color: #ddd; line-height: 1.5; }
   kbd { background: #2e3134; border-radius: 3px; padding: 0 4px; font-size: 11px; }
+  /* certificate (Program 12) */
+  #cert { position: fixed; inset: 0; background: rgba(0,0,0,.7); display: flex;
+    align-items: center; justify-content: center; padding: 12px; z-index: 10; overflow-y: auto; }
+  #cert[hidden], #cert [hidden] { display: none !important; }
+  .cbox { background: #4b4f53; border-radius: 10px; padding: 18px; width: min(440px, 100%); }
+  .cbox h2 { margin: 0 0 8px; font-size: 20px; }
+  .cbox input { width: 100%; font: inherit; font-size: 18px; padding: 10px; border-radius: 6px;
+    border: 0; margin: 8px 0 12px; }
+  .cbtns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
+  #certPaper { background: #fffdf5; color: #1d1d1d; width: min(720px, 100%); padding: 28px 30px;
+    border: 10px double #8a6d1f; border-radius: 4px; -webkit-print-color-adjust: exact; print-color-adjust: exact; text-align: center; font-family: Georgia, "Times New Roman", serif; }
+  #certPaper .t1 { font-size: 34px; letter-spacing: 2px; margin: 0; color: #5b4712; }
+  #certPaper .t2 { font-size: 16px; margin: 4px 0 18px; text-transform: uppercase; letter-spacing: 3px; color: #555; }
+  #certPaper .nm { font-size: 34px; font-style: italic; border-bottom: 2px solid #8a6d1f;
+    display: inline-block; min-width: 60%; padding: 0 12px 4px; margin: 6px 0 14px; }
+  #certPaper .sc { font-size: 44px; font-weight: 700; color: #0f7d2e; margin: 6px 0; font-family: system-ui, sans-serif; }
+  #certPaper table { margin: 12px auto 0; border-collapse: collapse; font-size: 14px; text-align: left; }
+  #certPaper td { padding: 3px 10px; }
+  #certPaper td:first-child { color: #666; }
+  #cCode { font-family: Consolas, "Courier New", monospace; font-size: 18px; font-weight: 700; letter-spacing: 1px; }
+  #certPaper .ck { font-size: 12px; color: #666; margin-top: 14px; }
+  #certShow .cbtns { width: min(720px, 100%); margin: 12px auto 0; }
+  @media print {
+    @page { size: landscape; margin: 12mm; }
+    body, html { background: #fff; height: auto; }
+    #app, #certShow .cbtns { display: none !important; }
+    #cert { position: static; background: none; padding: 0; display: block; }
+    #certPaper { width: 100%; }
+  }
   @media (max-width: 760px) {
     #app { flex-direction: column; height: auto; }
     #view { height: 60vh; flex: none; }
@@ -57,7 +86,7 @@
     <div id="hint">Drag to orbit · right-drag to pan · wheel to zoom</div>
   </div>
   <div id="panel">
-    <h1>JOG &nbsp;P11</h1>
+    <h1>JOG &nbsp;P12</h1>
     <div id="readout"><div id="rx">X +0.000</div><div id="ry">Y +0.000</div><div id="rz">Z +0.000</div></div>
     <div id="state">at HOME - jog to the block</div>
 
@@ -102,6 +131,39 @@
     </div>
   </div>
 </div>
-<script type="module" src="sim.js?v=20261127b"></script>
+<div id="cert" hidden>
+  <div id="certAsk" class="cbox">
+    <h2>Clean run! &#127881;</h2>
+    <div>You zeroed on the cross, pinched the paper and ran the whole program without cutting the block early.
+      Type your name for your certificate.</div>
+    <input id="certName" type="text" maxlength="40" placeholder="First and last name" autocomplete="name">
+    <div class="cbtns">
+      <button class="grey certClose">Not now</button>
+      <button id="certGo">Make my certificate</button>
+    </div>
+  </div>
+  <div id="certShow" hidden>
+    <div id="certPaper">
+      <p class="t1">Certificate of Completion</p>
+      <p class="t2">Nomad Simulator &middot; Groove Block</p>
+      <div>This certifies that</div>
+      <div class="nm" id="cName"></div>
+      <div>set work zero with the paper method and ran the Groove Block program cleanly on the Nomad Simulator.</div>
+      <div class="sc">10 / 10</div>
+      <table>
+        <tr><td>Date</td><td id="cDate"></td></tr>
+        <tr><td>Zero XY</td><td id="cXY"></td></tr>
+        <tr><td>Zero Z</td><td id="cZ"></td></tr>
+        <tr><td>Code</td><td id="cCode"></td></tr>
+      </table>
+      <div class="ck">Teachers: check this code at rorywinters.github.io/nomad/certificate-check/</div>
+    </div>
+    <div class="cbtns">
+      <button class="grey certClose">Close</button>
+      <button id="certPrint">Save as PDF / Print</button>
+    </div>
+  </div>
+</div>
+<script type="module" src="sim.js?v=20261127p12"></script>
 </body>
 </html>

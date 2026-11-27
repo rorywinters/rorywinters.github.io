@@ -2,7 +2,7 @@
 title: Groove Block Practice: The Nomad Simulator
 program: Nomad
 simulator: ../simulator/
-blurb: Practise the whole Groove Block setup on a pretend Nomad in your web browser before touching the real machine. Jog with the keyboard or the jog panel, line a red laser cross up with the pencil cross, jog from home to the block, set zero by pinching paper, then press RUN and watch the groove cut. About 30 minutes.
+blurb: Practise the whole Groove Block setup on a pretend Nomad in your web browser before touching the real machine. Jog with the keyboard or the jog panel, line a red laser cross up with the pencil cross, jog from home to the block, set zero by pinching paper, then press RUN and watch the groove cut. A clean run earns a 10/10 certificate to hand in. About 30 minutes.
 ---
 You practise setting zero and running the Groove Block on a pretend Nomad in your web browser. You can't break a real end mill here, so it's a safe place to make mistakes. It runs on any phone, computer or Chromebook with nothing to download: no Nomad, no Carbide Motion, no Blender.
 
@@ -18,6 +18,7 @@ You practise setting zero and running the Groove Block on a pretend Nomad in you
 - I can jog the simulator with the keyboard and the jog panel, and change the step size.
 - I can line the cutter up over the pencil cross, use the paper to find the top of the block, and set zero.
 - I can lift the cutter clear and run the program, and I can explain what happens if I skip a step.
+- I can earn the 10/10 certificate with a clean run and hand it in.
 
 ### Key vocabulary
 
@@ -29,6 +30,7 @@ You practise setting zero and running the Groove Block on a pretend Nomad in you
 | **Work zero** | The point on the block the program measures from. Here: the top centre of the block. |
 | **Home** | Where the machine starts and finishes: the back right corner, with the end mill all the way up. |
 | **Paper method** | Lowering the cutter until it pinches a strip of paper so it won't slide, to find the top of the block. |
+| **Certificate** | A page with your name, the date, 10/10 and a code. You only get it for a clean run. |
 | **Laser cross** | A red cross under the cutter that shows where its centre is. The real Nomad doesn't have one: it's a helper in the simulator. |
 
 | Colour | Meaning |
@@ -51,7 +53,7 @@ You practise setting zero and running the Groove Block on a pretend Nomad in you
 
 ```brief
 Part 1 · Open the simulator
-1A · Open it | Open the Nomad Simulator link | Machine on the left · jog panel on the right · JOG P11
+1A · Open it | Open the Nomad Simulator link | Machine on the left · jog panel on the right · JOG P12
 1B · Try the controls | Click the machine once · press ← | Spindle moves · red laser line follows it
 Part 2 · Touch down
 2A · Over the cross | Starts at HOME (back right, top) · step 1 in (key 4) · then 0.1 (key 3) | Red laser cross on the pencil cross · ZERO XY
@@ -59,6 +61,8 @@ Part 2 · Touch down
 Part 3 · Run the program
 3A · Lift | P takes paper out · Page Up to Z +0.200 or more | Step 0.1 (key 3)
 3B · Run | Click RUN · watch two laps × two depths | Goes back to HOME · Esc stops · RESET for a new block
+Part 4 · Get your certificate
+4A · Certificate | Clean run → type your name · Make my certificate | Save as PDF / Print · hand it in
 Extra · Finished early? (optional)
 Break it on purpose | RUN without lifting · Page Down with step 1 | Read the red panel · RESET
 ```
@@ -70,10 +74,10 @@ Break it on purpose | RUN without lifting · Page Down with step 1 | Read the re
 | Item | Value |
 | --- | --- |
 | Link | [Nomad Simulator](../simulator/) |
-| Title on the panel | **JOG P11** |
+| Title on the panel | **JOG P12** |
 
 1. Click the [Nomad Simulator](../simulator/) link. A new page opens with the machine on the left and the grey jog panel on the right.
-2. Check the top of the jog panel says **JOG P11**, and the message box says **at HOME - jog to the block**.
+2. Check the top of the jog panel says **JOG P12**, and the message box says **at HOME - jog to the block**.
 3. Drag on the machine with the left mouse button. The view orbits round. Roll the mouse wheel to zoom in and out.
 
 **Quick notes:** If the page stays black, press **Ctrl+F5** to reload it. On a small screen the jog panel moves under the machine: scroll down to reach it.
@@ -104,7 +108,7 @@ Break it on purpose | RUN without lifting · Page Down with step 1 | Read the re
 | **T** / **F** / **V** | **Top** / **Front** / **3D** | Changes the view |
 | **Esc** | | Stops a running program |
 
-- [ ] The machine is on the left and the jog panel says **JOG P11**
+- [ ] The machine is on the left and the jog panel says **JOG P12**
 - [ ] The arrow keys and the green buttons both move the machine
 - [ ] A red laser line follows the end mill (the red cross shows once it's over the block)
 
@@ -170,10 +174,32 @@ Break it on purpose | RUN without lifting · Page Down with step 1 | Read the re
 1. Click **RUN**. The panel says **RUNNING PROGRAM**. The end mill moves to the groove, drops into the block and cuts a lap, then a second lap inside it.
 2. Watch it go round again a little deeper. When it finishes, it lifts straight up and goes back to **HOME** in the back right corner, and the panel says **PROGRAM DONE - back at HOME**.
 3. Orbit and zoom in on the block, or click **Top**. You see a rounded groove all the way round the 2 × 1 in island, between the red lines.
-4. To stop part way through, press **Esc**. To start over with a fresh block and end mill, click **RESET**.
+4. To stop part way through, press **Esc**. To start over with a fresh block and end mill, click **RESET**. A new block needs a new zero, so do Part 2 again after a RESET.
 
 - [ ] The groove runs right between the red lines, all the way round
 - [ ] The island in the middle is not cut
+
+## Part 4 · Get your certificate
+
+### 4A · Earn it and hand it in
+
+| Item | Value |
+| --- | --- |
+| Clean run | ZERO XY within 0.020 in of the pencil cross · ZERO Z with the paper **pinched** · no cuts into the block before **RUN** · program runs to the end (no **Esc**) |
+| Score | **10 / 10** |
+| Teacher check | [Certificate checker](../certificate-check/) |
+
+1. After a clean run, a box pops up: **Clean run!** Type your first and last name and click **Make my certificate**.
+2. The certificate shows your name, the date, **10 / 10** and a code like **NOMAD-261127-XXXX-XXXX**.
+3. Click **Save as PDF / Print**. In the print window, set **Destination** to **Save as PDF** and click **Save**. (Or take a screenshot.)
+4. Hand the PDF or screenshot in where your teacher asks, for example the Google Classroom assignment.
+
+If the run wasn't clean, there's no box. The message box says **PROGRAM DONE - no certificate:** and tells you why. Click **RESET**, do Part 2 again, and run it again.
+
+**Quick notes:** The code only works with the name it was made for, so type your name properly. Teachers paste the name and code into the [Certificate checker](../certificate-check/) to see if it's real.
+
+- [ ] The certificate shows my name, today's date, **10 / 10** and a code
+- [ ] I saved it as a PDF (or a screenshot) and handed it in
 
 ## Extra · Finished early?
 
@@ -195,4 +221,6 @@ Optional. Make the mistakes on purpose, so you know what they look like before y
 | The end mill disappeared and gold bits are on the block | It shattered: you jogged down into the metal with a big step. Click **RESET**. |
 | The panel flashes **TOO DEEP: YOU'RE IN THE METAL!** and glowing chips appear | You jogged the end mill below the top of the block. Press **Page Up** until it's clear, then **RESET** for a fresh block and to clear the chips. |
 | The groove is in the wrong place | X and Y zero weren't on the pencil cross. Click **RESET**, line the red laser cross up again, and zero again. |
+| The program finished but no certificate box came up | Read the message box: it says why. Common ones: zero XY too far off the cross, ZERO Z clicked without the paper pinched, or the end mill nicked the block before RUN. **RESET**, zero again, run again. |
+| I closed the certificate by mistake | Do another clean run: **RESET**, zero, **RUN**. |
 | I can't see the red cross from the top | Use **Top** view: it looks down at a steep angle from the front, so the spindle doesn't hide the cross. |

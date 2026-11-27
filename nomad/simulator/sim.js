@@ -1,15 +1,17 @@
 // ==========================================================
-//  NOMAD SIM - PROGRAM 11 (browser version, Three.js)
+//  NOMAD SIM - PROGRAM 12 (browser version, Three.js)
+//  P12 adds the 10/10 certificate for a clean run.
 //  Ported from the Blender Program 9 scripts.
 //  All sizes are in inches. Sim axes: X right, Y back, Z up.
 //  Three.js axes: x = X, y = Z (up), z = -Y.
 // ==========================================================
 import * as THREE from 'three';
 import { OrbitControls } from '../../assets/three/OrbitControls.js';
+import { makeCode, todayYMD } from './certcode.js?v=20261127p12';
 
 const BED_TOP = 1.5, SX = 4.0, SY = 3.0, STOCK_TOP = BED_TOP + 1.0;
 const TIP_HOME = 4.0, TOOL_Y = -0.75, R_TOOL = 0.125, RES = 0.02, PAPER = 0.004;
-const DRAG = 0.02, EPS = 1e-6;
+const DRAG = 0.02, EPS = 1e-6, XY_OK = 0.02;   // certificate: zero XY within 0.02 in of the pencil cross
 const NX = Math.round(SX / RES) + 1, NY = Math.round(SY / RES) + 1;
 const X_MIN = -3.5, X_MAX = 3.5, Y_MIN = TOOL_Y - 2.0, Y_MAX = TOOL_Y + 2.5;
 const HOME = [X_MAX, Y_MAX, TIP_HOME];          // back right, all the way up
@@ -159,6 +161,8 @@ const S = {
   p: HOME.slice(), zero: HOME.slice(), zxy: false, zz: false, step: 0.1, stepKey: 'S3',
   paperIn: false, torn: false, tearShown: false, broken: false, running: false,
   path: [], msg: '', flash: 0, phase: 0, rain: [], debris: [],
+  // certificate checks (cleared by RESET)
+  xyOK: false, zOK: false, gouged: false, xyOff: 0, zGap: 0,
 };
 const panel = document.getElementById('panel');
 const $ = id => document.getElementById(id);
@@ -195,7 +199,7 @@ function cutDisc(sx, sy, tz) {
       const dx = (-SX / 2 + i * RES) - sx;
       if (dx * dx + dy * dy <= R_TOOL * R_TOOL) {
         const k = (j * NX + i) * 3 + 1;
-        if (topPos[k] > zc) { topPos[k] = zc; topCol[k - 1] = topCol[k] = topCol[k + 1] = 0.55; topDirty = true; }
+        if (topPos[k] > zc) { topPos[k] = zc; topCol[k - 1] = topCol[k] = topCol[k + 1] = 0.55; topDirty = true; if (!S.running) S.gouged = true; }
       }
     }
   }
@@ -274,6 +278,7 @@ function startRun() {
   S.path.push([[last[0], last[1], TIP_HOME], true]);
   S.path.push([HOME.slice(), true]);
   S.running = true;
+  S.certRun = true;
 }
 
 function reset() {
@@ -284,6 +289,8 @@ function reset() {
   S.debris = []; S.rain = [];
   flutes.visible = true;
   S.broken = S.paperIn = S.torn = S.tearShown = false;
+  // a new block needs a new zero
+  S.zxy = S.zz = S.xyOK = S.zOK = S.gouged = false;
 }
 
 function act(a) {
@@ -296,8 +303,14 @@ function act(a) {
     if (S.torn || !S.paperIn) { S.paperIn = true; S.torn = false; S.tearShown = false; }
     else S.paperIn = false;
   }
-  else if (a === 'ZXY') { S.zero[0] = S.p[0]; S.zero[1] = S.p[1]; S.zxy = true; }
-  else if (a === 'ZZ') { S.zero[2] = S.p[2]; S.zz = true; }
+  else if (a === 'ZXY') {
+    S.zero[0] = S.p[0]; S.zero[1] = S.p[1]; S.zxy = true;
+    S.xyOff = Math.hypot(S.p[0], S.p[1]); S.xyOK = S.xyOff <= XY_OK + EPS;
+  }
+  else if (a === 'ZZ') {
+    S.zero[2] = S.p[2]; S.zz = true;
+    S.zGap = S.p[2] - STOCK_TOP; S.zOK = paperState() === 'pinch';
+  }
   else if (STEPS[a]) setStep(a);
   else if (MOVES[a]) jog(...MOVES[a]);
 }
@@ -368,7 +381,7 @@ function frame(now) {
       else { p1 = p.map((v, i) => v + (target[i] - v) * budget / d); budget = 0; }
       cutMove(p, p1);
       S.p = p1;
-      if (!S.path.length) { S.running = false; S.msg = 'PROGRAM DONE - back at HOME'; }
+      if (!S.path.length) { S.running = false; S.msg = 'PROGRAM DONE - back at HOME'; finished(); }
       else if (S.path[0][1] !== rapid) budget = budget * (S.path[0][1] ? 10 / 2.5 : 2.5 / 10);
     }
   }
@@ -393,6 +406,44 @@ function frame(now) {
   requestAnimationFrame(frame);
 }
 
+// ---------- certificate (Program 12) ----------
+// A clean run: ZERO XY on the pencil cross, ZERO Z with the paper pinched,
+// no cuts into the block before RUN, and the program ran to the end.
+const cert = $('cert');
+const certOpen = () => !cert.hidden;
+function whyNot() {
+  if (!S.xyOK) return 'ZERO XY was ' + S.xyOff.toFixed(3) + ' in off the pencil cross (needs 0.020 or less)';
+  if (!S.zOK) return 'ZERO Z was not set with the paper pinched';
+  if (S.gouged) return 'the end mill cut into the block before RUN';
+  return '';
+}
+function finished() {
+  const ok = S.certRun && !whyNot();
+  S.certRun = false;
+  if (ok) { S.msg = 'PROGRAM DONE - clean run! Get your certificate'; openCert(); }
+  else S.msg = 'PROGRAM DONE - no certificate: ' + whyNot() + '. RESET and try again';
+}
+function openCert() {
+  $('certAsk').hidden = false; $('certShow').hidden = true;
+  cert.hidden = false;
+  $('certName').focus();
+}
+function showCert() {
+  const name = $('certName').value.trim().replace(/\s+/g, ' ');
+  if (!/[A-Za-z0-9]/.test(name)) { $('certName').focus(); return; }
+  const now = new Date(), ymd = todayYMD(now);
+  $('cName').textContent = name;
+  $('cDate').textContent = now.toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' });
+  $('cCode').textContent = makeCode(name, ymd);
+  $('cXY').textContent = S.xyOff.toFixed(3) + ' in from the cross';
+  $('cZ').textContent = 'paper pinched';
+  $('certAsk').hidden = true; $('certShow').hidden = false;
+}
+$('certGo').addEventListener('click', showCert);
+$('certName').addEventListener('keydown', e => { if (e.key === 'Enter') showCert(); });
+$('certPrint').addEventListener('click', () => window.print());
+document.querySelectorAll('.certClose').forEach(b => b.addEventListener('click', () => { cert.hidden = true; }));
+
 // ---------- views ----------
 const TARGET = new THREE.Vector3(0, STOCK_TOP, -TOOL_Y);
 function setView(v) {
@@ -409,8 +460,9 @@ const KEYS = { ArrowRight: 'X+', ArrowLeft: 'X-', ArrowUp: 'Y+', ArrowDown: 'Y-'
   KeyP: 'PAPER', KeyR: 'RESET', KeyT: 'VTOP', KeyF: 'VFRONT', KeyV: 'V3D' };
 window.addEventListener('keydown', e => {
   if (e.ctrlKey || e.altKey || e.metaKey) return;
+  if (certOpen()) return;                 // typing a name: don't jog
   if (e.code === 'Escape') {
-    if (S.running) { S.running = false; S.path = []; error('PROGRAM STOPPED'); }
+    if (S.running) { S.running = false; S.certRun = false; S.path = []; error('PROGRAM STOPPED'); }
     return;
   }
   const a = KEYS[e.code];
