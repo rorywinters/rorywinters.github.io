@@ -91,9 +91,10 @@ Measure | Calipers: groove width and island | Compare with 0.5 in and 2 × 1 in
 
 ### 1B · Start and home the Nomad
 
-1. Close the Nomad door. Turn on the **Power Switch**.
-2. Open **Carbide Motion** on the computer and click **Connect to Cutter**. The status changes to connected.
-3. Click **Initialize**. The Nomad homes each axis. Keep your hands out while it moves.
+1. If Carbide Motion has never been set up on this computer, do [Set Up Carbide Motion for the Nomad 3](../setup-carbide-motion/) first.
+2. Close the Nomad door. Turn on the **Power Switch**.
+3. Open **Carbide Motion** on the computer and click **Connect to Cutter**. The status changes to connected.
+4. Click **Initialize**. The Nomad homes each axis. Keep your hands out while it moves.
 
 ### 1C · Install the 1/4 in end mill
 
