@@ -1,6 +1,10 @@
 // ==========================================================
-//  NOMAD SIM - PROGRAM 14 (browser version, Three.js)
+//  NOMAD SIM - PROGRAM 15 (browser version, Three.js)
 //  P14: on a phone the HINT box sits at the very top, above the machine.
+//  P15: HINT gives the hint for the step you are on (not just the next in
+//  the list); a hint you already paid for is free to see again; error
+//  messages stay until your next action; on a phone the PAPER and ZERO
+//  buttons move up by the hints and the readout is one line.
 //  P12 added the certificate for a clean run.
 //  P13: separate ZERO X / ZERO Y / ZERO Z buttons, and a HINT
 //  button. Each hint costs 1 point off the 10/10 certificate.
@@ -161,7 +165,7 @@ const halves = [box(1.0, 1.4, PAPER, 0, 0, 0, MAT.torn), box(1.0, 1.4, PAPER, 0,
 
 // ---------- machine state ----------
 const S = {
-  p: HOME.slice(), zero: HOME.slice(), zx: false, zy: false, zz: false, hints: 0, step: 0.1, stepKey: 'S3',
+  p: HOME.slice(), zero: HOME.slice(), zx: false, zy: false, zz: false, hints: 0, hintsSeen: new Set(), hintNow: -1, step: 0.1, stepKey: 'S3',
   paperIn: false, torn: false, tearShown: false, broken: false, running: false,
   path: [], msg: '', flash: 0, phase: 0, rain: [], debris: [],
   // certificate checks (cleared by RESET)
@@ -265,7 +269,7 @@ function startRun() {
   if (!S.zx) return error('SET ZERO X FIRST');
   if (!S.zy) return error('SET ZERO Y FIRST');
   if (!S.zz) return error('SET ZERO Z FIRST');
-  if (S.paperIn) return error('TAKE THE PAPER OUT FIRST (P)');
+  if (S.paperIn) return error('PAPER IS STILL UNDER THE CUTTER: tap PAPER (or press P) to take it out, then RUN');
   if (S.p[2] - S.zero[2] < 0.2) return error('LIFT THE CUTTER UP FIRST');
   const zc = 0.2, pts = [];
   for (const d of [-0.03125, -0.0625])
@@ -296,7 +300,7 @@ function reset() {
   // a new block needs a new zero
   S.zx = S.zy = S.zz = S.zOK = S.gouged = false;
   // a new block is a fresh try: hints start again
-  S.hints = 0;
+  S.hints = 0; S.hintsSeen = new Set(); S.hintNow = -1;
   showHint();
 }
 
@@ -312,16 +316,38 @@ const HINTS = [
   'Everything is zeroed. Press P to take the paper out, then raise the cutter head with Page Up to Z +0.200 or more (step 0.1, key 3).',
   'Press RUN.',
 ];
+HINTS.push('The end mill is broken. Click RESET for a new end mill and a new block, then start again from step 1.');
 const score = () => Math.max(0, 10 - S.hints);
+// Which step is the student on right now? (0-8 = the 9 steps, 9 = broken)
+function stepNow() {
+  if (S.broken) return 9;
+  const dXY = Math.hypot(S.p[0], S.p[1]);
+  const xyDone = S.zx && S.zy && Math.hypot(S.zero[0], S.zero[1]) <= XY_OK + EPS;
+  if (!xyDone) {
+    if (dXY > 0.1) return 0;            // get over the centre
+    if (dXY > XY_OK + EPS) return 1;    // fine tune
+    return 2;                           // zero X and Y
+  }
+  if (!(S.zz && S.zOK)) {
+    const gap = S.p[2] - STOCK_TOP;
+    if (paperState() === 'pinch') return 6;          // zero Z now
+    if (gap > 0.3) return 3;                         // come down
+    if (S.step > 0.01 + EPS) return 4;               // slow down
+    return 5;                                        // use the paper
+  }
+  if (S.paperIn || S.p[2] - S.zero[2] < 0.2 - EPS) return 7;  // paper out, lift up
+  return 8;                                                 // RUN
+}
 function showHint() {
   const box = $('hintText');
-  box.hidden = S.hints === 0;
-  if (S.hints) box.innerHTML = '<b>Hint ' + S.hints + ' of ' + HINTS.length + ':</b> ' + HINTS[S.hints - 1];
+  box.hidden = S.hintNow < 0;
+  if (S.hintNow >= 0) box.innerHTML = (S.hintNow < 9 ? '<b>Step ' + (S.hintNow + 1) + ' of 9:</b> ' : '<b>Hint:</b> ') + HINTS[S.hintNow];
   $('scoreText').textContent = 'Hints used: ' + S.hints + ' \u00b7 Certificate: ' + score() + ' / 10';
 }
 function hint() {
-  if (S.hints >= HINTS.length) { showHint(); return; }   // no more hints: nothing more to lose
-  S.hints++;
+  S.hintNow = stepNow();
+  // each different hint costs 1 point; seeing the same one again is free
+  if (!S.hintsSeen.has(S.hintNow)) { S.hintsSeen.add(S.hintNow); S.hints++; }
   showHint();
 }
 
@@ -398,7 +424,7 @@ function frame(now) {
   // error flash
   if (S.flash > 0) {
     S.flash -= dt;
-    if (S.flash <= 0) { S.flash = 0; S.msg = ''; }
+    if (S.flash <= 0) S.flash = 0;   // message stays until the next button or key
   }
   panel.classList.toggle('err', S.flash > 0 && Math.floor(S.flash / 0.18) % 2 === 0);
   // running the program
@@ -511,10 +537,11 @@ window.addEventListener('keydown', e => {
 document.querySelectorAll('#panel button').forEach(b => b.addEventListener('click', () => { act(b.dataset.a); b.blur(); }));
 
 // phone layout: hint box at the top of the page; computer: in the jog panel under the message box
-const hintBox = $('hintBox'), phone = window.matchMedia('(max-width: 760px)');
+// P15: on a phone the PAPER / ZERO row goes up there too, so the readout sits right above the jog buttons
+const hintBox = $('hintBox'), setupBox = $('setupBox'), phone = window.matchMedia('(max-width: 760px)');
 function placeHints() {
-  if (phone.matches) { hintBox.classList.add('top'); $('app').before(hintBox); }
-  else { hintBox.classList.remove('top'); $('state').after(hintBox); }
+  if (phone.matches) { hintBox.classList.add('top'); $('app').before(hintBox); hintBox.append(setupBox); }
+  else { hintBox.classList.remove('top'); $('state').after(hintBox); hintBox.after(setupBox); }
 }
 phone.addEventListener('change', placeHints);
 placeHints();

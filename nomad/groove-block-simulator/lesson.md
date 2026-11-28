@@ -31,7 +31,7 @@ You practise setting zero and running the Groove Block on a pretend Nomad in you
 | **Home** | Where the machine starts and finishes: the back right corner, with the end mill all the way up. |
 | **Paper method** | Lowering the cutter until it pinches a strip of paper so it won't slide, to find the top of the block. |
 | **Certificate** | A page with your name, the date, your score and a code. You only get it for a clean run. |
-| **Hint** | The yellow **HINT** button tells you the next step. Each hint costs 1 point off your certificate. |
+| **Hint** | The yellow **HINT** button tells you what to do for the step you're on. Each different hint costs 1 point off your certificate. Seeing the same hint again is free. |
 | **Laser cross** | A red cross under the cutter that shows where its centre is. The real Nomad doesn't have one: it's a helper in the simulator. |
 
 | Colour | Meaning |
@@ -48,14 +48,14 @@ You practise setting zero and running the Groove Block on a pretend Nomad in you
 | --- | --- |
 | **Machine** | The big dark area on the left. Drag to orbit, right-drag to pan, mouse wheel to zoom |
 | **Jog panel** | The grey panel on the right. Readout (X, Y, Z) at the top, then the message box, then the buttons |
-| **Message box** | Under the X, Y, Z readout. It tells you what the machine is doing. The whole panel flashes red on an error |
-| **HINT button** | Computer: the yellow button under the message box. Phone: the very top of the page, above the machine. The hint shows in a pale yellow box, with your hint count and score under it |
+| **Message box** | Under the X, Y, Z readout. It tells you what the machine is doing. The whole panel flashes red on an error, and the message stays until you press the next button |
+| **HINT button** | Computer: the yellow button under the message box. Phone: the very top of the page, above the machine, with the **PAPER** and **ZERO** buttons under it. The hint shows in a pale yellow box, with your hint count and score under it |
 | **View buttons** | Bottom of the jog panel: **Top**, **Front**, **3D** |
 | **Key list** | The very bottom of the jog panel |
 
 ```brief
 Part 1 · Open the simulator
-1A · Open it | Open the Nomad Simulator link | Machine on the left · jog panel on the right · JOG P14
+1A · Open it | Open the Nomad Simulator link | Machine on the left · jog panel on the right · JOG P15
 1B · Try the controls | Click the machine once · press ← | Spindle moves · red laser line follows it
 Part 2 · Touch down
 2A · Over the cross | Starts at HOME (back right, top) · step 1 in (key 4) · then 0.1 (key 3) | Red laser cross on the pencil cross · ZERO X · ZERO Y
@@ -76,10 +76,10 @@ Break it on purpose | RUN without lifting · Page Down with step 1 | Read the re
 | Item | Value |
 | --- | --- |
 | Link | [Nomad Simulator](../simulator/) |
-| Title on the panel | **JOG P14** |
+| Title on the panel | **JOG P15** |
 
 1. Click the [Nomad Simulator](../simulator/) link. A new page opens with the machine on the left and the grey jog panel on the right.
-2. Check the top of the jog panel says **JOG P14**, and the message box says **at HOME - jog to the block**.
+2. Check the top of the jog panel says **JOG P15**, and the message box says **at HOME - jog to the block**.
 3. Drag on the machine with the left mouse button. The view orbits round. Roll the mouse wheel to zoom in and out.
 
 **Quick notes:** If the page stays black, press **Ctrl+F5** to reload it. On a small screen the jog panel moves under the machine: scroll down to reach it.
@@ -105,13 +105,13 @@ Break it on purpose | RUN without lifting · Page Down with step 1 | Read the re
 | **1 2 3 4** | **.001 .01 .1 1** | Step size in inches. The lit button is the one in use |
 | **P** | **PAPER** | Paper strip in or out |
 | | **ZERO X** / **ZERO Y** / **ZERO Z** | Sets work zero for that one axis where the end mill is now |
-| | **HINT** | Shows the next step. Costs 1 point off your certificate |
+| | **HINT** | Shows what to do for the step you're on. Each different hint costs 1 point |
 | | **RUN** | Runs the Groove Block program, then goes back to HOME |
 | **R** | **RESET** | New block and new end mill, paper put away |
 | **T** / **F** / **V** | **Top** / **Front** / **3D** | Changes the view |
 | **Esc** | | Stops a running program |
 
-- [ ] The machine is on the left and the jog panel says **JOG P14**
+- [ ] The machine is on the left and the jog panel says **JOG P15**
 - [ ] The arrow keys and the green buttons both move the machine
 - [ ] A red laser line follows the end mill (the red cross shows once it's over the block)
 
@@ -190,7 +190,7 @@ Break it on purpose | RUN without lifting · Page Down with step 1 | Read the re
 | Item | Value |
 | --- | --- |
 | Clean run | ZERO X and ZERO Y within 0.020 in of the pencil cross · ZERO Z with the paper **pinched** · no cuts into the block before **RUN** · program runs to the end (no **Esc**) |
-| Score | **10 / 10** with no hints. Each **HINT** takes off 1 point (9 hints, so the lowest is 1 / 10) |
+| Score | **10 / 10** with no hints. Each different **HINT** takes off 1 point. Tapping HINT again on the same step is free |
 | Teacher check | [Certificate checker](../certificate-check/) |
 
 1. After a clean run, a box pops up: **Clean run!** Type your first and last name and click **Make my certificate**.
@@ -222,7 +222,7 @@ Optional. Make the mistakes on purpose, so you know what they look like before y
 | The page is black or the machine doesn't show | Press **Ctrl+F5** to reload. Try Chrome or Edge if it still doesn't show. |
 | The arrow keys scroll the page instead of moving the machine | Click once on the machine area, then press the keys. |
 | The panel says **SET ZERO X FIRST**, **SET ZERO Y FIRST** or **SET ZERO Z FIRST** | Do Part 2: zero X and Y on the pencil cross, then Z with the paper. |
-| The panel says **TAKE THE PAPER OUT FIRST (P)** | Press **P**, then click **RUN** again. |
+| The panel says **PAPER IS STILL UNDER THE CUTTER** | The paper strip is still in. Tap **PAPER** (or press **P**) to take it out, then click **RUN** again. |
 | The panel says **LIFT THE CUTTER UP FIRST** | Press **Page Up** until Z reads at least **+0.200**, then click **RUN**. |
 | The end mill disappeared and gold bits are on the block | It shattered: you jogged down into the metal with a big step. Click **RESET**. |
 | The panel flashes **TOO DEEP: YOU'RE IN THE METAL!** and glowing chips appear | You jogged the end mill below the top of the block. Press **Page Up** until it's clear, then **RESET** for a fresh block and to clear the chips. |
@@ -231,4 +231,4 @@ Optional. Make the mistakes on purpose, so you know what they look like before y
 | I closed the certificate by mistake | Do another clean run: **RESET**, zero, **RUN**. |
 | I can't see the red cross from the top | Use **Top** view: it looks down at a steep angle from the front, so the spindle doesn't hide the cross. |
 | My certificate is less than 10 / 10 | You used hints: each one takes off 1 point. **RESET** and do it again without pressing **HINT**. |
-| I'm stuck and don't know the next step | Click **HINT**. It shows the next step, in order. It costs 1 point, so try first. |
+| I'm stuck and don't know the next step | Click **HINT**. It looks at where you are and tells you what to do next. It costs 1 point, so try first. |

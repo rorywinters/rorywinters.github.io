@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- NOMAD SIM - PROGRAM 14 (browser version, certificate, hints at top on phones, separate X/Y/Z zero) -->
+<!-- NOMAD SIM - PROGRAM 15 (browser version, certificate, step-aware hints, setup row at top on phones) -->
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nomad Simulator (P14) · Winters Innovative Solutions</title>
+<title>Nomad Simulator (P15) · Winters Innovative Solutions</title>
 <style>
   * { box-sizing: border-box; }
   html, body { margin: 0; height: 100%; background: #1b1d21; color: #eee;
@@ -77,6 +77,12 @@
   /* phone: the hint box moves to the very top, above the machine (Program 14) */
   @media (max-width: 760px) {
     #hintBox.top { background: #4b4f53; padding: 10px 12px 2px; border-bottom: 3px solid #2e3134; }
+    #hintBox.top button, #hintBox.top + #app button { padding: 9px 2px; }
+    /* P15: one-line readout so the machine, numbers and jog buttons fit on one screen */
+    h1 { font-size: 15px; margin-bottom: 4px; }
+    #readout { display: flex; justify-content: space-between; font-size: 19px; padding: 6px 8px; }
+    #state { min-height: 0; margin: 6px 0; font-size: 14px; }
+    #view { height: 52vh !important; }
     #app { flex-direction: column; height: auto; }
     #view { height: 60vh; flex: none; }
     #panel { width: 100%; border-left: 0; border-top: 3px solid #2e3134; }
@@ -93,7 +99,7 @@
     <div id="hint">Drag to orbit · right-drag to pan · wheel to zoom</div>
   </div>
   <div id="panel">
-    <h1>JOG &nbsp;P14</h1>
+    <h1>JOG &nbsp;P15</h1>
     <div id="readout"><div id="rx">X +0.000</div><div id="ry">Y +0.000</div><div id="rz">Z +0.000</div></div>
     <div id="state">at HOME - jog to the block</div>
 
@@ -105,12 +111,14 @@
       <div id="scoreText">Hints used: 0 &middot; Certificate: 10 / 10</div>
     </div>
 
+    <div id="setupBox">
     <div class="lbl">Setup</div>
     <div class="row" style="grid-template-columns: 1fr 1fr 1fr 1fr;">
       <button class="grey" data-a="PAPER">PAPER</button>
       <button class="grey" data-a="ZX">ZERO X</button>
       <button class="grey" data-a="ZY">ZERO Y</button>
       <button class="grey" data-a="ZZ">ZERO Z</button>
+    </div>
     </div>
 
     <div class="lbl">Jog</div>
@@ -182,6 +190,6 @@
     </div>
   </div>
 </div>
-<script type="module" src="sim.js?v=20261128p14"></script>
+<script type="module" src="sim.js?v=20261128p15"></script>
 </body>
 </html>
