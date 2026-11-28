@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- NOMAD SIM - PROGRAM 12 - certificate checker -->
+<!-- NOMAD SIM - PROGRAM 13 - certificate checker (scored codes) -->
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
@@ -34,27 +34,28 @@
   <label for="name">Name on the certificate</label>
   <input id="name" type="text" autocomplete="off" required>
   <label for="code">Code</label>
-  <input id="code" type="text" placeholder="NOMAD-261127-XXXX-XXXX" autocomplete="off" required>
+  <input id="code" type="text" placeholder="NOMAD-261128-10-XXXX-XXXX" autocomplete="off" required>
   <button type="submit">Check</button>
 </form>
 <div id="result" hidden></div>
 
 <p>Spaces, capitals and punctuation in the name don't matter (<em>Jo Smith</em> and <em>jo smith</em> both match).
 A code only matches the name it was made for, so it can't be copied to another student.
-It stops casual copying, but it isn't cheat-proof.</p>
+It stops casual copying, but it isn't cheat-proof.
+The score is part of the code (the two digits after the date), so it can't be changed: 10 means no hints, and each hint the student used takes off 1 point.</p>
 <p><a href="../simulator/">Open the Nomad Simulator</a> · <a href="../groove-block-simulator/">How to use it</a></p>
 
 <footer>Winters Innovative Solutions · <a href="https://www.youtube.com/@winters.innovative.solutions" target="_blank" rel="noreferrer">YouTube channel</a></footer>
 </div>
 <script type="module">
-import { checkCode } from '../simulator/certcode.js?v=20261127p12';
+import { checkCode } from '../simulator/certcode.js?v=20261128p13';
 const $ = id => document.getElementById(id);
 $('f').addEventListener('submit', e => {
   e.preventDefault();
   const r = checkCode($('name').value, $('code').value), out = $('result');
   out.hidden = false;
   out.className = r.ok ? 'good' : 'bad';
-  out.textContent = r.ok ? '✔ Real certificate: 10 / 10, made on ' + r.date + '.' : '✘ Not a match. ' + r.why;
+  out.textContent = r.ok ? '✔ Real certificate: ' + r.score + ' / 10 (' + (r.score === 10 ? 'no hints' : (10 - r.score) + (r.score === 9 ? ' hint' : ' hints')) + '), made on ' + r.date + '.' : '✘ Not a match. ' + r.why;
 });
 </script>
 </body>

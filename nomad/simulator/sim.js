@@ -1,13 +1,15 @@
 // ==========================================================
-//  NOMAD SIM - PROGRAM 12 (browser version, Three.js)
-//  P12 adds the 10/10 certificate for a clean run.
+//  NOMAD SIM - PROGRAM 13 (browser version, Three.js)
+//  P12 added the certificate for a clean run.
+//  P13: separate ZERO X / ZERO Y / ZERO Z buttons, and a HINT
+//  button. Each hint costs 1 point off the 10/10 certificate.
 //  Ported from the Blender Program 9 scripts.
 //  All sizes are in inches. Sim axes: X right, Y back, Z up.
 //  Three.js axes: x = X, y = Z (up), z = -Y.
 // ==========================================================
 import * as THREE from 'three';
 import { OrbitControls } from '../../assets/three/OrbitControls.js';
-import { makeCode, todayYMD } from './certcode.js?v=20261127p12';
+import { makeCode, todayYMD } from './certcode.js?v=20261128p13';
 
 const BED_TOP = 1.5, SX = 4.0, SY = 3.0, STOCK_TOP = BED_TOP + 1.0;
 const TIP_HOME = 4.0, TOOL_Y = -0.75, R_TOOL = 0.125, RES = 0.02, PAPER = 0.004;
@@ -158,11 +160,11 @@ const halves = [box(1.0, 1.4, PAPER, 0, 0, 0, MAT.torn), box(1.0, 1.4, PAPER, 0,
 
 // ---------- machine state ----------
 const S = {
-  p: HOME.slice(), zero: HOME.slice(), zxy: false, zz: false, step: 0.1, stepKey: 'S3',
+  p: HOME.slice(), zero: HOME.slice(), zx: false, zy: false, zz: false, hints: 0, step: 0.1, stepKey: 'S3',
   paperIn: false, torn: false, tearShown: false, broken: false, running: false,
   path: [], msg: '', flash: 0, phase: 0, rain: [], debris: [],
   // certificate checks (cleared by RESET)
-  xyOK: false, zOK: false, gouged: false, xyOff: 0, zGap: 0,
+  zOK: false, gouged: false, xyOff: 0, zGap: 0,
 };
 const panel = document.getElementById('panel');
 const $ = id => document.getElementById(id);
@@ -259,7 +261,8 @@ function jog(dx, dy, dz) {
 
 function startRun() {
   if (S.broken) return error('REPLACE THE CUTTER FIRST (RESET)');
-  if (!S.zxy) return error('SET ZERO XY FIRST');
+  if (!S.zx) return error('SET ZERO X FIRST');
+  if (!S.zy) return error('SET ZERO Y FIRST');
   if (!S.zz) return error('SET ZERO Z FIRST');
   if (S.paperIn) return error('TAKE THE PAPER OUT FIRST (P)');
   if (S.p[2] - S.zero[2] < 0.2) return error('LIFT THE CUTTER UP FIRST');
@@ -290,12 +293,41 @@ function reset() {
   flutes.visible = true;
   S.broken = S.paperIn = S.torn = S.tearShown = false;
   // a new block needs a new zero
-  S.zxy = S.zz = S.xyOK = S.zOK = S.gouged = false;
+  S.zx = S.zy = S.zz = S.zOK = S.gouged = false;
+  // a new block is a fresh try: hints start again
+  S.hints = 0;
+  showHint();
+}
+
+// ---------- hints (Program 13): each one costs 1 point ----------
+const HINTS = [
+  'Move X and Y so the end mill is over the centre of the part (the black pencil cross). From HOME, press 4 for 1 in steps and use \u2190 and \u2193.',
+  'Fine tune: change the step size to 0.1 (key 3), then 0.01 (key 2), and nudge until the red laser cross is exactly on the black pencil cross. Top view (T) helps.',
+  'Zero X and Y: click ZERO X, then ZERO Y. X and Y read +0.000.',
+  'Bring the cutter head down with Page Down until it is getting close to the block, about 1/4 in above it. Step 0.1 (key 3).',
+  'Slow down so it does not crash in: change the step size to 0.01 (key 2), then 0.001 (key 1) when it is very close.',
+  'Use the paper to measure the gap: press P (PAPER) and keep coming down one press at a time.',
+  'When the paper turns yellow and the panel says PINCHED, click ZERO Z.',
+  'Everything is zeroed. Press P to take the paper out, then raise the cutter head with Page Up to Z +0.200 or more (step 0.1, key 3).',
+  'Press RUN.',
+];
+const score = () => Math.max(0, 10 - S.hints);
+function showHint() {
+  const box = $('hintText');
+  box.hidden = S.hints === 0;
+  if (S.hints) box.innerHTML = '<b>Hint ' + S.hints + ' of ' + HINTS.length + ':</b> ' + HINTS[S.hints - 1];
+  $('scoreText').textContent = 'Hints used: ' + S.hints + ' \u00b7 Certificate: ' + score() + ' / 10';
+}
+function hint() {
+  if (S.hints >= HINTS.length) { showHint(); return; }   // no more hints: nothing more to lose
+  S.hints++;
+  showHint();
 }
 
 function act(a) {
   if (a === 'VTOP' || a === 'VFRONT' || a === 'V3D') return setView(a);
   if (S.running) return;
+  if (a === 'HINT') return hint();
   S.msg = ''; S.flash = 0;
   if (a === 'RESET') reset();
   else if (a === 'RUN') startRun();
@@ -303,10 +335,8 @@ function act(a) {
     if (S.torn || !S.paperIn) { S.paperIn = true; S.torn = false; S.tearShown = false; }
     else S.paperIn = false;
   }
-  else if (a === 'ZXY') {
-    S.zero[0] = S.p[0]; S.zero[1] = S.p[1]; S.zxy = true;
-    S.xyOff = Math.hypot(S.p[0], S.p[1]); S.xyOK = S.xyOff <= XY_OK + EPS;
-  }
+  else if (a === 'ZX') { S.zero[0] = S.p[0]; S.zx = true; }
+  else if (a === 'ZY') { S.zero[1] = S.p[1]; S.zy = true; }
   else if (a === 'ZZ') {
     S.zero[2] = S.p[2]; S.zz = true;
     S.zGap = S.p[2] - STOCK_TOP; S.zOK = paperState() === 'pinch';
@@ -350,7 +380,7 @@ function update() {
   else if (st === 'drag') state = 'paper dragging - go slow (key 1)';
   else if (over() && z < STOCK_TOP - EPS) state = 'IN THE METAL - Page Up!';
   else if (st === 'free') state = 'paper slides freely';
-  else if (!S.zxy) state = 'at HOME - jog to the block';
+  else if (!S.zx && !S.zy) state = 'at HOME - jog to the block';
   else state = 'clear';
   $('rx').textContent = 'X ' + fmt(S.p[0] - S.zero[0]);
   $('ry').textContent = 'Y ' + fmt(S.p[1] - S.zero[1]);
@@ -406,13 +436,14 @@ function frame(now) {
   requestAnimationFrame(frame);
 }
 
-// ---------- certificate (Program 12) ----------
-// A clean run: ZERO XY on the pencil cross, ZERO Z with the paper pinched,
+// ---------- certificate (Program 12, scored in Program 13) ----------
+// A clean run: ZERO X and ZERO Y on the pencil cross, ZERO Z with the paper pinched,
 // no cuts into the block before RUN, and the program ran to the end.
 const cert = $('cert');
 const certOpen = () => !cert.hidden;
 function whyNot() {
-  if (!S.xyOK) return 'ZERO XY was ' + S.xyOff.toFixed(3) + ' in off the pencil cross (needs 0.020 or less)';
+  S.xyOff = Math.hypot(S.zero[0], S.zero[1]);
+  if (S.xyOff > XY_OK + EPS) return 'ZERO X / ZERO Y was ' + S.xyOff.toFixed(3) + ' in off the pencil cross (needs 0.020 or less)';
   if (!S.zOK) return 'ZERO Z was not set with the paper pinched';
   if (S.gouged) return 'the end mill cut into the block before RUN';
   return '';
@@ -425,6 +456,10 @@ function finished() {
 }
 function openCert() {
   $('certAsk').hidden = false; $('certShow').hidden = true;
+  $('certHints').textContent = S.hints === 0
+    ? 'No hints used: this one is worth 10 / 10.'
+    : 'You used ' + S.hints + (S.hints === 1 ? ' hint' : ' hints') + ', so this certificate is ' + score() +
+      ' / 10. For 10 / 10, click RESET and do it again with no hints.';
   cert.hidden = false;
   $('certName').focus();
 }
@@ -434,7 +469,9 @@ function showCert() {
   const now = new Date(), ymd = todayYMD(now);
   $('cName').textContent = name;
   $('cDate').textContent = now.toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' });
-  $('cCode').textContent = makeCode(name, ymd);
+  $('cCode').textContent = makeCode(name, ymd, score());
+  $('cScore').textContent = score() + ' / 10';
+  $('cHints').textContent = S.hints === 0 ? 'none' : String(S.hints);
   $('cXY').textContent = S.xyOff.toFixed(3) + ' in from the cross';
   $('cZ').textContent = 'paper pinched';
   $('certAsk').hidden = true; $('certShow').hidden = false;
@@ -473,6 +510,7 @@ window.addEventListener('keydown', e => {
 document.querySelectorAll('#panel button').forEach(b => b.addEventListener('click', () => { act(b.dataset.a); b.blur(); }));
 
 setStep('S3');
+showHint();
 setView('V3D');
 resize();
 requestAnimationFrame(frame);

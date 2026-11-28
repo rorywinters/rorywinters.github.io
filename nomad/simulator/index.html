@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- NOMAD SIM - PROGRAM 12 (browser version, with certificate) -->
+<!-- NOMAD SIM - PROGRAM 13 (browser version, certificate, hints, separate X/Y/Z zero) -->
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nomad Simulator (P12) · Winters Innovative Solutions</title>
+<title>Nomad Simulator (P13) · Winters Innovative Solutions</title>
 <style>
   * { box-sizing: border-box; }
   html, body { margin: 0; height: 100%; background: #1b1d21; color: #eee;
@@ -36,6 +36,11 @@
   button.step { background: #264d2f; color: #cfe; }
   button.step.on { background: #4dff66; color: #0b2a12; }
   button.run { background: #0f7d2e; font-size: 18px; }
+  button.hint { background: #c98a12; color: #1d1400; }
+  #hintText { background: #fff4c2; color: #2b2100; border-radius: 6px; padding: 8px 10px;
+    font-size: 14px; line-height: 1.35; margin-bottom: 8px; }
+  #hintText[hidden] { display: none; }
+  #scoreText { font-size: 12px; color: #ddd; margin: 0 0 8px; }
   #pad { grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(3, 44px); }
   .lbl { font-size: 12px; color: #ddd; margin: 6px 0 3px; }
   #keys { font-size: 12px; color: #ddd; line-height: 1.5; }
@@ -86,14 +91,21 @@
     <div id="hint">Drag to orbit · right-drag to pan · wheel to zoom</div>
   </div>
   <div id="panel">
-    <h1>JOG &nbsp;P12</h1>
+    <h1>JOG &nbsp;P13</h1>
     <div id="readout"><div id="rx">X +0.000</div><div id="ry">Y +0.000</div><div id="rz">Z +0.000</div></div>
     <div id="state">at HOME - jog to the block</div>
 
+    <div class="row" style="grid-template-columns: 1fr;">
+      <button class="hint" data-a="HINT">HINT &nbsp;(costs 1 point)</button>
+    </div>
+    <div id="hintText" hidden></div>
+    <div id="scoreText">Hints used: 0 &middot; Certificate: 10 / 10</div>
+
     <div class="lbl">Setup</div>
-    <div class="row" style="grid-template-columns: 1fr 1fr 1fr;">
+    <div class="row" style="grid-template-columns: 1fr 1fr 1fr 1fr;">
       <button class="grey" data-a="PAPER">PAPER</button>
-      <button class="grey" data-a="ZXY">ZERO XY</button>
+      <button class="grey" data-a="ZX">ZERO X</button>
+      <button class="grey" data-a="ZY">ZERO Y</button>
       <button class="grey" data-a="ZZ">ZERO Z</button>
     </div>
 
@@ -136,6 +148,7 @@
     <h2>Clean run! &#127881;</h2>
     <div>You zeroed on the cross, pinched the paper and ran the whole program without cutting the block early.
       Type your name for your certificate.</div>
+    <div id="certHints" style="margin-top:8px; font-weight:700;"></div>
     <input id="certName" type="text" maxlength="40" placeholder="First and last name" autocomplete="name">
     <div class="cbtns">
       <button class="grey certClose">Not now</button>
@@ -149,10 +162,11 @@
       <div>This certifies that</div>
       <div class="nm" id="cName"></div>
       <div>set work zero with the paper method and ran the Groove Block program cleanly on the Nomad Simulator.</div>
-      <div class="sc">10 / 10</div>
+      <div class="sc" id="cScore">10 / 10</div>
       <table>
         <tr><td>Date</td><td id="cDate"></td></tr>
-        <tr><td>Zero XY</td><td id="cXY"></td></tr>
+        <tr><td>Hints used</td><td id="cHints"></td></tr>
+        <tr><td>Zero X and Y</td><td id="cXY"></td></tr>
         <tr><td>Zero Z</td><td id="cZ"></td></tr>
         <tr><td>Code</td><td id="cCode"></td></tr>
       </table>
@@ -164,6 +178,6 @@
     </div>
   </div>
 </div>
-<script type="module" src="sim.js?v=20261127p12"></script>
+<script type="module" src="sim.js?v=20261128p13"></script>
 </body>
 </html>
