@@ -1,5 +1,6 @@
 // ==========================================================
-//  NOMAD SIM - PROGRAM 13 (browser version, Three.js)
+//  NOMAD SIM - PROGRAM 14 (browser version, Three.js)
+//  P14: on a phone the HINT box sits at the very top, above the machine.
 //  P12 added the certificate for a clean run.
 //  P13: separate ZERO X / ZERO Y / ZERO Z buttons, and a HINT
 //  button. Each hint costs 1 point off the 10/10 certificate.
@@ -508,6 +509,15 @@ window.addEventListener('keydown', e => {
   act(a);
 });
 document.querySelectorAll('#panel button').forEach(b => b.addEventListener('click', () => { act(b.dataset.a); b.blur(); }));
+
+// phone layout: hint box at the top of the page; computer: in the jog panel under the message box
+const hintBox = $('hintBox'), phone = window.matchMedia('(max-width: 760px)');
+function placeHints() {
+  if (phone.matches) { hintBox.classList.add('top'); $('app').before(hintBox); }
+  else { hintBox.classList.remove('top'); $('state').after(hintBox); }
+}
+phone.addEventListener('change', placeHints);
+placeHints();
 
 setStep('S3');
 showHint();

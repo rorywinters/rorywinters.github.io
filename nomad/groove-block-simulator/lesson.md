@@ -49,13 +49,13 @@ You practise setting zero and running the Groove Block on a pretend Nomad in you
 | **Machine** | The big dark area on the left. Drag to orbit, right-drag to pan, mouse wheel to zoom |
 | **Jog panel** | The grey panel on the right. Readout (X, Y, Z) at the top, then the message box, then the buttons |
 | **Message box** | Under the X, Y, Z readout. It tells you what the machine is doing. The whole panel flashes red on an error |
-| **HINT button** | The yellow button under the message box. The hint shows in a pale yellow box, with your hint count and score under it |
+| **HINT button** | Computer: the yellow button under the message box. Phone: the very top of the page, above the machine. The hint shows in a pale yellow box, with your hint count and score under it |
 | **View buttons** | Bottom of the jog panel: **Top**, **Front**, **3D** |
 | **Key list** | The very bottom of the jog panel |
 
 ```brief
 Part 1 · Open the simulator
-1A · Open it | Open the Nomad Simulator link | Machine on the left · jog panel on the right · JOG P13
+1A · Open it | Open the Nomad Simulator link | Machine on the left · jog panel on the right · JOG P14
 1B · Try the controls | Click the machine once · press ← | Spindle moves · red laser line follows it
 Part 2 · Touch down
 2A · Over the cross | Starts at HOME (back right, top) · step 1 in (key 4) · then 0.1 (key 3) | Red laser cross on the pencil cross · ZERO X · ZERO Y
@@ -76,10 +76,10 @@ Break it on purpose | RUN without lifting · Page Down with step 1 | Read the re
 | Item | Value |
 | --- | --- |
 | Link | [Nomad Simulator](../simulator/) |
-| Title on the panel | **JOG P13** |
+| Title on the panel | **JOG P14** |
 
 1. Click the [Nomad Simulator](../simulator/) link. A new page opens with the machine on the left and the grey jog panel on the right.
-2. Check the top of the jog panel says **JOG P13**, and the message box says **at HOME - jog to the block**.
+2. Check the top of the jog panel says **JOG P14**, and the message box says **at HOME - jog to the block**.
 3. Drag on the machine with the left mouse button. The view orbits round. Roll the mouse wheel to zoom in and out.
 
 **Quick notes:** If the page stays black, press **Ctrl+F5** to reload it. On a small screen the jog panel moves under the machine: scroll down to reach it.
@@ -111,7 +111,7 @@ Break it on purpose | RUN without lifting · Page Down with step 1 | Read the re
 | **T** / **F** / **V** | **Top** / **Front** / **3D** | Changes the view |
 | **Esc** | | Stops a running program |
 
-- [ ] The machine is on the left and the jog panel says **JOG P13**
+- [ ] The machine is on the left and the jog panel says **JOG P14**
 - [ ] The arrow keys and the green buttons both move the machine
 - [ ] A red laser line follows the end mill (the red cross shows once it's over the block)
 
